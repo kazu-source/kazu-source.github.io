@@ -1,0 +1,2128 @@
+{
+  "document_info": {
+    "title": "California Common Core State Standards: Mathematics",
+    "edition": "Electronic Edition",
+    "adoption_date": "August 2010",
+    "modification_date": "January 2013",
+    "knowledge_cutoff": "January 2025"
+  },
+  "k_8_standards": [
+    {
+      "grade_level": "Kindergarten",
+      "focus_areas": [
+        "Representing, relating, and operating on whole numbers, initially with sets of objects.",
+        "Describing shapes and space."
+      ],
+      "domains": [
+        {
+          "domain_name": "Counting and Cardinality",
+          "domain_code": "K.CC",
+          "clusters": [
+            {
+              "cluster_name": "Know number names and the count sequence.",
+              "standards": [
+                {
+                  "standard_id": "K.CC.1",
+                  "description": "Count to 100 by ones and by tens."
+                },
+                {
+                  "standard_id": "K.CC.2",
+                  "description": "Count forward beginning from a given number within the known sequence (instead of having to begin at 1)."
+                },
+                {
+                  "standard_id": "K.CC.3",
+                  "description": "Write numbers from 0 to 20. Represent a number of objects with a written numeral 0–20 (with 0 representing a count of no objects)."
+                }
+              ]
+            },
+            {
+              "cluster_name": "Count to tell the number of objects.",
+              "standards": [
+                {
+                  "standard_id": "K.CC.4",
+                  "description": "Understand the relationship between numbers and quantities; connect counting to cardinality.",
+                  "sub_standards": [
+                    "When counting objects, say the number names in the standard order, pairing each object with one and only one number name.",
+                    "Understand that the last number name said tells the number of objects counted.",
+                    "Understand that each successive number name refers to a quantity that is one larger."
+                  ]
+                },
+                {
+                  "standard_id": "K.CC.5",
+                  "description": "Count to answer 'how many?' questions about as many as 20 things arranged in a line, a rectangular array, or a circle, or as many as 10 things in a scattered configuration; given a number from 1–20, count out that many objects."
+                }
+              ]
+            },
+            {
+              "cluster_name": "Compare numbers.",
+              "standards": [
+                {
+                  "standard_id": "K.CC.6",
+                  "description": "Identify whether the number of objects in one group is greater than, less than, or equal to the number of objects in another group, e.g., by using matching and counting strategies."
+                },
+                {
+                  "standard_id": "K.CC.7",
+                  "description": "Compare two numbers between 1 and 10 presented as written numerals."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "domain_name": "Operations and Algebraic Thinking",
+          "domain_code": "K.OA",
+          "clusters": [
+            {
+              "cluster_name": "Understand addition as putting together and adding to, and understand subtraction as taking apart and taking from.",
+              "standards": [
+                {
+                  "standard_id": "K.OA.1",
+                  "description": "Represent addition and subtraction with objects, fingers, mental images, drawings, sounds (e.g., claps), acting out situations, verbal explanations, expressions, or equations."
+                },
+                {
+                  "standard_id": "K.OA.2",
+                  "description": "Solve addition and subtraction word problems, and add and subtract within 10, e.g., by using objects or drawings to represent the problem."
+                },
+                {
+                  "standard_id": "K.OA.3",
+                  "description": "Decompose numbers less than or equal to 10 into pairs in more than one way, e.g., by using objects or drawings, and record each decomposition by a drawing or equation."
+                },
+                {
+                  "standard_id": "K.OA.4",
+                  "description": "For any number from 1 to 9, find the number that makes 10 when added to the given number, e.g., by using objects or drawings, and record the answer with a drawing or equation."
+                },
+                {
+                  "standard_id": "K.OA.5",
+                  "description": "Fluently add and subtract within 5."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "domain_name": "Number and Operations in Base Ten",
+          "domain_code": "K.NBT",
+          "clusters": [
+            {
+              "cluster_name": "Work with numbers 11–19 to gain foundations for place value.",
+              "standards": [
+                {
+                  "standard_id": "K.NBT.1",
+                  "description": "Compose and decompose numbers from 11 to 19 into ten ones and some further ones, e.g., by using objects or drawings, and record each composition or decomposition by a drawing or equation; understand that these numbers are composed of ten ones and one, two, three, four, five, six, seven, eight, or nine ones."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "domain_name": "Measurement and Data",
+          "domain_code": "K.MD",
+          "clusters": [
+            {
+              "cluster_name": "Describe and compare measurable attributes.",
+              "standards": [
+                {
+                  "standard_id": "K.MD.1",
+                  "description": "Describe measurable attributes of objects, such as length or weight. Describe several measurable attributes of a single object."
+                },
+                {
+                  "standard_id": "K.MD.2",
+                  "description": "Directly compare two objects with a measurable attribute in common, to see which object has 'more of'/'less of' the attribute, and describe the difference."
+                }
+              ]
+            },
+            {
+              "cluster_name": "Classify objects and count the number of objects in each category.",
+              "standards": [
+                {
+                  "standard_id": "K.MD.3",
+                  "description": "Classify objects into given categories; count the numbers of objects in each category and sort the categories by count."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "domain_name": "Geometry",
+          "domain_code": "K.G",
+          "clusters": [
+            {
+              "cluster_name": "Identify and describe shapes (squares, circles, triangles, rectangles, hexagons, cubes, cones, cylinders, and spheres).",
+              "standards": [
+                {
+                  "standard_id": "K.G.1",
+                  "description": "Describe objects in the environment using names of shapes, and describe the relative positions of these objects using terms such as above, below, beside, in front of, behind, and next to."
+                },
+                {
+                  "standard_id": "K.G.2",
+                  "description": "Correctly name shapes regardless of their orientations or overall size."
+                },
+                {
+                  "standard_id": "K.G.3",
+                  "description": "Identify shapes as two-dimensional (lying in a plane, 'flat') or three-dimensional ('solid')."
+                }
+              ]
+            },
+            {
+              "cluster_name": "Analyze, compare, create, and compose shapes.",
+              "standards": [
+                {
+                  "standard_id": "K.G.4",
+                  "description": "Analyze and compare two- and three-dimensional shapes, in different sizes and orientations, using informal language to describe their similarities, differences, parts (e.g., number of sides and vertices/'corners') and other attributes (e.g., having sides of equal length)."
+                },
+                {
+                  "standard_id": "K.G.5",
+                  "description": "Model shapes in the world by building shapes from components (e.g., sticks and clay balls) and drawing shapes."
+                },
+                {
+                  "standard_id": "K.G.6",
+                  "description": "Compose simple shapes to form larger shapes."
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "grade_level": "Grade 1",
+      "focus_areas": [
+        "Developing understanding of addition, subtraction, and strategies for addition and subtraction within 20.",
+        "Developing understanding of whole number relationships and place value, including grouping in tens and ones.",
+        "Developing understanding of linear measurement and measuring lengths as iterating length units.",
+        "Reasoning about attributes of, and composing and decomposing geometric shapes."
+      ],
+      "domains": [
+        {
+          "domain_name": "Operations and Algebraic Thinking",
+          "domain_code": "1.OA",
+          "clusters": [
+            {
+              "cluster_name": "Represent and solve problems involving addition and subtraction.",
+              "standards": [
+                {
+                  "standard_id": "1.OA.1",
+                  "description": "Use addition and subtraction within 20 to solve word problems involving situations of adding to, taking from, putting together, taking apart, and comparing, with unknowns in all positions."
+                },
+                {
+                  "standard_id": "1.OA.2",
+                  "description": "Solve word problems that call for addition of three whole numbers whose sum is less than or equal to 20."
+                }
+              ]
+            },
+            {
+              "cluster_name": "Understand and apply properties of operations and the relationship between addition and subtraction.",
+              "standards": [
+                {
+                  "standard_id": "1.OA.3",
+                  "description": "Apply properties of operations as strategies to add and subtract."
+                },
+                {
+                  "standard_id": "1.OA.4",
+                  "description": "Understand subtraction as an unknown-addend problem."
+                }
+              ]
+            },
+            {
+              "cluster_name": "Add and subtract within 20.",
+              "standards": [
+                {
+                  "standard_id": "1.OA.5",
+                  "description": "Relate counting to addition and subtraction (e.g., by counting on 2 to add 2)."
+                },
+                {
+                  "standard_id": "1.OA.6",
+                  "description": "Add and subtract within 20, demonstrating fluency for addition and subtraction within 10. Use strategies such as counting on; making ten; decomposing a number leading to a ten; using the relationship between addition and subtraction; and creating equivalent but easier or known sums."
+                }
+              ]
+            },
+            {
+              "cluster_name": "Work with addition and subtraction equations.",
+              "standards": [
+                {
+                  "standard_id": "1.OA.7",
+                  "description": "Understand the meaning of the equal sign, and determine if equations involving addition and subtraction are true or false."
+                },
+                {
+                  "standard_id": "1.OA.8",
+                  "description": "Determine the unknown whole number in an addition or subtraction equation relating three whole numbers."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "domain_name": "Number and Operations in Base Ten",
+          "domain_code": "1.NBT",
+          "clusters": [
+            {
+              "cluster_name": "Extend the counting sequence.",
+              "standards": [
+                {
+                  "standard_id": "1.NBT.1",
+                  "description": "Count to 120, starting at any number less than 120. In this range, read and write numerals and represent a number of objects with a written numeral."
+                }
+              ]
+            },
+            {
+              "cluster_name": "Understand place value.",
+              "standards": [
+                {
+                  "standard_id": "1.NBT.2",
+                  "description": "Understand that the two digits of a two-digit number represent amounts of tens and ones.",
+                  "sub_standards": [
+                    "10 can be thought of as a bundle of ten ones—called a 'ten.'",
+                    "The numbers from 11 to 19 are composed of a ten and one, two, three, four, five, six, seven, eight, or nine ones.",
+                    "The numbers 10, 20, 30, 40, 50, 60, 70, 80, 90 refer to one, two, three, four, five, six, seven, eight, or nine tens (and 0 ones)."
+                  ]
+                },
+                {
+                  "standard_id": "1.NBT.3",
+                  "description": "Compare two two-digit numbers based on meanings of the tens and ones digits, recording the results of comparisons with the symbols >, =, and <."
+                }
+              ]
+            },
+            {
+              "cluster_name": "Use place value understanding and properties of operations to add and subtract.",
+              "standards": [
+                {
+                  "standard_id": "1.NBT.4",
+                  "description": "Add within 100, including adding a two-digit number and a one-digit number, and adding a two-digit number and a multiple of 10, using concrete models or drawings and strategies based on place value, properties of operations, and/or the relationship between addition and subtraction."
+                },
+                {
+                  "standard_id": "1.NBT.5",
+                  "description": "Given a two-digit number, mentally find 10 more or 10 less than the number, without having to count; explain the reasoning used."
+                },
+                {
+                  "standard_id": "1.NBT.6",
+                  "description": "Subtract multiples of 10 in the range 10–90 from multiples of 10 in the range 10–90 (positive or zero differences), using concrete models or drawings and strategies based on place value, properties of operations, and/or the relationship between addition and subtraction."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "domain_name": "Measurement and Data",
+          "domain_code": "1.MD",
+          "clusters": [
+            {
+              "cluster_name": "Measure lengths indirectly and by iterating length units.",
+              "standards": [
+                {
+                  "standard_id": "1.MD.1",
+                  "description": "Order three objects by length; compare the lengths of two objects indirectly by using a third object."
+                },
+                {
+                  "standard_id": "1.MD.2",
+                  "description": "Express the length of an object as a whole number of length units, by laying multiple copies of a shorter object (the length unit) end to end; understand that the length measurement of an object is the number of same-size length units that span it with no gaps or overlaps."
+                }
+              ]
+            },
+            {
+              "cluster_name": "Tell and write time.",
+              "standards": [
+                {
+                  "standard_id": "1.MD.3",
+                  "description": "Tell and write time in hours and half-hours using analog and digital clocks."
+                }
+              ]
+            },
+            {
+              "cluster_name": "Represent and interpret data.",
+              "standards": [
+                {
+                  "standard_id": "1.MD.4",
+                  "description": "Organize, represent, and interpret data with up to three categories; ask and answer questions about the total number of data points, how many in each category, and how many more or less are in one category than in another."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "domain_name": "Geometry",
+          "domain_code": "1.G",
+          "clusters": [
+            {
+              "cluster_name": "Reason with shapes and their attributes.",
+              "standards": [
+                {
+                  "standard_id": "1.G.1",
+                  "description": "Distinguish between defining attributes (e.g., triangles are closed and three-sided) versus non-defining attributes (e.g., color, orientation, overall size); build and draw shapes to possess defining attributes."
+                },
+                {
+                  "standard_id": "1.G.2",
+                  "description": "Compose two-dimensional shapes (rectangles, squares, trapezoids, triangles, half-circles, and quarter-circles) or three-dimensional shapes (cubes, right rectangular prisms, right circular cones, and right circular cylinders) to create a composite shape, and compose new shapes from the composite shape."
+                },
+                {
+                  "standard_id": "1.G.3",
+                  "description": "Partition circles and rectangles into two and four equal shares, describe the shares using the words halves, fourths, and quarters, and use the phrases half of, fourth of, and quarter of. Describe the whole as two of, or four of the shares. Understand for these examples that decomposing into more equal shares creates smaller shares."
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "grade_level": "Grade 2",
+      "focus_areas": [
+        "Extending understanding of base-ten notation.",
+        "Building fluency with addition and subtraction.",
+        "Using standard units of measure.",
+        "Describing and analyzing shapes."
+      ],
+      "domains": [
+        {
+          "domain_name": "Operations and Algebraic Thinking",
+          "domain_code": "2.OA",
+          "clusters": [
+            {
+              "cluster_name": "Represent and solve problems involving addition and subtraction.",
+              "standards": [
+                {
+                  "standard_id": "2.OA.1",
+                  "description": "Use addition and subtraction within 100 to solve one- and two-step word problems involving situations of adding to, taking from, putting together, taking apart, and comparing, with unknowns in all positions."
+                }
+              ]
+            },
+            {
+              "cluster_name": "Add and subtract within 20.",
+              "standards": [
+                {
+                  "standard_id": "2.OA.2",
+                  "description": "Fluently add and subtract within 20 using mental strategies. By end of Grade 2, know from memory all sums of two one-digit numbers."
+                }
+              ]
+            },
+            {
+              "cluster_name": "Work with equal groups of objects to gain foundations for multiplication.",
+              "standards": [
+                {
+                  "standard_id": "2.OA.3",
+                  "description": "Determine whether a group of objects (up to 20) has an odd or even number of members, e.g., by pairing objects or counting them by 2s; write an equation to express an even number as a sum of two equal addends."
+                },
+                {
+                  "standard_id": "2.OA.4",
+                  "description": "Use addition to find the total number of objects arranged in rectangular arrays with up to 5 rows and up to 5 columns; write an equation to express the total as a sum of equal addends."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "domain_name": "Number and Operations in Base Ten",
+          "domain_code": "2.NBT",
+          "clusters": [
+            {
+              "cluster_name": "Understand place value.",
+              "standards": [
+                {
+                  "standard_id": "2.NBT.1",
+                  "description": "Understand that the three digits of a three-digit number represent amounts of hundreds, tens, and ones.",
+                  "sub_standards": [
+                    "100 can be thought of as a bundle of ten tens—called a 'hundred.'",
+                    "The numbers 100, 200, 300, 400, 500, 600, 700, 800, 900 refer to one, two, three, four, five, six, seven, eight, or nine hundreds (and 0 tens and 0 ones)."
+                  ]
+                },
+                {
+                  "standard_id": "2.NBT.2",
+                  "description": "Count within 1000; skip-count by 2s, 5s, 10s, and 100s. CA"
+                },
+                {
+                  "standard_id": "2.NBT.3",
+                  "description": "Read and write numbers to 1000 using base-ten numerals, number names, and expanded form."
+                },
+                {
+                  "standard_id": "2.NBT.4",
+                  "description": "Compare two three-digit numbers based on meanings of the hundreds, tens, and ones digits, using >, =, and < symbols to record the results of comparisons."
+                }
+              ]
+            },
+            {
+              "cluster_name": "Use place value understanding and properties of operations to add and subtract.",
+              "standards": [
+                {
+                  "standard_id": "2.NBT.5",
+                  "description": "Fluently add and subtract within 100 using strategies based on place value, properties of operations, and/or the relationship between addition and subtraction."
+                },
+                {
+                  "standard_id": "2.NBT.6",
+                  "description": "Add up to four two-digit numbers using strategies based on place value and properties of operations."
+                },
+                {
+                  "standard_id": "2.NBT.7",
+                  "description": "Add and subtract within 1000, using concrete models or drawings and strategies based on place value, properties of operations, and/or the relationship between addition and subtraction."
+                },
+                {
+                  "standard_id": "2.NBT.7.1",
+                  "description": "Use estimation strategies to make reasonable estimates in problem solving. CA"
+                },
+                {
+                  "standard_id": "2.NBT.8",
+                  "description": "Mentally add 10 or 100 to a given number 100–900, and mentally subtract 10 or 100 from a given number 100–900."
+                },
+                {
+                  "standard_id": "2.NBT.9",
+                  "description": "Explain why addition and subtraction strategies work, using place value and the properties of operations."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "domain_name": "Measurement and Data",
+          "domain_code": "2.MD",
+          "clusters": [
+            {
+              "cluster_name": "Measure and estimate lengths in standard units.",
+              "standards": [
+                {
+                  "standard_id": "2.MD.1",
+                  "description": "Measure the length of an object by selecting and using appropriate tools such as rulers, yardsticks, meter sticks, and measuring tapes."
+                },
+                {
+                  "standard_id": "2.MD.2",
+                  "description": "Measure the length of an object twice, using length units of different lengths for the two measurements; describe how the two measurements relate to the size of the unit chosen."
+                },
+                {
+                  "standard_id": "2.MD.3",
+                  "description": "Estimate lengths using units of inches, feet, centimeters, and meters."
+                },
+                {
+                  "standard_id": "2.MD.4",
+                  "description": "Measure to determine how much longer one object is than another, expressing the length difference in terms of a standard length unit."
+                }
+              ]
+            },
+            {
+              "cluster_name": "Relate addition and subtraction to length.",
+              "standards": [
+                {
+                  "standard_id": "2.MD.5",
+                  "description": "Use addition and subtraction within 100 to solve word problems involving lengths that are given in the same units."
+                },
+                {
+                  "standard_id": "2.MD.6",
+                  "description": "Represent whole numbers as lengths from 0 on a number line diagram with equally spaced points corresponding to the numbers 0, 1, 2, ..., and represent whole-number sums and differences within 100 on a number line diagram."
+                }
+              ]
+            },
+            {
+              "cluster_name": "Work with time and money.",
+              "standards": [
+                {
+                  "standard_id": "2.MD.7",
+                  "description": "Tell and write time from analog and digital clocks to the nearest five minutes, using a.m. and p.m. Know relationships of time (e.g., minutes in an hour, days in a month, weeks in a year). CA"
+                },
+                {
+                  "standard_id": "2.MD.8",
+                  "description": "Solve word problems involving dollar bills, quarters, dimes, nickels, and pennies, using $ and ¢ symbols appropriately."
+                }
+              ]
+            },
+            {
+              "cluster_name": "Represent and interpret data.",
+              "standards": [
+                {
+                  "standard_id": "2.MD.9",
+                  "description": "Generate measurement data by measuring lengths of several objects to the nearest whole unit, or by making repeated measurements of the same object. Show the measurements by making a line plot, where the horizontal scale is marked off in whole-number units."
+                },
+                {
+                  "standard_id": "2.MD.10",
+                  "description": "Draw a picture graph and a bar graph (with single-unit scale) to represent a data set with up to four categories. Solve simple put-together, take-apart, and compare problems using information presented in a bar graph."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "domain_name": "Geometry",
+          "domain_code": "2.G",
+          "clusters": [
+            {
+              "cluster_name": "Reason with shapes and their attributes.",
+              "standards": [
+                {
+                  "standard_id": "2.G.1",
+                  "description": "Recognize and draw shapes having specified attributes, such as a given number of angles or a given number of equal faces. Identify triangles, quadrilaterals, pentagons, hexagons, and cubes."
+                },
+                {
+                  "standard_id": "2.G.2",
+                  "description": "Partition a rectangle into rows and columns of same-size squares and count to find the total number of them."
+                },
+                {
+                  "standard_id": "2.G.3",
+                  "description": "Partition circles and rectangles into two, three, or four equal shares, describe the shares using the words halves, thirds, half of, a third of, etc., and describe the whole as two halves, three thirds, four fourths. Recognize that equal shares of identical wholes need not have the same shape."
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+ 
+    {
+      "grade_level": "Grade 3",
+      "focus_areas": [
+        "Developing understanding of multiplication and division and strategies for multiplication and division within 100.",
+        "Developing understanding of fractions, especially unit fractions (fractions with numerator 1).",
+        "Developing understanding of the structure of rectangular arrays and of area.",
+        "Describing and analyzing two-dimensional shapes."
+      ],
+      "domains": [
+        {
+          "domain_name": "Operations and Algebraic Thinking",
+          "domain_code": "3.OA",
+          "clusters": [
+            {
+              "cluster_name": "Represent and solve problems involving multiplication and division.",
+              "standards": [
+                {
+                  "standard_id": "3.OA.1",
+                  "description": "Interpret products of whole numbers, e.g., interpret 5 × 7 as the total number of objects in 5 groups of 7 objects each."
+                },
+                {
+                  "standard_id": "3.OA.2",
+                  "description": "Interpret whole-number quotients of whole numbers, e.g., interpret 56 ÷ 8 as the number of objects in each share when 56 objects are partitioned equally into 8 shares, or as a number of shares when 56 objects are partitioned into equal shares of 8 objects each."
+                },
+                {
+                  "standard_id": "3.OA.3",
+                  "description": "Use multiplication and division within 100 to solve word problems in situations involving equal groups, arrays, and measurement quantities."
+                },
+                {
+                  "standard_id": "3.OA.4",
+                  "description": "Determine the unknown whole number in a multiplication or division equation relating three whole numbers."
+                }
+              ]
+            },
+            {
+              "cluster_name": "Understand properties of multiplication and the relationship between multiplication and division.",
+              "standards": [
+                {
+                  "standard_id": "3.OA.5",
+                  "description": "Apply properties of operations as strategies to multiply and divide."
+                },
+                {
+                  "standard_id": "3.OA.6",
+                  "description": "Understand division as an unknown-factor problem."
+                }
+              ]
+            },
+            {
+              "cluster_name": "Multiply and divide within 100.",
+              "standards": [
+                {
+                  "standard_id": "3.OA.7",
+                  "description": "Fluently multiply and divide within 100, using strategies such as the relationship between multiplication and division or properties of operations. By the end of Grade 3, know from memory all products of two one-digit numbers."
+                }
+              ]
+            },
+            {
+              "cluster_name": "Solve problems involving the four operations, and identify and explain patterns in arithmetic.",
+              "standards": [
+                {
+                  "standard_id": "3.OA.8",
+                  "description": "Solve two-step word problems using the four operations. Represent these problems using equations with a letter standing for the unknown quantity. Assess the reasonableness of answers using mental computation and estimation strategies including rounding."
+                },
+                {
+                  "standard_id": "3.OA.9",
+                  "description": "Identify arithmetic patterns (including patterns in the addition table or multiplication table), and explain them using properties of operations."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "domain_name": "Number and Operations in Base Ten",
+          "domain_code": "3.NBT",
+          "clusters": [
+            {
+              "cluster_name": "Use place value understanding and properties of operations to perform multi-digit arithmetic.",
+              "standards": [
+                {
+                  "standard_id": "3.NBT.1",
+                  "description": "Use place value understanding to round whole numbers to the nearest 10 or 100."
+                },
+                {
+                  "standard_id": "3.NBT.2",
+                  "description": "Fluently add and subtract within 1000 using strategies and algorithms based on place value, properties of operations, and/or the relationship between addition and subtraction."
+                },
+                {
+                  "standard_id": "3.NBT.3",
+                  "description": "Multiply one-digit whole numbers by multiples of 10 in the range 10–90 (e.g., 9 × 80, 5 × 60) using strategies based on place value and properties of operations."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "domain_name": "Number and Operations—Fractions",
+          "domain_code": "3.NF",
+          "clusters": [
+            {
+              "cluster_name": "Develop understanding of fractions as numbers.",
+              "standards": [
+                {
+                  "standard_id": "3.NF.1",
+                  "description": "Understand a fraction 1/b as the quantity formed by 1 part when a whole is partitioned into b equal parts; understand a fraction a/b as the quantity formed by a parts of size 1/b."
+                },
+                {
+                  "standard_id": "3.NF.2",
+                  "description": "Understand a fraction as a number on the number line; represent fractions on a number line diagram.",
+                  "sub_standards": [
+                    "Represent a fraction 1/b on a number line diagram by defining the interval from 0 to 1 as the whole and partitioning it into b equal parts.",
+                    "Represent a fraction a/b on a number line diagram by marking off a lengths 1/b from 0."
+                  ]
+                },
+                {
+                  "standard_id": "3.NF.3",
+                  "description": "Explain equivalence of fractions in special cases, and compare fractions by reasoning about their size.",
+                  "sub_standards": [
+                    "Understand two fractions as equivalent (equal) if they are the same size, or the same point on a number line.",
+                    "Recognize and generate simple equivalent fractions.",
+                    "Express whole numbers as fractions, and recognize fractions that are equivalent to whole numbers.",
+                    "Compare two fractions with the same numerator or the same denominator by reasoning about their size."
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "domain_name": "Measurement and Data",
+          "domain_code": "3.MD",
+          "clusters": [
+            {
+              "cluster_name": "Solve problems involving measurement and estimation of intervals of time, liquid volumes, and masses of objects.",
+              "standards": [
+                {
+                  "standard_id": "3.MD.1",
+                  "description": "Tell and write time to the nearest minute and measure time intervals in minutes. Solve word problems involving addition and subtraction of time intervals in minutes."
+                },
+                {
+                  "standard_id": "3.MD.2",
+                  "description": "Measure and estimate liquid volumes and masses of objects using standard units of grams (g), kilograms (kg), and liters (l). Add, subtract, multiply, or divide to solve one-step word problems involving masses or volumes that are given in the same units."
+                }
+              ]
+            },
+            {
+              "cluster_name": "Represent and interpret data.",
+              "standards": [
+                {
+                  "standard_id": "3.MD.3",
+                  "description": "Draw a scaled picture graph and a scaled bar graph to represent a data set with several categories. Solve one- and two-step 'how many more' and 'how many less' problems using information presented in scaled bar graphs."
+                },
+                {
+                  "standard_id": "3.MD.4",
+                  "description": "Generate measurement data by measuring lengths using rulers marked with halves and fourths of an inch. Show the data by making a line plot, where the horizontal scale is marked off in appropriate units."
+                }
+              ]
+            },
+            {
+              "cluster_name": "Geometric measurement: understand concepts of area and relate area to multiplication and to addition.",
+              "standards": [
+                {
+                  "standard_id": "3.MD.5",
+                  "description": "Recognize area as an attribute of plane figures and understand concepts of area measurement.",
+                  "sub_standards": [
+                    "A square with side length 1 unit, called 'a unit square,' is said to have 'one square unit' of area, and can be used to measure area.",
+                    "A plane figure which can be covered without gaps or overlaps by n unit squares is said to have an area of n square units."
+                  ]
+                },
+                {
+                  "standard_id": "3.MD.6",
+                  "description": "Measure areas by counting unit squares (square cm, square m, square in, square ft, and improvised units)."
+                },
+                {
+                  "standard_id": "3.MD.7",
+                  "description": "Relate area to the operations of multiplication and addition.",
+                  "sub_standards": [
+                    "Find the area of a rectangle with whole-number side lengths by tiling it, and show that the area is the same as would be found by multiplying the side lengths.",
+                    "Multiply side lengths to find areas of rectangles with whole-number side lengths in the context of solving real-world and mathematical problems.",
+                    "Use tiling to show in a concrete case that the area of a rectangle with whole-number side lengths a and b + c is the sum of a × b and a × c.",
+                    "Recognize area as additive. Find areas of rectilinear figures by decomposing them into non-overlapping rectangles and adding the areas of the non-overlapping parts."
+                  ]
+                }
+              ]
+            },
+            {
+              "cluster_name": "Geometric measurement: recognize perimeter as an attribute of plane figures and distinguish between linear and area measures.",
+              "standards": [
+                {
+                  "standard_id": "3.MD.8",
+                  "description": "Solve real-world and mathematical problems involving perimeters of polygons, including finding the perimeter given the side lengths, finding an unknown side length, and exhibiting rectangles with the same perimeter and different areas or with the same area and different perimeters."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "domain_name": "Geometry",
+          "domain_code": "3.G",
+          "clusters": [
+            {
+              "cluster_name": "Reason with shapes and their attributes.",
+              "standards": [
+                {
+                  "standard_id": "3.G.1",
+                  "description": "Understand that shapes in different categories (e.g., rhombuses, rectangles, and others) may share attributes (e.g., having four sides), and that the shared attributes can define a larger category (e.g., quadrilaterals)."
+                },
+                {
+                  "standard_id": "3.G.2",
+                  "description": "Partition shapes into parts with equal areas. Express the area of each part as a unit fraction of the whole."
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "grade_level": "Grade 4",
+      "focus_areas": [
+        "Developing understanding and fluency with multi-digit multiplication, and developing understanding of dividing to find quotients involving multi-digit dividends.",
+        "Developing an understanding of fraction equivalence, addition and subtraction of fractions with like denominators, and multiplication of fractions by whole numbers.",
+        "Understanding that geometric figures can be analyzed and classified based on their properties, such as having parallel sides, perpendicular sides, particular angle measures, and symmetry."
+      ],
+      "domains": [
+        {
+          "domain_name": "Operations and Algebraic Thinking",
+          "domain_code": "4.OA",
+          "clusters": [
+            {
+              "cluster_name": "Use the four operations with whole numbers to solve problems.",
+              "standards": [
+                {
+                  "standard_id": "4.OA.1",
+                  "description": "Interpret a multiplication equation as a comparison, e.g., interpret 35 = 5 × 7 as a statement that 35 is 5 times as many as 7 and 7 times as many as 5."
+                },
+                {
+                  "standard_id": "4.OA.2",
+                  "description": "Multiply or divide to solve word problems involving multiplicative comparison, e.g., by using drawings and equations with a symbol for the unknown number to represent the problem."
+                },
+                {
+                  "standard_id": "4.OA.3",
+                  "description": "Solve multistep word problems posed with whole numbers and having whole-number answers using the four operations, including problems in which remainders must be interpreted."
+                }
+              ]
+            },
+            {
+              "cluster_name": "Gain familiarity with factors and multiples.",
+              "standards": [
+                {
+                  "standard_id": "4.OA.4",
+                  "description": "Find all factor pairs for a whole number in the range 1–100. Recognize that a whole number is a multiple of each of its factors. Determine whether a given whole number in the range 1–100 is a multiple of a given one-digit number. Determine whether a given whole number in the range 1–100 is prime or composite."
+                }
+              ]
+            },
+            {
+              "cluster_name": "Generate and analyze patterns.",
+              "standards": [
+                {
+                  "standard_id": "4.OA.5",
+                  "description": "Generate a number or shape pattern that follows a given rule. Identify apparent features of the pattern that were not explicit in the rule itself."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "domain_name": "Number and Operations in Base Ten",
+          "domain_code": "4.NBT",
+          "clusters": [
+            {
+              "cluster_name": "Generalize place value understanding for multi-digit whole numbers.",
+              "standards": [
+                {
+                  "standard_id": "4.NBT.1",
+                  "description": "Recognize that in a multi-digit whole number, a digit in one place represents ten times what it represents in the place to its right."
+                },
+                {
+                  "standard_id": "4.NBT.2",
+                  "description": "Read and write multi-digit whole numbers using base-ten numerals, number names, and expanded form. Compare two multi-digit numbers based on meanings of the digits in each place, using >, =, and < symbols to record the results of comparisons."
+                },
+                {
+                  "standard_id": "4.NBT.3",
+                  "description": "Use place value understanding to round multi-digit whole numbers to any place."
+                }
+              ]
+            },
+            {
+              "cluster_name": "Use place value understanding and properties of operations to perform multi-digit arithmetic.",
+              "standards": [
+                {
+                  "standard_id": "4.NBT.4",
+                  "description": "Fluently add and subtract multi-digit whole numbers using the standard algorithm."
+                },
+                {
+                  "standard_id": "4.NBT.5",
+                  "description": "Multiply a whole number of up to four digits by a one-digit whole number, and multiply two two-digit numbers, using strategies based on place value and the properties of operations."
+                },
+                {
+                  "standard_id": "4.NBT.6",
+                  "description": "Find whole-number quotients and remainders with up to four-digit dividends and one-digit divisors, using strategies based on place value, the properties of operations, and/or the relationship between multiplication and division."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "domain_name": "Number and Operations—Fractions",
+          "domain_code": "4.NF",
+          "clusters": [
+            {
+              "cluster_name": "Extend understanding of fraction equivalence and ordering.",
+              "standards": [
+                {
+                  "standard_id": "4.NF.1",
+                  "description": "Explain why a fraction a/b is equivalent to a fraction (n × a)/(n × b) by using visual fraction models, with attention to how the number and size of the parts differ even though the two fractions themselves are the same size."
+                },
+                {
+                  "standard_id": "4.NF.2",
+                  "description": "Compare two fractions with different numerators and different denominators, e.g., by creating common denominators or numerators, or by comparing to a benchmark fraction such as 1/2."
+                }
+              ]
+            },
+            {
+              "cluster_name": "Build fractions from unit fractions by applying and extending previous understandings of operations on whole numbers.",
+              "standards": [
+                {
+                  "standard_id": "4.NF.3",
+                  "description": "Understand a fraction a/b with a > 1 as a sum of fractions 1/b.",
+                  "sub_standards": [
+                    "Understand addition and subtraction of fractions as joining and separating parts referring to the same whole.",
+                    "Decompose a fraction into a sum of fractions with the same denominator in more than one way, recording each decomposition by an equation.",
+                    "Add and subtract mixed numbers with like denominators.",
+                    "Solve word problems involving addition and subtraction of fractions referring to the same whole and having like denominators."
+                  ]
+                },
+                {
+                  "standard_id": "4.NF.4",
+                  "description": "Apply and extend previous understandings of multiplication to multiply a fraction by a whole number.",
+                  "sub_standards": [
+                    "Understand a fraction a/b as a multiple of 1/b.",
+                    "Understand a multiple of a/b as a multiple of 1/b, and use this understanding to multiply a fraction by a whole number.",
+                    "Solve word problems involving multiplication of a fraction by a whole number."
+                  ]
+                }
+              ]
+            },
+            {
+              "cluster_name": "Understand decimal notation for fractions, and compare decimal fractions.",
+              "standards": [
+                {
+                  "standard_id": "4.NF.5",
+                  "description": "Express a fraction with denominator 10 as an equivalent fraction with denominator 100, and use this technique to add two fractions with respective denominators 10 and 100."
+                },
+                {
+                  "standard_id": "4.NF.6",
+                  "description": "Use decimal notation for fractions with denominators 10 or 100."
+                },
+                {
+                  "standard_id": "4.NF.7",
+                  "description": "Compare two decimals to hundredths by reasoning about their size. Recognize that comparisons are valid only when the two decimals refer to the same whole. CA"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "domain_name": "Measurement and Data",
+          "domain_code": "4.MD",
+          "clusters": [
+            {
+              "cluster_name": "Solve problems involving measurement and conversion of measurements from a larger unit to a smaller unit.",
+              "standards": [
+                {
+                  "standard_id": "4.MD.1",
+                  "description": "Know relative sizes of measurement units within one system of units including km, m, cm; kg, g; lb, oz.; l, ml; hr, min, sec. Within a single system of measurement, express measurements in a larger unit in terms of a smaller unit."
+                },
+                {
+                  "standard_id": "4.MD.2",
+                  "description": "Use the four operations to solve word problems involving distances, intervals of time, liquid volumes, masses of objects, and money, including problems involving simple fractions or decimals."
+                },
+                {
+                  "standard_id": "4.MD.3",
+                  "description": "Apply the area and perimeter formulas for rectangles in real-world and mathematical problems."
+                }
+              ]
+            },
+            {
+              "cluster_name": "Represent and interpret data.",
+              "standards": [
+                {
+                  "standard_id": "4.MD.4",
+                  "description": "Make a line plot to display a data set of measurements in fractions of a unit (1/2, 1/4, 1/8). Solve problems involving addition and subtraction of fractions by using information presented in line plots."
+                }
+              ]
+            },
+            {
+              "cluster_name": "Geometric measurement: understand concepts of angle and measure angles.",
+              "standards": [
+                {
+                  "standard_id": "4.MD.5",
+                  "description": "Recognize angles as geometric shapes that are formed wherever two rays share a common endpoint, and understand concepts of angle measurement.",
+                  "sub_standards": [
+                    "An angle is measured with reference to a circle with its center at the common endpoint of the rays, by considering the fraction of the circular arc between the points where the two rays intersect the circle.",
+                    "An angle that turns through n one-degree angles is said to have an angle measure of n degrees."
+                  ]
+                },
+                {
+                  "standard_id": "4.MD.6",
+                  "description": "Measure angles in whole-number degrees using a protractor. Sketch angles of specified measure."
+                },
+                {
+                  "standard_id": "4.MD.7",
+                  "description": "Recognize angle measure as additive. When an angle is decomposed into non-overlapping parts, the angle measure of the whole is the sum of the angle measures of the parts. Solve addition and subtraction problems to find unknown angles on a diagram in real-world and mathematical problems."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "domain_name": "Geometry",
+          "domain_code": "4.G",
+          "clusters": [
+            {
+              "cluster_name": "Draw and identify lines and angles, and classify shapes by properties of their lines and angles.",
+              "standards": [
+                {
+                  "standard_id": "4.G.1",
+                  "description": "Draw points, lines, line segments, rays, angles (right, acute, obtuse), and perpendicular and parallel lines. Identify these in two-dimensional figures."
+                },
+                {
+                  "standard_id": "4.G.2",
+                  "description": "Classify two-dimensional figures based on the presence or absence of parallel or perpendicular lines, or the presence or absence of angles of a specified size. Recognize right triangles as a category, and identify right triangles. CA"
+                },
+                {
+                  "standard_id": "4.G.3",
+                  "description": "Recognize a line of symmetry for a two-dimensional figure as a line across the figure such that the figure can be folded along the line into matching parts. Identify line-symmetric figures and draw lines of symmetry."
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "grade_level": "Grade 5",
+      "focus_areas": [
+        "Developing fluency with addition and subtraction of fractions, and developing understanding of the multiplication of fractions and of division of fractions in limited cases.",
+        "Extending division to two-digit divisors, integrating decimal fractions into the place value system and developing understanding of operations with decimals to hundredths, and developing fluency with whole number and decimal operations.",
+        "Developing understanding of volume."
+      ],
+      "domains": [
+        {
+          "domain_name": "Operations and Algebraic Thinking",
+          "domain_code": "5.OA",
+          "clusters": [
+            {
+              "cluster_name": "Write and interpret numerical expressions.",
+              "standards": [
+                {
+                  "standard_id": "5.OA.1",
+                  "description": "Use parentheses, brackets, or braces in numerical expressions, and evaluate expressions with these symbols."
+                },
+                {
+                  "standard_id": "5.OA.2",
+                  "description": "Write simple expressions that record calculations with numbers, and interpret numerical expressions without evaluating them."
+                },
+                {
+                  "standard_id": "5.OA.2.1",
+                  "description": "Express a whole number in the range 2–50 as a product of its prime factors. CA"
+                }
+              ]
+            },
+            {
+              "cluster_name": "Analyze patterns and relationships.",
+              "standards": [
+                {
+                  "standard_id": "5.OA.3",
+                  "description": "Generate two numerical patterns using two given rules. Identify apparent relationships between corresponding terms. Form ordered pairs consisting of corresponding terms from the two patterns, and graph the ordered pairs on a coordinate plane."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "domain_name": "Number and Operations in Base Ten",
+          "domain_code": "5.NBT",
+          "clusters": [
+            {
+              "cluster_name": "Understand the place value system.",
+              "standards": [
+                {
+                  "standard_id": "5.NBT.1",
+                  "description": "Recognize that in a multi-digit number, a digit in one place represents 10 times as much as it represents in the place to its right and 1/10 of what it represents in the place to its left."
+                },
+                {
+                  "standard_id": "5.NBT.2",
+                  "description": "Explain patterns in the number of zeros of the product when multiplying a number by powers of 10, and explain patterns in the placement of the decimal point when a decimal is multiplied or divided by a power of 10."
+                },
+                {
+                  "standard_id": "5.NBT.3",
+                  "description": "Read, write, and compare decimals to thousandths.",
+                  "sub_standards": [
+                    "Read and write decimals to thousandths using base-ten numerals, number names, and expanded form.",
+                    "Compare two decimals to thousandths based on meanings of the digits in each place, using >, =, and < symbols to record the results of comparisons."
+                  ]
+                },
+                {
+                  "standard_id": "5.NBT.4",
+                  "description": "Use place value understanding to round decimals to any place."
+                }
+              ]
+            },
+            {
+              "cluster_name": "Perform operations with multi-digit whole numbers and with decimals to hundredths.",
+              "standards": [
+                {
+                  "standard_id": "5.NBT.5",
+                  "description": "Fluently multiply multi-digit whole numbers using the standard algorithm."
+                },
+                {
+                  "standard_id": "5.NBT.6",
+                  "description": "Find whole-number quotients of whole numbers with up to four-digit dividends and two-digit divisors, using strategies based on place value, the properties of operations, and/or the relationship between multiplication and division."
+                },
+                {
+                  "standard_id": "5.NBT.7",
+                  "description": "Add, subtract, multiply, and divide decimals to hundredths, using concrete models or drawings and strategies based on place value, properties of operations, and/or the relationship between addition and subtraction."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "domain_name": "Number and Operations—Fractions",
+          "domain_code": "5.NF",
+          "clusters": [
+            {
+              "cluster_name": "Use equivalent fractions as a strategy to add and subtract fractions.",
+              "standards": [
+                {
+                  "standard_id": "5.NF.1",
+                  "description": "Add and subtract fractions with unlike denominators (including mixed numbers) by replacing given fractions with equivalent fractions in such a way as to produce an equivalent sum or difference of fractions with like denominators."
+                },
+                {
+                  "standard_id": "5.NF.2",
+                  "description": "Solve word problems involving addition and subtraction of fractions referring to the same whole, including cases of unlike denominators, e.g., by using visual fraction models or equations to represent the problem."
+                }
+              ]
+            },
+            {
+              "cluster_name": "Apply and extend previous understandings of multiplication and division to multiply and divide fractions.",
+              "standards": [
+                {
+                  "standard_id": "5.NF.3",
+                  "description": "Interpret a fraction as division of the numerator by the denominator (a/b = a ÷ b). Solve word problems involving division of whole numbers leading to answers in the form of fractions or mixed numbers."
+                },
+                {
+                  "standard_id": "5.NF.4",
+                  "description": "Apply and extend previous understandings of multiplication to multiply a fraction or whole number by a fraction.",
+                  "sub_standards": [
+                    "Interpret the product (a/b) × q as a parts of a partition of q into b equal parts.",
+                    "Find the area of a rectangle with fractional side lengths by tiling it with unit squares of the appropriate unit fraction side lengths, and show that the area is the same as would be found by multiplying the side lengths."
+                  ]
+                },
+                {
+                  "standard_id": "5.NF.5",
+                  "description": "Interpret multiplication as scaling (resizing), by comparing the size of a product to the size of one factor on the basis of the size of the other factor, without performing the indicated multiplication.",
+                  "sub_standards": [
+                    "Comparing the size of a product to the size of one factor on the basis of the size of the other factor.",
+                    "Explaining why multiplying a given number by a fraction greater than 1 results in a product greater than the given number."
+                  ]
+                },
+                {
+                  "standard_id": "5.NF.6",
+                  "description": "Solve real-world problems involving multiplication of fractions and mixed numbers, e.g., by using visual fraction models or equations to represent the problem."
+                },
+                {
+                  "standard_id": "5.NF.7",
+                  "description": "Apply and extend previous understandings of division to divide unit fractions by whole numbers and whole numbers by unit fractions.",
+                  "sub_standards": [
+                    "Interpret division of a unit fraction by a non-zero whole number, and compute such quotients.",
+                    "Interpret division of a whole number by a unit fraction, and compute such quotients.",
+                    "Solve real-world problems involving division of unit fractions by non-zero whole numbers and division of whole numbers by unit fractions."
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "domain_name": "Measurement and Data",
+          "domain_code": "5.MD",
+          "clusters": [
+            {
+              "cluster_name": "Convert like measurement units within a given measurement system.",
+              "standards": [
+                {
+                  "standard_id": "5.MD.1",
+                  "description": "Convert among different-sized standard measurement units within a given measurement system (e.g., convert 5 cm to 0.05 m), and use these conversions in solving multi-step, real-world problems."
+                }
+              ]
+            },
+            {
+              "cluster_name": "Represent and interpret data.",
+              "standards": [
+                {
+                  "standard_id": "5.MD.2",
+                  "description": "Make a line plot to display a data set of measurements in fractions of a unit (1/2, 1/4, 1/8). Use operations on fractions for this grade to solve problems involving information presented in line plots."
+                }
+              ]
+            },
+            {
+              "cluster_name": "Geometric measurement: understand concepts of volume and relate volume to multiplication and to addition.",
+              "standards": [
+                {
+                  "standard_id": "5.MD.3",
+                  "description": "Recognize volume as an attribute of solid figures and understand concepts of volume measurement.",
+                  "sub_standards": [
+                    "A cube with side length 1 unit, called a 'unit cube,' is said to have 'one cubic unit' of volume, and can be used to measure volume.",
+                    "A solid figure which can be packed without gaps or overlaps using n unit cubes is said to have a volume of n cubic units."
+                  ]
+                },
+                {
+                  "standard_id": "5.MD.4",
+                  "description": "Measure volumes by counting unit cubes, using cubic cm, cubic in, cubic ft, and improvised units."
+                },
+                {
+                  "standard_id": "5.MD.5",
+                  "description": "Relate volume to the operations of multiplication and addition and solve real-world and mathematical problems involving volume.",
+                  "sub_standards": [
+                    "Find the volume of a right rectangular prism with whole-number side lengths by packing it with unit cubes.",
+                    "Apply the formulas V = l × w × h and V = b × h for rectangular prisms to find volumes of right rectangular prisms with whole-number edge lengths.",
+                    "Recognize volume as additive. Find volumes of solid figures composed of two non-overlapping right rectangular prisms by adding the volumes of the non-overlapping parts."
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "domain_name": "Geometry",
+          "domain_code": "5.G",
+          "clusters": [
+            {
+              "cluster_name": "Graph points on the coordinate plane to solve real-world and mathematical problems.",
+              "standards": [
+                {
+                  "standard_id": "5.G.1",
+                  "description": "Use a pair of perpendicular number lines, called axes, to define a coordinate system, with the intersection of the lines (the origin) arranged to coincide with the 0 on each line and a given point in the plane located by using an ordered pair of numbers, called its coordinates."
+                },
+                {
+                  "standard_id": "5.G.2",
+                  "description": "Represent real-world and mathematical problems by graphing points in the first quadrant of the coordinate plane, and interpret coordinate values of points in the context of the situation."
+                }
+              ]
+            },
+            {
+              "cluster_name": "Classify two-dimensional figures into categories based on their properties.",
+              "standards": [
+                {
+                  "standard_id": "5.G.3",
+                  "description": "Understand that attributes belonging to a category of two-dimensional figures also belong to all subcategories of that category."
+                },
+                {
+                  "standard_id": "5.G.4",
+                  "description": "Classify two-dimensional figures in a hierarchy based on properties."
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "grade_level": "Grade 6",
+      "focus_areas": [
+        "Connecting ratio and rate to whole number multiplication and division, and using concepts of ratio and rate to solve problems.",
+        "Completing understanding of division of fractions and extending the notion of number to the system of rational numbers, which includes negative numbers.",
+        "Writing, interpreting, and using expressions and equations.",
+        "Developing understanding of statistical thinking."
+      ],
+      "domains": [
+        {
+          "domain_name": "Ratios and Proportional Relationships",
+          "domain_code": "6.RP",
+          "clusters": [
+            {
+              "cluster_name": "Understand ratio concepts and use ratio reasoning to solve problems.",
+              "standards": [
+                {
+                  "standard_id": "6.RP.1",
+                  "description": "Understand the concept of a ratio and use ratio language to describe a ratio relationship between two quantities."
+                },
+                {
+                  "standard_id": "6.RP.2",
+                  "description": "Understand the concept of a unit rate a/b associated with a ratio a:b with b ≠ 0, and use rate language in the context of a ratio relationship."
+                },
+                {
+                  "standard_id": "6.RP.3",
+                  "description": "Use ratio and rate reasoning to solve real-world and mathematical problems, e.g., by reasoning about tables of equivalent ratios, tape diagrams, double number line diagrams, or equations.",
+                  "sub_standards": [
+                    "Make tables of equivalent ratios relating quantities with whole number measurements, find missing values in the tables, and plot the pairs of values on the coordinate plane.",
+                    "Solve unit rate problems including those involving unit pricing and constant speed.",
+                    "Find a percent of a quantity as a rate per 100; solve problems involving finding the whole, given a part and the percent.",
+                    "Use ratio reasoning to convert measurement units; manipulate and transform units appropriately when multiplying or dividing quantities."
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "domain_name": "The Number System",
+          "domain_code": "6.NS",
+          "clusters": [
+            {
+              "cluster_name": "Apply and extend previous understandings of multiplication and division to divide fractions by fractions.",
+              "standards": [
+                {
+                  "standard_id": "6.NS.1",
+                  "description": "Interpret and compute quotients of fractions, and solve word problems involving division of fractions by fractions, e.g., by using visual fraction models and equations to represent the problem."
+                }
+              ]
+            },
+            {
+              "cluster_name": "Compute fluently with multi-digit numbers and find common factors and multiples.",
+              "standards": [
+                {
+                  "standard_id": "6.NS.2",
+                  "description": "Fluently divide multi-digit numbers using the standard algorithm."
+                },
+                {
+                  "standard_id": "6.NS.3",
+                  "description": "Fluently add, subtract, multiply, and divide multi-digit decimals using the standard algorithm for each operation."
+                },
+                {
+                  "standard_id": "6.NS.4",
+                  "description": "Find the greatest common factor of two whole numbers less than or equal to 100 and the least common multiple of two whole numbers less than or equal to 12. Use the distributive property to express a sum of two whole numbers 1–100 with a common factor as a multiple of a sum of two whole numbers with no common factor."
+                }
+              ]
+            },
+            {
+              "cluster_name": "Apply and extend previous understandings of numbers to the system of rational numbers.",
+              "standards": [
+                {
+                  "standard_id": "6.NS.5",
+                  "description": "Understand that positive and negative numbers are used together to describe quantities having opposite directions or values; use positive and negative numbers to represent quantities in real-world contexts, explaining the meaning of 0 in each situation."
+                },
+                {
+                  "standard_id": "6.NS.6",
+                  "description": "Understand a rational number as a point on the number line. Extend number line diagrams and coordinate axes familiar from previous grades to represent points on the line and in the plane with negative number coordinates.",
+                  "sub_standards": [
+                    "Recognize opposite signs of numbers as indicating locations on opposite sides of 0 on the number line.",
+                    "Understand signs of numbers in ordered pairs as indicating locations in quadrants of the coordinate plane.",
+                    "Find and position integers and other rational numbers on a horizontal or vertical number line diagram; find and position pairs of integers and other rational numbers on a coordinate plane."
+                  ]
+                },
+                {
+                  "standard_id": "6.NS.7",
+                  "description": "Understand ordering and absolute value of rational numbers.",
+                  "sub_standards": [
+                    "Interpret statements of inequality as statements about the relative position of two numbers on a number line diagram.",
+                    "Write, interpret, and explain statements of order for rational numbers in real-world contexts.",
+                    "Understand the absolute value of a rational number as its distance from 0 on the number line; interpret absolute value as magnitude for a positive or negative quantity in a real-world situation.",
+                    "Distinguish comparisons of absolute value from statements about order."
+                  ]
+                },
+                {
+                  "standard_id": "6.NS.8",
+                  "description": "Solve real-world and mathematical problems by graphing points in all four quadrants of the coordinate plane. Include use of coordinates and absolute value to find distances between points with the same first coordinate or the same second coordinate."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "domain_name": "Expressions and Equations",
+          "domain_code": "6.EE",
+          "clusters": [
+            {
+              "cluster_name": "Apply and extend previous understandings of arithmetic to algebraic expressions.",
+              "standards": [
+                {
+                  "standard_id": "6.EE.1",
+                  "description": "Write and evaluate numerical expressions involving whole-number exponents."
+                },
+                {
+                  "standard_id": "6.EE.2",
+                  "description": "Write, read, and evaluate expressions in which letters stand for numbers.",
+                  "sub_standards": [
+                    "Write expressions that record operations with numbers and with letters standing for numbers.",
+                    "Identify parts of an expression using mathematical terms (sum, term, product, factor, quotient, coefficient); view one or more parts of an expression as a single entity.",
+                    "Evaluate expressions at specific values of their variables. Include expressions that arise from formulas used in real-world problems."
+                  ]
+                },
+                {
+                  "standard_id": "6.EE.3",
+                  "description": "Apply the properties of operations to generate equivalent expressions."
+                },
+                {
+                  "standard_id": "6.EE.4",
+                  "description": "Identify when two expressions are equivalent (i.e., when the two expressions name the same number regardless of which value is substituted into them)."
+                }
+              ]
+            },
+            {
+              "cluster_name": "Reason about and solve one-variable equations and inequalities.",
+              "standards": [
+                {
+                  "standard_id": "6.EE.5",
+                  "description": "Understand solving an equation or inequality as a process of answering a question: which values from a specified set, if any, make the equation or inequality true?"
+                },
+                {
+                  "standard_id": "6.EE.6",
+                  "description": "Use variables to represent numbers and write expressions when solving a real-world or mathematical problem; understand that a variable can represent an unknown number, or, depending on the purpose at hand, any number in a specified set."
+                },
+                {
+                  "standard_id": "6.EE.7",
+                  "description": "Solve real-world and mathematical problems by writing and solving equations of the form x + p = q and px = q for cases in which p, q and x are all nonnegative rational numbers."
+                },
+                {
+                  "standard_id": "6.EE.8",
+                  "description": "Write an inequality of the form x > c or x < c to represent a constraint or condition in a real-world or mathematical problem. Recognize that inequalities of the form x > c or x < c have infinitely many solutions; represent solutions of such inequalities on number line diagrams."
+                }
+              ]
+            },
+            {
+              "cluster_name": "Represent and analyze quantitative relationships between dependent and independent variables.",
+              "standards": [
+                {
+                  "standard_id": "6.EE.9",
+                  "description": "Use variables to represent two quantities in a real-world problem that change in relationship to one another; write an equation to express one quantity, thought of as the dependent variable, in terms of the other quantity, thought of as the independent variable. Analyze the relationship between the dependent and independent variables using graphs and tables, and relate these to the equation."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "domain_name": "Geometry",
+          "domain_code": "6.G",
+          "clusters": [
+            {
+              "cluster_name": "Solve real-world and mathematical problems involving area, surface area, and volume.",
+              "standards": [
+                {
+                  "standard_id": "6.G.1",
+                  "description": "Find the area of right triangles, other triangles, special quadrilaterals, and polygons by composing into rectangles or decomposing into triangles and other shapes; apply these techniques in the context of solving real-world and mathematical problems."
+                },
+                {
+                  "standard_id": "6.G.2",
+                  "description": "Find the volume of a right rectangular prism with fractional edge lengths by packing it with unit cubes of the appropriate unit fraction edge lengths, and show that the volume is the same as would be found by multiplying the edge lengths of the prism."
+                },
+                {
+                  "standard_id": "6.G.3",
+                  "description": "Draw polygons in the coordinate plane given coordinates for the vertices; use coordinates to find the length of a side joining points with the same first coordinate or the same second coordinate. Apply these techniques in the context of solving real-world and mathematical problems."
+                },
+                {
+                  "standard_id": "6.G.4",
+                  "description": "Represent three-dimensional figures using nets made up of rectangles and triangles, and use the nets to find the surface area of these figures. Apply these techniques in the context of solving real-world and mathematical problems."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "domain_name": "Statistics and Probability",
+          "domain_code": "6.SP",
+          "clusters": [
+            {
+              "cluster_name": "Develop understanding of statistical variability.",
+              "standards": [
+                {
+                  "standard_id": "6.SP.1",
+                  "description": "Recognize a statistical question as one that anticipates variability in the data related to the question and accounts for it in the answers."
+                },
+                {
+                  "standard_id": "6.SP.2",
+                  "description": "Understand that a set of data collected to answer a statistical question has a distribution which can be described by its center, spread, and overall shape."
+                },
+                {
+                  "standard_id": "6.SP.3",
+                  "description": "Recognize that a measure of center for a numerical data set summarizes all of its values with a single number, while a measure of variation describes how its values vary with a single number."
+                }
+              ]
+            },
+            {
+              "cluster_name": "Summarize and describe distributions.",
+              "standards": [
+                {
+                  "standard_id": "6.SP.4",
+                  "description": "Display numerical data in plots on a number line, including dot plots, histograms, and box plots."
+                },
+                {
+                  "standard_id": "6.SP.5",
+                  "description": "Summarize numerical data sets in relation to their context, such as by:",
+                  "sub_standards": [
+                    "Reporting the number of observations.",
+                    "Describing the nature of the attribute under investigation, including how it was measured and its units of measurement.",
+                    "Giving quantitative measures of center (median and/or mean) and variability (interquartile range and/or mean absolute deviation), as well as describing any overall pattern and any striking deviations from the overall pattern with reference to the context in which the data were gathered.",
+                    "Relating the choice of measures of center and variability to the shape of the data distribution and the context in which the data were gathered."
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "grade_level": "Grade 7",
+      "focus_areas": [
+        "Developing understanding of and applying proportional relationships.",
+        "Developing understanding of operations with rational numbers and working with expressions and linear equations.",
+        "Solving problems involving scale drawings and informal geometric constructions, and working with two- and three-dimensional shapes to solve problems involving area, surface area, and volume.",
+        "Drawing inferences about populations based on samples."
+      ],
+      "domains": [
+        {
+          "domain_name": "Ratios and Proportional Relationships",
+          "domain_code": "7.RP",
+          "clusters": [
+            {
+              "cluster_name": "Analyze proportional relationships and use them to solve real-world and mathematical problems.",
+              "standards": [
+                {
+                  "standard_id": "7.RP.1",
+                  "description": "Compute unit rates associated with ratios of fractions, including ratios of lengths, areas and other quantities measured in like or different units."
+                },
+                {
+                  "standard_id": "7.RP.2",
+                  "description": "Recognize and represent proportional relationships between quantities.",
+                  "sub_standards": [
+                    "Decide whether two quantities are in a proportional relationship, e.g., by testing for equivalent ratios in a table or graphing on a coordinate plane and observing whether the graph is a straight line through the origin.",
+                    "Identify the constant of proportionality (unit rate) in tables, graphs, equations, diagrams, and verbal descriptions of proportional relationships.",
+                    "Represent proportional relationships by equations.",
+                    "Explain what a point (x, y) on the graph of a proportional relationship means in terms of the situation, with special attention to the points (0, 0) and (1, r) where r is the unit rate."
+                  ]
+                },
+                {
+                  "standard_id": "7.RP.3",
+                  "description": "Use proportional relationships to solve multistep ratio and percent problems. Examples: simple interest, tax, markups and markdowns, gratuities and commissions, fees, percent increase and decrease, percent error."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "domain_name": "The Number System",
+          "domain_code": "7.NS",
+          "clusters": [
+            {
+              "cluster_name": "Apply and extend previous understandings of operations with fractions to add, subtract, multiply, and divide rational numbers.",
+              "standards": [
+                {
+                  "standard_id": "7.NS.1",
+                  "description": "Apply and extend previous understandings of addition and subtraction to add and subtract rational numbers; represent addition and subtraction on a horizontal or vertical number line diagram.",
+                  "sub_standards": [
+                    "Describe situations in which opposite quantities combine to make 0.",
+                    "Understand p + q as the number located a distance |q| from p, in the positive or negative direction depending on whether q is positive or negative.",
+                    "Understand subtraction of rational numbers as adding the additive inverse, p – q = p + (–q).",
+                    "Apply properties of operations as strategies to add and subtract rational numbers."
+                  ]
+                },
+                {
+                  "standard_id": "7.NS.2",
+                  "description": "Apply and extend previous understandings of multiplication and division and of fractions to multiply and divide rational numbers.",
+                  "sub_standards": [
+                    "Understand that multiplication is extended from fractions to rational numbers by requiring that operations continue to satisfy the properties of operations, particularly the distributive property.",
+                    "Understand that integers can be divided, provided that the divisor is not zero, and every quotient of integers (with non-zero divisor) is a rational number.",
+                    "Apply properties of operations as strategies to multiply and divide rational numbers.",
+                    "Convert a rational number to a decimal using long division; know that the decimal form of a rational number terminates in 0s or eventually repeats."
+                  ]
+                },
+                {
+                  "standard_id": "7.NS.3",
+                  "description": "Solve real-world and mathematical problems involving the four operations with rational numbers."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "domain_name": "Expressions and Equations",
+          "domain_code": "7.EE",
+          "clusters": [
+            {
+              "cluster_name": "Use properties of operations to generate equivalent expressions.",
+              "standards": [
+                {
+                  "standard_id": "7.EE.1",
+                  "description": "Apply properties of operations as strategies to add, subtract, factor, and expand linear expressions with rational coefficients."
+                },
+                {
+                  "standard_id": "7.EE.2",
+                  "description": "Understand that rewriting an expression in different forms in a problem context can shed light on the problem and how the quantities in it are related."
+                }
+              ]
+            },
+            {
+              "cluster_name": "Solve real-life and mathematical problems using numerical and algebraic expressions and equations.",
+              "standards": [
+                {
+                  "standard_id": "7.EE.3",
+                  "description": "Solve multi-step real-life and mathematical problems posed with positive and negative rational numbers in any form (whole numbers, fractions, and decimals), using tools strategically."
+                },
+                {
+                  "standard_id": "7.EE.4",
+                  "description": "Use variables to represent quantities in a real-world or mathematical problem, and construct simple equations and inequalities to solve problems by reasoning about the quantities.",
+                  "sub_standards": [
+                    "Solve word problems leading to equations of the form px + q = r and p(x + q) = r, where p, q, and r are specific rational numbers.",
+                    "Solve word problems leading to inequalities of the form px + q > r or px + q < r, where p, q, and r are specific rational numbers. Graph the solution set of the inequality and interpret it in the context of the problem."
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "domain_name": "Geometry",
+          "domain_code": "7.G",
+          "clusters": [
+            {
+              "cluster_name": "Draw, construct, and describe geometrical figures and describe the relationships between them.",
+              "standards": [
+                {
+                  "standard_id": "7.G.1",
+                  "description": "Solve problems involving scale drawings of geometric figures, including computing actual lengths and areas from a scale drawing and reproducing a scale drawing at a different scale."
+                },
+                {
+                  "standard_id": "7.G.2",
+                  "description": "Draw (freehand, with ruler and protractor, and with technology) geometric shapes with given conditions. Focus on constructing triangles from three measures of angles or sides, noticing when the conditions determine a unique triangle, more than one triangle, or no triangle."
+                },
+                {
+                  "standard_id": "7.G.3",
+                  "description": "Describe the two-dimensional figures that result from slicing three-dimensional figures, as in plane sections of right rectangular prisms and right rectangular pyramids."
+                }
+              ]
+            },
+            {
+              "cluster_name": "Solve real-life and mathematical problems involving angle measure, area, surface area, and volume.",
+              "standards": [
+                {
+                  "standard_id": "7.G.4",
+                  "description": "Know the formulas for the area and circumference of a circle and use them to solve problems; give an informal derivation of the relationship between the circumference and area of a circle."
+                },
+                {
+                  "standard_id": "7.G.5",
+                  "description": "Use facts about supplementary, complementary, vertical, and adjacent angles in a multi-step problem to write and solve simple equations for an unknown angle in a figure."
+                },
+                {
+                  "standard_id": "7.G.6",
+                  "description": "Solve real-world and mathematical problems involving area, volume and surface area of two- and three-dimensional objects composed of triangles, quadrilaterals, polygons, cubes, and right prisms."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "domain_name": "Statistics and Probability",
+          "domain_code": "7.SP",
+          "clusters": [
+            {
+              "cluster_name": "Use random sampling to draw inferences about a population.",
+              "standards": [
+                {
+                  "standard_id": "7.SP.1",
+                  "description": "Understand that statistics can be used to gain information about a population by examining a sample of the population; generalizations about a population from a sample are valid only if the sample is representative of that population."
+                },
+                {
+                  "standard_id": "7.SP.2",
+                  "description": "Use data from a random sample to draw inferences about a population with an unknown characteristic of interest. Generate multiple samples (or simulated samples) of the same size to gauge the variation in estimates or predictions."
+                }
+              ]
+            },
+            {
+              "cluster_name": "Draw informal comparative inferences about two populations.",
+              "standards": [
+                {
+                  "standard_id": "7.SP.3",
+                  "description": "Informally assess the degree of visual overlap of two numerical data distributions with similar variabilities, measuring the difference between the centers by expressing it as a multiple of a measure of variability."
+                },
+                {
+                  "standard_id": "7.SP.4",
+                  "description": "Use measures of center and measures of variability for numerical data from random samples to draw informal comparative inferences about two populations."
+                }
+              ]
+            },
+            {
+              "cluster_name": "Investigate chance processes and develop, use, and evaluate probability models.",
+              "standards": [
+                {
+                  "standard_id": "7.SP.5",
+                  "description": "Understand that the probability of a chance event is a number between 0 and 1 that expresses the likelihood of the event occurring."
+                },
+                {
+                  "standard_id": "7.SP.6",
+                  "description": "Approximate the probability of a chance event by collecting data on the chance process that produces it and observing its long-run relative frequency, and predict the approximate relative frequency given the probability."
+                },
+                {
+                  "standard_id": "7.SP.7",
+                  "description": "Develop a probability model and use it to find probabilities of events. Compare probabilities from a model to observed frequencies; if the agreement is not good, explain possible sources of the discrepancy.",
+                  "sub_standards": [
+                    "Develop a uniform probability model by assigning equal probability to all outcomes, and use the model to determine probabilities of events.",
+                    "Develop a probability model (which may not be uniform) by observing frequencies in data generated from a chance process."
+                  ]
+                },
+                {
+                  "standard_id": "7.SP.8",
+                  "description": "Find probabilities of compound events using organized lists, tables, tree diagrams, and simulation.",
+                  "sub_standards": [
+                    "Understand that, just as with simple events, the probability of a compound event is the fraction of outcomes in the sample space for which the compound event occurs.",
+                    "Represent sample spaces for compound events using methods such as organized lists, tables and tree diagrams.",
+                    "Design and use a simulation to generate frequencies for compound events."
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "grade_level": "Grade 8",
+      "focus_areas": [
+        "Formulating and reasoning about expressions and equations, including modeling an association in bivariate data with a linear equation, and solving linear equations and systems of linear equations.",
+        "Grasping the concept of a function and using functions to describe quantitative relationships.",
+        "Analyzing two- and three-dimensional space and figures using distance, angle, similarity, and congruence, and understanding and applying the Pythagorean Theorem."
+      ],
+      "domains": [
+        {
+          "domain_name": "The Number System",
+          "domain_code": "8.NS",
+          "clusters": [
+            {
+              "cluster_name": "Know that there are numbers that are not rational, and approximate them by rational numbers.",
+              "standards": [
+                {
+                  "standard_id": "8.NS.1",
+                  "description": "Know that numbers that are not rational are called irrational. Understand informally that every number has a decimal expansion; for rational numbers show that the decimal expansion repeats eventually, and convert a decimal expansion which repeats eventually into a rational number."
+                },
+                {
+                  "standard_id": "8.NS.2",
+                  "description": "Use rational approximations of irrational numbers to compare the size of irrational numbers, locate them approximately on a number line diagram, and estimate the value of expressions."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "domain_name": "Expressions and Equations",
+          "domain_code": "8.EE",
+          "clusters": [
+            {
+              "cluster_name": "Work with radicals and integer exponents.",
+              "standards": [
+                {
+                  "standard_id": "8.EE.1",
+                  "description": "Know and apply the properties of integer exponents to generate equivalent numerical expressions."
+                },
+                {
+                  "standard_id": "8.EE.2",
+                  "description": "Use square root and cube root symbols to represent solutions to equations of the form x² = p and x³ = p, where p is a positive rational number. Evaluate square roots of small perfect squares and cube roots of small perfect cubes. Know that √2 is irrational."
+                },
+                {
+                  "standard_id": "8.EE.3",
+                  "description": "Use numbers expressed in the form of a single digit times an integer power of 10 to estimate very large or very small quantities, and to express how many times as much one is than the other."
+                },
+                {
+                  "standard_id": "8.EE.4",
+                  "description": "Perform operations with numbers expressed in scientific notation, including problems where both decimal and scientific notation are used. Use scientific notation and choose units of appropriate size for measurements of very large or very small quantities. Interpret scientific notation that has been generated by technology."
+                }
+              ]
+            },
+            {
+              "cluster_name": "Understand the connections between proportional relationships, lines, and linear equations.",
+              "standards": [
+                {
+                  "standard_id": "8.EE.5",
+                  "description": "Graph proportional relationships, interpreting the unit rate as the slope of the graph. Compare two different proportional relationships represented in different ways."
+                },
+                {
+                  "standard_id": "8.EE.6",
+                  "description": "Use similar triangles to explain why the slope m is the same between any two distinct points on a non-vertical line in the coordinate plane; derive the equation y = mx for a line through the origin and the equation y = mx + b for a line intercepting the vertical axis at b."
+                }
+              ]
+            },
+            {
+              "cluster_name": "Analyze and solve linear equations and pairs of simultaneous linear equations.",
+              "standards": [
+                {
+                  "standard_id": "8.EE.7",
+                  "description": "Solve linear equations in one variable.",
+                  "sub_standards": [
+                    "Give examples of linear equations in one variable with one solution, infinitely many solutions, or no solutions.",
+                    "Solve linear equations with rational number coefficients, including equations whose solutions require expanding expressions using the distributive property and collecting like terms."
+                  ]
+                },
+                {
+                  "standard_id": "8.EE.8",
+                  "description": "Analyze and solve pairs of simultaneous linear equations.",
+                  "sub_standards": [
+                    "Understand that solutions to a system of two linear equations in two variables correspond to points of intersection of their graphs.",
+                    "Solve systems of two linear equations in two variables algebraically, and estimate solutions by graphing the equations.",
+                    "Solve real-world and mathematical problems leading to two linear equations in two variables."
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "domain_name": "Functions",
+          "domain_code": "8.F",
+          "clusters": [
+            {
+              "cluster_name": "Define, evaluate, and compare functions.",
+              "standards": [
+                {
+                  "standard_id": "8.F.1",
+                  "description": "Understand that a function is a rule that assigns to each input exactly one output. The graph of a function is the set of ordered pairs consisting of an input and the corresponding output."
+                },
+                {
+                  "standard_id": "8.F.2",
+                  "description": "Compare properties of two functions each represented in a different way (algebraically, graphically, numerically in tables, or by verbal descriptions)."
+                },
+                {
+                  "standard_id": "8.F.3",
+                  "description": "Interpret the equation y = mx + b as defining a linear function, whose graph is a straight line; give examples of functions that are not linear."
+                }
+              ]
+            },
+            {
+              "cluster_name": "Use functions to model relationships between quantities.",
+              "standards": [
+                {
+                  "standard_id": "8.F.4",
+                  "description": "Construct a function to model a linear relationship between two quantities. Determine the rate of change and initial value of the function from a description of a relationship or from two (x, y) values, including reading these from a table or from a graph. Interpret the rate of change and initial value of a linear function in terms of the situation it models, and in terms of its graph or a table of values."
+                },
+                {
+                  "standard_id": "8.F.5",
+                  "description": "Describe qualitatively the functional relationship between two quantities by analyzing a graph (e.g., where the function is increasing or decreasing, linear or nonlinear). Sketch a graph that exhibits the qualitative features of a function that has been described verbally."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "domain_name": "Geometry",
+          "domain_code": "8.G",
+          "clusters": [
+            {
+              "cluster_name": "Understand congruence and similarity using physical models, transparencies, or geometry software.",
+              "standards": [
+                {
+                  "standard_id": "8.G.1",
+                  "description": "Verify experimentally the properties of rotations, reflections, and translations.",
+                  "sub_standards": [
+                    "Lines are taken to lines, and line segments to line segments of the same length.",
+                    "Angles are taken to angles of the same measure.",
+                    "Parallel lines are taken to parallel lines."
+                  ]
+                },
+                {
+                  "standard_id": "8.G.2",
+                  "description": "Understand that a two-dimensional figure is congruent to another if the second can be obtained from the first by a sequence of rotations, reflections, and translations; given two congruent figures, describe a sequence that exhibits the congruence between them."
+                },
+                {
+                  "standard_id": "8.G.3",
+                  "description": "Describe the effect of dilations, translations, rotations, and reflections on two-dimensional figures using coordinates."
+                },
+                {
+                  "standard_id": "8.G.4",
+                  "description": "Understand that a two-dimensional figure is similar to another if the second can be obtained from the first by a sequence of rotations, reflections, translations, and dilations; given two similar two-dimensional figures, describe a sequence that exhibits the similarity between them."
+                },
+                {
+                  "standard_id": "8.G.5",
+                  "description": "Use informal arguments to establish facts about the angle sum and exterior angle of triangles, about the angles created when parallel lines are cut by a transversal, and the angle-angle criterion for similarity of triangles."
+                }
+              ]
+            },
+            {
+              "cluster_name": "Understand and apply the Pythagorean Theorem.",
+              "standards": [
+                {
+                  "standard_id": "8.G.6",
+                  "description": "Explain a proof of the Pythagorean Theorem and its converse."
+                },
+                {
+                  "standard_id": "8.G.7",
+                  "description": "Apply the Pythagorean Theorem to determine unknown side lengths in right triangles in real-world and mathematical problems in two and three dimensions."
+                },
+                {
+                  "standard_id": "8.G.8",
+                  "description": "Apply the Pythagorean Theorem to find the distance between two points in a coordinate system."
+                }
+              ]
+            },
+            {
+              "cluster_name": "Solve real-world and mathematical problems involving volume of cylinders, cones, and spheres.",
+              "standards": [
+                {
+                  "standard_id": "8.G.9",
+                  "description": "Know the formulas for the volumes of cones, cylinders, and spheres and use them to solve real-world and mathematical problems."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "domain_name": "Statistics and Probability",
+          "domain_code": "8.SP",
+          "clusters": [
+            {
+              "cluster_name": "Investigate patterns of association in bivariate data.",
+              "standards": [
+                {
+                  "standard_id": "8.SP.1",
+                  "description": "Construct and interpret scatter plots for bivariate measurement data to investigate patterns of association between two quantities. Describe patterns such as clustering, outliers, positive or negative association, linear association, and nonlinear association."
+                },
+                {
+                  "standard_id": "8.SP.2",
+                  "description": "Know that straight lines are widely used to model relationships between two quantitative variables. For scatter plots that suggest a linear association, informally fit a straight line, and informally assess the model fit by judging the closeness of the data points to the line."
+                },
+                {
+                  "standard_id": "8.SP.3",
+                  "description": "Use the equation of a linear model to solve problems in the context of bivariate measurement data, interpreting the slope and intercept."
+                },
+                {
+                  "standard_id": "8.SP.4",
+                  "description": "Understand that patterns of association can also be seen in bivariate categorical data by displaying frequencies and relative frequencies in a two-way table. Construct and interpret a two-way table summarizing data on two categorical variables collected from the same subjects. Use relative frequencies calculated for rows or columns to describe possible association between the two variables."
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "higher_mathematics_pathways": {
+    "traditional_pathway": {
+      "description": "The traditional pathway consists of the higher mathematics standards organized along more traditional lines into Algebra I, Geometry, and Algebra II courses.",
+      "courses": [
+        {
+          "course_name": "Algebra I",
+          "focus_areas": [
+            "Deepen and extend understanding of linear and exponential relationships.",
+            "Contrast linear and exponential relationships with each other and engage in methods for analyzing, solving, and using quadratic functions.",
+            "Extend the laws of exponents to square and cube roots.",
+            "Apply linear models to data that exhibit a linear trend."
+          ],
+          "conceptual_categories": [
+            "Number and Quantity",
+            "Algebra",
+            "Functions",
+            "Statistics and Probability"
+          ]
+        },
+        {
+          "course_name": "Geometry",
+          "focus_areas": [
+            "Establish criteria for congruence of triangles based on rigid motions.",
+            "Establish criteria for similarity of triangles based on dilations and proportional reasoning.",
+            "Informally develop explanations of circumference, area, and volume formulas.",
+            "Apply the Pythagorean Theorem to the coordinate plane.",
+            "Prove basic geometric theorems.",
+            "Extend work with probability."
+          ],
+          "conceptual_categories": [
+            "Geometry",
+            "Statistics and Probability"
+          ]
+        },
+        {
+          "course_name": "Algebra II",
+          "focus_areas": [
+            "Relate arithmetic of rational expressions to arithmetic of rational numbers.",
+            "Expand understandings of functions and graphing to include trigonometric functions.",
+            "Synthesize and generalize functions and extend understanding of exponential functions to logarithmic functions.",
+            "Relate data display and summary statistics to probability and explore a variety of data collection methods."
+          ],
+          "conceptual_categories": [
+            "Number and Quantity",
+            "Algebra",
+            "Functions",
+            "Geometry",
+            "Statistics and Probability"
+          ]
+        }
+      ]
+    },
+    "integrated_pathway": {
+      "description": "The integrated pathway presents higher mathematics as a connected subject, in that each course contains standards from all six of the conceptual categories.",
+      "courses": [
+        {
+          "course_name": "Mathematics I",
+          "focus_areas": [
+            "Extend understanding of numerical manipulation to algebraic manipulation.",
+            "Synthesize understanding of function.",
+            "Deepen and extend understanding of linear relationships.",
+            "Apply linear models to data that exhibit a linear trend.",
+            "Establish criteria for congruence based on rigid motions.",
+            "Apply the Pythagorean Theorem to the coordinate plane."
+          ],
+          "conceptual_categories": [
+            "Number and Quantity",
+            "Algebra",
+            "Functions",
+            "Geometry",
+            "Statistics and Probability"
+          ]
+        },
+        {
+          "course_name": "Mathematics II",
+          "focus_areas": [
+            "Extend the laws of exponents to rational exponents.",
+            "Compare key characteristics of quadratic functions with those of linear and exponential functions.",
+            "Create and solve equations and inequalities involving linear, exponential, and quadratic expressions.",
+            "Extend work with probability.",
+            "Establish criteria for similarity of triangles based on dilations and proportional reasoning."
+          ],
+          "conceptual_categories": [
+            "Number and Quantity",
+            "Algebra",
+            "Functions",
+            "Geometry",
+            "Statistics and Probability"
+          ]
+        },
+        {
+          "course_name": "Mathematics III",
+          "focus_areas": [
+            "Apply methods from probability and statistics to draw inferences and conclusions from data.",
+            "Expand understanding of functions to include polynomial, rational, and radical functions.",
+            "Expand right triangle trigonometry to include general triangles.",
+            "Consolidate functions and geometry to create models and solve contextual problems."
+          ],
+          "conceptual_categories": [
+            "Number and Quantity",
+            "Algebra",
+            "Functions",
+            "Geometry",
+            "Statistics and Probability"
+          ]
+        }
+      ]
+    },
+    "advanced_courses": [
+      {
+        "course_name": "Advanced Placement Probability and Statistics",
+        "description": "Technical and in-depth extensions of probability and statistics. Mastery of academic content for advanced placement gives students the background to succeed in the Advanced Placement examination in the subject.",
+        "key_topics": [
+          "Probability problems with finite sample spaces",
+          "Conditional probability",
+          "Discrete and continuous random variables",
+          "Mean, variance, and standard deviation",
+          "Standard distributions (normal, binomial, and exponential)",
+          "Central limit theorem",
+          "Sampling distributions and statistical inference",
+          "Confidence intervals and hypothesis testing",
+          "Linear regression and correlation",
+          "Chi-square distribution and tests"
+        ]
+      },
+      {
+        "course_name": "Calculus",
+        "description": "When taught in high school, calculus should be presented with the same level of depth and rigor as are entry-level college and university calculus courses. These standards outline a complete college curriculum in one-variable calculus.",
+        "key_topics": [
+          "Limits of functions (including one-sided limits, infinite limits, and limits at infinity)",
+          "Continuity and differentiability of functions",
+          "Derivatives and their applications (including rates of change, optimization, and related rates)",
+          "Integration (including Riemann sums, fundamental theorem of calculus, and techniques of integration)",
+          "Applications of integration (area, volume, arc length, work)",
+          "Sequences and series (including convergence tests and Taylor series)",
+          "Differential equations and applications"
+        ]
+      }
+    ]
+  },
+  "conceptual_categories_higher_math": [
+    {
+      "category_name": "Number and Quantity",
+      "domains": [
+        "The Real Number System",
+        "Quantities",
+        "The Complex Number System",
+        "Vector and Matrix Quantities"
+      ],
+      "description": "Students extend the properties of exponents, work with rational and irrational numbers, perform operations with complex numbers, and work with vectors and matrices."
+    },
+    {
+      "category_name": "Algebra",
+      "domains": [
+        "Seeing Structure in Expressions",
+        "Arithmetic with Polynomials and Rational Expressions",
+        "Creating Equations",
+        "Reasoning with Equations and Inequalities"
+      ],
+      "description": "Students interpret the structure of expressions, perform arithmetic operations on polynomials, create equations to solve problems, and solve equations and inequalities."
+    },
+    {
+      "category_name": "Functions",
+      "domains": [
+        "Interpreting Functions",
+        "Building Functions",
+        "Linear, Quadratic, and Exponential Models",
+        "Trigonometric Functions"
+      ],
+      "description": "Students understand the concept of a function, interpret functions in context, build functions to model relationships, and work with trigonometric functions."
+    },
+    {
+      "category_name": "Modeling",
+      "description": "Modeling links classroom mathematics and statistics to everyday life, work, and decision-making. Modeling is the process of choosing and using appropriate mathematics and statistics to analyze empirical situations, to understand them better, and to improve decisions.",
+      "note": "Modeling standards appear throughout the higher mathematics standards indicated by a star symbol (★)."
+    },
+    {
+      "category_name": "Geometry",
+      "domains": [
+        "Congruence",
+        "Similarity, Right Triangles, and Trigonometry",
+        "Circles",
+        "Expressing Geometric Properties with Equations",
+        "Geometric Measurement and Dimension",
+        "Modeling with Geometry"
+      ],
+      "description": "Students experiment with transformations, prove geometric theorems, work with similarity and trigonometry, understand circle theorems, translate between geometric descriptions and equations, and apply geometric concepts in modeling."
+    },
+    {
+      "category_name": "Statistics and Probability",
+      "domains": [
+        "Interpreting Categorical and Quantitative Data",
+        "Making Inferences and Justifying Conclusions",
+        "Conditional Probability and the Rules of Probability",
+        "Using Probability to Make Decisions"
+      ],
+      "description": "Students summarize and interpret data, make inferences from data, understand independence and conditional probability, and use probability to evaluate outcomes of decisions."
+    }
+  ],
+  "guiding_principles": [
+    {
+      "principle": "Focus",
+      "description": "Instruction should focus deeply on only those concepts that are emphasized in the standards so that students can gain strong foundational conceptual understanding, a high degree of procedural skill and fluency, and the ability to apply the mathematics they know to solve problems inside and outside the mathematics classroom."
+    },
+    {
+      "principle": "Coherence",
+      "description": "Coherence arises from mathematical connections. Some of the connections in the standards knit topics together at a single grade level. Most connections are vertical, as the standards support a progression of increasing knowledge, skill, and sophistication across the grades."
+    },
+    {
+      "principle": "Rigor",
+      "description": "Rigor requires that conceptual understanding, procedural skill and fluency, and application be approached with equal intensity."
+    }
+  ],
+  "standards_organization": {
+    "k_8": {
+      "structure": "organized by grade level and then by domains (clusters of standards that address 'big ideas'), clusters (groups of related standards inside domains), and finally by the standards",
+      "coding_example": "3.NBT.2 - Grade 3, Number and Operations in Base Ten domain, standard 2"
+    },
+    "higher_mathematics": {
+      "structure": "organized into both model courses and conceptual categories",
+      "coding_example": "F-LE.5 - Functions conceptual category, Linear, Quadratic, and Exponential Models domain, standard 5",
+      "special_symbols": {
+        "star": "Indicates a modeling standard (★)",
+        "plus": "Indicates additional mathematics to prepare students for advanced courses (+)"
+      }
+    }
+  }
+}
