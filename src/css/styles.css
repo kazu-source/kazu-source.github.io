@@ -25,11 +25,11 @@
     --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
 
     /* Spacing */
-    --spacing-xs: 0.5rem;
-    --spacing-sm: 1rem;
-    --spacing-md: 1.5rem;
-    --spacing-lg: 2rem;
-    --spacing-xl: 3rem;
+    --spacing-xs: 0.4rem;
+    --spacing-sm: 0.8rem;
+    --spacing-md: 1.2rem;
+    --spacing-lg: 1.6rem;
+    --spacing-xl: 2.4rem;
 
     /* Border Radius */
     --radius-sm: 0.375rem;
@@ -69,17 +69,19 @@ header {
     top: 0;
     z-index: 1000;
     box-shadow: var(--shadow-md);
+    line-height: 1;
 }
 
 .site-title {
     color: var(--white);
-    font-size: 2.5rem;
+    font-size: 2.1rem;
     font-weight: 700;
     letter-spacing: -0.5px;
     margin: 0;
-    padding: var(--spacing-md) 0 var(--spacing-sm) 0;
+    padding: calc(var(--spacing-sm) * 0.85) 0;
     text-align: center;
     text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    line-height: 1.2;
 }
 
 /* Navigation styles */
@@ -97,6 +99,69 @@ header {
     justify-content: center;
     flex-wrap: wrap;
     gap: 0.25rem;
+}
+
+/* Grade Level Header Styles */
+.grade-level-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--spacing-md);
+    background: var(--gradient-3);
+    color: var(--white);
+    border-radius: var(--radius-lg);
+    margin: var(--spacing-md) 0;
+    cursor: pointer;
+    transition: var(--transition-base);
+    box-shadow: var(--shadow-md);
+}
+
+.grade-level-header:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-lg);
+}
+
+.grade-level-header h2 {
+    margin: 0;
+    font-size: 1.5rem;
+}
+
+.toggle-icon {
+    font-size: 1.5rem;
+    font-weight: bold;
+    padding: 0 var(--spacing-sm);
+    transition: transform var(--transition-base);
+}
+
+.grade-level-header[aria-expanded="true"] .toggle-icon {
+    transform: rotate(180deg);
+}
+
+.grade-level-content {
+    padding: var(--spacing-md);
+    background-color: var(--light-gray);
+    border-radius: var(--radius-lg);
+    margin-top: -1rem;
+    margin-bottom: var(--spacing-lg);
+    box-shadow: var(--shadow-sm);
+    animation: slideDown var(--transition-base);
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Accessibility Focus Styles */
+.grade-level-header:focus {
+    outline: 3px solid var(--primary-blue);
+    outline-offset: 2px;
 }
 
 .main-nav li {
@@ -154,8 +219,8 @@ header {
 .grid-container {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: var(--spacing-lg);
-    margin-top: var(--spacing-md);
+    gap: var(--spacing-md);
+    margin-top: var(--spacing-sm);
 }
 
 .grid-item {
@@ -239,11 +304,11 @@ header {
 main {
     max-width: 1200px;
     margin: 0 auto;
-    padding: var(--spacing-lg);
+    padding: var(--spacing-md);
 }
 
 section {
-    margin-bottom: var(--spacing-xl);
+    margin-bottom: var(--spacing-lg);
 }
 
 /* Footer styles */
@@ -251,8 +316,8 @@ footer {
     background: var(--gradient-1);
     color: var(--white);
     text-align: center;
-    padding: var(--spacing-lg);
-    margin-top: var(--spacing-xl);
+    padding: calc(var(--spacing-md) / 2);
+    margin-top: var(--spacing-lg);
     font-size: 0.95rem;
 }
 
@@ -325,9 +390,9 @@ footer {
 
 .hero {
     text-align: center;
-    padding: var(--spacing-xl) var(--spacing-md);
+    padding: var(--spacing-lg) var(--spacing-md);
     background: linear-gradient(135deg, rgba(74, 144, 226, 0.05) 0%, rgba(139, 92, 246, 0.05) 100%);
-    margin-bottom: var(--spacing-lg);
+    margin-bottom: var(--spacing-md);
     border-radius: var(--radius-xl);
 }
 
@@ -347,20 +412,20 @@ footer {
 }
 
 .grade-selection {
-    padding: var(--spacing-lg) 0;
+    padding: var(--spacing-md) 0;
 }
 
 .grade-selection h2 {
     color: var(--dark-blue);
     font-weight: 700;
     font-size: 2rem;
-    margin-bottom: var(--spacing-lg);
+    margin-bottom: var(--spacing-md);
 }
 
 .grade-card {
     background-color: var(--white);
     border-radius: var(--radius-xl);
-    padding: var(--spacing-lg);
+    padding: var(--spacing-md);
     box-shadow: var(--shadow-md);
     transition: all var(--transition-base);
     border-top: 4px solid var(--primary-blue);

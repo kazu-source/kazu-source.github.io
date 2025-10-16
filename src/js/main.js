@@ -1,6 +1,48 @@
-// Expandable Card Functionality
+// Grade Level Expansion Functionality
+function toggleGradeLevel(header) {
+    const content = header.nextElementSibling;
+    const icon = header.querySelector('.toggle-icon');
+    
+    // Toggle the content visibility
+    if (content.style.display === 'none' || !content.style.display) {
+        content.style.display = 'block';
+        icon.textContent = '−';
+        header.setAttribute('aria-expanded', 'true');
+        // Smooth scroll to the expanded section
+        setTimeout(() => {
+            content.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        }, 100);
+    } else {
+        content.style.display = 'none';
+        icon.textContent = '+';
+        header.setAttribute('aria-expanded', 'false');
+    }
+}
+
+// Initialize grade level headers
 document.addEventListener('DOMContentLoaded', function() {
-    // Get all grid items (cards)
+    // Initialize grade level headers
+    const gradeHeaders = document.querySelectorAll('.grade-level-header');
+    gradeHeaders.forEach(header => {
+        // Set initial state
+        const content = header.nextElementSibling;
+        content.style.display = 'none';
+        
+        // Add accessibility attributes
+        header.setAttribute('role', 'button');
+        header.setAttribute('tabindex', '0');
+        header.setAttribute('aria-expanded', 'false');
+        
+        // Add keyboard support
+        header.addEventListener('keydown', function(e) {
+            if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                toggleGradeLevel(this);
+            }
+        });
+    });
+
+    // Expandable Card Functionality
     const gridItems = document.querySelectorAll('.grid-item');
 
     gridItems.forEach(item => {
