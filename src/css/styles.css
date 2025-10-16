@@ -167,6 +167,7 @@ header {
     transition: all var(--transition-base);
     position: relative;
     overflow: hidden;
+    cursor: pointer;
 }
 
 .grid-item::before {
@@ -502,4 +503,110 @@ footer {
     color: var(--medium-gray);
     font-size: 1.1rem;
     line-height: 1.7;
+}
+
+/* Expandable Card Styles */
+.grid-item.expanded {
+    grid-column: 1 / -1;
+    transform: translateY(0);
+}
+
+.grid-item-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: var(--spacing-md);
+}
+
+.grid-item-title {
+    flex: 1;
+}
+
+.expand-icon {
+    flex-shrink: 0;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--light-gray);
+    border-radius: 50%;
+    transition: all var(--transition-base);
+    font-size: 1.2rem;
+    color: var(--primary-blue);
+}
+
+.grid-item:hover .expand-icon {
+    background-color: var(--primary-blue);
+    color: var(--white);
+    transform: rotate(90deg);
+}
+
+.grid-item.expanded .expand-icon {
+    background-color: var(--primary-blue);
+    color: var(--white);
+    transform: rotate(180deg);
+}
+
+.grid-item-summary {
+    margin-top: var(--spacing-sm);
+}
+
+.grid-item-details {
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transition: max-height var(--transition-slow), opacity var(--transition-base), margin-top var(--transition-base);
+}
+
+.grid-item.expanded .grid-item-details {
+    max-height: 2000px;
+    opacity: 1;
+    margin-top: var(--spacing-lg);
+    padding-top: var(--spacing-lg);
+    border-top: 2px solid var(--light-gray);
+}
+
+.grid-item-details h5 {
+    color: var(--primary-purple);
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-top: var(--spacing-md);
+    margin-bottom: var(--spacing-sm);
+}
+
+.grid-item-details h5:first-child {
+    margin-top: 0;
+}
+
+.grid-item-details p {
+    color: var(--medium-gray);
+    line-height: 1.8;
+    margin-bottom: var(--spacing-sm);
+}
+
+.grid-item-details ul {
+    color: var(--medium-gray);
+    line-height: 1.8;
+    margin-left: var(--spacing-lg);
+    margin-bottom: var(--spacing-sm);
+}
+
+.grid-item-details li {
+    margin-bottom: var(--spacing-xs);
+}
+
+.example-box {
+    background-color: rgba(74, 144, 226, 0.05);
+    border-left: 4px solid var(--primary-blue);
+    padding: var(--spacing-md);
+    border-radius: var(--radius-md);
+    margin: var(--spacing-md) 0;
+}
+
+.example-box strong {
+    display: block;
+    color: var(--primary-blue);
+    margin-bottom: var(--spacing-xs);
+    font-size: 1.05rem;
 }
