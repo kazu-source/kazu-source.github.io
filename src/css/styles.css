@@ -472,6 +472,7 @@ footer {
     margin-bottom: var(--spacing-md);
     font-weight: 700;
     font-size: 1.4rem;
+    text-align: center;
 }
 
 .grade-card.elementary h3 {
