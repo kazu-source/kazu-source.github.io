@@ -37,11 +37,12 @@
         }
 
         .contact-form {
-            background-color: #ffffff;
+            background-color: var(--card-bg);
             padding: 2rem;
             border-radius: 8px;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            box-shadow: var(--shadow-md);
             margin-bottom: 2rem;
+            transition: background-color var(--transition-base);
         }
 
         .form-group {
@@ -52,7 +53,7 @@
             display: block;
             margin-bottom: 0.5rem;
             font-weight: 600;
-            color: #374151;
+            color: var(--text-primary);
         }
 
         .form-group input,
@@ -60,11 +61,13 @@
         .form-group select {
             width: 100%;
             padding: 0.75rem;
-            border: 1px solid #D1D5DB;
+            border: 1px solid var(--border-color);
             border-radius: 4px;
             font-size: 1rem;
             font-family: inherit;
-            transition: border-color 0.2s;
+            background-color: var(--card-bg);
+            color: var(--text-primary);
+            transition: border-color 0.2s, background-color var(--transition-base), color var(--transition-base);
         }
 
         .form-group input:focus,
@@ -83,7 +86,7 @@
         .form-group small {
             display: block;
             margin-top: 0.25rem;
-            color: #6B7280;
+            color: var(--text-secondary);
             font-size: 0.875rem;
         }
 
@@ -112,10 +115,11 @@
         }
 
         .contact-info {
-            background-color: #F3F4F6;
+            background-color: var(--bg-secondary);
             padding: 2rem;
             border-radius: 8px;
             margin-bottom: 2rem;
+            transition: background-color var(--transition-base);
         }
 
         .contact-info h3 {
@@ -125,7 +129,7 @@
 
         .contact-info p {
             margin-bottom: 0.5rem;
-            color: #4B5563;
+            color: var(--text-secondary);
         }
 
         .contact-methods {
@@ -136,11 +140,12 @@
         }
 
         .contact-method {
-            background-color: white;
+            background-color: var(--card-bg);
             padding: 1.5rem;
             border-radius: 8px;
             text-align: center;
-            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+            box-shadow: var(--shadow-sm);
+            transition: background-color var(--transition-base);
         }
 
         .contact-method h4 {
@@ -148,11 +153,16 @@
             margin-bottom: 0.5rem;
         }
 
+        .contact-method p {
+            color: var(--text-secondary);
+        }
+
         .faq-section {
-            background-color: #F9FAFB;
+            background-color: var(--bg-secondary);
             padding: 2rem;
             border-radius: 8px;
             margin-top: 2rem;
+            transition: background-color var(--transition-base);
         }
 
         .faq-section h3 {
@@ -165,13 +175,18 @@
         }
 
         .faq-item h4 {
-            color: #374151;
+            color: var(--text-primary);
             margin-bottom: 0.5rem;
         }
 
         .faq-item p {
-            color: #6B7280;
+            color: var(--text-secondary);
             line-height: 1.6;
+        }
+
+        .faq-item a {
+            color: #8B5CF6;
+            text-decoration: underline;
         }
 
         @media (max-width: 768px) {
@@ -223,6 +238,12 @@
                 <li><a href="resources.html">Resources</a></li>
                 <li><a href="about.html">About</a></li>
                 <li><a href="contact.html">Contact</a></li>
+                <li>
+                    <button id="night-mode-toggle" class="night-mode-btn" aria-label="Toggle night mode">
+                        <span class="sun-icon">☀️</span>
+                        <span class="moon-icon">🌙</span>
+                    </button>
+                </li>
             </ul>
         </nav>
     </header>
@@ -333,7 +354,7 @@
             </div>
         </div>
 
-        <section class="related-grades" aria-labelledby="related-pages-title" style="background-color: #f3f4f6; padding: 2rem; margin-top: 2rem; border-radius: 8px;">
+        <section class="related-grades" aria-labelledby="related-pages-title">
             <h2 id="related-pages-title">Explore More</h2>
             <div style="display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center;">
                 <a href="../../index.html" style="background-color: #8B5CF6; color: white; padding: 0.75rem 1.5rem; border-radius: 6px; text-decoration: none; font-weight: 500;">Home</a>

@@ -1,8 +1,33 @@
+// Night Mode Functionality
+function initNightMode() {
+    const nightModeToggle = document.getElementById('night-mode-toggle');
+
+    // Check for saved night mode preference or default to light mode
+    const savedNightMode = localStorage.getItem('nightMode');
+    if (savedNightMode === 'enabled') {
+        document.body.classList.add('night-mode');
+    }
+
+    // Toggle night mode on button click
+    if (nightModeToggle) {
+        nightModeToggle.addEventListener('click', function() {
+            document.body.classList.toggle('night-mode');
+
+            // Save preference to localStorage
+            if (document.body.classList.contains('night-mode')) {
+                localStorage.setItem('nightMode', 'enabled');
+            } else {
+                localStorage.setItem('nightMode', 'disabled');
+            }
+        });
+    }
+}
+
 // Grade Level Expansion Functionality
 function toggleGradeLevel(header) {
     const content = header.nextElementSibling;
     const icon = header.querySelector('.toggle-icon');
-    
+
     // Toggle the content visibility
     if (content.style.display === 'none' || !content.style.display) {
         content.style.display = 'block';
@@ -21,6 +46,8 @@ function toggleGradeLevel(header) {
 
 // Initialize grade level headers
 document.addEventListener('DOMContentLoaded', function() {
+    // Initialize night mode
+    initNightMode();
     // Initialize grade level headers
     const gradeHeaders = document.querySelectorAll('.grade-level-header');
     gradeHeaders.forEach(header => {

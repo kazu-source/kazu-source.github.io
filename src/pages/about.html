@@ -37,11 +37,12 @@
         }
 
         .about-section {
-            background-color: #ffffff;
+            background-color: var(--card-bg);
             padding: 2.5rem;
             border-radius: 8px;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            box-shadow: var(--shadow-md);
             margin-bottom: 2rem;
+            transition: background-color var(--transition-base);
         }
 
         .about-section h3 {
@@ -51,7 +52,7 @@
         }
 
         .about-section p {
-            color: #4B5563;
+            color: var(--text-secondary);
             line-height: 1.8;
             margin-bottom: 1rem;
         }
@@ -62,7 +63,7 @@
         }
 
         .about-section ul li {
-            color: #4B5563;
+            color: var(--text-secondary);
             line-height: 1.8;
             margin-bottom: 0.5rem;
         }
@@ -101,16 +102,16 @@
         }
 
         .value-card {
-            background-color: #F9FAFB;
+            background-color: var(--bg-secondary);
             padding: 1.5rem;
             border-radius: 8px;
             border-left: 4px solid #8B5CF6;
-            transition: transform 0.2s, box-shadow 0.2s;
+            transition: transform 0.2s, box-shadow 0.2s, background-color var(--transition-base);
         }
 
         .value-card:hover {
             transform: translateY(-4px);
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            box-shadow: var(--shadow-lg);
         }
 
         .value-card h5 {
@@ -120,16 +121,17 @@
         }
 
         .value-card p {
-            color: #6B7280;
+            color: var(--text-secondary);
             line-height: 1.6;
             margin: 0;
         }
 
         .team-section {
-            background-color: #F3F4F6;
+            background-color: var(--bg-secondary);
             padding: 2rem;
             border-radius: 8px;
             margin: 2rem 0;
+            transition: background-color var(--transition-base);
         }
 
         .team-section h3 {
@@ -146,11 +148,12 @@
         }
 
         .team-member {
-            background-color: white;
+            background-color: var(--card-bg);
             padding: 2rem;
             border-radius: 8px;
             text-align: center;
-            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+            box-shadow: var(--shadow-sm);
+            transition: background-color var(--transition-base);
         }
 
         .team-member-placeholder {
@@ -167,7 +170,7 @@
         }
 
         .team-member h4 {
-            color: #374151;
+            color: var(--text-primary);
             margin-bottom: 0.5rem;
         }
 
@@ -179,7 +182,7 @@
         }
 
         .team-member p {
-            color: #6B7280;
+            color: var(--text-secondary);
             line-height: 1.6;
             font-size: 0.95rem;
         }
@@ -215,20 +218,21 @@
         }
 
         .cta-section {
-            background-color: #F3F4F6;
+            background-color: var(--bg-secondary);
             padding: 2.5rem;
             border-radius: 8px;
             text-align: center;
             margin-top: 2rem;
+            transition: background-color var(--transition-base);
         }
 
         .cta-section h3 {
-            color: #374151;
+            color: var(--text-primary);
             margin-bottom: 1rem;
         }
 
         .cta-section p {
-            color: #6B7280;
+            color: var(--text-secondary);
             margin-bottom: 1.5rem;
             max-width: 600px;
             margin-left: auto;
@@ -257,13 +261,14 @@
         }
 
         .cta-button.secondary {
-            background-color: white;
+            background-color: var(--card-bg);
             color: #8B5CF6;
             border: 2px solid #8B5CF6;
+            transition: background-color var(--transition-base);
         }
 
         .cta-button.secondary:hover {
-            background-color: #F9FAFB;
+            background-color: var(--bg-secondary);
         }
 
         @media (max-width: 768px) {
@@ -322,6 +327,12 @@
                 <li><a href="resources.html">Resources</a></li>
                 <li><a href="about.html">About</a></li>
                 <li><a href="contact.html">Contact</a></li>
+                <li>
+                    <button id="night-mode-toggle" class="night-mode-btn" aria-label="Toggle night mode">
+                        <span class="sun-icon">☀️</span>
+                        <span class="moon-icon">🌙</span>
+                    </button>
+                </li>
             </ul>
         </nav>
     </header>
@@ -367,31 +378,27 @@
 
             <!-- Stats Section (Optional) -->
             <div class="stats-section">
-                <h3 style="color: white; text-align: center; margin-bottom: 0.5rem;">Fresh Math By The Numbers</h3
+                <h3 style="text-align: center; margin-bottom: 0.5rem;">Fresh Math By The Numbers</h3>
                 <div class="stats-grid">
                     <div class="stat-item">
                         <div class="stat-number">18</div>
                         <div class="stat-label">Worksheets Available</div>
                     </div>
                     <div class="stat-item">
-                        <div class="stat-number">[#]</div>
+                        <div class="stat-number">9</div>
                         <div class="stat-label">Grade Levels Covered</div>
                     </div>
                     <div class="stat-item">
-                        <div class="stat-number">[#]</div>
+                        <div class="stat-number">45</div>
                         <div class="stat-label">Skills & Standards</div>
-                    </div>
-                    <div class="stat-item">
-                        <div class="stat-number">[#]</div>
-                        <div class="stat-label">Users Helped</div>
                     </div>
                 </div>
             </div>
 
-            <!-- Team Section (Optional) -->
+            <!-- Team Section (Optional) 
             <div class="team-section">
                 <h3>Meet Our Team</h3>
-                <p style="text-align: center; color: #6B7280; margin-bottom: 2rem;">[Add a description of your team and their dedication to math education.]</p>
+                <p style="text-align: center; margin-bottom: 2rem;">[Add a description of your team and their dedication to math education.]</p>
                 <div class="team-grid">
                     <div class="team-member">
                         <div class="team-member-placeholder">[?]</div>
@@ -405,9 +412,9 @@
                         <p class="role">[Role/Title]</p>
                         <p>[Brief bio describing their background, expertise, and role in Fresh Math.]</p>
                     </div>
-                    <!-- Add more team members as needed, or remove this section if not applicable -->
+                    Add more team members as needed, or remove this section if not applicable
                 </div>
-            </div>
+            </div> -->
 
             <!-- Why Choose Us -->
             <div class="about-section">
@@ -434,7 +441,7 @@
             </div>
         </div>
 
-        <section class="related-grades" aria-labelledby="related-pages-title" style="background-color: #f3f4f6; padding: 2rem; margin-top: 2rem; border-radius: 8px;">
+        <section class="related-grades" aria-labelledby="related-pages-title">
             <h2 id="related-pages-title">Explore More</h2>
             <div style="display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center;">
                 <a href="../../index.html" style="background-color: #8B5CF6; color: white; padding: 0.75rem 1.5rem; border-radius: 6px; text-decoration: none; font-weight: 500;">Home</a>
