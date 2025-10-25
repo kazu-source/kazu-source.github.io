@@ -1,7 +1,9 @@
 {
   "permissions": {
     "allow": [
-      "Bash(git log:*)"
+      "Bash(git log:*)",
+      "Bash(python update_nav.py:*)",
+      "Bash(python update_nav2.py:*)"
     ],
     "deny": [],
     "ask": []
