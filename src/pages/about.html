@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZYHZEBJREL"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-ZYHZEBJREL');
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Learn about Fresh Math - our mission to provide free, comprehensive K-8 math resources and support for students, parents, and teachers.">
+    <meta name="keywords" content="about Fresh Math, math education mission, K-8 math resources, educational values">
+    <meta name="author" content="Fresh Math">
+    <meta name="robots" content="index, follow">
+
+    <meta property="og:title" content="About Us | Fresh Math">
+    <meta property="og:description" content="Learn about Fresh Math's mission to provide free, comprehensive K-8 math resources and support for students, parents, and teachers.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://mathskillsforkids.com/pages/about.html">
+
+    <title>About Us | Fresh Math</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/mobile-nav.css">
+    <link rel="canonical" href="https://mathskillsforkids.com/pages/about.html">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7972856053289695"
+     crossorigin="anonymous"></script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://mathskillsforkids.com"},{"@type":"ListItem","position":2,"name":"About Us","item":"https://mathskillsforkids.com/pages/about.html"}]}</script>
+    <style>
+        .about-container {
+            max-width: 1000px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+
+        .about-section {
+            background-color: var(--card-bg);
+            padding: 2.5rem;
+            border-radius: 8px;
+            box-shadow: var(--shadow-md);
+            margin-bottom: 2rem;
+            transition: background-color var(--transition-base);
+        }
+
+        .about-section h3 {
+            color: #8B5CF6;
+            margin-bottom: 1rem;
+            font-size: 1.75rem;
+        }
+
+        .about-section p {
+            color: var(--text-secondary);
+            line-height: 1.8;
+            margin-bottom: 1rem;
+        }
+
+        .about-section ul {
+            margin: 1rem 0;
+            padding-left: 2rem;
+        }
+
+        .about-section ul li {
+            color: var(--text-secondary);
+            line-height: 1.8;
+            margin-bottom: 0.5rem;
+        }
+
+        .mission-vision-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .mission-card, .vision-card {
+            background: linear-gradient(135deg, #8B5CF6 0%, #7C3AED 100%);
+            color: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(139, 92, 246, 0.3);
+        }
+
+        .mission-card h4, .vision-card h4 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: white;
+        }
+
+        .mission-card p, .vision-card p {
+            color: rgba(255, 255, 255, 0.95);
+            line-height: 1.7;
+        }
+
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .value-card {
+            background-color: var(--bg-secondary);
+            padding: 1.5rem;
+            border-radius: 8px;
+            border-left: 4px solid #8B5CF6;
+            transition: transform 0.2s, box-shadow 0.2s, background-color var(--transition-base);
+        }
+
+        .value-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .value-card h5 {
+            color: #8B5CF6;
+            margin-bottom: 0.75rem;
+            font-size: 1.25rem;
+        }
+
+        .value-card p {
+            color: var(--text-secondary);
+            line-height: 1.6;
+            margin: 0;
+        }
+
+        .team-section {
+            background-color: var(--bg-secondary);
+            padding: 2rem;
+            border-radius: 8px;
+            margin: 2rem 0;
+            transition: background-color var(--transition-base);
+        }
+
+        .team-section h3 {
+            color: #8B5CF6;
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .team-member {
+            background-color: var(--card-bg);
+            padding: 2rem;
+            border-radius: 8px;
+            text-align: center;
+            box-shadow: var(--shadow-sm);
+            transition: background-color var(--transition-base);
+        }
+
+        .team-member-placeholder {
+            width: 120px;
+            height: 120px;
+            background: linear-gradient(135deg, #E0E7FF 0%, #DDD6FE 100%);
+            border-radius: 50%;
+            margin: 0 auto 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            color: #8B5CF6;
+        }
+
+        .team-member h4 {
+            color: var(--text-primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .team-member .role {
+            color: #8B5CF6;
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+            font-size: 0.95rem;
+        }
+
+        .team-member p {
+            color: var(--text-secondary);
+            line-height: 1.6;
+            font-size: 0.95rem;
+        }
+
+        .stats-section {
+            background: linear-gradient(135deg, #8B5CF6 0%, #7C3AED 100%);
+            color: white;
+            padding: 3rem 2rem;
+            border-radius: 8px;
+            margin: 2rem 0;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            font-size: 1.1rem;
+            opacity: 0.95;
+        }
+
+        .cta-section {
+            background-color: var(--bg-secondary);
+            padding: 2.5rem;
+            border-radius: 8px;
+            text-align: center;
+            margin-top: 2rem;
+            transition: background-color var(--transition-base);
+        }
+
+        .cta-section h3 {
+            color: var(--text-primary);
+            margin-bottom: 1rem;
+        }
+
+        .cta-section p {
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .cta-button {
+            background-color: #8B5CF6;
+            color: white;
+            padding: 0.75rem 2rem;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background-color 0.2s;
+        }
+
+        .cta-button:hover {
+            background-color: #7C3AED;
+        }
+
+        .cta-button.secondary {
+            background-color: var(--card-bg);
+            color: #8B5CF6;
+            border: 2px solid #8B5CF6;
+            transition: background-color var(--transition-base);
+        }
+
+        .cta-button.secondary:hover {
+            background-color: var(--bg-secondary);
+        }
+
+        @media (max-width: 768px) {
+            .about-section {
+                padding: 1.5rem;
+            }
+
+            .mission-vision-grid,
+            .values-grid,
+            .team-grid,
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .stat-number {
+                font-size: 2.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1 class="site-title">Fresh Math</h1>
+        <button class="nav-toggle" aria-label="Toggle navigation menu">
+            <span class="hamburger"></span>
+        </button>
+        <nav class="main-nav" role="navigation" aria-label="Main navigation">
+            <ul>
+                <li><a href="../../index.html">Home</a></li>
+                <li class="dropdown">
+                    <a href="#" aria-haspopup="true" aria-expanded="false">
+                        Elementary
+                        <span class="dropdown-arrow">▼</span>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a href="kindergarten.html">Kindergarten</a></li>
+                        <li><a href="grade1.html">Grade 1</a></li>
+                        <li><a href="grade2.html">Grade 2</a></li>
+                        <li><a href="grade3.html">Grade 3</a></li>
+                        <li><a href="grade4.html">Grade 4</a></li>
+                        <li><a href="grade5.html">Grade 5</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="#" aria-haspopup="true" aria-expanded="false">
+                        Middle School
+                        <span class="dropdown-arrow">▼</span>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a href="grade6.html">Grade 6</a></li>
+                        <li><a href="grade7.html">Grade 7</a></li>
+                        <li><a href="grade8.html">Grade 8</a></li>
+                    </ul>
+                </li>
+                <li><a href="parents.html">Parents</a></li>
+                <li><a href="resources.html">Resources</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li>
+                    <button id="night-mode-toggle" class="night-mode-btn" aria-label="Toggle night mode">
+                        <span class="sun-icon">☀️</span>
+                        <span class="moon-icon">🌙</span>
+                    </button>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <main role="main">
+        <section class="hero" aria-labelledby="hero-title">
+            <h2 id="hero-title">About Fresh Math</h2>
+            <p class="intro-text">Your trusted partner in K-8 mathematics education, providing free, comprehensive resources aligned with Common Core standards.</p>
+        </section>
+
+        <div class="about-container">
+            <!-- Our Story Section -->
+            <div class="about-section">
+                <h3>Our Story</h3>
+                <p>My name is Brenden. I currently working as an educational tutor and execution functioning coach. I received my Bachelor's degree in Computer Science and Engineering back in 2019. This website is a combination of my past education and my passion to educate currently.</p>
+                <p>I have been working as a tutor and serving students for the past five years. I primarily focus on math, so this website was created as a free reference to break down current Common Core standards in America.</p>
+            </div>
+
+            <!-- Mission and Vision -->
+            <div class="mission-vision-grid">
+                <div class="mission-card">
+                    <h4>Our Mission</h4>
+                    <p>Our ultimate goal is to break down the Common Core standards and make them easily digestable for parents and students</p>
+                </div>
+                <div class="vision-card">
+                    <h4>Our Vision</h4>
+                    <p>My vision for this website, which is currently still under construction, is to provide free resources for parents to support their child's math journey</p>
+                </div>
+            </div>
+
+            <!-- What We Offer -->
+            <div class="about-section">
+                <h3>What We Offer</h3>
+                <p>Fresh Math provides comprehensive K-8 mathematics resources designed to support students, parents, and educators:</p>
+                <ul>
+                    <li><strong>Grade-Specific Standards:</strong> Clear breakdowns of math skills for each grade level, aligned with California Common Core Standards</li>
+                    <li><strong>Free Worksheets:</strong> Downloadable practice materials covering key concepts and skills</li>
+                    <li><strong>Parent Resources:</strong> Guides and tips to help parents support their child's math learning at home</li>
+                    <li><strong>Structured Learning Paths:</strong> Organized content that follows the progression of mathematical concepts</li>
+                    <li><strong>Accessible Education:</strong> All resources are completely free and available to everyone</li>
+                </ul>
+            </div>
+
+            <!-- Stats Section (Optional) -->
+            <div class="stats-section">
+                <h3 style="text-align: center; margin-bottom: 0.5rem;">Fresh Math By The Numbers</h3>
+                <div class="stats-grid">
+                    <div class="stat-item">
+                        <div class="stat-number">18</div>
+                        <div class="stat-label">Worksheets Available</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">9</div>
+                        <div class="stat-label">Grade Levels Covered</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">45</div>
+                        <div class="stat-label">Skills & Standards</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Team Section (Optional) 
+            <div class="team-section">
+                <h3>Meet Our Team</h3>
+                <p style="text-align: center; margin-bottom: 2rem;">[Add a description of your team and their dedication to math education.]</p>
+                <div class="team-grid">
+                    <div class="team-member">
+                        <div class="team-member-placeholder">[?]</div>
+                        <h4>[Team Member Name]</h4>
+                        <p class="role">[Role/Title]</p>
+                        <p>[Brief bio describing their background, expertise, and role in Fresh Math.]</p>
+                    </div>
+                    <div class="team-member">
+                        <div class="team-member-placeholder">[?]</div>
+                        <h4>[Team Member Name]</h4>
+                        <p class="role">[Role/Title]</p>
+                        <p>[Brief bio describing their background, expertise, and role in Fresh Math.]</p>
+                    </div>
+                    Add more team members as needed, or remove this section if not applicable
+                </div>
+            </div> -->
+
+            <!-- Why Choose Us -->
+            <div class="about-section">
+                <h3>Why Choose Fresh Math?</h3>
+                <p>[Explain what makes Fresh Math unique and valuable. Consider including:]</p>
+                <ul>
+                    <li>[Example: Standards-aligned content based on proven educational frameworks]</li>
+                    <li>[Example: Created by experienced educators who understand how kids learn]</li>
+                    <li>[Example: Regularly updated with new materials and resources]</li>
+                    <li>[Example: User-friendly interface designed for parents and students]</li>
+                    <li>[Example: Completely free with no hidden fees or subscriptions]</li>
+                </ul>
+            </div>
+
+            <!-- Call to Action -->
+            <div class="cta-section">
+                <h3>Join the Fresh Math Community</h3>
+                <p>Start exploring our free resources today and help your child build a strong foundation in mathematics!</p>
+                <div class="cta-buttons">
+                    <a href="resources.html" class="cta-button">Browse Resources</a>
+                    <a href="parents.html" class="cta-button secondary">Parent Guide</a>
+                    <a href="contact.html" class="cta-button secondary">Contact Us</a>
+                </div>
+            </div>
+        </div>
+
+        <section class="related-grades" aria-labelledby="related-pages-title">
+            <h2 id="related-pages-title">Explore More</h2>
+            <div style="display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center;">
+                <a href="../../index.html" style="background-color: #8B5CF6; color: white; padding: 0.75rem 1.5rem; border-radius: 6px; text-decoration: none; font-weight: 500;">Home</a>
+                <a href="parents.html" style="background-color: #8B5CF6; color: white; padding: 0.75rem 1.5rem; border-radius: 6px; text-decoration: none; font-weight: 500;">Parent Resources</a>
+                <a href="resources.html" style="background-color: #8B5CF6; color: white; padding: 0.75rem 1.5rem; border-radius: 6px; text-decoration: none; font-weight: 500;">Worksheets & Resources</a>
+            </div>
+        </section>
+    </main>
+
+    <footer role="contentinfo">
+        <p>&copy; 2025 Fresh Math</p>
+    </footer>
+    <script src="../js/main.js" defer></script>
+    <script src="../js/mobile-nav.js" defer></script>
+</body>
+</html>

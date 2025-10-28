@@ -40,18 +40,41 @@
         <nav class="main-nav" role="navigation" aria-label="Main navigation">
             <ul>
                 <li><a href="../../index.html">Home</a></li>
-                <li><a href="kindergarten.html">Kindergarten</a></li>
-                <li><a href="grade1.html">Grade 1</a></li>
-                <li><a href="grade2.html">Grade 2</a></li>
-                <li><a href="grade3.html">Grade 3</a></li>
-                <li><a href="grade4.html">Grade 4</a></li>
-                <li><a href="grade5.html">Grade 5</a></li>
-                <li><a href="grade6.html">Grade 6</a></li>
-                <li><a href="grade7.html">Grade 7</a></li>
-                <li><a href="grade8.html">Grade 8</a></li>
+                <li class="dropdown">
+                    <a href="#" aria-haspopup="true" aria-expanded="false">
+                        Elementary
+                        <span class="dropdown-arrow">▼</span>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a href="kindergarten.html">Kindergarten</a></li>
+                        <li><a href="grade1.html">Grade 1</a></li>
+                        <li><a href="grade2.html">Grade 2</a></li>
+                        <li><a href="grade3.html">Grade 3</a></li>
+                        <li><a href="grade4.html">Grade 4</a></li>
+                        <li><a href="grade5.html">Grade 5</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="#" aria-haspopup="true" aria-expanded="false">
+                        Middle School
+                        <span class="dropdown-arrow">▼</span>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a href="grade6.html">Grade 6</a></li>
+                        <li><a href="grade7.html">Grade 7</a></li>
+                        <li><a href="grade8.html">Grade 8</a></li>
+                    </ul>
+                </li>
                 <li><a href="parents.html">Parents</a></li>
                 <li><a href="resources.html">Resources</a></li>
+                <li><a href="about.html">About</a></li>
                 <li><a href="contact.html">Contact</a></li>
+                <li>
+                    <button id="night-mode-toggle" class="night-mode-btn" aria-label="Toggle night mode">
+                        <span class="sun-icon">☀️</span>
+                        <span class="moon-icon">🌙</span>
+                    </button>
+                </li>
             </ul>
         </nav>
     </header>
@@ -62,8 +85,8 @@
             <p class="intro-text">Browse our collection of printable math worksheets organized by grade level and skill area. Perfect for homework practice, extra help, or enrichment activities.</p>
         </section>
 
-        <section class="notice" style="background-color: #FEF3C7; border-left: 4px solid #F59E0B; padding: 1rem 1.5rem; margin: 1.5rem 0; border-radius: 4px;">
-            <p style="margin: 0; color: #92400E;"><strong>Please Note:</strong> This website is currently in progress. New worksheets will be added intermittently as we continue to develop our collection. Check back regularly for updates!</p>
+        <section class="notice">
+            <p style="margin: 0;"><strong>Please Note:</strong> This website is currently in progress. New worksheets will be added intermittently as we continue to develop our collection. Check back regularly for updates! Going from Kindergarten to 8th grade. Currently on: 1st grade. </p>
         </section>
 
         <!-- Kindergarten Worksheets -->
@@ -77,54 +100,55 @@
                 <div class="grade-card">
                     <h3>Counting and Cardinality</h3>
                     <ul>
-                        <li><a href="../../worksheets/Kindergarten/counting-to-100.pdf" class="worksheet-link">Counting to 100 by Ones and Tens</a></li>
-                        <li><a href="../../worksheets/Kindergarten/counting-forward.pdf" class="worksheet-link">Counting Forward from Any Number</a></li>
-                        <li><a href="../../worksheets/Kindergarten/writing-up-to-20.pdf" class="worksheet-link">Writing Numbers 0 to 20</a></li>
-                        <li><a href="../worksheets/k-cc-4-count-objects.pdf" class="worksheet-link">One-to-One Object Counting</a></li>
-                        <li><a href="../worksheets/k-cc-5-count-answer.pdf" class="worksheet-link">Counting to Answer "How Many?"</a></li>
-                        <li><a href="../worksheets/k-cc-6-greater-than.pdf" class="worksheet-link">Comparing Numbers (Greater Than)</a></li>
-                        <li><a href="../worksheets/k-cc-7-compare-numbers.pdf" class="worksheet-link">Comparing Numbers 1-10</a></li>
+                        <li><a href="../../worksheets/Kindergarten/counting-and-cardinality/counting-to-100.pdf" class="worksheet-link">Counting to 100 by Ones and Tens</a></li>
+                        <li><a href="../../worksheets/Kindergarten/counting-and-cardinality/counting-forward.pdf" class="worksheet-link">Counting Forward from Any Number</a></li>
+                        <li><a href="../../worksheets/Kindergarten/counting-and-cardinality/writing-up-to-20.pdf" class="worksheet-link">Writing Numbers 0 to 20</a></li>
+                        <li><a href="../../worksheets/Kindergarten/counting-and-cardinality/one-to-one-counting.pdf" class="worksheet-link">One-to-One Object Counting</a></li>
+                        <li><a href="../../worksheets/Kindergarten/counting-and-cardinality/counting-activities.pdf" class="worksheet-link">Counting to Answer "How Many?"</a></li>
+                        <li><a href="../../worksheets/Kindergarten/counting-and-cardinality/identifying-greater-numbers-shapes.pdf" class="worksheet-link">Comparing Numbers (Greater Than)</a></li>
+                        <li><a href="../../worksheets/Kindergarten/counting-and-cardinality/identifying-greater-numbers-1-20.pdf" class="worksheet-link">Comparing Numbers 1-20</a></li>
                     </ul>
                 </div>
-                <div class="grade-card">
+                <div class="grade-card">    
                     <h3>Operations and Algebraic Thinking</h3>
                     <ul>
-                        <li><a href="../worksheets/k-oa-1-addition.pdf" class="worksheet-link">Addition as Putting Together</a></li>
-                        <li><a href="../worksheets/k-oa-1-subtraction.pdf" class="worksheet-link">Subtraction as Taking Apart</a></li>
-                        <li><a href="../worksheets/k-oa-2-word-problems.pdf" class="worksheet-link">Addition Word Problems within 10</a></li>
-                        <li><a href="../worksheets/k-oa-2-subtraction-problems.pdf" class="worksheet-link">Subtraction Word Problems within 10</a></li>
-                        <li><a href="../worksheets/k-oa-3-decompose.pdf" class="worksheet-link">Decomposing Numbers to 10</a></li>
-                        <li><a href="../worksheets/k-oa-4-find-missing.pdf" class="worksheet-link">Finding Missing Numbers to Make 10</a></li>
-                        <li><a href="../worksheets/k-oa-5-fluency.pdf" class="worksheet-link">Addition and Subtraction within 5</a></li>
+                        <li><a href="../../worksheets/Kindergarten/operations-and-algebraic-thinking/adding-shapes-together.pdf" class="worksheet-link">Addition as Putting Together</a></li>
+                        <li><a href="../../worksheets/Kindergarten/operations-and-algebraic-thinking/splitting-up-shapes.pdf" class="worksheet-link">Subtraction as Taking Apart</a></li>
+                        <li><a href="../../worksheets/Kindergarten/operations-and-algebraic-thinking/adding-within-5.pdf" class="worksheet-link">Addition within 5</a></li>
+                        <li><a href="../../worksheets/Kindergarten/operations-and-algebraic-thinking/subtracting-within-5.pdf" class="worksheet-link">Subtraction within 5</a></li>
+                        <li><a href="../../worksheets/Kindergarten/operations-and-algebraic-thinking/addition-word-problems.pdf" class="worksheet-link">Addition Word Problems within 10</a></li>
+                        <li><a href="../../worksheets/Kindergarten/operations-and-algebraic-thinking/subtraction-word-problems.pdf" class="worksheet-link">Subtraction Word Problems within 10</a></li>
+                        <li><a href="../../worksheets/Kindergarten/operations-and-algebraic-thinking/decomposing-numbers.pdf" class="worksheet-link">Decomposing Numbers to 10</a></li>    
+                        <li><a href="../../worksheets/Kindergarten/operations-and-algebraic-thinking/making-ten.pdf" class="worksheet-link">Finding Missing Numbers to Make 10</a></li>
                     </ul>
                 </div>
                 <div class="grade-card">
                     <h3>Numbers and Operations in Base Ten</h3>
                     <ul>
-                        <li><a href="../worksheets/k-nbt-1-numbers-11-19.pdf" class="worksheet-link">Working with Numbers 11-19</a></li>
-                        <li><a href="../worksheets/k-nbt-1-composing-teens.pdf" class="worksheet-link">Composing Teen Numbers</a></li>
-                        <li><a href="../worksheets/k-nbt-1-decomposing-teens.pdf" class="worksheet-link">Decomposing Teen Numbers</a></li>
-                        <li><a href="../worksheets/k-nbt-1-place-value.pdf" class="worksheet-link">Introduction to Place Value</a></li>
+                        <li><a href="../../worksheets/Kindergarten/numbers-and-operations-in-base-ten/composing-and-decomposing-teens.pdf" class="worksheet-link">Working with Numbers 11-19</a></li>
+                        <li><a href="../../worksheets/Kindergarten/numbers-and-operations-in-base-ten/composing-teen-numbers.pdf" class="worksheet-link">Composing Teen Numbers</a></li>
+                        <li><a href="../../worksheets/Kindergarten/numbers-and-operations-in-base-ten/decomposing-teen-numbers.pdf" class="worksheet-link">Decomposing Teen Numbers</a></li>
+                        <li><a href="../../worksheets/Kindergarten/numbers-and-operations-in-base-ten/introduction-to-place-value.pdf" class="worksheet-link">Introduction to Place Value</a></li>
                     </ul>
                 </div>
                 <div class="grade-card">
                     <h3>Geometry</h3>
                     <ul>
-                        <li><a href="../worksheets/k-g-1-shapes.pdf" class="worksheet-link">Identifying 2D and 3D Shapes</a></li>
-                        <li><a href="../worksheets/k-g-2-shape-positions.pdf" class="worksheet-link">Shapes in Different Positions</a></li>
-                        <li><a href="../worksheets/k-g-3-shape-sizes.pdf" class="worksheet-link">Shapes of Different Sizes</a></li>
-                        <li><a href="../worksheets/k-g-4-compare-shapes.pdf" class="worksheet-link">Analyzing and Comparing Shapes</a></li>
-                        <li><a href="../worksheets/k-g-5-draw-shapes.pdf" class="worksheet-link">Drawing Shapes</a></li>
-                        <li><a href="../worksheets/k-g-6-compose-shapes.pdf" class="worksheet-link">Composing Simple Shapes</a></li>
+                        <li><a href="../../worksheets/Kindergarten/geometry/intro-to-2d-shapes.pdf" class="worksheet-link">Identifying 2D Shapes</a></li>
+                        <li><a href="../../worksheets/Kindergarten/geometry/intro-to-3d-shapes.pdf" class="worksheet-link">Identifying 3D Shapes</a></li>
+                        <li><a href="../../worksheets/Kindergarten/geometry/shapes-different-positions.pdf" class="worksheet-link">Shapes in Different Positions</a></li>
+                        <li><a href="../../worksheets/Kindergarten/geometry/shapes-different-sizes.pdf" class="worksheet-link">Shapes of Different Sizes</a></li>
+                        <li><a href="../../worksheets/Kindergarten/geometry/shapes-properties.pdf" class="worksheet-link">Analyzing and Comparing Shapes</a></li>
+                        <li><a href="../../worksheets/Kindergarten/geometry/tracing-shapes.pdf" class="worksheet-link">Drawing Shapes</a></li>
                     </ul>
                 </div>
                 <div class="grade-card">
                     <h3>Measurement and Data</h3>
                     <ul>
-                        <li><a href="../worksheets/k-md-1-attributes.pdf" class="worksheet-link">Describing Measurable Attributes</a></li>
-                        <li><a href="../worksheets/k-md-2-compare-objects.pdf" class="worksheet-link">Comparing Two Objects</a></li>
-                        <li><a href="../worksheets/k-md-3-classify-objects.pdf" class="worksheet-link">Classifying Objects into Categories</a></li>
-                        <li><a href="../worksheets/k-md-3-count-categories.pdf" class="worksheet-link">Counting Objects in Categories</a></li>
+                        <li><a href="../../worksheets/Kindergarten/measurement-and-data/comparing-length-of-objects.pdf" class="worksheet-link">Describing Measurable Attributes</a></li>
+                        <li><a href="../../worksheets/Kindergarten/measurement-and-data/comparing-lengths-of-two-objects.pdf" class="worksheet-link">Comparing Two Objects</a></li>
+                        <li><a href="../../worksheets/Kindergarten/measurement-and-data/classifying-objects.pdf" class="worksheet-link">Classifying Objects into Categories</a></li>
+                        <li><a href="../../worksheets/Kindergarten/measurement-and-data/sort-and-count-objects.pdf" class="worksheet-link">Counting Objects in Categories</a></li>
                     </ul>
                 </div>
             </div>
@@ -676,7 +700,7 @@
             <p>Check back regularly for updates, or <a href="parents.html">visit our Parents page</a> for recommended external resources you can use right now.</p>
         </section>
 
-        <section class="related-grades" aria-labelledby="related-pages-title" style="background-color: #f3f4f6; padding: 2rem; margin-top: 2rem; border-radius: 8px;">
+        <section class="related-grades" aria-labelledby="related-pages-title">
             <h2 id="related-pages-title">Explore Grade Levels</h2>
             <div style="display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center;">
                 <a href="../../index.html" style="background-color: #8B5CF6; color: white; padding: 0.75rem 1.5rem; border-radius: 6px; text-decoration: none; font-weight: 500;">Home</a>

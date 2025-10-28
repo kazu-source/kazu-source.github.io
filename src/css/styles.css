@@ -13,6 +13,14 @@
     --light-gray: #F1F5F9;
     --white: #FFFFFF;
 
+    /* Background and text colors (for theme switching) */
+    --bg-primary: #FFFFFF;
+    --bg-secondary: #F1F5F9;
+    --text-primary: #1E293B;
+    --text-secondary: #64748B;
+    --card-bg: #FFFFFF;
+    --border-color: rgba(0, 0, 0, 0.1);
+
     /* Gradient Colors */
     --gradient-1: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     --gradient-2: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
@@ -43,6 +51,26 @@
     --transition-slow: 500ms ease-in-out;
 }
 
+/* Night Mode Theme */
+body.night-mode {
+    --bg-primary: #0F172A;
+    --bg-secondary: #1E293B;
+    --text-primary: #F1F5F9;
+    --text-secondary: #94A3B8;
+    --card-bg: #1E293B;
+    --border-color: rgba(255, 255, 255, 0.1);
+    --light-gray: #1E293B;
+    --dark-blue: #F1F5F9;
+    --medium-gray: #94A3B8;
+    --white: #0F172A;
+
+    /* Adjust shadows for night mode */
+    --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.3);
+    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.4), 0 2px 4px -1px rgba(0, 0, 0, 0.3);
+    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.5), 0 4px 6px -2px rgba(0, 0, 0, 0.4);
+    --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.6), 0 10px 10px -5px rgba(0, 0, 0, 0.5);
+}
+
 /* General styles */
 * {
     box-sizing: border-box;
@@ -57,8 +85,9 @@ body {
     padding: 0;
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     line-height: 1.6;
-    color: var(--dark-blue);
-    background-color: var(--white);
+    color: var(--text-primary);
+    background-color: var(--bg-primary);
+    transition: background-color var(--transition-base), color var(--transition-base);
 }
 
 /* Header styles */
@@ -110,7 +139,7 @@ header {
     background: var(--gradient-3);
     color: var(--white);
     border-radius: var(--radius-lg);
-    margin: var(--spacing-md) 0;
+    margin: 0.3rem 0;
     cursor: pointer;
     transition: var(--transition-base);
     box-shadow: var(--shadow-md);
@@ -141,7 +170,7 @@ header {
     padding: var(--spacing-md);
     background-color: var(--light-gray);
     border-radius: var(--radius-lg);
-    margin-top: -1rem;
+    margin-top: 0.3rem;
     margin-bottom: var(--spacing-lg);
     box-shadow: var(--shadow-sm);
     animation: slideDown var(--transition-base);
@@ -202,6 +231,85 @@ header {
     width: 80%;
 }
 
+/* Dropdown Menu Styles */
+.main-nav li {
+    position: relative;
+}
+
+.main-nav .dropdown {
+    position: relative;
+}
+
+.main-nav .dropdown > a {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+}
+
+.main-nav .dropdown > a::after {
+    display: none; /* Hide the underline animation for dropdown triggers */
+}
+
+.main-nav .dropdown > a .dropdown-arrow {
+    font-size: 0.7rem;
+    transition: transform var(--transition-base);
+    margin-left: 0.25rem;
+}
+
+.main-nav .dropdown:hover > a .dropdown-arrow {
+    transform: rotate(180deg);
+}
+
+.main-nav .dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    min-width: 200px;
+    background: var(--white);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-lg);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: all var(--transition-base);
+    z-index: 1000;
+    margin-top: 0.5rem;
+    overflow: hidden;
+}
+
+.main-nav .dropdown:hover .dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.main-nav .dropdown-menu li {
+    margin: 0;
+    border-bottom: 1px solid var(--light-gray);
+}
+
+.main-nav .dropdown-menu li:last-child {
+    border-bottom: none;
+}
+
+.main-nav .dropdown-menu a {
+    color: var(--dark-blue);
+    padding: 0.75rem 1.25rem;
+    font-size: 0.9rem;
+    margin: 0;
+    border-radius: 0;
+    transition: all var(--transition-fast);
+}
+
+.main-nav .dropdown-menu a:hover {
+    background-color: var(--primary-purple);
+    color: var(--white);
+}
+
+.main-nav .dropdown-menu a::after {
+    display: none; /* Hide the underline for dropdown items */
+}
+
 /* Mobile Navigation */
 @media (max-width: 768px) {
     .main-nav ul {
@@ -214,6 +322,83 @@ header {
         text-align: center;
         padding: 0.75rem 1rem;
     }
+
+    /* Mobile Dropdown Styles */
+    .main-nav .dropdown-menu {
+        position: static;
+        opacity: 1;
+        visibility: visible;
+        transform: none;
+        box-shadow: none;
+        background: rgba(255, 255, 255, 0.1);
+        margin-top: 0;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height var(--transition-base);
+    }
+
+    .main-nav .dropdown.active .dropdown-menu {
+        max-height: 500px;
+    }
+
+    .main-nav .dropdown > a {
+        justify-content: center;
+    }
+
+    .main-nav .dropdown-menu a {
+        color: var(--white);
+        padding: 0.6rem 1rem;
+        padding-left: 2rem;
+        font-size: 1rem;
+    }
+
+    .main-nav .dropdown-menu a:hover {
+        background-color: rgba(255, 255, 255, 0.15);
+        color: var(--primary-orange);
+        transform: translateX(5px);
+    }
+
+    .main-nav .dropdown-menu li {
+        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    }
+}
+
+/* Night Mode Toggle Button */
+.night-mode-btn {
+    background: rgba(255, 255, 255, 0.2);
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-radius: var(--radius-lg);
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: all var(--transition-base);
+    font-size: 1.2rem;
+    margin: 0.25rem;
+}
+
+.night-mode-btn:hover {
+    background: rgba(255, 255, 255, 0.3);
+    transform: scale(1.05);
+}
+
+.night-mode-btn:focus {
+    outline: 2px solid var(--white);
+    outline-offset: 2px;
+}
+
+.night-mode-btn .sun-icon,
+.night-mode-btn .moon-icon {
+    transition: all var(--transition-base);
+}
+
+body:not(.night-mode) .night-mode-btn .moon-icon {
+    display: none;
+}
+
+body.night-mode .night-mode-btn .sun-icon {
+    display: none;
 }
 
 /* Grid layout for topics */
@@ -225,7 +410,7 @@ header {
 }
 
 .grid-item {
-    background-color: var(--white);
+    background-color: var(--card-bg);
     padding: var(--spacing-lg);
     border-radius: var(--radius-xl);
     box-shadow: var(--shadow-md);
@@ -363,9 +548,9 @@ footer {
 .domain-section {
     margin: var(--spacing-lg) 0;
     padding: var(--spacing-lg);
-    border: 2px solid var(--light-gray);
+    border: 2px solid var(--border-color);
     border-radius: var(--radius-xl);
-    background-color: var(--white);
+    background-color: var(--card-bg);
     transition: all var(--transition-base);
 }
 
@@ -424,7 +609,7 @@ footer {
 }
 
 .grade-card {
-    background-color: var(--white);
+    background-color: var(--card-bg);
     border-radius: var(--radius-xl);
     padding: var(--spacing-md);
     box-shadow: var(--shadow-md);
@@ -472,6 +657,11 @@ footer {
     margin-bottom: var(--spacing-md);
     font-weight: 700;
     font-size: 1.4rem;
+    text-align: center;
+    min-height: 3.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .grade-card.elementary h3 {
@@ -675,4 +865,169 @@ footer {
     color: var(--primary-blue);
     margin-bottom: var(--spacing-xs);
     font-size: 1.05rem;
+}
+
+/* Related Grades / Footer Sections */
+.related-grades {
+    background-color: var(--bg-secondary);
+    padding: 2rem;
+    margin-top: 2rem;
+    border-radius: 8px;
+    transition: background-color var(--transition-base);
+}
+
+.related-grades h2 {
+    color: var(--text-primary);
+    margin-bottom: 1rem;
+}
+
+.related-grades p,
+.related-grades a[href] {
+    color: var(--text-secondary);
+}
+
+/* Notice/Alert Sections */
+.notice {
+    background-color: #FEF3C7;
+    border-left: 4px solid #F59E0B;
+    padding: 1rem 1.5rem;
+    margin: 1.5rem 0;
+    border-radius: 4px;
+    transition: background-color var(--transition-base), border-color var(--transition-base);
+}
+
+.notice p {
+    margin: 0;
+    color: #92400E;
+}
+
+body.night-mode .notice {
+    background-color: rgba(251, 191, 36, 0.15);
+    border-left-color: #FBBF24;
+}
+
+body.night-mode .notice p {
+    color: #FCD34D;
+}
+
+/* About Page Specific Styles */
+.about-section {
+    background-color: var(--card-bg);
+    color: var(--text-primary);
+    transition: background-color var(--transition-base), color var(--transition-base);
+}
+
+.about-section h3 {
+    color: var(--primary-purple);
+}
+
+.about-section p,
+.about-section ul li {
+    color: var(--text-secondary);
+}
+
+.value-card {
+    background-color: var(--bg-secondary);
+    transition: background-color var(--transition-base);
+}
+
+.value-card p {
+    color: var(--text-secondary);
+}
+
+.team-section {
+    background-color: var(--bg-secondary);
+    transition: background-color var(--transition-base);
+}
+
+.team-section p {
+    color: var(--text-secondary);
+}
+
+.team-member {
+    background-color: var(--card-bg);
+    transition: background-color var(--transition-base);
+}
+
+.team-member h4 {
+    color: var(--text-primary);
+}
+
+.team-member p {
+    color: var(--text-secondary);
+}
+
+.cta-section {
+    background-color: var(--bg-secondary);
+    transition: background-color var(--transition-base);
+}
+
+.cta-section h3 {
+    color: var(--text-primary);
+}
+
+.cta-section p {
+    color: var(--text-secondary);
+}
+
+/* For Parents / Student Section */
+.for-parents,
+.student-section {
+    background-color: var(--bg-secondary);
+    transition: background-color var(--transition-base);
+}
+
+.for-parents h2,
+.student-section h2 {
+    color: var(--text-primary);
+}
+
+.for-parents ul,
+.student-section ul {
+    color: var(--text-secondary);
+}
+
+.for-parents p,
+.student-section p {
+    color: var(--text-secondary);
+}
+
+/* Resources Section */
+.resources-section {
+    transition: background-color var(--transition-base);
+}
+
+.resources-section h2 {
+    color: var(--text-primary);
+}
+
+.resources-section .intro-text {
+    color: var(--text-secondary);
+}
+
+/* Override inline styles for night mode compatibility */
+body.night-mode .stats-section h3,
+body.night-mode .mission-card h4,
+body.night-mode .vision-card h4,
+body.night-mode .mission-card p,
+body.night-mode .vision-card p {
+    color: white !important;
+}
+
+/* Ensure proper contrast for specific elements in night mode */
+body.night-mode .intro-text {
+    color: var(--text-secondary);
+}
+
+body.night-mode .hero {
+    background: linear-gradient(135deg, rgba(74, 144, 226, 0.1) 0%, rgba(139, 92, 246, 0.1) 100%);
+}
+
+body.night-mode .grade-overview {
+    background: linear-gradient(135deg, rgba(74, 144, 226, 0.15) 0%, rgba(139, 92, 246, 0.15) 100%);
+    border-color: rgba(74, 144, 226, 0.3);
+}
+
+body.night-mode .grade-overview li {
+    color: var(--text-secondary);
 }
