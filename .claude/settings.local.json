@@ -3,7 +3,8 @@
     "allow": [
       "Bash(git log:*)",
       "Bash(python update_nav.py:*)",
-      "Bash(python update_nav2.py:*)"
+      "Bash(python update_nav2.py:*)",
+      "Bash(mkdir:*)"
     ],
     "deny": [],
     "ask": []
