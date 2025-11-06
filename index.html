@@ -34,6 +34,7 @@
     <meta name="twitter:image" content="https://mathskillsforkids.com/images/fresh-math-social.jpg">
     
     <title>Fresh Math | Grade K-8 Math Standards and Resources</title>
+    <link rel="icon" type="image/png" href="src/icons/FreshMath_White/FreshMath_White_Icon.png">
     <link rel="stylesheet" href="src/css/styles.css">
     <link rel="stylesheet" href="src/css/mobile-nav.css">
     <link rel="canonical" href="https://mathskillsforkids.com">
@@ -77,8 +78,14 @@
     </script>
 </head>
 <body>
+    <!-- Skip to main content link for keyboard users -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
     <header role="banner">
-        <h1 class="site-title">Fresh Math</h1>
+        <h1 class="site-title">
+            <img src="src/icons/FreshMath_White/FreshMath_White_Primary.png" alt="Fresh Math" class="logo-light" />
+            <img src="src/icons/FreshMath_Black/FreshMath_Black_Primary.png" alt="Fresh Math" class="logo-dark" />
+        </h1>
         <button class="nav-toggle" aria-label="Toggle navigation menu">
             <span class="hamburger"></span>
         </button>
@@ -124,7 +131,10 @@
         </nav>
     </header>
 
-    <main role="main">
+    <main role="main" id="main-content">
+        <!-- Live region for screen reader announcements -->
+        <div aria-live="polite" aria-atomic="true" class="sr-only" id="sr-announcements"></div>
+
         <section class="hero" aria-labelledby="hero-title">
             <h2 id="hero-title">Welcome To Fresh Math</h2>
             <p class="intro-text">Discover what math skills your child needs at each grade level, from Kindergarten through 8th grade. Our comprehensive guide helps parents and students understand grade-specific math standards. The website is based on the California Common Core Standards. The website and its' resources are completely FREE and available for use at-home or in a classroom setting. I only ask that you disable adblock so I can keep the website running on ads.</p>

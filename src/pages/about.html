@@ -31,6 +31,7 @@
     <meta name="theme-color" content="#8B5CF6">
 
     <title>About Us | Fresh Math</title>
+    <link rel="icon" type="image/png" href="../icons/FreshMath_White/FreshMath_White_Icon.png">
     <link rel="stylesheet" href="../css/styles.css">
     <link rel="stylesheet" href="../css/mobile-nav.css">
     <link rel="canonical" href="https://mathskillsforkids.com/pages/about.html">
@@ -298,8 +299,14 @@
     </style>
 </head>
 <body>
+    <!-- Skip to main content link for keyboard users -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
     <header>
-        <h1 class="site-title">Fresh Math</h1>
+        <h1 class="site-title">
+            <img src="../icons/FreshMath_White/FreshMath_White_Primary.png" alt="Fresh Math" class="logo-light" />
+            <img src="../icons/FreshMath_Black/FreshMath_Black_Primary.png" alt="Fresh Math" class="logo-dark" />
+        </h1>
         <button class="nav-toggle" aria-label="Toggle navigation menu">
             <span class="hamburger"></span>
         </button>
@@ -345,7 +352,10 @@
         </nav>
     </header>
 
-    <main role="main">
+    <main role="main" id="main-content">
+        <!-- Live region for screen reader announcements -->
+        <div aria-live="polite" aria-atomic="true" class="sr-only" id="sr-announcements"></div>
+
         <section class="hero" aria-labelledby="hero-title">
             <h2 id="hero-title">About Fresh Math</h2>
             <p class="intro-text">Your trusted partner in K-8 mathematics education, providing free, comprehensive resources aligned with Common Core standards.</p>

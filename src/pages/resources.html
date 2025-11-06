@@ -31,6 +31,7 @@
     <meta name="theme-color" content="#8B5CF6">
 
     <title>Free Math Worksheets by Grade Level | Fresh Math</title>
+    <link rel="icon" type="image/png" href="../icons/FreshMath_White/FreshMath_White_Icon.png">
     <link rel="stylesheet" href="../css/styles.css">
     <link rel="stylesheet" href="../css/mobile-nav.css">
     <link rel="canonical" href="https://mathskillsforkids.com/pages/resources.html">
@@ -40,8 +41,14 @@
     <script type="application/ld+json">{"@context":"https://schema.org","@type":"CollectionPage","name":"Free Math Worksheets K-8","description":"Comprehensive collection of free printable math worksheets organized by grade level from kindergarten through 8th grade","url":"https://mathskillsforkids.com/pages/resources.html","about":{"@type":"EducationalOccupationalProgram","name":"K-8 Mathematics","provider":{"@type":"EducationalOrganization","name":"Fresh Math","url":"https://mathskillsforkids.com"}},"hasPart":[{"@type":"WebPage","name":"Kindergarten Worksheets","url":"https://mathskillsforkids.com/pages/kindergarten.html"},{"@type":"WebPage","name":"Grade 1 Worksheets","url":"https://mathskillsforkids.com/pages/grade1.html"},{"@type":"WebPage","name":"Grade 2 Worksheets","url":"https://mathskillsforkids.com/pages/grade2.html"},{"@type":"WebPage","name":"Grade 3 Worksheets","url":"https://mathskillsforkids.com/pages/grade3.html"},{"@type":"WebPage","name":"Grade 4 Worksheets","url":"https://mathskillsforkids.com/pages/grade4.html"},{"@type":"WebPage","name":"Grade 5 Worksheets","url":"https://mathskillsforkids.com/pages/grade5.html"},{"@type":"WebPage","name":"Grade 6 Worksheets","url":"https://mathskillsforkids.com/pages/grade6.html"},{"@type":"WebPage","name":"Grade 7 Worksheets","url":"https://mathskillsforkids.com/pages/grade7.html"},{"@type":"WebPage","name":"Grade 8 Worksheets","url":"https://mathskillsforkids.com/pages/grade8.html"}]}</script>
 </head>
 <body>
+    <!-- Skip to main content link for keyboard users -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
     <header>
-        <h1 class="site-title">Fresh Math</h1>
+        <h1 class="site-title">
+            <img src="../icons/FreshMath_White/FreshMath_White_Primary.png" alt="Fresh Math" class="logo-light" />
+            <img src="../icons/FreshMath_Black/FreshMath_Black_Primary.png" alt="Fresh Math" class="logo-dark" />
+        </h1>
         <button class="nav-toggle" aria-label="Toggle navigation menu">
             <span class="hamburger"></span>
         </button>
@@ -87,7 +94,10 @@
         </nav>
     </header>
 
-    <main role="main">
+    <main role="main" id="main-content">
+        <!-- Live region for screen reader announcements -->
+        <div aria-live="polite" aria-atomic="true" class="sr-only" id="sr-announcements"></div>
+
         <section class="hero" aria-labelledby="hero-title">
             <h2 id="hero-title">Free Math Worksheets & Practice Materials</h2>
             <p class="intro-text">Browse our collection of printable math worksheets organized by grade level and skill area. Perfect for homework practice, extra help, or enrichment activities.</p>
@@ -99,11 +109,11 @@
 
         <!-- Kindergarten Worksheets -->
         <section class="domain-section" aria-labelledby="kindergarten-title">
-            <div class="grade-level-header" onclick="toggleGradeLevel(this)" role="button" tabindex="0">
+            <div class="grade-level-header" onclick="toggleGradeLevel(this)" onkeydown="handleKeyPress(event, this)" role="button" tabindex="0" aria-expanded="false" aria-controls="kindergarten-content">
                 <h2 id="kindergarten-title">Kindergarten Worksheets</h2>
-                <span class="toggle-icon">+</span>
+                <span class="toggle-icon" aria-hidden="true">+</span>
             </div>
-            <div class="grade-level-content">
+            <div class="grade-level-content" id="kindergarten-content">
             <div class="grid-container">
                 <div class="grade-card">
                     <h3>Counting and Cardinality</h3>
@@ -164,11 +174,11 @@
 
         <!-- Grade 1 Worksheets -->
         <section class="domain-section" aria-labelledby="grade1-title">
-            <div class="grade-level-header" onclick="toggleGradeLevel(this)" role="button" tabindex="0">
+            <div class="grade-level-header" onclick="toggleGradeLevel(this)" onkeydown="handleKeyPress(event, this)" role="button" tabindex="0" aria-expanded="false" aria-controls="grade1-content">
                 <h2 id="grade1-title">Grade 1 Worksheets</h2>
-                <span class="toggle-icon">+</span>
+                <span class="toggle-icon" aria-hidden="true">+</span>
             </div>
-            <div class="grade-level-content">
+            <div class="grade-level-content" id="grade1-content">
             <div class="grid-container">
                 <div class="grade-card">
                     <h3>Addition and Subtraction</h3>
@@ -218,11 +228,11 @@
 
         <!-- Grade 2 Worksheets -->
         <section class="domain-section" aria-labelledby="grade2-title">
-            <div class="grade-level-header" onclick="toggleGradeLevel(this)" role="button" tabindex="0">
+            <div class="grade-level-header" onclick="toggleGradeLevel(this)" onkeydown="handleKeyPress(event, this)" role="button" tabindex="0" aria-expanded="false" aria-controls="grade2-content">
                 <h2 id="grade2-title">Grade 2 Worksheets</h2>
-                <span class="toggle-icon">+</span>
+                <span class="toggle-icon" aria-hidden="true">+</span>
             </div>
-            <div class="grade-level-content">
+            <div class="grade-level-content" id="grade2-content">
             <div class="grid-container">
                 <div class="grade-card">
                     <h3>Addition and Subtraction</h3>
@@ -283,11 +293,11 @@
 
         <!-- Grade 3 Worksheets -->
         <section class="domain-section" aria-labelledby="grade3-title">
-            <div class="grade-level-header" onclick="toggleGradeLevel(this)" role="button" tabindex="0">
+            <div class="grade-level-header" onclick="toggleGradeLevel(this)" onkeydown="handleKeyPress(event, this)" role="button" tabindex="0" aria-expanded="false" aria-controls="grade3-content">
                 <h2 id="grade3-title">Grade 3 Worksheets</h2>
-                <span class="toggle-icon">+</span>
+                <span class="toggle-icon" aria-hidden="true">+</span>
             </div>
-            <div class="grade-level-content">
+            <div class="grade-level-content" id="grade3-content">
             <div class="grid-container">
                 <div class="grade-card">
                     <h3>Multiplication and Division</h3>
@@ -348,11 +358,11 @@
 
         <!-- Grade 4 Worksheets -->
         <section class="domain-section" aria-labelledby="grade4-title">
-            <div class="grade-level-header" onclick="toggleGradeLevel(this)" role="button" tabindex="0">
+            <div class="grade-level-header" onclick="toggleGradeLevel(this)" onkeydown="handleKeyPress(event, this)" role="button" tabindex="0" aria-expanded="false" aria-controls="grade4-content">
                 <h2 id="grade4-title">Grade 4 Worksheets</h2>
-                <span class="toggle-icon">+</span>
+                <span class="toggle-icon" aria-hidden="true">+</span>
             </div>
-            <div class="grade-level-content">
+            <div class="grade-level-content" id="grade4-content">
             <div class="grid-container">
                 <div class="grade-card">
                     <h3>Operations and Problem Solving</h3>
@@ -415,11 +425,11 @@
 
         <!-- Grade 5 Worksheets -->
         <section class="domain-section" aria-labelledby="grade5-title">
-            <div class="grade-level-header" onclick="toggleGradeLevel(this)" role="button" tabindex="0">
+            <div class="grade-level-header" onclick="toggleGradeLevel(this)" onkeydown="handleKeyPress(event, this)" role="button" tabindex="0" aria-expanded="false" aria-controls="grade5-content">
                 <h2 id="grade5-title">Grade 5 Worksheets</h2>
-                <span class="toggle-icon">+</span>
+                <span class="toggle-icon" aria-hidden="true">+</span>
             </div>
-            <div class="grade-level-content">
+            <div class="grade-level-content" id="grade5-content">
             <div class="grid-container">
                 <div class="grade-card">
                     <h3>Place Value and Operations</h3>
@@ -481,11 +491,11 @@
 
         <!-- Grade 6 Worksheets -->
         <section class="domain-section" aria-labelledby="grade6-title">
-            <div class="grade-level-header" onclick="toggleGradeLevel(this)" role="button" tabindex="0">
+            <div class="grade-level-header" onclick="toggleGradeLevel(this)" onkeydown="handleKeyPress(event, this)" role="button" tabindex="0" aria-expanded="false" aria-controls="grade6-content">
                 <h2 id="grade6-title">Grade 6 Worksheets</h2>
-                <span class="toggle-icon">+</span>
+                <span class="toggle-icon" aria-hidden="true">+</span>
             </div>
-            <div class="grade-level-content">
+            <div class="grade-level-content" id="grade6-content">
             <div class="grid-container">
                 <div class="grade-card">
                     <h3>Ratios and Proportions</h3>
@@ -552,11 +562,11 @@
 
         <!-- Grade 7 Worksheets -->
         <section class="domain-section" aria-labelledby="grade7-title">
-            <div class="grade-level-header" onclick="toggleGradeLevel(this)" role="button" tabindex="0">
+            <div class="grade-level-header" onclick="toggleGradeLevel(this)" onkeydown="handleKeyPress(event, this)" role="button" tabindex="0" aria-expanded="false" aria-controls="grade7-content">
                 <h2 id="grade7-title">Grade 7 Worksheets</h2>
-                <span class="toggle-icon">+</span>
+                <span class="toggle-icon" aria-hidden="true">+</span>
             </div>
-            <div class="grade-level-content">
+            <div class="grade-level-content" id="grade7-content">
             <div class="grid-container">
                 <div class="grade-card">
                     <h3>Ratios and Proportions</h3>
@@ -624,11 +634,11 @@
 
         <!-- Grade 8 Worksheets -->
         <section class="domain-section" aria-labelledby="grade8-title">
-            <div class="grade-level-header" onclick="toggleGradeLevel(this)" role="button" tabindex="0">
+            <div class="grade-level-header" onclick="toggleGradeLevel(this)" onkeydown="handleKeyPress(event, this)" role="button" tabindex="0" aria-expanded="false" aria-controls="grade8-content">
                 <h2 id="grade8-title">Grade 8 Worksheets</h2>
-                <span class="toggle-icon">+</span>
+                <span class="toggle-icon" aria-hidden="true">+</span>
             </div>
-            <div class="grade-level-content">
+            <div class="grade-level-content" id="grade8-content">
             <div class="grid-container">
                 <div class="grade-card">
                     <h3>The Number System</h3>

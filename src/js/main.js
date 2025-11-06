@@ -27,12 +27,17 @@ function initNightMode() {
 function toggleGradeLevel(header) {
     const content = header.nextElementSibling;
     const icon = header.querySelector('.toggle-icon');
+    const gradeTitle = header.querySelector('h2').textContent;
 
     // Toggle the content visibility
     if (content.style.display === 'none' || !content.style.display) {
         content.style.display = 'block';
         icon.textContent = '−';
         header.setAttribute('aria-expanded', 'true');
+
+        // Announce to screen readers
+        announceToScreenReader(gradeTitle + ' section expanded');
+
         // Smooth scroll to the expanded section
         setTimeout(() => {
             content.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
@@ -41,6 +46,30 @@ function toggleGradeLevel(header) {
         content.style.display = 'none';
         icon.textContent = '+';
         header.setAttribute('aria-expanded', 'false');
+
+        // Announce to screen readers
+        announceToScreenReader(gradeTitle + ' section collapsed');
+    }
+}
+
+// Keyboard event handler for grade level headers
+function handleKeyPress(event, header) {
+    // Handle Enter and Space keys
+    if (event.key === 'Enter' || event.key === ' ') {
+        event.preventDefault();
+        toggleGradeLevel(header);
+    }
+}
+
+// Screen reader announcement function
+function announceToScreenReader(message) {
+    const announcer = document.getElementById('sr-announcements');
+    if (announcer) {
+        announcer.textContent = message;
+        // Clear the message after a brief delay so it can be announced again if needed
+        setTimeout(() => {
+            announcer.textContent = '';
+        }, 1000);
     }
 }
 
