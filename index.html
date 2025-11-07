@@ -35,9 +35,6 @@
     
     <title>Fresh Math | Grade K-8 Math Standards and Resources</title>
     <link rel="icon" type="image/png" href="src/icons/FreshMath_White/FreshMath_White_Icon.png">
-    <link rel="stylesheet" href="src/css/styles.css">
-    <link rel="stylesheet" href="src/css/mobile-nav.css">
-    <link rel="canonical" href="https://mathskillsforkids.com">
     <!-- Prevent white flash on page load by applying night mode immediately -->
     <script>
         (function() {
@@ -46,6 +43,51 @@
             }
         })();
     </script>
+    <style>
+        /* Critical CSS to prevent layout shifts and flicker */
+
+        /* Prevent logo flicker - hide correct logo immediately based on night mode */
+        html.night-mode .logo-light { display: none !important; }
+        html.night-mode .logo-dark { display: block !important; }
+        html:not(.night-mode) .logo-light { display: block !important; }
+        html:not(.night-mode) .logo-dark { display: none !important; }
+
+        /* Prevent night mode button icon flicker */
+        html:not(.night-mode) .night-mode-btn .moon-icon { display: none !important; }
+        html.night-mode .night-mode-btn .sun-icon { display: none !important; }
+
+        /* Stabilize header and navigation to prevent layout shifts */
+        header {
+            min-height: 120px;
+        }
+        .site-title img {
+            height: 50px;
+            width: auto;
+        }
+        .main-nav {
+            opacity: 1;
+        }
+        .night-mode-btn {
+            width: auto;
+            min-width: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Apply night mode background immediately to prevent flash */
+        html.night-mode {
+            background-color: #0F172A !important;
+        }
+        html.night-mode body {
+            background-color: #0F172A !important;
+            color: #F1F5F9 !important;
+        }
+    </style>
+    <link rel="stylesheet" href="src/css/fonts.css">
+    <link rel="stylesheet" href="src/css/styles.css">
+    <link rel="stylesheet" href="src/css/mobile-nav.css">
+    <link rel="canonical" href="https://mathskillsforkids.com">
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7972856053289695"
      crossorigin="anonymous"></script>
 
@@ -145,7 +187,7 @@
 
         <section class="hero" aria-labelledby="hero-title">
             <h2 id="hero-title">Welcome To Fresh Math</h2>
-            <p class="intro-text">Discover what math skills your child needs at each grade level, from Kindergarten through 8th grade. Our comprehensive guide helps parents and students understand grade-specific math standards. The website is based on the California Common Core Standards. The website and its' resources are completely FREE and available for use at-home or in a classroom setting. I only ask that you disable adblock so I can keep the website running on ads.</p>
+            <p class="intro-text">Discover what math skills your child needs at each grade level, from Kindergarten through 8th grade. Our comprehensive guide helps parents and students understand grade-specific math standards. The website is based on the California Common Core Standards. The website and its' resources are completely FREE and available for use at home or in a classroom setting. I only ask that you disable adblock so I can keep the website running on ads.</p>
         </section>
 
         <section class="for-parents" aria-labelledby="parents-title">
