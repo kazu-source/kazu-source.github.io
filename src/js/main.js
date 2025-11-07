@@ -5,12 +5,14 @@ function initNightMode() {
     // Check for saved night mode preference or default to light mode
     const savedNightMode = localStorage.getItem('nightMode');
     if (savedNightMode === 'enabled') {
+        document.documentElement.classList.add('night-mode');
         document.body.classList.add('night-mode');
     }
 
     // Toggle night mode on button click
     if (nightModeToggle) {
         nightModeToggle.addEventListener('click', function() {
+            document.documentElement.classList.toggle('night-mode');
             document.body.classList.toggle('night-mode');
 
             // Save preference to localStorage

@@ -38,6 +38,14 @@
     <link rel="stylesheet" href="src/css/styles.css">
     <link rel="stylesheet" href="src/css/mobile-nav.css">
     <link rel="canonical" href="https://mathskillsforkids.com">
+    <!-- Prevent white flash on page load by applying night mode immediately -->
+    <script>
+        (function() {
+            if (localStorage.getItem('nightMode') === 'enabled') {
+                document.documentElement.classList.add('night-mode');
+            }
+        })();
+    </script>
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7972856053289695"
      crossorigin="anonymous"></script>
 

@@ -35,6 +35,14 @@
     <link rel="stylesheet" href="../css/styles.css">
     <link rel="stylesheet" href="../css/mobile-nav.css">
     <link rel="canonical" href="https://mathskillsforkids.com/pages/contact.html">
+    <!-- Prevent white flash on page load by applying night mode immediately -->
+    <script>
+        (function() {
+            if (localStorage.getItem('nightMode') === 'enabled') {
+                document.documentElement.classList.add('night-mode');
+            }
+        })();
+    </script>
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7972856053289695"
      crossorigin="anonymous"></script>
     <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://mathskillsforkids.com"},{"@type":"ListItem","position":2,"name":"Contact Us","item":"https://mathskillsforkids.com/pages/contact.html"}]}</script>

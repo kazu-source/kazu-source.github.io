@@ -36,6 +36,14 @@
      crossorigin="anonymous"></script>
     <link rel="stylesheet" href="../css/styles.css">
     <link rel="stylesheet" href="../css/mobile-nav.css">
+    <!-- Prevent white flash on page load by applying night mode immediately -->
+    <script>
+        (function() {
+            if (localStorage.getItem('nightMode') === 'enabled') {
+                document.documentElement.classList.add('night-mode');
+            }
+        })();
+    </script>
 
     <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://mathskillsforkids.com"},{"@type":"ListItem","position":2,"name":"Grade 4 Math","item":"https://mathskillsforkids.com/pages/grade4.html"}]}</script>
     <script type="application/ld+json">{"@context":"https://schema.org","@type":"Course","name":"Fourth Grade Math Standards","description":"Comprehensive fourth grade mathematics curriculum including multi-digit operations, fraction equivalence, decimals, and geometry","provider":{"@type":"EducationalOrganization","name":"Fresh Math"},"educationalLevel":"Grade 4","coursePrerequisites":"Grade 3 Math","hasCourseInstance":{"@type":"CourseInstance","courseMode":"online","courseWorkload":"PT1Y"}}</script>

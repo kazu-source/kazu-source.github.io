@@ -36,6 +36,14 @@
      crossorigin="anonymous"></script>
     <link rel="stylesheet" href="../css/styles.css">
     <link rel="stylesheet" href="../css/mobile-nav.css">
+    <!-- Prevent white flash on page load by applying night mode immediately -->
+    <script>
+        (function() {
+            if (localStorage.getItem('nightMode') === 'enabled') {
+                document.documentElement.classList.add('night-mode');
+            }
+        })();
+    </script>
 
     <!-- Breadcrumb Schema -->
     <script type="application/ld+json">
