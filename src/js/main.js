@@ -187,4 +187,93 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         }
     });
+
+    // Tab Navigation Functionality
+    const tabButtons = document.querySelectorAll('.tab-button');
+
+    tabButtons.forEach(button => {
+        // Click event for tab switching
+        button.addEventListener('click', function() {
+            const domain = this.getAttribute('data-domain');
+            const panelId = this.getAttribute('aria-controls');
+
+            // Get all tabs and panels within the same domain (same tab-container)
+            const tabContainer = this.closest('.tab-container');
+            const allTabsInDomain = tabContainer.querySelectorAll('.tab-button');
+            const allPanelsInDomain = tabContainer.querySelectorAll('.tab-panel');
+
+            // Remove active class from all tabs and panels in this domain
+            allTabsInDomain.forEach(tab => {
+                tab.classList.remove('active');
+                tab.setAttribute('aria-selected', 'false');
+            });
+
+            allPanelsInDomain.forEach(panel => {
+                panel.classList.remove('active');
+            });
+
+            // Add active class to clicked tab and corresponding panel
+            this.classList.add('active');
+            this.setAttribute('aria-selected', 'true');
+
+            const targetPanel = document.getElementById(panelId);
+            if (targetPanel) {
+                targetPanel.classList.add('active');
+            }
+
+            // Announce to screen readers
+            const tabTitle = this.querySelector('h4').textContent;
+            announceToScreenReader(tabTitle + ' tab selected');
+        });
+
+        // Keyboard navigation for tabs
+        button.addEventListener('keydown', function(e) {
+            const tabContainer = this.closest('.tab-container');
+            const allTabsInDomain = Array.from(tabContainer.querySelectorAll('.tab-button'));
+            const currentIndex = allTabsInDomain.indexOf(this);
+
+            let targetTab = null;
+
+            switch(e.key) {
+                case 'ArrowDown':
+                case 'ArrowRight':
+                    e.preventDefault();
+                    // Move to next tab
+                    targetTab = allTabsInDomain[currentIndex + 1] || allTabsInDomain[0];
+                    break;
+
+                case 'ArrowUp':
+                case 'ArrowLeft':
+                    e.preventDefault();
+                    // Move to previous tab
+                    targetTab = allTabsInDomain[currentIndex - 1] || allTabsInDomain[allTabsInDomain.length - 1];
+                    break;
+
+                case 'Home':
+                    e.preventDefault();
+                    // Move to first tab
+                    targetTab = allTabsInDomain[0];
+                    break;
+
+                case 'End':
+                    e.preventDefault();
+                    // Move to last tab
+                    targetTab = allTabsInDomain[allTabsInDomain.length - 1];
+                    break;
+
+                case 'Enter':
+                case ' ':
+                    e.preventDefault();
+                    // Activate current tab (same as click)
+                    this.click();
+                    return;
+            }
+
+            // Focus and activate the target tab
+            if (targetTab) {
+                targetTab.focus();
+                targetTab.click();
+            }
+        });
+    });
 });

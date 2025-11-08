@@ -897,6 +897,174 @@ footer {
     font-size: 1.05rem;
 }
 
+/* Tab Layout Styles */
+.tab-container {
+    display: flex;
+    gap: 1.5rem;
+    margin-top: 1rem;
+}
+
+.tab-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    min-width: 280px;
+    max-width: 320px;
+}
+
+.tab-button {
+    background: var(--card-bg);
+    border: 2px solid var(--border-color);
+    border-radius: var(--radius-md);
+    padding: 1rem;
+    text-align: left;
+    cursor: pointer;
+    transition: all var(--transition-base);
+    position: relative;
+    overflow: hidden;
+}
+
+.tab-button::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 4px;
+    background: var(--primary-purple);
+    transform: scaleY(0);
+    transition: transform var(--transition-base);
+}
+
+.tab-button:hover {
+    border-color: var(--primary-purple);
+    transform: translateX(4px);
+    box-shadow: var(--shadow-md);
+}
+
+.tab-button:focus {
+    outline: 2px solid var(--primary-purple);
+    outline-offset: 2px;
+}
+
+.tab-button.active {
+    background: linear-gradient(135deg, rgba(139, 92, 246, 0.1) 0%, rgba(139, 92, 246, 0.05) 100%);
+    border-color: var(--primary-purple);
+    box-shadow: var(--shadow-md);
+}
+
+.tab-button.active::before {
+    transform: scaleY(1);
+}
+
+.tab-button h4 {
+    margin: 0 0 0.5rem 0;
+    color: var(--text-primary);
+    font-size: 1.1rem;
+    font-weight: 600;
+    transition: color var(--transition-base);
+}
+
+.tab-button.active h4 {
+    color: var(--primary-purple);
+}
+
+.tab-summary {
+    margin: 0;
+}
+
+.tab-summary p {
+    margin: 0;
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    line-height: 1.5;
+}
+
+.tab-summary strong {
+    color: var(--primary-blue);
+    font-weight: 600;
+}
+
+.tab-panels {
+    flex: 1;
+    min-width: 0;
+}
+
+.tab-panel {
+    display: none;
+    background: var(--card-bg);
+    border: 2px solid var(--border-color);
+    border-radius: var(--radius-md);
+    padding: 1.5rem;
+    box-shadow: var(--shadow-sm);
+    transition: all var(--transition-base);
+}
+
+.tab-panel.active {
+    display: block;
+    animation: fadeIn var(--transition-base);
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.tab-panel h5 {
+    color: var(--primary-purple);
+    margin-top: 0;
+    margin-bottom: 0.75rem;
+    font-size: 1.1rem;
+}
+
+.tab-panel p {
+    color: var(--text-secondary);
+    line-height: 1.7;
+    margin-bottom: 1rem;
+}
+
+.tab-panel ul {
+    margin: 0.5rem 0 1.5rem 1.5rem;
+    padding: 0;
+}
+
+.tab-panel li {
+    color: var(--text-secondary);
+    margin-bottom: 0.5rem;
+    line-height: 1.6;
+}
+
+/* Mobile responsive styles for tabs */
+@media (max-width: 768px) {
+    .tab-container {
+        flex-direction: column;
+    }
+
+    .tab-list {
+        min-width: 100%;
+        max-width: 100%;
+        flex-direction: row;
+        overflow-x: auto;
+        scrollbar-width: thin;
+    }
+
+    .tab-button {
+        min-width: 220px;
+        flex-shrink: 0;
+    }
+
+    .tab-button:hover {
+        transform: translateX(0);
+        transform: translateY(-2px);
+    }
+}
+
 /* Related Grades / Footer Sections */
 .related-grades {
     background-color: var(--bg-secondary);

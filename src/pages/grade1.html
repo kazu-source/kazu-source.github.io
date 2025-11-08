@@ -201,18 +201,35 @@
             
             <div class="domain-section">
                 <h3>Operations and Algebraic Thinking (1.OA)</h3>
-                <div class="grid-container">
-                    <div class="grid-item">
-                        <div class="grid-item-header">
-                            <div class="grid-item-title">
-                                <h4>Represent and Solve Problems</h4>
-                                <div class="grid-item-summary">
-                                    <p><strong>1.OA.1-2</strong> Use addition and subtraction within 20 to solve word problems.</p>
-                                </div>
+                <div class="tab-container">
+                    <div class="tab-list" role="tablist" aria-label="Operations and Algebraic Thinking skills">
+                        <button class="tab-button active" role="tab" aria-selected="true" aria-controls="tab-panel-oa-1" id="tab-oa-1" data-domain="oa">
+                            <h4>Represent and Solve Problems</h4>
+                            <div class="tab-summary">
+                                <p><strong>1.OA.1-2</strong> Use addition and subtraction within 20 to solve word problems.</p>
                             </div>
-                            <div class="expand-icon">+</div>
-                        </div>
-                        <div class="grid-item-details">
+                        </button>
+                        <button class="tab-button" role="tab" aria-selected="false" aria-controls="tab-panel-oa-2" id="tab-oa-2" data-domain="oa">
+                            <h4>Understand Addition & Subtraction</h4>
+                            <div class="tab-summary">
+                                <p><strong>1.OA.3-4</strong> Apply properties of operations and understand subtraction as an unknown-addend problem.</p>
+                            </div>
+                        </button>
+                        <button class="tab-button" role="tab" aria-selected="false" aria-controls="tab-panel-oa-3" id="tab-oa-3" data-domain="oa">
+                            <h4>Add and Subtract within 20</h4>
+                            <div class="tab-summary">
+                                <p><strong>1.OA.5-6</strong> Relate counting to addition and subtraction. Add and subtract within 20.</p>
+                            </div>
+                        </button>
+                        <button class="tab-button" role="tab" aria-selected="false" aria-controls="tab-panel-oa-4" id="tab-oa-4" data-domain="oa">
+                            <h4>Work with Equations</h4>
+                            <div class="tab-summary">
+                                <p><strong>1.OA.7-8</strong> Understand the meaning of the equal sign. Determine the unknown whole number in an addition or subtraction equation.</p>
+                            </div>
+                        </button>
+                    </div>
+                    <div class="tab-panels">
+                        <div class="tab-panel active" role="tabpanel" id="tab-panel-oa-1" aria-labelledby="tab-oa-1">
                             <h5>What Students Learn:</h5>
                             <p>Students learn to solve word problems that call for addition of three whole numbers whose sum is less than or equal to 20, and to solve problems involving adding to, taking from, putting together, taking apart, and comparing.</p>
 
@@ -228,18 +245,7 @@
                                 <p>Sam has 8 apples. His friend gives him 5 more. How many apples does Sam have now? (8 + 5 = ?)</p>
                             </div>
                         </div>
-                    </div>
-                    <div class="grid-item">
-                        <div class="grid-item-header">
-                            <div class="grid-item-title">
-                                <h4>Understand Addition & Subtraction</h4>
-                                <div class="grid-item-summary">
-                                    <p><strong>1.OA.3-4</strong> Apply properties of operations and understand subtraction as an unknown-addend problem.</p>
-                                </div>
-                            </div>
-                            <div class="expand-icon">+</div>
-                        </div>
-                        <div class="grid-item-details">
+                        <div class="tab-panel" role="tabpanel" id="tab-panel-oa-2" aria-labelledby="tab-oa-2">
                             <h5>What Students Learn:</h5>
                             <p>Students apply properties like the commutative and associative properties of addition. They understand that subtraction can be thought of as an unknown-addend problem (e.g., 10 - 6 = ? is the same as 6 + ? = 10).</p>
 
@@ -255,18 +261,7 @@
                                 <p>If 9 - 4 = ?, think: "4 + ? = 9" (Answer: 5)</p>
                             </div>
                         </div>
-                    </div>
-                    <div class="grid-item">
-                        <div class="grid-item-header">
-                            <div class="grid-item-title">
-                                <h4>Add and Subtract within 20</h4>
-                                <div class="grid-item-summary">
-                                    <p><strong>1.OA.5-6</strong> Relate counting to addition and subtraction. Add and subtract within 20.</p>
-                                </div>
-                            </div>
-                            <div class="expand-icon">+</div>
-                        </div>
-                        <div class="grid-item-details">
+                        <div class="tab-panel" role="tabpanel" id="tab-panel-oa-3" aria-labelledby="tab-oa-3">
                             <h5>What Students Learn:</h5>
                             <p>Students develop fluency with addition and subtraction within 20. They learn various strategies including counting on, making ten, decomposing numbers, and using the relationship between addition and subtraction.</p>
 
@@ -283,18 +278,7 @@
                                 <p>To solve 8 + 6, students might think: "8 + 2 = 10, and 4 more makes 14"</p>
                             </div>
                         </div>
-                    </div>
-                    <div class="grid-item">
-                        <div class="grid-item-header">
-                            <div class="grid-item-title">
-                                <h4>Work with Equations</h4>
-                                <div class="grid-item-summary">
-                                    <p><strong>1.OA.7-8</strong> Understand the meaning of the equal sign. Determine the unknown whole number in an addition or subtraction equation.</p>
-                                </div>
-                            </div>
-                            <div class="expand-icon">+</div>
-                        </div>
-                        <div class="grid-item-details">
+                        <div class="tab-panel" role="tabpanel" id="tab-panel-oa-4" aria-labelledby="tab-oa-4">
                             <h5>What Students Learn:</h5>
                             <p>Students learn that the equal sign means "the same as" and can find missing numbers in various positions in equations (e.g., 8 = ? - 5, not just 8 + 5 = ?).</p>
 
@@ -316,18 +300,29 @@
 
             <div class="domain-section">
                 <h3>Number and Operations in Base Ten (1.NBT)</h3>
-                <div class="grid-container">
-                    <div class="grid-item">
-                        <div class="grid-item-header">
-                            <div class="grid-item-title">
-                                <h4>Extend the Counting Sequence</h4>
-                                <div class="grid-item-summary">
-                                    <p><strong>1.NBT.1</strong> Count to 120, starting at any number less than 120. Read and write numerals and represent objects with numerals.</p>
-                                </div>
+                <div class="tab-container">
+                    <div class="tab-list" role="tablist" aria-label="Number and Operations in Base Ten skills">
+                        <button class="tab-button active" role="tab" aria-selected="true" aria-controls="tab-panel-nbt-1" id="tab-nbt-1" data-domain="nbt">
+                            <h4>Extend the Counting Sequence</h4>
+                            <div class="tab-summary">
+                                <p><strong>1.NBT.1</strong> Count to 120, starting at any number less than 120. Read and write numerals and represent objects with numerals.</p>
                             </div>
-                            <div class="expand-icon">+</div>
-                        </div>
-                        <div class="grid-item-details">
+                        </button>
+                        <button class="tab-button" role="tab" aria-selected="false" aria-controls="tab-panel-nbt-2" id="tab-nbt-2" data-domain="nbt">
+                            <h4>Understand Place Value</h4>
+                            <div class="tab-summary">
+                                <p><strong>1.NBT.2-3</strong> Understand place value: tens and ones. Compare two two-digit numbers using >, =, and < symbols.</p>
+                            </div>
+                        </button>
+                        <button class="tab-button" role="tab" aria-selected="false" aria-controls="tab-panel-nbt-3" id="tab-nbt-3" data-domain="nbt">
+                            <h4>Use Place Value Understanding</h4>
+                            <div class="tab-summary">
+                                <p><strong>1.NBT.4-6</strong> Add within 100. Mentally find 10 more or 10 less. Subtract multiples of 10 in the range 10-90.</p>
+                            </div>
+                        </button>
+                    </div>
+                    <div class="tab-panels">
+                        <div class="tab-panel active" role="tabpanel" id="tab-panel-nbt-1" aria-labelledby="tab-nbt-1">
                             <h5>What Students Learn:</h5>
                             <p>Students extend their counting skills beyond 100 to 120. They practice starting at any number (not just 1) and counting forward. They also learn to read and write numbers up to 120 and represent quantities with the appropriate numeral.</p>
 
@@ -346,18 +341,7 @@
                                 <p>If there are 114 pencils, students write the numeral "114"</p>
                             </div>
                         </div>
-                    </div>
-                    <div class="grid-item">
-                        <div class="grid-item-header">
-                            <div class="grid-item-title">
-                                <h4>Understand Place Value</h4>
-                                <div class="grid-item-summary">
-                                    <p><strong>1.NBT.2-3</strong> Understand place value: tens and ones. Compare two two-digit numbers using >, =, and < symbols.</p>
-                                </div>
-                            </div>
-                            <div class="expand-icon">+</div>
-                        </div>
-                        <div class="grid-item-details">
+                        <div class="tab-panel" role="tabpanel" id="tab-panel-nbt-2" aria-labelledby="tab-nbt-2">
                             <h5>What Students Learn:</h5>
                             <p>Students develop a foundational understanding of place value by recognizing that two-digit numbers are composed of tens and ones. For example, 45 is 4 tens and 5 ones. They learn to compare numbers based on their place values using comparison symbols.</p>
 
@@ -376,18 +360,7 @@
                                 <p>What is 73? It's 7 tens and 3 ones, or 70 + 3</p>
                             </div>
                         </div>
-                    </div>
-                    <div class="grid-item">
-                        <div class="grid-item-header">
-                            <div class="grid-item-title">
-                                <h4>Use Place Value Understanding</h4>
-                                <div class="grid-item-summary">
-                                    <p><strong>1.NBT.4-6</strong> Add within 100. Mentally find 10 more or 10 less. Subtract multiples of 10 in the range 10-90.</p>
-                                </div>
-                            </div>
-                            <div class="expand-icon">+</div>
-                        </div>
-                        <div class="grid-item-details">
+                        <div class="tab-panel" role="tabpanel" id="tab-panel-nbt-3" aria-labelledby="tab-nbt-3">
                             <h5>What Students Learn:</h5>
                             <p>Students apply their understanding of place value to perform addition and subtraction. They learn mental math strategies like finding 10 more or 10 less by adding or subtracting from the tens place, and they practice subtracting multiples of 10.</p>
 
@@ -413,18 +386,29 @@
 
             <div class="domain-section">
                 <h3>Measurement and Data (1.MD)</h3>
-                <div class="grid-container">
-                    <div class="grid-item">
-                        <div class="grid-item-header">
-                            <div class="grid-item-title">
-                                <h4>Measure Lengths</h4>
-                                <div class="grid-item-summary">
-                                    <p><strong>1.MD.1-2</strong> Order three objects by length. Express the length of an object using length units.</p>
-                                </div>
+                <div class="tab-container">
+                    <div class="tab-list" role="tablist" aria-label="Measurement and Data skills">
+                        <button class="tab-button active" role="tab" aria-selected="true" aria-controls="tab-panel-md-1" id="tab-md-1" data-domain="md">
+                            <h4>Measure Lengths</h4>
+                            <div class="tab-summary">
+                                <p><strong>1.MD.1-2</strong> Order three objects by length. Express the length of an object using length units.</p>
                             </div>
-                            <div class="expand-icon">+</div>
-                        </div>
-                        <div class="grid-item-details">
+                        </button>
+                        <button class="tab-button" role="tab" aria-selected="false" aria-controls="tab-panel-md-2" id="tab-md-2" data-domain="md">
+                            <h4>Tell and Write Time</h4>
+                            <div class="tab-summary">
+                                <p><strong>1.MD.3</strong> Tell and write time in hours and half-hours using analog and digital clocks.</p>
+                            </div>
+                        </button>
+                        <button class="tab-button" role="tab" aria-selected="false" aria-controls="tab-panel-md-3" id="tab-md-3" data-domain="md">
+                            <h4>Represent and Interpret Data</h4>
+                            <div class="tab-summary">
+                                <p><strong>1.MD.4</strong> Organize, represent, and interpret data with up to three categories.</p>
+                            </div>
+                        </button>
+                    </div>
+                    <div class="tab-panels">
+                        <div class="tab-panel active" role="tabpanel" id="tab-panel-md-1" aria-labelledby="tab-md-1">
                             <h5>What Students Learn:</h5>
                             <p>Students begin to understand measurement by comparing lengths of objects. They learn to order objects from shortest to longest and to measure lengths using non-standard units (like paper clips or blocks) and standard units. This is their introduction to linear measurement concepts.</p>
 
@@ -444,18 +428,7 @@
                                 <p>The pencil is 6 paper clips long (place paper clips end-to-end along the pencil)</p>
                             </div>
                         </div>
-                    </div>
-                    <div class="grid-item">
-                        <div class="grid-item-header">
-                            <div class="grid-item-title">
-                                <h4>Tell and Write Time</h4>
-                                <div class="grid-item-summary">
-                                    <p><strong>1.MD.3</strong> Tell and write time in hours and half-hours using analog and digital clocks.</p>
-                                </div>
-                            </div>
-                            <div class="expand-icon">+</div>
-                        </div>
-                        <div class="grid-item-details">
+                        <div class="tab-panel" role="tabpanel" id="tab-panel-md-2" aria-labelledby="tab-md-2">
                             <h5>What Students Learn:</h5>
                             <p>Students learn to tell time to the hour and half-hour on both analog (with hands) and digital clocks. They understand that the short hand points to the hour and the long hand points to the minutes, and they can write the time in standard notation.</p>
 
@@ -476,18 +449,7 @@
                                 <p>What time is it? Hour hand on 2, minute hand on 12 → 2:00 or "two o'clock"</p>
                             </div>
                         </div>
-                    </div>
-                    <div class="grid-item">
-                        <div class="grid-item-header">
-                            <div class="grid-item-title">
-                                <h4>Represent and Interpret Data</h4>
-                                <div class="grid-item-summary">
-                                    <p><strong>1.MD.4</strong> Organize, represent, and interpret data with up to three categories.</p>
-                                </div>
-                            </div>
-                            <div class="expand-icon">+</div>
-                        </div>
-                        <div class="grid-item-details">
+                        <div class="tab-panel" role="tabpanel" id="tab-panel-md-3" aria-labelledby="tab-md-3">
                             <h5>What Students Learn:</h5>
                             <p>Students learn to collect, organize, and display data using simple charts and graphs. They practice asking and answering questions about the data, including finding totals and comparing categories. This introduces basic data analysis skills.</p>
 
@@ -514,18 +476,29 @@
 
             <div class="domain-section">
                 <h3>Geometry (1.G)</h3>
-                <div class="grid-container">
-                    <div class="grid-item">
-                        <div class="grid-item-header">
-                            <div class="grid-item-title">
-                                <h4>Distinguish Shape Attributes</h4>
-                                <div class="grid-item-summary">
-                                    <p><strong>1.G.1</strong> Distinguish between defining attributes versus non-defining attributes of shapes. Build and draw shapes with specific attributes.</p>
-                                </div>
+                <div class="tab-container">
+                    <div class="tab-list" role="tablist" aria-label="Geometry skills">
+                        <button class="tab-button active" role="tab" aria-selected="true" aria-controls="tab-panel-g-1" id="tab-g-1" data-domain="g">
+                            <h4>Distinguish Shape Attributes</h4>
+                            <div class="tab-summary">
+                                <p><strong>1.G.1</strong> Distinguish between defining attributes versus non-defining attributes of shapes. Build and draw shapes with specific attributes.</p>
                             </div>
-                            <div class="expand-icon">+</div>
-                        </div>
-                        <div class="grid-item-details">
+                        </button>
+                        <button class="tab-button" role="tab" aria-selected="false" aria-controls="tab-panel-g-2" id="tab-g-2" data-domain="g">
+                            <h4>Compose Shapes</h4>
+                            <div class="tab-summary">
+                                <p><strong>1.G.2</strong> Compose two-dimensional or three-dimensional shapes to create composite shapes and decompose shapes into smaller parts.</p>
+                            </div>
+                        </button>
+                        <button class="tab-button" role="tab" aria-selected="false" aria-controls="tab-panel-g-3" id="tab-g-3" data-domain="g">
+                            <h4>Partition Shapes into Equal Shares</h4>
+                            <div class="tab-summary">
+                                <p><strong>1.G.3</strong> Partition circles and rectangles into two and four equal shares. Describe shares using words like halves and fourths.</p>
+                            </div>
+                        </button>
+                    </div>
+                    <div class="tab-panels">
+                        <div class="tab-panel active" role="tabpanel" id="tab-panel-g-1" aria-labelledby="tab-g-1">
                             <h5>What Students Learn:</h5>
                             <p>Students learn to identify the essential characteristics that define a shape (like the number of sides and angles) versus attributes that don't define the shape (like color, size, or orientation). They understand that a triangle is always a triangle regardless of its size or color.</p>
 
@@ -545,18 +518,7 @@
                                 <p>All of these are triangles even though they look different: △ ▲ ◭</p>
                             </div>
                         </div>
-                    </div>
-                    <div class="grid-item">
-                        <div class="grid-item-header">
-                            <div class="grid-item-title">
-                                <h4>Compose Shapes</h4>
-                                <div class="grid-item-summary">
-                                    <p><strong>1.G.2</strong> Compose two-dimensional or three-dimensional shapes to create composite shapes and decompose shapes into smaller parts.</p>
-                                </div>
-                            </div>
-                            <div class="expand-icon">+</div>
-                        </div>
-                        <div class="grid-item-details">
+                        <div class="tab-panel" role="tabpanel" id="tab-panel-g-2" aria-labelledby="tab-g-2">
                             <h5>What Students Learn:</h5>
                             <p>Students learn to combine simple shapes to create more complex shapes and to break apart complex shapes into simpler components. This develops spatial reasoning and understanding of how shapes relate to each other. It's like building with geometric blocks.</p>
 
@@ -578,18 +540,7 @@
                                 <p>Decompose: A house shape can be broken into a square (walls) and a triangle (roof)</p>
                             </div>
                         </div>
-                    </div>
-                    <div class="grid-item">
-                        <div class="grid-item-header">
-                            <div class="grid-item-title">
-                                <h4>Partition Shapes into Equal Shares</h4>
-                                <div class="grid-item-summary">
-                                    <p><strong>1.G.3</strong> Partition circles and rectangles into two and four equal shares. Describe shares using words like halves and fourths.</p>
-                                </div>
-                            </div>
-                            <div class="expand-icon">+</div>
-                        </div>
-                        <div class="grid-item-details">
+                        <div class="tab-panel" role="tabpanel" id="tab-panel-g-3" aria-labelledby="tab-g-3">
                             <h5>What Students Learn:</h5>
                             <p>Students learn to divide circles and rectangles into equal parts (halves and fourths/quarters). This is an introduction to fractions, helping them understand that shapes can be divided into equal-sized pieces and introducing vocabulary like "half" and "fourth" or "quarter."</p>
 

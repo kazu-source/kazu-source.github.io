@@ -164,18 +164,17 @@
 
             <div class="domain-section">
                 <h3>The Number System (8.NS)</h3>
-                <div class="grid-container">
-                    <div class="grid-item">
-                        <div class="grid-item-header">
-                            <div class="grid-item-title">
-                                <h4>Know Real Numbers</h4>
-                                <div class="grid-item-summary">
-                                    <p><strong>8.NS.1-2</strong> Know rational and irrational numbers, use rational approximations of irrational numbers.</p>
-                                </div>
+                <div class="tab-container">
+                    <div class="tab-list" role="tablist" aria-label="The Number System skills">
+                        <button class="tab-button active" role="tab" aria-selected="true" aria-controls="tab-panel-ns-1" id="tab-ns-1" data-domain="ns">
+                            <h4>Know Real Numbers</h4>
+                            <div class="tab-summary">
+                                <p><strong>8.NS.1-2</strong> Know rational and irrational numbers, use rational approximations of irrational numbers.</p>
                             </div>
-                            <div class="expand-icon">+</div>
-                        </div>
-                        <div class="grid-item-details">
+                        </button>
+                    </div>
+                    <div class="tab-panels">
+                        <div class="tab-panel active" role="tabpanel" id="tab-panel-ns-1" aria-labelledby="tab-ns-1">
                             <h5>What Students Learn:</h5>
                             <p>Students learn to distinguish between rational numbers (which can be expressed as fractions) and irrational numbers (like π and √2). They understand that all numbers fall into the real number system, and they learn to approximate irrational numbers using rational numbers for practical calculations.</p>
 
@@ -203,18 +202,29 @@
 
             <div class="domain-section">
                 <h3>Expressions and Equations (8.EE)</h3>
-                <div class="grid-container">
-                    <div class="grid-item">
-                        <div class="grid-item-header">
-                            <div class="grid-item-title">
-                                <h4>Work with Radicals and Integer Exponents</h4>
-                                <div class="grid-item-summary">
-                                    <p><strong>8.EE.1-4</strong> Apply properties of integer exponents, use square/cube roots, use scientific notation.</p>
-                                </div>
+                <div class="tab-container">
+                    <div class="tab-list" role="tablist" aria-label="Expressions and Equations skills">
+                        <button class="tab-button active" role="tab" aria-selected="true" aria-controls="tab-panel-ee-1" id="tab-ee-1" data-domain="ee">
+                            <h4>Work with Radicals and Integer Exponents</h4>
+                            <div class="tab-summary">
+                                <p><strong>8.EE.1-4</strong> Apply properties of integer exponents, use square/cube roots, use scientific notation.</p>
                             </div>
-                            <div class="expand-icon">+</div>
-                        </div>
-                        <div class="grid-item-details">
+                        </button>
+                        <button class="tab-button" role="tab" aria-selected="false" aria-controls="tab-panel-ee-2" id="tab-ee-2" data-domain="ee">
+                            <h4>Understand Proportional Relationships</h4>
+                            <div class="tab-summary">
+                                <p><strong>8.EE.5-6</strong> Graph proportional relationships, analyze similar triangles.</p>
+                            </div>
+                        </button>
+                        <button class="tab-button" role="tab" aria-selected="false" aria-controls="tab-panel-ee-3" id="tab-ee-3" data-domain="ee">
+                            <h4>Analyze and Solve Linear Equations</h4>
+                            <div class="tab-summary">
+                                <p><strong>8.EE.7-8</strong> Solve linear equations, analyze and solve systems of linear equations.</p>
+                            </div>
+                        </button>
+                    </div>
+                    <div class="tab-panels">
+                        <div class="tab-panel active" role="tabpanel" id="tab-panel-ee-1" aria-labelledby="tab-ee-1">
                             <h5>What Students Learn:</h5>
                             <p>Students master the rules of exponents including negative and zero exponents, and learn to work with very large and very small numbers using scientific notation. They apply these skills to real-world problems involving exponential growth and extremely large or small quantities.</p>
 
@@ -241,18 +251,7 @@
                                 <p>Real-world: Distance to sun ≈ 9.3 × 10⁷ miles, size of bacteria ≈ 2 × 10^(-6) meters</p>
                             </div>
                         </div>
-                    </div>
-                    <div class="grid-item">
-                        <div class="grid-item-header">
-                            <div class="grid-item-title">
-                                <h4>Understand Proportional Relationships</h4>
-                                <div class="grid-item-summary">
-                                    <p><strong>8.EE.5-6</strong> Graph proportional relationships, analyze similar triangles.</p>
-                                </div>
-                            </div>
-                            <div class="expand-icon">+</div>
-                        </div>
-                        <div class="grid-item-details">
+                        <div class="tab-panel" role="tabpanel" id="tab-panel-ee-2" aria-labelledby="tab-ee-2">
                             <h5>What Students Learn:</h5>
                             <p>Students deepen their understanding of proportional relationships by graphing them and interpreting the unit rate as the slope. They connect proportional relationships to similar triangles and understand how slope is derived from the ratio of vertical change to horizontal change.</p>
 
@@ -276,18 +275,7 @@
                                 <p>This shows slope is constant for any two points on the line</p>
                             </div>
                         </div>
-                    </div>
-                    <div class="grid-item">
-                        <div class="grid-item-header">
-                            <div class="grid-item-title">
-                                <h4>Analyze and Solve Linear Equations</h4>
-                                <div class="grid-item-summary">
-                                    <p><strong>8.EE.7-8</strong> Solve linear equations, analyze and solve systems of linear equations.</p>
-                                </div>
-                            </div>
-                            <div class="expand-icon">+</div>
-                        </div>
-                        <div class="grid-item-details">
+                        <div class="tab-panel" role="tabpanel" id="tab-panel-ee-3" aria-labelledby="tab-ee-3">
                             <h5>What Students Learn:</h5>
                             <p>Students learn to solve increasingly complex linear equations including those with variables on both sides and with rational coefficients. They are introduced to systems of linear equations and learn multiple methods to solve them, understanding how the solution represents the intersection point of two lines.</p>
 
@@ -320,18 +308,23 @@
 
             <div class="domain-section">
                 <h3>Functions (8.F)</h3>
-                <div class="grid-container">
-                    <div class="grid-item">
-                        <div class="grid-item-header">
-                            <div class="grid-item-title">
-                                <h4>Define and Compare Functions</h4>
-                                <div class="grid-item-summary">
-                                    <p><strong>8.F.1-3</strong> Understand functions, compare properties of functions, analyze functions using graphs.</p>
-                                </div>
+                <div class="tab-container">
+                    <div class="tab-list" role="tablist" aria-label="Functions skills">
+                        <button class="tab-button active" role="tab" aria-selected="true" aria-controls="tab-panel-f-1" id="tab-f-1" data-domain="f">
+                            <h4>Define and Compare Functions</h4>
+                            <div class="tab-summary">
+                                <p><strong>8.F.1-3</strong> Understand functions, compare properties of functions, analyze functions using graphs.</p>
                             </div>
-                            <div class="expand-icon">+</div>
-                        </div>
-                        <div class="grid-item-details">
+                        </button>
+                        <button class="tab-button" role="tab" aria-selected="false" aria-controls="tab-panel-f-2" id="tab-f-2" data-domain="f">
+                            <h4>Use Functions to Model Relationships</h4>
+                            <div class="tab-summary">
+                                <p><strong>8.F.4-5</strong> Construct functions to model linear relationships, describe qualitative features of functions.</p>
+                            </div>
+                        </button>
+                    </div>
+                    <div class="tab-panels">
+                        <div class="tab-panel active" role="tabpanel" id="tab-panel-f-1" aria-labelledby="tab-f-1">
                             <h5>What Students Learn:</h5>
                             <p>Students are introduced to the formal concept of a function as a rule that assigns exactly one output to each input. They learn to identify functions from tables, graphs, and equations, and to compare different functions by analyzing their rates of change and initial values.</p>
 
@@ -357,18 +350,7 @@
                                 <p>Function B grows faster (rate of 3 vs. 2) but starts higher</p>
                             </div>
                         </div>
-                    </div>
-                    <div class="grid-item">
-                        <div class="grid-item-header">
-                            <div class="grid-item-title">
-                                <h4>Use Functions to Model Relationships</h4>
-                                <div class="grid-item-summary">
-                                    <p><strong>8.F.4-5</strong> Construct functions to model linear relationships, describe qualitative features of functions.</p>
-                                </div>
-                            </div>
-                            <div class="expand-icon">+</div>
-                        </div>
-                        <div class="grid-item-details">
+                        <div class="tab-panel" role="tabpanel" id="tab-panel-f-2" aria-labelledby="tab-f-2">
                             <h5>What Students Learn:</h5>
                             <p>Students learn to create function models for real-world linear relationships and interpret graphs qualitatively. They describe how functions behave (increasing, decreasing, constant) and relate graph features to real-world contexts like time, distance, and speed.</p>
 
@@ -401,18 +383,29 @@
 
             <div class="domain-section">
                 <h3>Geometry (8.G)</h3>
-                <div class="grid-container">
-                    <div class="grid-item">
-                        <div class="grid-item-header">
-                            <div class="grid-item-title">
-                                <h4>Understand Congruence and Similarity</h4>
-                                <div class="grid-item-summary">
-                                    <p><strong>8.G.1-5</strong> Verify properties of rotations, reflections, and translations, understand congruence and similarity.</p>
-                                </div>
+                <div class="tab-container">
+                    <div class="tab-list" role="tablist" aria-label="Geometry skills">
+                        <button class="tab-button active" role="tab" aria-selected="true" aria-controls="tab-panel-g-1" id="tab-g-1" data-domain="g">
+                            <h4>Understand Congruence and Similarity</h4>
+                            <div class="tab-summary">
+                                <p><strong>8.G.1-5</strong> Verify properties of rotations, reflections, and translations, understand congruence and similarity.</p>
                             </div>
-                            <div class="expand-icon">+</div>
-                        </div>
-                        <div class="grid-item-details">
+                        </button>
+                        <button class="tab-button" role="tab" aria-selected="false" aria-controls="tab-panel-g-2" id="tab-g-2" data-domain="g">
+                            <h4>Understand and Apply the Pythagorean Theorem</h4>
+                            <div class="tab-summary">
+                                <p><strong>8.G.6-8</strong> Explain proof of the Pythagorean Theorem, apply it to find distances.</p>
+                            </div>
+                        </button>
+                        <button class="tab-button" role="tab" aria-selected="false" aria-controls="tab-panel-g-3" id="tab-g-3" data-domain="g">
+                            <h4>Solve Real-World Volume Problems</h4>
+                            <div class="tab-summary">
+                                <p><strong>8.G.9</strong> Know and apply formulas for volumes of cones, cylinders, and spheres.</p>
+                            </div>
+                        </button>
+                    </div>
+                    <div class="tab-panels">
+                        <div class="tab-panel active" role="tabpanel" id="tab-panel-g-1" aria-labelledby="tab-g-1">
                             <h5>What Students Learn:</h5>
                             <p>Students explore transformations (rotations, reflections, translations, and dilations) and understand how these transformations relate to congruence and similarity. They learn that congruent figures result from rigid transformations (preserving size and shape) while similar figures result from dilations combined with rigid transformations.</p>
 
@@ -440,18 +433,7 @@
                                 <p>To map triangle ABC to A'B'C': Rotate 90° counterclockwise, then translate right 3 units</p>
                             </div>
                         </div>
-                    </div>
-                    <div class="grid-item">
-                        <div class="grid-item-header">
-                            <div class="grid-item-title">
-                                <h4>Understand and Apply the Pythagorean Theorem</h4>
-                                <div class="grid-item-summary">
-                                    <p><strong>8.G.6-8</strong> Explain proof of the Pythagorean Theorem, apply it to find distances.</p>
-                                </div>
-                            </div>
-                            <div class="expand-icon">+</div>
-                        </div>
-                        <div class="grid-item-details">
+                        <div class="tab-panel" role="tabpanel" id="tab-panel-g-2" aria-labelledby="tab-g-2">
                             <h5>What Students Learn:</h5>
                             <p>Students learn the Pythagorean Theorem (a² + b² = c²) and understand why it works through geometric proofs. They apply this fundamental theorem to solve real-world problems involving right triangles, find distances on the coordinate plane, and determine whether triangles are right triangles.</p>
 
@@ -481,18 +463,7 @@
                                 <p>Is a triangle with sides 7, 24, 25 a right triangle? Check: 7² + 24² = 49 + 576 = 625 = 25². Yes!</p>
                             </div>
                         </div>
-                    </div>
-                    <div class="grid-item">
-                        <div class="grid-item-header">
-                            <div class="grid-item-title">
-                                <h4>Solve Real-World Volume Problems</h4>
-                                <div class="grid-item-summary">
-                                    <p><strong>8.G.9</strong> Know and apply formulas for volumes of cones, cylinders, and spheres.</p>
-                                </div>
-                            </div>
-                            <div class="expand-icon">+</div>
-                        </div>
-                        <div class="grid-item-details">
+                        <div class="tab-panel" role="tabpanel" id="tab-panel-g-3" aria-labelledby="tab-g-3">
                             <h5>What Students Learn:</h5>
                             <p>Students learn the volume formulas for three-dimensional curved shapes: cylinders, cones, and spheres. They apply these formulas to solve real-world problems and understand the relationships between these shapes (e.g., a cone has 1/3 the volume of a cylinder with the same base and height).</p>
 
@@ -529,18 +500,17 @@
 
             <div class="domain-section">
                 <h3>Statistics and Probability (8.SP)</h3>
-                <div class="grid-container">
-                    <div class="grid-item">
-                        <div class="grid-item-header">
-                            <div class="grid-item-title">
-                                <h4>Investigate Patterns of Association</h4>
-                                <div class="grid-item-summary">
-                                    <p><strong>8.SP.1-4</strong> Construct and interpret scatter plots, investigate patterns of association in bivariate data.</p>
-                                </div>
+                <div class="tab-container">
+                    <div class="tab-list" role="tablist" aria-label="Statistics and Probability skills">
+                        <button class="tab-button active" role="tab" aria-selected="true" aria-controls="tab-panel-sp-1" id="tab-sp-1" data-domain="sp">
+                            <h4>Investigate Patterns of Association</h4>
+                            <div class="tab-summary">
+                                <p><strong>8.SP.1-4</strong> Construct and interpret scatter plots, investigate patterns of association in bivariate data.</p>
                             </div>
-                            <div class="expand-icon">+</div>
-                        </div>
-                        <div class="grid-item-details">
+                        </button>
+                    </div>
+                    <div class="tab-panels">
+                        <div class="tab-panel active" role="tabpanel" id="tab-panel-sp-1" aria-labelledby="tab-sp-1">
                             <h5>What Students Learn:</h5>
                             <p>Students learn to analyze relationships between two quantitative variables using scatter plots. They identify patterns of association (positive, negative, or no correlation), fit lines to data, and use these models to make predictions. They also work with two-way tables to analyze categorical data.</p>
 
