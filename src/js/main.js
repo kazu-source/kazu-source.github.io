@@ -277,6 +277,56 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
+    // Tab list scroll indicators (mobile)
+    // Update gradient visibility based on scroll position
+    function updateScrollIndicators(tabList) {
+        if (!tabList) return;
+
+        const tabContainer = tabList.closest('.tab-container');
+        if (!tabContainer) return;
+
+        const scrollLeft = tabList.scrollLeft;
+        const scrollWidth = tabList.scrollWidth;
+        const clientWidth = tabList.clientWidth;
+        const maxScroll = scrollWidth - clientWidth;
+
+        // At start (hide left arrow)
+        if (scrollLeft <= 5) {
+            tabContainer.classList.add('at-start');
+        } else {
+            tabContainer.classList.remove('at-start');
+        }
+
+        // At end (hide right arrow)
+        if (scrollLeft >= maxScroll - 5) {
+            tabContainer.classList.add('at-end');
+        } else {
+            tabContainer.classList.remove('at-end');
+        }
+    }
+
+    // Initialize scroll indicators for all tab lists
+    const tabLists = document.querySelectorAll('.tab-list');
+    tabLists.forEach(tabList => {
+        // Initial check
+        updateScrollIndicators(tabList);
+
+        // Update on scroll
+        tabList.addEventListener('scroll', () => {
+            updateScrollIndicators(tabList);
+        });
+
+        // Update on window resize
+        window.addEventListener('resize', () => {
+            updateScrollIndicators(tabList);
+        });
+
+        // Update after images or content loads
+        window.addEventListener('load', () => {
+            updateScrollIndicators(tabList);
+        });
+    });
+
     // Resources Page - Grade-First Navigation
     const gradeTabButtons = document.querySelectorAll('.grade-tab-button');
     const domainTabButtons = document.querySelectorAll('.domain-tab-button');

@@ -917,11 +917,14 @@ footer {
     border: 2px solid var(--border-color);
     border-radius: var(--radius-md);
     padding: 1rem;
-    text-align: left;
+    text-align: center;
     cursor: pointer;
     transition: all var(--transition-base);
     position: relative;
     overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .tab-button::before {
@@ -958,7 +961,7 @@ footer {
 }
 
 .tab-button h4 {
-    margin: 0 0 0.5rem 0;
+    margin: 0;
     color: var(--text-primary);
     font-size: 1.1rem;
     font-weight: 600;
@@ -1044,6 +1047,7 @@ footer {
 @media (max-width: 768px) {
     .tab-container {
         flex-direction: column;
+        position: relative;
     }
 
     .tab-list {
@@ -1051,7 +1055,122 @@ footer {
         max-width: 100%;
         flex-direction: row;
         overflow-x: auto;
-        scrollbar-width: thin;
+        overflow-y: hidden;
+        scroll-behavior: smooth;
+        -webkit-overflow-scrolling: touch;
+
+        /* Firefox scrollbar styling */
+        scrollbar-width: auto;
+        scrollbar-color: var(--primary-purple) var(--bg-secondary);
+    }
+
+    /* Styled scrollbar for webkit browsers (Chrome, Safari, Edge) */
+    .tab-list::-webkit-scrollbar {
+        height: 14px;
+        width: 14px;
+    }
+
+    .tab-list::-webkit-scrollbar-track {
+        background: var(--bg-secondary);
+        border-radius: 10px;
+        margin: 0 4px;
+    }
+
+    .tab-list::-webkit-scrollbar-thumb {
+        background: var(--primary-purple);
+        border-radius: 10px;
+        border: 3px solid var(--bg-secondary);
+        min-width: 40px;
+    }
+
+    .tab-list::-webkit-scrollbar-thumb:hover {
+        background: #7c3aed;
+        border: 2px solid var(--bg-secondary);
+    }
+
+    .tab-list::-webkit-scrollbar-thumb:active {
+        background: #6d28d9;
+    }
+
+    /* Left gradient fade overlay with chevron */
+    .tab-container::before {
+        content: '←';
+        position: absolute;
+        left: 0;
+        top: 0;
+        height: 60px;
+        width: 60px;
+        background: linear-gradient(to right,
+            var(--bg-primary) 0%,
+            var(--bg-primary) 30%,
+            rgba(248, 250, 252, 0.95) 50%,
+            rgba(248, 250, 252, 0.7) 70%,
+            transparent 100%);
+        pointer-events: none;
+        z-index: 1000;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 2rem;
+        font-weight: bold;
+        color: var(--primary-purple);
+        text-shadow: 0 0 4px rgba(255, 255, 255, 0.8);
+        transition: opacity var(--transition-base);
+    }
+
+    /* Right gradient fade overlay with chevron */
+    .tab-container::after {
+        content: '→';
+        position: absolute;
+        right: 0;
+        top: 0;
+        height: 60px;
+        width: 60px;
+        background: linear-gradient(to left,
+            var(--bg-primary) 0%,
+            var(--bg-primary) 30%,
+            rgba(248, 250, 252, 0.95) 50%,
+            rgba(248, 250, 252, 0.7) 70%,
+            transparent 100%);
+        pointer-events: none;
+        z-index: 1000;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 2rem;
+        font-weight: bold;
+        color: var(--primary-purple);
+        text-shadow: 0 0 4px rgba(255, 255, 255, 0.8);
+        transition: opacity var(--transition-base);
+    }
+
+    /* Night mode adjustments for gradient overlays */
+    html.night-mode .tab-container::before {
+        background: linear-gradient(to right,
+            var(--bg-primary) 0%,
+            var(--bg-primary) 30%,
+            rgba(15, 23, 42, 0.95) 50%,
+            rgba(15, 23, 42, 0.7) 70%,
+            transparent 100%);
+    }
+
+    html.night-mode .tab-container::after {
+        background: linear-gradient(to left,
+            var(--bg-primary) 0%,
+            var(--bg-primary) 30%,
+            rgba(15, 23, 42, 0.95) 50%,
+            rgba(15, 23, 42, 0.7) 70%,
+            transparent 100%);
+    }
+
+    /* Hide left gradient when scrolled to start */
+    .tab-container.at-start::before {
+        opacity: 0;
+    }
+
+    /* Hide right gradient when scrolled to end */
+    .tab-container.at-end::after {
+        opacity: 0;
     }
 
     .tab-button {
