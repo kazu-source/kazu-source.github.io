@@ -57,7 +57,7 @@
 
         /* Stabilize header and navigation to prevent layout shifts */
         header {
-            min-height: 120px;
+            min-height: 60px;
         }
         .site-title img {
             height: 50px;
@@ -470,18 +470,29 @@
 
             <div class="domain-section">
                 <h3>Measurement and Data (4.MD)</h3>
-                <div class="grid-container">
-                    <div class="grid-item">
-                        <div class="grid-item-header">
-                            <div class="grid-item-title">
-                                <h4>Solve Problems with Measurement</h4>
-                                <div class="grid-item-summary">
-                                    <p><strong>4.MD.1-3</strong> Know relative sizes of units, convert measurements, apply area and perimeter formulas.</p>
-                                </div>
+                <div class="tab-container">
+                    <div class="tab-list" role="tablist" aria-label="Measurement and Data skills">
+                        <button class="tab-button active" role="tab" aria-selected="true" aria-controls="tab-panel-md4-1" id="tab-md4-1" data-domain="md4">
+                            <h4>Solve Problems with Measurement</h4>
+                            <div class="tab-summary">
+                                <p><strong>4.MD.1-3</strong> Know relative sizes of units, convert measurements, apply area and perimeter formulas.</p>
                             </div>
-                            <div class="expand-icon">+</div>
-                        </div>
-                        <div class="grid-item-details">
+                        </button>
+                        <button class="tab-button" role="tab" aria-selected="false" aria-controls="tab-panel-md4-2" id="tab-md4-2" data-domain="md4">
+                            <h4>Represent and Interpret Data</h4>
+                            <div class="tab-summary">
+                                <p><strong>4.MD.4</strong> Make line plots to display measurement data involving fractions of a unit.</p>
+                            </div>
+                        </button>
+                        <button class="tab-button" role="tab" aria-selected="false" aria-controls="tab-panel-md4-3" id="tab-md4-3" data-domain="md4">
+                            <h4>Geometric Measurement: Understand Angles</h4>
+                            <div class="tab-summary">
+                                <p><strong>4.MD.5-7</strong> Understand concepts of angle measurement, measure angles with a protractor.</p>
+                            </div>
+                        </button>
+                    </div>
+                    <div class="tab-panels">
+                        <div class="tab-panel active" role="tabpanel" id="tab-panel-md4-1" aria-labelledby="tab-md4-1">
                             <h5>What Students Learn:</h5>
                             <p>Students develop a deeper understanding of measurement by learning the relative sizes of different measurement units and converting between them. They apply formulas for area and perimeter of rectangles to solve real-world problems. This includes understanding relationships between units in both customary and metric systems.</p>
 
@@ -507,18 +518,7 @@
                                 <p>Perimeter: P = (2 x 12) + (2 x 8) = 24 + 16 = 40 feet</p>
                             </div>
                         </div>
-                    </div>
-                    <div class="grid-item">
-                        <div class="grid-item-header">
-                            <div class="grid-item-title">
-                                <h4>Represent and Interpret Data</h4>
-                                <div class="grid-item-summary">
-                                    <p><strong>4.MD.4</strong> Make line plots to display measurement data involving fractions of a unit.</p>
-                                </div>
-                            </div>
-                            <div class="expand-icon">+</div>
-                        </div>
-                        <div class="grid-item-details">
+                        <div class="tab-panel" role="tabpanel" id="tab-panel-md4-2" aria-labelledby="tab-md4-2">
                             <h5>What Students Learn:</h5>
                             <p>Students learn to create and interpret line plots that display measurement data in fractions of a unit (halves, fourths, eighths). This combines their understanding of fractions with data representation, and they solve problems by adding and subtracting fractions based on information in the line plots.</p>
 
@@ -542,18 +542,7 @@
                                 <p>- What is the combined length of the two shortest pencils? 5 1/4 + 5 1/4 = 10 2/4 = 10 1/2 inches</p>
                             </div>
                         </div>
-                    </div>
-                    <div class="grid-item">
-                        <div class="grid-item-header">
-                            <div class="grid-item-title">
-                                <h4>Geometric Measurement: Understand Angles</h4>
-                                <div class="grid-item-summary">
-                                    <p><strong>4.MD.5-7</strong> Understand concepts of angle measurement, measure angles with a protractor.</p>
-                                </div>
-                            </div>
-                            <div class="expand-icon">+</div>
-                        </div>
-                        <div class="grid-item-details">
+                        <div class="tab-panel" role="tabpanel" id="tab-panel-md4-3" aria-labelledby="tab-md4-3">
                             <h5>What Students Learn:</h5>
                             <p>Students are introduced to angles and angle measurement. They learn that an angle is formed by two rays sharing a common endpoint and that angle measurement is additive (adjacent angles can be added together). They use protractors to measure angles and solve problems involving angle measures.</p>
 
@@ -585,18 +574,23 @@
 
             <div class="domain-section">
                 <h3>Geometry (4.G)</h3>
-                <div class="grid-container">
-                    <div class="grid-item">
-                        <div class="grid-item-header">
-                            <div class="grid-item-title">
-                                <h4>Draw and Identify Lines and Angles</h4>
-                                <div class="grid-item-summary">
-                                    <p><strong>4.G.1-2</strong> Draw and identify points, lines, line segments, rays, angles, and perpendicular and parallel lines.</p>
-                                </div>
+                <div class="tab-container">
+                    <div class="tab-list" role="tablist" aria-label="Geometry skills">
+                        <button class="tab-button active" role="tab" aria-selected="true" aria-controls="tab-panel-g4-1" id="tab-g4-1" data-domain="g4">
+                            <h4>Draw and Identify Lines and Angles</h4>
+                            <div class="tab-summary">
+                                <p><strong>4.G.1-2</strong> Draw and identify points, lines, line segments, rays, angles, and perpendicular and parallel lines.</p>
                             </div>
-                            <div class="expand-icon">+</div>
-                        </div>
-                        <div class="grid-item-details">
+                        </button>
+                        <button class="tab-button" role="tab" aria-selected="false" aria-controls="tab-panel-g4-2" id="tab-g4-2" data-domain="g4">
+                            <h4>Classify Two-Dimensional Figures</h4>
+                            <div class="tab-summary">
+                                <p><strong>4.G.3</strong> Recognize and draw shapes with specific attributes. Identify line-symmetric figures and draw lines of symmetry.</p>
+                            </div>
+                        </button>
+                    </div>
+                    <div class="tab-panels">
+                        <div class="tab-panel active" role="tabpanel" id="tab-panel-g4-1" aria-labelledby="tab-g4-1">
                             <h5>What Students Learn:</h5>
                             <p>Students develop precision in geometric vocabulary and concepts. They learn to identify and draw basic geometric elements including points, lines, line segments, rays, angles, and special relationships like perpendicular and parallel lines. They also classify two-dimensional figures based on the presence or absence of these elements.</p>
 
@@ -622,18 +616,7 @@
                                 <p>Trapezoid: Has exactly 1 pair of parallel sides</p>
                             </div>
                         </div>
-                    </div>
-                    <div class="grid-item">
-                        <div class="grid-item-header">
-                            <div class="grid-item-title">
-                                <h4>Classify Two-Dimensional Figures</h4>
-                                <div class="grid-item-summary">
-                                    <p><strong>4.G.3</strong> Recognize and draw shapes with specific attributes. Identify line-symmetric figures and draw lines of symmetry.</p>
-                                </div>
-                            </div>
-                            <div class="expand-icon">+</div>
-                        </div>
-                        <div class="grid-item-details">
+                        <div class="tab-panel" role="tabpanel" id="tab-panel-g4-2" aria-labelledby="tab-g4-2">
                             <h5>What Students Learn:</h5>
                             <p>Students learn to classify and identify two-dimensional shapes based on their specific attributes. They explore symmetry by recognizing line-symmetric figures (shapes that can be folded along a line so both halves match exactly) and by drawing lines of symmetry. This deepens their understanding of shape properties and relationships.</p>
 

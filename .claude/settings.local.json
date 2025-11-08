@@ -4,7 +4,11 @@
       "Bash(git log:*)",
       "Bash(python update_nav.py:*)",
       "Bash(python update_nav2.py:*)",
-      "Bash(mkdir:*)"
+      "Bash(mkdir:*)",
+      "Bash(c:UsersAdministratorDocumentsGitHubwhymathold_resources_backup.html)",
+      "Bash(cat:*)",
+      "Bash(python parse_resources.py:*)",
+      "Bash(organized_worksheets.md)"
     ],
     "deny": [],
     "ask": []

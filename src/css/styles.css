@@ -641,7 +641,7 @@ footer {
 .grade-card {
     background-color: var(--card-bg);
     border-radius: var(--radius-xl);
-    padding: var(--spacing-sm) var(--spacing-md);
+    padding: var(--spacing-sm) var(--spacing-md) 8px var(--spacing-md);
     box-shadow: var(--shadow-md);
     transition: all var(--transition-base);
     border-top: 4px solid var(--primary-blue);
@@ -683,11 +683,11 @@ footer {
 .grade-card h3 {
     color: var(--dark-blue);
     border-bottom: 3px solid var(--primary-blue);
-    padding-bottom: var(--spacing-xs);
-    margin-bottom: var(--spacing-sm);
+    padding: 0 0 10px 0;
+    margin: 0 0 var(--spacing-sm) 0;
     font-weight: 700;
-    font-size: 1.4rem;
     text-align: center;
+    font-size: 1.2rem;
     min-height: 3rem;
     display: flex;
     align-items: center;
@@ -708,7 +708,7 @@ footer {
 }
 
 .grade-card li {
-    margin: var(--spacing-xs) 0;
+    margin: 0.15rem 0;
 }
 
 .grade-card a {
@@ -1065,18 +1065,230 @@ footer {
     }
 }
 
+/* Resources Page - Grade-First Layout with Sidebar */
+
+/* School Section Titles */
+.school-section {
+    margin: 1.2rem 0;
+    padding: 1.2rem;
+    border: 2px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    background: var(--card-bg);
+    transition: all var(--transition-base);
+}
+
+.section-title {
+    font-size: 1.75rem;
+    color: var(--primary-purple);
+    margin-bottom: 1rem;
+    margin-top: 0;
+    font-weight: 600;
+}
+
+/* Horizontal Grade Tabs */
+.grade-tabs {
+    display: flex;
+    gap: 0.5rem;
+    border-bottom: 2px solid var(--border-color);
+    overflow-x: auto;
+    scrollbar-width: thin;
+    padding-bottom: 0.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.grade-tab-button {
+    background: var(--card-bg);
+    border: 2px solid var(--border-color);
+    border-bottom: none;
+    border-radius: var(--radius-md) var(--radius-md) 0 0;
+    padding: 0.875rem 1.5rem;
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--text-secondary);
+    cursor: pointer;
+    transition: all var(--transition-base);
+    white-space: nowrap;
+    position: relative;
+    bottom: -2px;
+}
+
+.grade-tab-button:hover {
+    background: linear-gradient(135deg, rgba(139, 92, 246, 0.05) 0%, rgba(139, 92, 246, 0.02) 100%);
+    color: var(--primary-purple);
+    border-color: var(--primary-purple);
+}
+
+.grade-tab-button.active {
+    background: var(--card-bg);
+    color: var(--primary-purple);
+    border-color: var(--primary-purple);
+    border-bottom: 2px solid var(--card-bg);
+    font-weight: 600;
+}
+
+/* Grade Panels Container */
+.grade-panels {
+    margin-top: 0;
+}
+
+.grade-panel {
+    display: none;
+}
+
+.grade-panel.active {
+    display: block;
+    animation: fadeIn var(--transition-base);
+}
+
+/* Two-Column Layout: Sidebar + Content */
+.content-layout {
+    display: flex;
+    gap: 2rem;
+    margin-top: 1rem;
+}
+
+/* Left Sidebar - Vertical Domain Tabs */
+.domain-sidebar {
+    flex: 0 0 220px;
+    min-width: 220px;
+}
+
+.domain-tabs {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    position: sticky;
+    top: 20px;
+}
+
+.domain-tab-button {
+    background: var(--card-bg);
+    border: 2px solid var(--border-color);
+    border-radius: var(--radius-md);
+    padding: 1rem 1.25rem;
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: var(--text-secondary);
+    cursor: pointer;
+    transition: all var(--transition-base);
+    text-align: left;
+    position: relative;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.domain-tab-button::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 4px;
+    background: var(--primary-purple);
+    border-radius: var(--radius-md) 0 0 var(--radius-md);
+    opacity: 0;
+    transition: opacity var(--transition-base);
+}
+
+.domain-tab-button:hover {
+    background: linear-gradient(135deg, rgba(139, 92, 246, 0.05) 0%, rgba(139, 92, 246, 0.02) 100%);
+    color: var(--primary-purple);
+    border-color: var(--primary-purple);
+}
+
+.domain-tab-button:hover::before {
+    opacity: 0.3;
+}
+
+.domain-tab-button.active {
+    background: linear-gradient(135deg, rgba(139, 92, 246, 0.1) 0%, rgba(139, 92, 246, 0.05) 100%);
+    color: var(--primary-purple);
+    border-color: var(--primary-purple);
+    font-weight: 600;
+}
+
+.domain-tab-button.active::before {
+    opacity: 1;
+}
+
+/* Right Content Area */
+.domain-content {
+    flex: 1;
+    min-width: 0;
+}
+
+.domain-panel {
+    display: none;
+}
+
+.domain-panel.active {
+    display: block;
+    animation: fadeIn var(--transition-base);
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+    .grade-tabs {
+        flex-wrap: nowrap;
+        justify-content: flex-start;
+    }
+
+    .grade-tab-button {
+        min-width: 120px;
+        padding: 0.75rem 1.25rem;
+        font-size: 0.9rem;
+    }
+
+    /* Stack sidebar vertically on mobile */
+    .content-layout {
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+
+    .domain-sidebar {
+        flex: 1;
+        min-width: 100%;
+    }
+
+    .domain-tabs {
+        flex-direction: row;
+        overflow-x: auto;
+        position: static;
+        gap: 0.5rem;
+        padding-bottom: 0.5rem;
+    }
+
+    .domain-tab-button {
+        min-width: 150px;
+        white-space: nowrap;
+        text-align: center;
+    }
+
+    .domain-tab-button::before {
+        width: 100%;
+        height: 4px;
+        left: 0;
+        right: 0;
+        top: auto;
+        bottom: 0;
+        border-radius: 0 0 var(--radius-md) var(--radius-md);
+    }
+}
+
 /* Related Grades / Footer Sections */
 .related-grades {
     background-color: var(--bg-secondary);
-    padding: 2rem;
-    margin-top: 2rem;
+    padding: 1.5rem;
+    margin: 1rem 0;
     border-radius: 8px;
     transition: background-color var(--transition-base);
 }
 
 .related-grades h2 {
     color: var(--text-primary);
-    margin-bottom: 1rem;
+    margin-bottom: 0.75rem;
+    text-align: center;
 }
 
 .related-grades p,

@@ -56,7 +56,7 @@
 
         /* Stabilize header and navigation to prevent layout shifts */
         header {
-            min-height: 120px;
+            min-height: 60px;
         }
         .site-title img {
             height: 50px;
@@ -150,622 +150,727 @@
 
         <section class="hero" aria-labelledby="hero-title">
             <h2 id="hero-title">Free Math Worksheets & Practice Materials</h2>
-            <p class="intro-text">Browse our collection of printable math worksheets organized by grade level and skill area. Perfect for homework practice, extra help, or enrichment activities.</p>
+            <p class="intro-text">Browse our collection of printable math worksheets organized by grade level and skill domain. Perfect for homework practice, extra help, or enrichment activities.</p>
         </section>
 
         <section class="notice">
-            <p style="margin: 0;"><strong>Please Note:</strong> This website is currently in progress. New worksheets will be added intermittently as we continue to develop our collection. Check back regularly for updates! Going from Kindergarten to 8th grade, skipping Geometry sections. Currently on: 2nd grade. </p>
-        </section>
-
-        <!-- Kindergarten Worksheets -->
-        <section class="domain-section" aria-labelledby="kindergarten-title">
-            <div class="grade-level-header" onclick="toggleGradeLevel(this)" onkeydown="handleKeyPress(event, this)" role="button" tabindex="0" aria-expanded="false" aria-controls="kindergarten-content">
-                <h2 id="kindergarten-title">Kindergarten Worksheets</h2>
-                <span class="toggle-icon" aria-hidden="true">+</span>
-            </div>
-            <div class="grade-level-content" id="kindergarten-content">
-            <div class="grid-container">
-                <div class="grade-card">
-                    <h3>Counting and Cardinality</h3>
-                    <ul>
-                        <li><a href="../../worksheets/Kindergarten/counting-and-cardinality/counting-to-100.pdf" class="worksheet-link">Counting to 100 by Ones and Tens</a></li>
-                        <li><a href="../../worksheets/Kindergarten/counting-and-cardinality/counting-forward.pdf" class="worksheet-link">Counting Forward from Any Number</a></li>
-                        <li><a href="../../worksheets/Kindergarten/counting-and-cardinality/writing-up-to-20.pdf" class="worksheet-link">Writing Numbers 0 to 20</a></li>
-                        <li><a href="../../worksheets/Kindergarten/counting-and-cardinality/one-to-one-counting.pdf" class="worksheet-link">One-to-One Object Counting</a></li>
-                        <li><a href="../../worksheets/Kindergarten/counting-and-cardinality/counting-activities.pdf" class="worksheet-link">Counting to Answer "How Many?"</a></li>
-                        <li><a href="../../worksheets/Kindergarten/counting-and-cardinality/identifying-greater-numbers-shapes.pdf" class="worksheet-link">Comparing Numbers (Greater Than)</a></li>
-                        <li><a href="../../worksheets/Kindergarten/counting-and-cardinality/identifying-greater-numbers-1-20.pdf" class="worksheet-link">Comparing Numbers 1-20</a></li>
-                    </ul>
-                </div>
-                <div class="grade-card">    
-                    <h3>Operations and Algebraic Thinking</h3>
-                    <ul>
-                        <li><a href="../../worksheets/Kindergarten/operations-and-algebraic-thinking/adding-shapes-together.pdf" class="worksheet-link">Addition as Putting Together</a></li>
-                        <li><a href="../../worksheets/Kindergarten/operations-and-algebraic-thinking/splitting-up-shapes.pdf" class="worksheet-link">Subtraction as Taking Apart</a></li>
-                        <li><a href="../../worksheets/Kindergarten/operations-and-algebraic-thinking/adding-within-5.pdf" class="worksheet-link">Addition within 5</a></li>
-                        <li><a href="../../worksheets/Kindergarten/operations-and-algebraic-thinking/subtracting-within-5.pdf" class="worksheet-link">Subtraction within 5</a></li>
-                        <li><a href="../../worksheets/Kindergarten/operations-and-algebraic-thinking/addition-word-problems.pdf" class="worksheet-link">Addition Word Problems within 10</a></li>
-                        <li><a href="../../worksheets/Kindergarten/operations-and-algebraic-thinking/subtraction-word-problems.pdf" class="worksheet-link">Subtraction Word Problems within 10</a></li>
-                        <li><a href="../../worksheets/Kindergarten/operations-and-algebraic-thinking/decomposing-numbers.pdf" class="worksheet-link">Decomposing Numbers to 10</a></li>    
-                        <li><a href="../../worksheets/Kindergarten/operations-and-algebraic-thinking/making-ten.pdf" class="worksheet-link">Finding Missing Numbers to Make 10</a></li>
-                    </ul>
-                </div>
-                <div class="grade-card">
-                    <h3>Numbers and Operations in Base Ten</h3>
-                    <ul>
-                        <li><a href="../../worksheets/Kindergarten/numbers-and-operations-in-base-ten/composing-and-decomposing-teens.pdf" class="worksheet-link">Working with Numbers 11-19</a></li>
-                        <li><a href="../../worksheets/Kindergarten/numbers-and-operations-in-base-ten/composing-teen-numbers.pdf" class="worksheet-link">Composing Teen Numbers</a></li>
-                        <li><a href="../../worksheets/Kindergarten/numbers-and-operations-in-base-ten/decomposing-teen-numbers.pdf" class="worksheet-link">Decomposing Teen Numbers</a></li>
-                        <li><a href="../../worksheets/Kindergarten/numbers-and-operations-in-base-ten/introduction-to-place-value.pdf" class="worksheet-link">Introduction to Place Value</a></li>
-                    </ul>
-                </div>
-                <div class="grade-card">
-                    <h3>Geometry</h3>
-                    <ul>
-                        <li><a href="../../worksheets/Kindergarten/geometry/intro-to-2d-shapes.pdf" class="worksheet-link">Identifying 2D Shapes</a></li>
-                        <li><a href="../../worksheets/Kindergarten/geometry/intro-to-3d-shapes.pdf" class="worksheet-link">Identifying 3D Shapes</a></li>
-                        <li><a href="../../worksheets/Kindergarten/geometry/shapes-different-positions.pdf" class="worksheet-link">Shapes in Different Positions</a></li>
-                        <li><a href="../../worksheets/Kindergarten/geometry/shapes-different-sizes.pdf" class="worksheet-link">Shapes of Different Sizes</a></li>
-                        <li><a href="../../worksheets/Kindergarten/geometry/shapes-properties.pdf" class="worksheet-link">Analyzing and Comparing Shapes</a></li>
-                        <li><a href="../../worksheets/Kindergarten/geometry/tracing-shapes.pdf" class="worksheet-link">Drawing Shapes</a></li>
-                    </ul>
-                </div>
-                <div class="grade-card">
-                    <h3>Measurement and Data</h3>
-                    <ul>
-                        <li><a href="../../worksheets/Kindergarten/measurement-and-data/comparing-length-of-objects.pdf" class="worksheet-link">Describing Measurable Attributes</a></li>
-                        <li><a href="../../worksheets/Kindergarten/measurement-and-data/comparing-lengths-of-two-objects.pdf" class="worksheet-link">Comparing Two Objects</a></li>
-                        <li><a href="../../worksheets/Kindergarten/measurement-and-data/classifying-objects.pdf" class="worksheet-link">Classifying Objects into Categories</a></li>
-                        <li><a href="../../worksheets/Kindergarten/measurement-and-data/sort-and-count-objects.pdf" class="worksheet-link">Counting Objects in Categories</a></li>
-                    </ul>
-                </div>
-            </div>
-        </section>
-
-        <!-- Grade 1 Worksheets -->
-        <section class="domain-section" aria-labelledby="grade1-title">
-            <div class="grade-level-header" onclick="toggleGradeLevel(this)" onkeydown="handleKeyPress(event, this)" role="button" tabindex="0" aria-expanded="false" aria-controls="grade1-content">
-                <h2 id="grade1-title">Grade 1 Worksheets</h2>
-                <span class="toggle-icon" aria-hidden="true">+</span>
-            </div>
-            <div class="grade-level-content" id="grade1-content">
-            <div class="grid-container">
-                <div class="grade-card">
-                    <h3>Addition and Subtraction</h3>
-                    <ul>
-                        <li><a href="../../worksheets/Grade1/addition-and-subtraction/addition-within-20.pdf" class="worksheet-link">Addition within 20</a></li>
-                        <li><a href="../../worksheets/Grade1/addition-and-subtraction/subtraction-within-20.pdf" class="worksheet-link">Subtraction within 20</a></li>
-                        <li><a href="../../worksheets/Grade1/addition-and-subtraction/addition-word-problems.pdf" class="worksheet-link">Addition Word Problems</a></li>
-                        <li><a href="../../worksheets/Grade1/addition-and-subtraction/subtraction-word-problems.pdf" class="worksheet-link">Subtraction Word Problems</a></li>
-                        <li><a href="../../worksheets/Grade1/addition-and-subtraction/fact-families.pdf" class="worksheet-link">Fact Families</a></li>
-                        <li><a href="../../worksheets/Grade1/addition-and-subtraction/missing-addends.pdf" class="worksheet-link">Missing Addends</a></li>
-                        <li><a href="../../worksheets/Grade1/addition-and-subtraction/three-number-addition.pdf" class="worksheet-link">Three Number Addition</a></li>
-                        <li><a href="../../worksheets/Grade1/addition-and-subtraction/true-or-false-equations.pdf" class="worksheet-link">True or False Equations</a></li>
-                    </ul>
-                </div>
-                <div class="grade-card">
-                    <h3>Place Value</h3>
-                    <ul>
-                        <li><a href="../../worksheets/Grade1/place-value/place-value.pdf" class="worksheet-link">Tens and Ones</a></li>
-                        <li><a href="../../worksheets/Grade1/place-value/counting-to-120.pdf" class="worksheet-link">Counting to 120</a></li>
-                        <li><a href="../../worksheets/Grade1/place-value/comparing-two-digit-numbers.pdf" class="worksheet-link">Comparing Two-Digit Numbers</a></li>
-                        <li><a href="../../worksheets/Grade1/place-value/10-more-10-less.pdf" class="worksheet-link">10 More/10 Less</a></li>
-                        <li><a href="../../worksheets/Grade1/place-value/teen-numbers.pdf" class="worksheet-link">Numbers 11-19 (Teen Numbers)</a></li>
-                        <li><a href="../../worksheets/Grade1/place-value/expanded-form.pdf" class="worksheet-link">Expanded Form</a></li>
-                    </ul>
-                </div>
-                <div class="grade-card">
-                    <h3>Measurement and Time</h3>
-                    <ul>
-                        <li><a href="../../worksheets/Grade1/measurement-and-time/ordering-by-length.pdf" class="worksheet-link">Ordering by Length</a></li>
-                        <li><a href="../../worksheets/Grade1/measurement-and-time/measuring-with-units.pdf" class="worksheet-link">Measuring with Units</a></li>
-                        <li><a href="../../worksheets/Grade1/measurement-and-time/telling-time-to-hour.pdf" class="worksheet-link">Telling Time to the Hour</a></li>
-                        <li><a href="../../worksheets/Grade1/measurement-and-time/telling-time-to-half-hour.pdf" class="worksheet-link">Telling Time to the Half Hour</a></li>
-                    </ul>
-                </div>
-                <div class="grade-card">
-                    <h3>Geometry and Fractions</h3>
-                    <ul>
-                        <li><a href="../../worksheets/Grade1/geometry-and-fractions/2d-shape-attributes.pdf" class="worksheet-link">2D Shape Attributes</a></li>
-                        <li><a href="../../worksheets/Grade1/geometry-and-fractions/3d-shape-attributes.pdf" class="worksheet-link">3D Shape Attributes</a></li>
-                        <li><a href="../../worksheets/Grade1/geometry-and-fractions/composing-shapes.pdf" class="worksheet-link">Composing Shapes</a></li>
-                        <li><a href="../../worksheets/Grade1/geometry-and-fractions/halves-and-fourths.pdf" class="worksheet-link">Halves and Fourths</a></li>
-                        <li><a href="../../worksheets/Grade1/geometry-and-fractions/equal-shares.pdf" class="worksheet-link">Equal Shares</a></li>
-                    </ul>
-                </div>
-            </div>
-        </section>
-
-        <!-- Grade 2 Worksheets -->
-        <section class="domain-section" aria-labelledby="grade2-title">
-            <div class="grade-level-header" onclick="toggleGradeLevel(this)" onkeydown="handleKeyPress(event, this)" role="button" tabindex="0" aria-expanded="false" aria-controls="grade2-content">
-                <h2 id="grade2-title">Grade 2 Worksheets</h2>
-                <span class="toggle-icon" aria-hidden="true">+</span>
-            </div>
-            <div class="grade-level-content" id="grade2-content">
-            <div class="grid-container">
-                <div class="grade-card">
-                    <h3>Addition and Subtraction</h3>
-                    <ul>
-                        <li><a href="../../worksheets/Grade2/addition-and-subtraction/addition-within-100.pdf" class="worksheet-link">Addition within 100</a></li>
-                        <li><a href="../../worksheets/Grade2/addition-and-subtraction/subtraction-within-100.pdf" class="worksheet-link">Subtraction within 100</a></li>
-                        <li><a href="../../worksheets/Grade2/addition-and-subtraction/two-step-word-problems.pdf" class="worksheet-link">Two-Step Word Problems</a></li>
-                        <li><a href="../../worksheets/Grade2/addition-and-subtraction/mental-math-strategies.pdf" class="worksheet-link">Mental Math Strategies</a></li>
-                        <li><a href="../../worksheets/Grade2/addition-and-subtraction/addition-fluency-practice.pdf" class="worksheet-link">Addition Fluency Practice</a></li>
-                        <li><a href="../../worksheets/Grade2/addition-and-subtraction/subtraction-fluency-practice.pdf" class="worksheet-link">Subtraction Fluency Practice</a></li>
-                    </ul>
-                </div>
-                <div class="grade-card">
-                    <h3>Place Value</h3>
-                    <ul>
-                        <li><a href="../../worksheets/Grade2/place-value/three-digit-numbers.pdf" class="worksheet-link">Three-Digit Numbers</a></li>
-                        <li><a href="../../worksheets/Grade2/place-value/hundreds-tens-ones.pdf" class="worksheet-link">Hundreds, Tens, and Ones</a></li>
-                        <li><a href="../../worksheets/Grade2/place-value/comparing-three-digit-numbers.pdf" class="worksheet-link">Comparing Three-Digit Numbers</a></li>
-                        <li><a href="../../worksheets/Grade2/place-value/skip-counting.pdf" class="worksheet-link">Skip Counting by 5s, 10s, 100s</a></li>
-                        <li><a href="../../worksheets/Grade2/place-value/expanded-form-to-1000.pdf" class="worksheet-link">Expanded Form to 1000</a></li>
-                        <li><a href="../../worksheets/Grade2/place-value/number-word-form.pdf" class="worksheet-link">Number Word Form</a></li>
-                    </ul>
-                </div>
-                <div class="grade-card">
-                    <h3>Multiplication and Division Foundations</h3>
-                    <ul>
-                        <li><a href="../../worksheets/Grade2/multiplication-division-foundations/even-and-odd-numbers.pdf" class="worksheet-link">Even and Odd Numbers</a></li>
-                        <li><a href="../../worksheets/Grade2/multiplication-division-foundations/arrays-repeated-addition.pdf" class="worksheet-link">Arrays and Repeated Addition</a></li>
-                        <li><a href="../../worksheets/Grade2/multiplication-division-foundations/equal-groups.pdf" class="worksheet-link">Equal Groups</a></li>
-                        <li><a href="../../worksheets/Grade2/multiplication-division-foundations/rows-and-columns.pdf" class="worksheet-link">Rows and Columns</a></li>
-                    </ul>
-                </div>
-                <div class="grade-card">
-                    <h3>Measurement</h3>
-                    <ul>
-                        <li><a href="../../worksheets/Grade2/measurement/measuring-length-inches-feet.pdf" class="worksheet-link">Measuring Length (Inches, Feet)</a></li>
-                        <li><a href="../../worksheets/Grade2/measurement/measuring-length-centimeters-meters.pdf" class="worksheet-link">Measuring Length (Centimeters, Meters)</a></li>
-                        <li><a href="../../worksheets/Grade2/measurement/estimating-length.pdf" class="worksheet-link">Estimating Length</a></li>
-                        <li><a href="../../worksheets/Grade2/measurement/telling-time-5-minutes.pdf" class="worksheet-link">Telling Time to 5 Minutes</a></li>
-                        <li><a href="../../worksheets/Grade2/measurement/am-and-pm.pdf" class="worksheet-link">A.M. and P.M.</a></li>
-                        <li><a href="../../worksheets/Grade2/measurement/counting-money.pdf" class="worksheet-link">Counting Money</a></li>
-                        <li><a href="../../worksheets/Grade2/measurement/money-word-problems.pdf" class="worksheet-link">Money Word Problems</a></li>
-                    </ul>
-                </div>
-                <div class="grade-card">
-                    <h3>Data and Geometry</h3>
-                    <ul>
-                        <li><a href="../../worksheets/Grade2/data-and-geometry/line-plots.pdf" class="worksheet-link">Line Plots</a></li>
-                        <li><a href="../../worksheets/Grade2/data-and-geometry/picture-graphs.pdf" class="worksheet-link">Picture Graphs</a></li>
-                        <li><a href="../../worksheets/Grade2/data-and-geometry/bar-graphs.pdf" class="worksheet-link">Bar Graphs</a></li>
-                        <li><a href="../../worksheets/Grade2/data-and-geometry/shape-attributes.pdf" class="worksheet-link">Shape Attributes</a></li>
-                        <li><a href="../../worksheets/Grade2/data-and-geometry/partitioning-rectangles.pdf" class="worksheet-link">Partitioning Rectangles</a></li>
-                        <li><a href="../../worksheets/Grade2/data-and-geometry/fractions-halves-thirds-fourths.pdf" class="worksheet-link">Fractions: Halves, Thirds, Fourths</a></li>
-                    </ul>
-                </div>
-            </div>
-        </section>
-
-        <!-- Grade 3 Worksheets -->
-        <section class="domain-section" aria-labelledby="grade3-title">
-            <div class="grade-level-header" onclick="toggleGradeLevel(this)" onkeydown="handleKeyPress(event, this)" role="button" tabindex="0" aria-expanded="false" aria-controls="grade3-content">
-                <h2 id="grade3-title">Grade 3 Worksheets</h2>
-                <span class="toggle-icon" aria-hidden="true">+</span>
-            </div>
-            <div class="grade-level-content" id="grade3-content">
-            <div class="grid-container">
-                <div class="grade-card">
-                    <h3>Multiplication and Division</h3>
-                    <ul>
-                        <li><a href="../../worksheets/Grade3/multiplication-and-division/multiplication-facts-0-10.pdf" class="worksheet-link">Multiplication Facts 0-10</a></li>
-                        <li><a href="../../worksheets/Grade3/multiplication-and-division/division-facts-0-10.pdf" class="worksheet-link">Division Facts 0-10</a></li>
-                        <li><a href="../../worksheets/Grade3/multiplication-and-division/multiplication-word-problems.pdf" class="worksheet-link">Multiplication Word Problems</a></li>
-                        <li><a href="../../worksheets/Grade3/multiplication-and-division/division-word-problems.pdf" class="worksheet-link">Division Word Problems</a></li>
-                        <li><a href="../../worksheets/Grade3/multiplication-and-division/multiplication-properties.pdf" class="worksheet-link">Multiplication Properties</a></li>
-                        <li><a href="../../worksheets/Grade3/multiplication-and-division/fact-families.pdf" class="worksheet-link">Fact Families (×÷)</a></li>
-                        <li><a href="../../worksheets/Grade3/multiplication-and-division/two-step-problems.pdf" class="worksheet-link">Two-Step Problems</a></li>
-                        <li><a href="../../worksheets/Grade3/multiplication-and-division/number-patterns.pdf" class="worksheet-link">Number Patterns</a></li>
-                    </ul>
-                </div>
-                <div class="grade-card">
-                    <h3>Place Value and Rounding</h3>
-                    <ul>
-                        <li><a href="../../worksheets/Grade3/place-value-and-rounding/rounding-to-nearest-10.pdf" class="worksheet-link">Rounding to Nearest 10</a></li>
-                        <li><a href="../../worksheets/Grade3/place-value-and-rounding/rounding-to-nearest-100.pdf" class="worksheet-link">Rounding to Nearest 100</a></li>
-                        <li><a href="../../worksheets/Grade3/place-value-and-rounding/addition-within-1000.pdf" class="worksheet-link">Addition within 1000</a></li>
-                        <li><a href="../../worksheets/Grade3/place-value-and-rounding/subtraction-within-1000.pdf" class="worksheet-link">Subtraction within 1000</a></li>
-                        <li><a href="../../worksheets/Grade3/place-value-and-rounding/multiplying-multiples-of-10.pdf" class="worksheet-link">Multiplying by Multiples of 10</a></li>
-                    </ul>
-                </div>
-                <div class="grade-card">
-                    <h3>Fractions</h3>
-                    <ul>
-                        <li><a href="../../worksheets/Grade3/fractions/understanding-fractions.pdf" class="worksheet-link">Understanding Fractions</a></li>
-                        <li><a href="../../worksheets/Grade3/fractions/fractions-on-number-line.pdf" class="worksheet-link">Fractions on a Number Line</a></li>
-                        <li><a href="../../worksheets/Grade3/fractions/equivalent-fractions.pdf" class="worksheet-link">Equivalent Fractions</a></li>
-                        <li><a href="../../worksheets/Grade3/fractions/comparing-fractions.pdf" class="worksheet-link">Comparing Fractions</a></li>
-                        <li><a href="../../worksheets/Grade3/fractions/ordering-fractions.pdf" class="worksheet-link">Ordering Fractions</a></li>
-                    </ul>
-                </div>
-                <div class="grade-card">
-                    <h3>Measurement and Data</h3>
-                    <ul>
-                        <li><a href="../../worksheets/Grade3/measurement-and-data/elapsed-time.pdf" class="worksheet-link">Elapsed Time</a></li>
-                        <li><a href="../../worksheets/Grade3/measurement-and-data/liquid-volume.pdf" class="worksheet-link">Liquid Volume</a></li>
-                        <li><a href="../../worksheets/Grade3/measurement-and-data/mass-and-weight.pdf" class="worksheet-link">Mass and Weight</a></li>
-                        <li><a href="../../worksheets/Grade3/measurement-and-data/scaled-picture-graphs.pdf" class="worksheet-link">Scaled Picture Graphs</a></li>
-                        <li><a href="../../worksheets/Grade3/measurement-and-data/scaled-bar-graphs.pdf" class="worksheet-link">Scaled Bar Graphs</a></li>
-                        <li><a href="../../worksheets/Grade3/measurement-and-data/line-plots-with-fractions.pdf" class="worksheet-link">Line Plots with Fractions</a></li>
-                    </ul>
-                </div>
-                <div class="grade-card">
-                    <h3>Geometry</h3>
-                    <ul>
-                        <li><a href="../../worksheets/Grade3/geometry/area-concepts.pdf" class="worksheet-link">Area Concepts</a></li>
-                        <li><a href="../../worksheets/Grade3/geometry/area-and-multiplication.pdf" class="worksheet-link">Area and Multiplication</a></li>
-                        <li><a href="../../worksheets/Grade3/geometry/perimeter.pdf" class="worksheet-link">Perimeter</a></li>
-                        <li><a href="../../worksheets/Grade3/geometry/quadrilaterals.pdf" class="worksheet-link">Quadrilaterals</a></li>
-                        <li><a href="../../worksheets/Grade3/geometry/partitioning-shapes.pdf" class="worksheet-link">Partitioning Shapes</a></li>
-                    </ul>
-                </div>
-            </div>
-        </section>
-
-        <!-- Grade 4 Worksheets -->
-        <section class="domain-section" aria-labelledby="grade4-title">
-            <div class="grade-level-header" onclick="toggleGradeLevel(this)" onkeydown="handleKeyPress(event, this)" role="button" tabindex="0" aria-expanded="false" aria-controls="grade4-content">
-                <h2 id="grade4-title">Grade 4 Worksheets</h2>
-                <span class="toggle-icon" aria-hidden="true">+</span>
-            </div>
-            <div class="grade-level-content" id="grade4-content">
-            <div class="grid-container">
-                <div class="grade-card">
-                    <h3>Operations and Problem Solving</h3>
-                    <ul>
-                        <li><a href="../../worksheets/Grade4/operations-and-problem-solving/multi-step-word-problems.pdf" class="worksheet-link">Multi-Step Word Problems</a></li>
-                        <li><a href="../../worksheets/Grade4/operations-and-problem-solving/multiplicative-comparisons.pdf" class="worksheet-link">Multiplicative Comparisons</a></li>
-                        <li><a href="../../worksheets/Grade4/operations-and-problem-solving/factors-and-multiples.pdf" class="worksheet-link">Factors and Multiples</a></li>
-                        <li><a href="../../worksheets/Grade4/operations-and-problem-solving/prime-and-composite-numbers.pdf" class="worksheet-link">Prime and Composite Numbers</a></li>
-                        <li><a href="../../worksheets/Grade4/operations-and-problem-solving/number-patterns-and-rules.pdf" class="worksheet-link">Number Patterns and Rules</a></li>
-                    </ul>
-                </div>
-                <div class="grade-card">
-                    <h3>Multi-Digit Operations</h3>
-                    <ul>
-                        <li><a href="../../worksheets/Grade4/multi-digit-operations/place-value-to-millions.pdf" class="worksheet-link">Place Value to Millions</a></li>
-                        <li><a href="../../worksheets/Grade4/multi-digit-operations/multi-digit-addition.pdf" class="worksheet-link">Multi-Digit Addition</a></li>
-                        <li><a href="../../worksheets/Grade4/multi-digit-operations/multi-digit-subtraction.pdf" class="worksheet-link">Multi-Digit Subtraction</a></li>
-                        <li><a href="../../worksheets/Grade4/multi-digit-operations/multi-digit-multiplication.pdf" class="worksheet-link">Multi-Digit Multiplication</a></li>
-                        <li><a href="../../worksheets/Grade4/multi-digit-operations/multi-digit-division.pdf" class="worksheet-link">Multi-Digit Division</a></li>
-                        <li><a href="../../worksheets/Grade4/multi-digit-operations/division-with-remainders.pdf" class="worksheet-link">Division with Remainders</a></li>
-                    </ul>
-                </div>
-                <div class="grade-card">
-                    <h3>Fractions and Decimals</h3>
-                    <ul>
-                        <li><a href="../../worksheets/Grade4/fractions-and-decimals/equivalent-fractions.pdf" class="worksheet-link">Equivalent Fractions</a></li>
-                        <li><a href="../../worksheets/Grade4/fractions-and-decimals/comparing-fractions.pdf" class="worksheet-link">Comparing Fractions</a></li>
-                        <li><a href="../../worksheets/Grade4/fractions-and-decimals/adding-fractions-like-denominators.pdf" class="worksheet-link">Adding Fractions (Like Denominators)</a></li>
-                        <li><a href="../../worksheets/Grade4/fractions-and-decimals/subtracting-fractions-like-denominators.pdf" class="worksheet-link">Subtracting Fractions (Like Denominators)</a></li>
-                        <li><a href="../../worksheets/Grade4/fractions-and-decimals/multiplying-fractions-by-whole-numbers.pdf" class="worksheet-link">Multiplying Fractions by Whole Numbers</a></li>
-                        <li><a href="../../worksheets/Grade4/fractions-and-decimals/decimal-notation.pdf" class="worksheet-link">Decimal Notation</a></li>
-                        <li><a href="../../worksheets/Grade4/fractions-and-decimals/comparing-decimals.pdf" class="worksheet-link">Comparing Decimals</a></li>
-                    </ul>
-                </div>
-                <div class="grade-card">
-                    <h3>Measurement</h3>
-                    <ul>
-                        <li><a href="../../worksheets/Grade4/measurement/converting-units-length.pdf" class="worksheet-link">Converting Units (Length)</a></li>
-                        <li><a href="../../worksheets/Grade4/measurement/converting-units-weight.pdf" class="worksheet-link">Converting Units (Weight)</a></li>
-                        <li><a href="../../worksheets/Grade4/measurement/converting-units-volume.pdf" class="worksheet-link">Converting Units (Volume)</a></li>
-                        <li><a href="../../worksheets/Grade4/measurement/converting-units-time.pdf" class="worksheet-link">Converting Units (Time)</a></li>
-                        <li><a href="../../worksheets/Grade4/measurement/area-formulas.pdf" class="worksheet-link">Area Formulas</a></li>
-                        <li><a href="../../worksheets/Grade4/measurement/perimeter-formulas.pdf" class="worksheet-link">Perimeter Formulas</a></li>
-                        <li><a href="../../worksheets/Grade4/measurement/line-plots-with-fractions.pdf" class="worksheet-link">Line Plots with Fractions</a></li>
-                    </ul>
-                </div>
-                <div class="grade-card">
-                    <h3>Geometry</h3>
-                    <ul>
-                        <li><a href="../../worksheets/Grade4/geometry/points-lines-rays.pdf" class="worksheet-link">Points, Lines, and Rays</a></li>
-                        <li><a href="../../worksheets/Grade4/geometry/angles.pdf" class="worksheet-link">Angles</a></li>
-                        <li><a href="../../worksheets/Grade4/geometry/measuring-angles.pdf" class="worksheet-link">Measuring Angles</a></li>
-                        <li><a href="../../worksheets/Grade4/geometry/classifying-triangles.pdf" class="worksheet-link">Classifying Triangles</a></li>
-                        <li><a href="../../worksheets/Grade4/geometry/classifying-quadrilaterals.pdf" class="worksheet-link">Classifying Quadrilaterals</a></li>
-                        <li><a href="../../worksheets/Grade4/geometry/line-symmetry.pdf" class="worksheet-link">Line Symmetry</a></li>
-                    </ul>
-                </div>
-            </div>
-        </section>
-
-        <!-- Grade 5 Worksheets -->
-        <section class="domain-section" aria-labelledby="grade5-title">
-            <div class="grade-level-header" onclick="toggleGradeLevel(this)" onkeydown="handleKeyPress(event, this)" role="button" tabindex="0" aria-expanded="false" aria-controls="grade5-content">
-                <h2 id="grade5-title">Grade 5 Worksheets</h2>
-                <span class="toggle-icon" aria-hidden="true">+</span>
-            </div>
-            <div class="grade-level-content" id="grade5-content">
-            <div class="grid-container">
-                <div class="grade-card">
-                    <h3>Place Value and Operations</h3>
-                    <ul>
-                        <li><a href="../../worksheets/Grade5/place-value-and-operations/place-value-to-billions.pdf" class="worksheet-link">Place Value to Billions</a></li>
-                        <li><a href="../../worksheets/Grade5/place-value-and-operations/powers-of-10.pdf" class="worksheet-link">Powers of 10</a></li>
-                        <li><a href="../../worksheets/Grade5/place-value-and-operations/multiplying-multi-digit-numbers.pdf" class="worksheet-link">Multiplying Multi-Digit Numbers</a></li>
-                        <li><a href="../../worksheets/Grade5/place-value-and-operations/dividing-multi-digit-numbers.pdf" class="worksheet-link">Dividing Multi-Digit Numbers</a></li>
-                        <li><a href="../../worksheets/Grade5/place-value-and-operations/adding-decimals.pdf" class="worksheet-link">Adding Decimals</a></li>
-                        <li><a href="../../worksheets/Grade5/place-value-and-operations/subtracting-decimals.pdf" class="worksheet-link">Subtracting Decimals</a></li>
-                        <li><a href="../../worksheets/Grade5/place-value-and-operations/multiplying-decimals.pdf" class="worksheet-link">Multiplying Decimals</a></li>
-                        <li><a href="../../worksheets/Grade5/place-value-and-operations/dividing-decimals.pdf" class="worksheet-link">Dividing Decimals</a></li>
-                    </ul>
-                </div>
-                <div class="grade-card">
-                    <h3>Fractions</h3>
-                    <ul>
-                        <li><a href="../../worksheets/Grade5/fractions/adding-fractions-unlike-denominators.pdf" class="worksheet-link">Adding Fractions (Unlike Denominators)</a></li>
-                        <li><a href="../../worksheets/Grade5/fractions/subtracting-fractions-unlike-denominators.pdf" class="worksheet-link">Subtracting Fractions (Unlike Denominators)</a></li>
-                        <li><a href="../../worksheets/Grade5/fractions/fractions-as-division.pdf" class="worksheet-link">Fractions as Division</a></li>
-                        <li><a href="../../worksheets/Grade5/fractions/multiplying-fractions.pdf" class="worksheet-link">Multiplying Fractions</a></li>
-                        <li><a href="../../worksheets/Grade5/fractions/multiplying-mixed-numbers.pdf" class="worksheet-link">Multiplying Mixed Numbers</a></li>
-                        <li><a href="../../worksheets/Grade5/fractions/dividing-unit-fractions.pdf" class="worksheet-link">Dividing Unit Fractions</a></li>
-                        <li><a href="../../worksheets/Grade5/fractions/scaling-and-fractions.pdf" class="worksheet-link">Scaling and Fractions</a></li>
-                    </ul>
-                </div>
-                <div class="grade-card">
-                    <h3>Expressions and Patterns</h3>
-                    <ul>
-                        <li><a href="../../worksheets/Grade5/expressions-and-patterns/order-of-operations.pdf" class="worksheet-link">Order of Operations</a></li>
-                        <li><a href="../../worksheets/Grade5/expressions-and-patterns/writing-expressions.pdf" class="worksheet-link">Writing Expressions</a></li>
-                        <li><a href="../../worksheets/Grade5/expressions-and-patterns/evaluating-expressions.pdf" class="worksheet-link">Evaluating Expressions</a></li>
-                        <li><a href="../../worksheets/Grade5/expressions-and-patterns/numerical-patterns.pdf" class="worksheet-link">Numerical Patterns</a></li>
-                        <li><a href="../../worksheets/Grade5/expressions-and-patterns/coordinate-pairs.pdf" class="worksheet-link">Coordinate Pairs</a></li>
-                    </ul>
-                </div>
-                <div class="grade-card">
-                    <h3>Measurement</h3>
-                    <ul>
-                        <li><a href="../../worksheets/Grade5/measurement/converting-metric-units.pdf" class="worksheet-link">Converting Metric Units</a></li>
-                        <li><a href="../../worksheets/Grade5/measurement/converting-customary-units.pdf" class="worksheet-link">Converting Customary Units</a></li>
-                        <li><a href="../../worksheets/Grade5/measurement/line-plots-with-fractions.pdf" class="worksheet-link">Line Plots with Fractions</a></li>
-                        <li><a href="../../worksheets/Grade5/measurement/understanding-volume.pdf" class="worksheet-link">Understanding Volume</a></li>
-                        <li><a href="../../worksheets/Grade5/measurement/volume-formulas.pdf" class="worksheet-link">Volume Formulas</a></li>
-                        <li><a href="../../worksheets/Grade5/measurement/volume-of-composite-figures.pdf" class="worksheet-link">Volume of Composite Figures</a></li>
-                    </ul>
-                </div>
-                <div class="grade-card">
-                    <h3>Geometry</h3>
-                    <ul>
-                        <li><a href="../../worksheets/Grade5/geometry/coordinate-plane.pdf" class="worksheet-link">Coordinate Plane</a></li>
-                        <li><a href="../../worksheets/Grade5/geometry/graphing-points.pdf" class="worksheet-link">Graphing Points</a></li>
-                        <li><a href="../../worksheets/Grade5/geometry/classifying-2d-shapes.pdf" class="worksheet-link">Classifying 2D Shapes</a></li>
-                        <li><a href="../../worksheets/Grade5/geometry/shape-hierarchies.pdf" class="worksheet-link">Shape Hierarchies</a></li>
-                    </ul>
-                </div>
-            </div>
-        </section>
-
-        <!-- Grade 6 Worksheets -->
-        <section class="domain-section" aria-labelledby="grade6-title">
-            <div class="grade-level-header" onclick="toggleGradeLevel(this)" onkeydown="handleKeyPress(event, this)" role="button" tabindex="0" aria-expanded="false" aria-controls="grade6-content">
-                <h2 id="grade6-title">Grade 6 Worksheets</h2>
-                <span class="toggle-icon" aria-hidden="true">+</span>
-            </div>
-            <div class="grade-level-content" id="grade6-content">
-            <div class="grid-container">
-                <div class="grade-card">
-                    <h3>Ratios and Proportions</h3>
-                    <ul>
-                        <li><a href="../../worksheets/Grade6/ratios-and-proportions/understanding-ratios.pdf" class="worksheet-link">Understanding Ratios</a></li>
-                        <li><a href="../../worksheets/Grade6/ratios-and-proportions/unit-rates.pdf" class="worksheet-link">Unit Rates</a></li>
-                        <li><a href="../../worksheets/Grade6/ratios-and-proportions/ratio-tables.pdf" class="worksheet-link">Ratio Tables</a></li>
-                        <li><a href="../../worksheets/Grade6/ratios-and-proportions/equivalent-ratios.pdf" class="worksheet-link">Equivalent Ratios</a></li>
-                        <li><a href="../../worksheets/Grade6/ratios-and-proportions/percent-problems.pdf" class="worksheet-link">Percent Problems</a></li>
-                        <li><a href="../../worksheets/Grade6/ratios-and-proportions/converting-measurements.pdf" class="worksheet-link">Converting Measurements</a></li>
-                    </ul>
-                </div>
-                <div class="grade-card">
-                    <h3>The Number System</h3>
-                    <ul>
-                        <li><a href="../../worksheets/Grade6/the-number-system/dividing-fractions.pdf" class="worksheet-link">Dividing Fractions</a></li>
-                        <li><a href="../../worksheets/Grade6/the-number-system/dividing-multi-digit-numbers.pdf" class="worksheet-link">Dividing Multi-Digit Numbers</a></li>
-                        <li><a href="../../worksheets/Grade6/the-number-system/decimal-operations.pdf" class="worksheet-link">Decimal Operations</a></li>
-                        <li><a href="../../worksheets/Grade6/the-number-system/gcf-and-lcm.pdf" class="worksheet-link">GCF and LCM</a></li>
-                        <li><a href="../../worksheets/Grade6/the-number-system/positive-and-negative-numbers.pdf" class="worksheet-link">Positive and Negative Numbers</a></li>
-                        <li><a href="../../worksheets/Grade6/the-number-system/absolute-value.pdf" class="worksheet-link">Absolute Value</a></li>
-                        <li><a href="../../worksheets/Grade6/the-number-system/rational-numbers-on-number-line.pdf" class="worksheet-link">Rational Numbers on Number Line</a></li>
-                        <li><a href="../../worksheets/Grade6/the-number-system/ordering-rational-numbers.pdf" class="worksheet-link">Ordering Rational Numbers</a></li>
-                    </ul>
-                </div>
-                <div class="grade-card">
-                    <h3>Expressions and Equations</h3>
-                    <ul>
-                        <li><a href="../../worksheets/Grade6/expressions-and-equations/writing-expressions.pdf" class="worksheet-link">Writing Expressions</a></li>
-                        <li><a href="../../worksheets/Grade6/expressions-and-equations/evaluating-expressions.pdf" class="worksheet-link">Evaluating Expressions</a></li>
-                        <li><a href="../../worksheets/Grade6/expressions-and-equations/equivalent-expressions.pdf" class="worksheet-link">Equivalent Expressions</a></li>
-                        <li><a href="../../worksheets/Grade6/expressions-and-equations/exponents.pdf" class="worksheet-link">Exponents</a></li>
-                        <li><a href="../../worksheets/Grade6/expressions-and-equations/order-of-operations-with-exponents.pdf" class="worksheet-link">Order of Operations with Exponents</a></li>
-                        <li><a href="../../worksheets/Grade6/expressions-and-equations/solving-one-step-equations.pdf" class="worksheet-link">Solving One-Step Equations</a></li>
-                        <li><a href="../../worksheets/Grade6/expressions-and-equations/solving-inequalities.pdf" class="worksheet-link">Solving Inequalities</a></li>
-                        <li><a href="../../worksheets/Grade6/expressions-and-equations/graphing-on-coordinate-plane.pdf" class="worksheet-link">Graphing on Coordinate Plane</a></li>
-                    </ul>
-                </div>
-                <div class="grade-card">
-                    <h3>Geometry</h3>
-                    <ul>
-                        <li><a href="../../worksheets/Grade6/geometry/area-of-triangles.pdf" class="worksheet-link">Area of Triangles</a></li>
-                        <li><a href="../../worksheets/Grade6/geometry/area-of-quadrilaterals.pdf" class="worksheet-link">Area of Quadrilaterals</a></li>
-                        <li><a href="../../worksheets/Grade6/geometry/area-of-polygons.pdf" class="worksheet-link">Area of Polygons</a></li>
-                        <li><a href="../../worksheets/Grade6/geometry/volume-of-rectangular-prisms.pdf" class="worksheet-link">Volume of Rectangular Prisms</a></li>
-                        <li><a href="../../worksheets/Grade6/geometry/surface-area.pdf" class="worksheet-link">Surface Area</a></li>
-                        <li><a href="../../worksheets/Grade6/geometry/nets-of-3d-figures.pdf" class="worksheet-link">Nets of 3D Figures</a></li>
-                    </ul>
-                </div>
-                <div class="grade-card">
-                    <h3>Statistics</h3>
-                    <ul>
-                        <li><a href="../../worksheets/Grade6/statistics/statistical-questions.pdf" class="worksheet-link">Statistical Questions</a></li>
-                        <li><a href="../../worksheets/Grade6/statistics/mean-median-mode.pdf" class="worksheet-link">Mean, Median, Mode</a></li>
-                        <li><a href="../../worksheets/Grade6/statistics/range-and-iqr.pdf" class="worksheet-link">Range and IQR</a></li>
-                        <li><a href="../../worksheets/Grade6/statistics/mean-absolute-deviation.pdf" class="worksheet-link">Mean Absolute Deviation</a></li>
-                        <li><a href="../../worksheets/Grade6/statistics/dot-plots.pdf" class="worksheet-link">Dot Plots</a></li>
-                        <li><a href="../../worksheets/Grade6/statistics/histograms.pdf" class="worksheet-link">Histograms</a></li>
-                        <li><a href="../../worksheets/Grade6/statistics/box-plots.pdf" class="worksheet-link">Box Plots</a></li>
-                    </ul>
-                </div>
-            </div>
-        </section>
-
-        <!-- Grade 7 Worksheets -->
-        <section class="domain-section" aria-labelledby="grade7-title">
-            <div class="grade-level-header" onclick="toggleGradeLevel(this)" onkeydown="handleKeyPress(event, this)" role="button" tabindex="0" aria-expanded="false" aria-controls="grade7-content">
-                <h2 id="grade7-title">Grade 7 Worksheets</h2>
-                <span class="toggle-icon" aria-hidden="true">+</span>
-            </div>
-            <div class="grade-level-content" id="grade7-content">
-            <div class="grid-container">
-                <div class="grade-card">
-                    <h3>Ratios and Proportions</h3>
-                    <ul>
-                        <li><a href="../../worksheets/Grade7/ratios-and-proportions/unit-rates-complex-fractions.pdf" class="worksheet-link">Unit Rates with Complex Fractions</a></li>
-                        <li><a href="../../worksheets/Grade7/ratios-and-proportions/proportional-relationships.pdf" class="worksheet-link">Proportional Relationships</a></li>
-                        <li><a href="../../worksheets/Grade7/ratios-and-proportions/constant-of-proportionality.pdf" class="worksheet-link">Constant of Proportionality</a></li>
-                        <li><a href="../../worksheets/Grade7/ratios-and-proportions/graphing-proportional-relationships.pdf" class="worksheet-link">Graphing Proportional Relationships</a></li>
-                        <li><a href="../../worksheets/Grade7/ratios-and-proportions/percent-increase-decrease.pdf" class="worksheet-link">Percent Increase/Decrease</a></li>
-                        <li><a href="../../worksheets/Grade7/ratios-and-proportions/tax-tips-discounts.pdf" class="worksheet-link">Tax, Tips, and Discounts</a></li>
-                        <li><a href="../../worksheets/Grade7/ratios-and-proportions/simple-interest.pdf" class="worksheet-link">Simple Interest</a></li>
-                    </ul>
-                </div>
-                <div class="grade-card">
-                    <h3>The Number System</h3>
-                    <ul>
-                        <li><a href="../../worksheets/Grade7/the-number-system/adding-rational-numbers.pdf" class="worksheet-link">Adding Rational Numbers</a></li>
-                        <li><a href="../../worksheets/Grade7/the-number-system/subtracting-rational-numbers.pdf" class="worksheet-link">Subtracting Rational Numbers</a></li>
-                        <li><a href="../../worksheets/Grade7/the-number-system/multiplying-rational-numbers.pdf" class="worksheet-link">Multiplying Rational Numbers</a></li>
-                        <li><a href="../../worksheets/Grade7/the-number-system/dividing-rational-numbers.pdf" class="worksheet-link">Dividing Rational Numbers</a></li>
-                        <li><a href="../../worksheets/Grade7/the-number-system/converting-decimals-to-fractions.pdf" class="worksheet-link">Converting Decimals to Fractions</a></li>
-                        <li><a href="../../worksheets/Grade7/the-number-system/converting-fractions-to-decimals.pdf" class="worksheet-link">Converting Fractions to Decimals</a></li>
-                    </ul>
-                </div>
-                <div class="grade-card">
-                    <h3>Expressions and Equations</h3>
-                    <ul>
-                        <li><a href="../../worksheets/Grade7/expressions-and-equations/simplifying-expressions.pdf" class="worksheet-link">Simplifying Expressions</a></li>
-                        <li><a href="../../worksheets/Grade7/expressions-and-equations/combining-like-terms.pdf" class="worksheet-link">Combining Like Terms</a></li>
-                        <li><a href="../../worksheets/Grade7/expressions-and-equations/distributive-property.pdf" class="worksheet-link">Distributive Property</a></li>
-                        <li><a href="../../worksheets/Grade7/expressions-and-equations/factoring-expressions.pdf" class="worksheet-link">Factoring Expressions</a></li>
-                        <li><a href="../../worksheets/Grade7/expressions-and-equations/solving-multi-step-equations.pdf" class="worksheet-link">Solving Multi-Step Equations</a></li>
-                        <li><a href="../../worksheets/Grade7/expressions-and-equations/solving-multi-step-inequalities.pdf" class="worksheet-link">Solving Multi-Step Inequalities</a></li>
-                        <li><a href="../../worksheets/Grade7/expressions-and-equations/word-problems-with-equations.pdf" class="worksheet-link">Word Problems with Equations</a></li>
-                    </ul>
-                </div>
-                <div class="grade-card">
-                    <h3>Geometry</h3>
-                    <ul>
-                        <li><a href="../../worksheets/Grade7/geometry/scale-drawings.pdf" class="worksheet-link">Scale Drawings</a></li>
-                        <li><a href="../../worksheets/Grade7/geometry/drawing-geometric-figures.pdf" class="worksheet-link">Drawing Geometric Figures</a></li>
-                        <li><a href="../../worksheets/Grade7/geometry/cross-sections-of-3d-figures.pdf" class="worksheet-link">Cross-Sections of 3D Figures</a></li>
-                        <li><a href="../../worksheets/Grade7/geometry/circumference.pdf" class="worksheet-link">Circumference</a></li>
-                        <li><a href="../../worksheets/Grade7/geometry/area-of-circles.pdf" class="worksheet-link">Area of Circles</a></li>
-                        <li><a href="../../worksheets/Grade7/geometry/angle-relationships.pdf" class="worksheet-link">Angle Relationships</a></li>
-                        <li><a href="../../worksheets/Grade7/geometry/surface-area.pdf" class="worksheet-link">Surface Area</a></li>
-                        <li><a href="../../worksheets/Grade7/geometry/volume.pdf" class="worksheet-link">Volume</a></li>
-                    </ul>
-                </div>
-                <div class="grade-card">
-                    <h3>Statistics and Probability</h3>
-                    <ul>
-                        <li><a href="../../worksheets/Grade7/statistics-and-probability/random-sampling.pdf" class="worksheet-link">Random Sampling</a></li>
-                        <li><a href="../../worksheets/Grade7/statistics-and-probability/making-inferences.pdf" class="worksheet-link">Making Inferences</a></li>
-                        <li><a href="../../worksheets/Grade7/statistics-and-probability/comparing-populations.pdf" class="worksheet-link">Comparing Populations</a></li>
-                        <li><a href="../../worksheets/Grade7/statistics-and-probability/measures-of-center.pdf" class="worksheet-link">Measures of Center</a></li>
-                        <li><a href="../../worksheets/Grade7/statistics-and-probability/measures-of-variability.pdf" class="worksheet-link">Measures of Variability</a></li>
-                        <li><a href="../../worksheets/Grade7/statistics-and-probability/probability-models.pdf" class="worksheet-link">Probability Models</a></li>
-                        <li><a href="../../worksheets/Grade7/statistics-and-probability/compound-events.pdf" class="worksheet-link">Compound Events</a></li>
-                        <li><a href="../../worksheets/Grade7/statistics-and-probability/sample-space.pdf" class="worksheet-link">Sample Space</a></li>
-                    </ul>
-                </div>
-            </div>
-        </section>
-
-        <!-- Grade 8 Worksheets -->
-        <section class="domain-section" aria-labelledby="grade8-title">
-            <div class="grade-level-header" onclick="toggleGradeLevel(this)" onkeydown="handleKeyPress(event, this)" role="button" tabindex="0" aria-expanded="false" aria-controls="grade8-content">
-                <h2 id="grade8-title">Grade 8 Worksheets</h2>
-                <span class="toggle-icon" aria-hidden="true">+</span>
-            </div>
-            <div class="grade-level-content" id="grade8-content">
-            <div class="grid-container">
-                <div class="grade-card">
-                    <h3>The Number System</h3>
-                    <ul>
-                        <li><a href="../../worksheets/Grade8/the-number-system/rational-vs-irrational-numbers.pdf" class="worksheet-link">Rational vs Irrational Numbers</a></li>
-                        <li><a href="../../worksheets/Grade8/the-number-system/estimating-irrational-numbers.pdf" class="worksheet-link">Estimating Irrational Numbers</a></li>
-                        <li><a href="../../worksheets/Grade8/the-number-system/comparing-real-numbers.pdf" class="worksheet-link">Comparing Real Numbers</a></li>
-                    </ul>
-                </div>
-                <div class="grade-card">
-                    <h3>Exponents and Scientific Notation</h3>
-                    <ul>
-                        <li><a href="../../worksheets/Grade8/exponents-and-scientific-notation/integer-exponents.pdf" class="worksheet-link">Integer Exponents</a></li>
-                        <li><a href="../../worksheets/Grade8/exponents-and-scientific-notation/properties-of-exponents.pdf" class="worksheet-link">Properties of Exponents</a></li>
-                        <li><a href="../../worksheets/Grade8/exponents-and-scientific-notation/scientific-notation.pdf" class="worksheet-link">Scientific Notation</a></li>
-                        <li><a href="../../worksheets/Grade8/exponents-and-scientific-notation/operations-with-scientific-notation.pdf" class="worksheet-link">Operations with Scientific Notation</a></li>
-                        <li><a href="../../worksheets/Grade8/exponents-and-scientific-notation/square-roots-and-cube-roots.pdf" class="worksheet-link">Square Roots and Cube Roots</a></li>
-                    </ul>
-                </div>
-                <div class="grade-card">
-                    <h3>Expressions and Equations</h3>
-                    <ul>
-                        <li><a href="../../worksheets/Grade8/expressions-and-equations/proportional-relationships.pdf" class="worksheet-link">Proportional Relationships</a></li>
-                        <li><a href="../../worksheets/Grade8/expressions-and-equations/slope.pdf" class="worksheet-link">Slope</a></li>
-                        <li><a href="../../worksheets/Grade8/expressions-and-equations/slope-intercept-form.pdf" class="worksheet-link">Slope-Intercept Form</a></li>
-                        <li><a href="../../worksheets/Grade8/expressions-and-equations/graphing-linear-equations.pdf" class="worksheet-link">Graphing Linear Equations</a></li>
-                        <li><a href="../../worksheets/Grade8/expressions-and-equations/writing-linear-equations.pdf" class="worksheet-link">Writing Linear Equations</a></li>
-                        <li><a href="../../worksheets/Grade8/expressions-and-equations/solving-linear-equations.pdf" class="worksheet-link">Solving Linear Equations</a></li>
-                        <li><a href="../../worksheets/Grade8/expressions-and-equations/systems-of-equations-graphing.pdf" class="worksheet-link">Systems of Equations (Graphing)</a></li>
-                        <li><a href="../../worksheets/Grade8/expressions-and-equations/systems-of-equations-substitution.pdf" class="worksheet-link">Systems of Equations (Substitution)</a></li>
-                        <li><a href="../../worksheets/Grade8/expressions-and-equations/systems-of-equations-elimination.pdf" class="worksheet-link">Systems of Equations (Elimination)</a></li>
-                    </ul>
-                </div>
-                <div class="grade-card">
-                    <h3>Functions</h3>
-                    <ul>
-                        <li><a href="../../worksheets/Grade8/functions/understanding-functions.pdf" class="worksheet-link">Understanding Functions</a></li>
-                        <li><a href="../../worksheets/Grade8/functions/function-notation.pdf" class="worksheet-link">Function Notation</a></li>
-                        <li><a href="../../worksheets/Grade8/functions/linear-vs-nonlinear-functions.pdf" class="worksheet-link">Linear vs Nonlinear Functions</a></li>
-                        <li><a href="../../worksheets/Grade8/functions/comparing-functions.pdf" class="worksheet-link">Comparing Functions</a></li>
-                        <li><a href="../../worksheets/Grade8/functions/rate-of-change.pdf" class="worksheet-link">Rate of Change</a></li>
-                        <li><a href="../../worksheets/Grade8/functions/interpreting-graphs.pdf" class="worksheet-link">Interpreting Graphs</a></li>
-                    </ul>
-                </div>
-                <div class="grade-card">
-                    <h3>Geometry</h3>
-                    <ul>
-                        <li><a href="../../worksheets/Grade8/geometry/transformations-translations.pdf" class="worksheet-link">Transformations (Translations)</a></li>
-                        <li><a href="../../worksheets/Grade8/geometry/transformations-reflections.pdf" class="worksheet-link">Transformations (Reflections)</a></li>
-                        <li><a href="../../worksheets/Grade8/geometry/transformations-rotations.pdf" class="worksheet-link">Transformations (Rotations)</a></li>
-                        <li><a href="../../worksheets/Grade8/geometry/transformations-dilations.pdf" class="worksheet-link">Transformations (Dilations)</a></li>
-                        <li><a href="../../worksheets/Grade8/geometry/congruence.pdf" class="worksheet-link">Congruence</a></li>
-                        <li><a href="../../worksheets/Grade8/geometry/similarity.pdf" class="worksheet-link">Similarity</a></li>
-                        <li><a href="../../worksheets/Grade8/geometry/pythagorean-theorem.pdf" class="worksheet-link">Pythagorean Theorem</a></li>
-                        <li><a href="../../worksheets/Grade8/geometry/distance-formula.pdf" class="worksheet-link">Distance Formula</a></li>
-                        <li><a href="../../worksheets/Grade8/geometry/volume-of-cylinders.pdf" class="worksheet-link">Volume of Cylinders</a></li>
-                        <li><a href="../../worksheets/Grade8/geometry/volume-of-cones.pdf" class="worksheet-link">Volume of Cones</a></li>
-                        <li><a href="../../worksheets/Grade8/geometry/volume-of-spheres.pdf" class="worksheet-link">Volume of Spheres</a></li>
-                    </ul>
-                </div>
-                <div class="grade-card">
-                    <h3>Statistics</h3>
-                    <ul>
-                        <li><a href="../../worksheets/Grade8/statistics/scatter-plots.pdf" class="worksheet-link">Scatter Plots</a></li>
-                        <li><a href="../../worksheets/Grade8/statistics/lines-of-best-fit.pdf" class="worksheet-link">Lines of Best Fit</a></li>
-                        <li><a href="../../worksheets/Grade8/statistics/two-way-tables.pdf" class="worksheet-link">Two-Way Tables</a></li>
-                        <li><a href="../../worksheets/Grade8/statistics/bivariate-data.pdf" class="worksheet-link">Bivariate Data</a></li>
-                        <li><a href="../../worksheets/Grade8/statistics/patterns-of-association.pdf" class="worksheet-link">Patterns of Association</a></li>
-                    </ul>
-                </div>
-            </div>
-        </section>
-
-        <section class="for-parents">
             <h2>Coming Soon!</h2>
-            <p>We're working on creating comprehensive, printable worksheets for all the skills listed above. Each worksheet will include clear instructions, multiple practice problems, and answer keys.</p>
+            <p>We're working on creating comprehensive, printable worksheets for all the skills listed below. Each worksheet will include clear instructions, multiple practice problems, and answer keys.</p>
             <p>Check back regularly for updates, or <a href="parents.html">visit our Parents page</a> for recommended external resources you can use right now.</p>
+            <p style="margin-top: 1rem;"><strong>Current Progress:</strong> Going from Kindergarten to 8th grade, skipping Geometry sections. Currently on: 2nd grade.</p>
+        </section>
+
+        <!-- ELEMENTARY SCHOOL SECTION -->
+        <section class="school-section" id="elementary-section">
+            <h2 class="section-title">Elementary School</h2>
+
+            <!-- Grade Tabs -->
+            <div class="grade-tabs" role="tablist" aria-label="Elementary grade levels">
+                <button class="grade-tab-button active" role="tab" aria-selected="true"
+                        aria-controls="elem-grade-k" id="tab-elem-k" data-grade="k">
+                    Kindergarten
+                </button>
+                <button class="grade-tab-button" role="tab" aria-selected="false"
+                        aria-controls="elem-grade-1" id="tab-elem-1" data-grade="1">
+                    Grade 1
+                </button>
+                <button class="grade-tab-button" role="tab" aria-selected="false"
+                        aria-controls="elem-grade-2" id="tab-elem-2" data-grade="2">
+                    Grade 2
+                </button>
+                <button class="grade-tab-button" role="tab" aria-selected="false"
+                        aria-controls="elem-grade-3" id="tab-elem-3" data-grade="3">
+                    Grade 3
+                </button>
+                <button class="grade-tab-button" role="tab" aria-selected="false"
+                        aria-controls="elem-grade-4" id="tab-elem-4" data-grade="4">
+                    Grade 4
+                </button>
+                <button class="grade-tab-button" role="tab" aria-selected="false"
+                        aria-controls="elem-grade-5" id="tab-elem-5" data-grade="5">
+                    Grade 5
+                </button>
+            </div>
+
+            <!-- Grade Panels -->
+            <div class="grade-panels">
+
+                <!-- Kindergarten Panel -->
+                <div class="grade-panel active" role="tabpanel" id="elem-grade-k" aria-labelledby="tab-elem-k">
+                    <div class="content-layout">
+                        <!-- Left Sidebar: Domain Tabs -->
+                        <div class="domain-sidebar">
+                            <div class="domain-tabs" role="tablist" aria-label="Math domains for Kindergarten">
+                                <button class="domain-tab-button active" role="tab" aria-selected="true"
+                                        aria-controls="k-arithmetic" id="tab-k-arithmetic">
+                                    Arithmetic & Operations
+                                </button>
+                                <button class="domain-tab-button" role="tab" aria-selected="false"
+                                        aria-controls="k-geometry" id="tab-k-geometry">
+                                    Geometry
+                                </button>
+                                <button class="domain-tab-button" role="tab" aria-selected="false"
+                                        aria-controls="k-measurement" id="tab-k-measurement">
+                                    Measurement & Data
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Right Content: Worksheet Cards -->
+                        <div class="domain-content">
+                            <!-- Arithmetic Panel -->
+                            <div class="domain-panel active" role="tabpanel" id="k-arithmetic" aria-labelledby="tab-k-arithmetic">
+                                <div class="grid-container">
+                                    <div class="grade-card">
+                                        <h3>Counting and Cardinality</h3>
+                                        <ul>
+                                            <li><a href="../../worksheets/Kindergarten/counting-and-cardinality/counting-to-100.pdf" class="worksheet-link">Counting to 100 by Ones and Tens</a></li>
+                                            <li><a href="../../worksheets/Kindergarten/counting-and-cardinality/counting-forward.pdf" class="worksheet-link">Counting Forward from Any Number</a></li>
+                                            <li><a href="../../worksheets/Kindergarten/counting-and-cardinality/writing-up-to-20.pdf" class="worksheet-link">Writing Numbers 0 to 20</a></li>
+                                            <li><a href="../../worksheets/Kindergarten/counting-and-cardinality/one-to-one-counting.pdf" class="worksheet-link">One-to-One Object Counting</a></li>
+                                            <li><a href="../../worksheets/Kindergarten/counting-and-cardinality/counting-activities.pdf" class="worksheet-link">Counting to Answer "How Many?"</a></li>
+                                            <li><a href="../../worksheets/Kindergarten/counting-and-cardinality/identifying-greater-numbers-shapes.pdf" class="worksheet-link">Comparing Numbers (Greater Than)</a></li>
+                                            <li><a href="../../worksheets/Kindergarten/counting-and-cardinality/identifying-greater-numbers-1-20.pdf" class="worksheet-link">Comparing Numbers 1-20</a></li>
+                                        </ul>
+                                    </div>
+                                    <div class="grade-card">
+                                        <h3>Operations and Algebraic Thinking</h3>
+                                        <ul>
+                                            <li><a href="../../worksheets/Kindergarten/operations-and-algebraic-thinking/adding-shapes-together.pdf" class="worksheet-link">Addition as Putting Together</a></li>
+                                            <li><a href="../../worksheets/Kindergarten/operations-and-algebraic-thinking/splitting-up-shapes.pdf" class="worksheet-link">Subtraction as Taking Apart</a></li>
+                                            <li><a href="../../worksheets/Kindergarten/operations-and-algebraic-thinking/adding-within-5.pdf" class="worksheet-link">Addition within 5</a></li>
+                                            <li><a href="../../worksheets/Kindergarten/operations-and-algebraic-thinking/subtracting-within-5.pdf" class="worksheet-link">Subtraction within 5</a></li>
+                                            <li><a href="../../worksheets/Kindergarten/operations-and-algebraic-thinking/addition-word-problems.pdf" class="worksheet-link">Addition Word Problems within 10</a></li>
+                                            <li><a href="../../worksheets/Kindergarten/operations-and-algebraic-thinking/subtraction-word-problems.pdf" class="worksheet-link">Subtraction Word Problems within 10</a></li>
+                                            <li><a href="../../worksheets/Kindergarten/operations-and-algebraic-thinking/decomposing-numbers.pdf" class="worksheet-link">Decomposing Numbers to 10</a></li>
+                                            <li><a href="../../worksheets/Kindergarten/operations-and-algebraic-thinking/making-ten.pdf" class="worksheet-link">Finding Missing Numbers to Make 10</a></li>
+                                        </ul>
+                                    </div>
+                                    <div class="grade-card">
+                                        <h3>Numbers and Operations in Base Ten</h3>
+                                        <ul>
+                                            <li><a href="../../worksheets/Kindergarten/numbers-and-operations-in-base-ten/composing-and-decomposing-teens.pdf" class="worksheet-link">Working with Numbers 11-19</a></li>
+                                            <li><a href="../../worksheets/Kindergarten/numbers-and-operations-in-base-ten/composing-teen-numbers.pdf" class="worksheet-link">Composing Teen Numbers</a></li>
+                                            <li><a href="../../worksheets/Kindergarten/numbers-and-operations-in-base-ten/decomposing-teen-numbers.pdf" class="worksheet-link">Decomposing Teen Numbers</a></li>
+                                            <li><a href="../../worksheets/Kindergarten/numbers-and-operations-in-base-ten/introduction-to-place-value.pdf" class="worksheet-link">Introduction to Place Value</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Geometry Panel -->
+                            <div class="domain-panel" role="tabpanel" id="k-geometry" aria-labelledby="tab-k-geometry">
+                                <div class="grid-container">
+                                    <div class="grade-card">
+                                        <h3>Geometry</h3>
+                                        <ul>
+                                            <li><a href="../../worksheets/Kindergarten/geometry/intro-to-2d-shapes.pdf" class="worksheet-link">Identifying 2D Shapes</a></li>
+                                            <li><a href="../../worksheets/Kindergarten/geometry/intro-to-3d-shapes.pdf" class="worksheet-link">Identifying 3D Shapes</a></li>
+                                            <li><a href="../../worksheets/Kindergarten/geometry/shapes-different-positions.pdf" class="worksheet-link">Shapes in Different Positions</a></li>
+                                            <li><a href="../../worksheets/Kindergarten/geometry/shapes-different-sizes.pdf" class="worksheet-link">Shapes of Different Sizes</a></li>
+                                            <li><a href="../../worksheets/Kindergarten/geometry/shapes-properties.pdf" class="worksheet-link">Analyzing and Comparing Shapes</a></li>
+                                            <li><a href="../../worksheets/Kindergarten/geometry/tracing-shapes.pdf" class="worksheet-link">Drawing Shapes</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Measurement Panel -->
+                            <div class="domain-panel" role="tabpanel" id="k-measurement" aria-labelledby="tab-k-measurement">
+                                <div class="grid-container">
+                                    <div class="grade-card">
+                                        <h3>Measurement and Data</h3>
+                                        <ul>
+                                            <li><a href="../../worksheets/Kindergarten/measurement-and-data/comparing-length-of-objects.pdf" class="worksheet-link">Describing Measurable Attributes</a></li>
+                                            <li><a href="../../worksheets/Kindergarten/measurement-and-data/comparing-lengths-of-two-objects.pdf" class="worksheet-link">Comparing Two Objects</a></li>
+                                            <li><a href="../../worksheets/Kindergarten/measurement-and-data/classifying-objects.pdf" class="worksheet-link">Classifying Objects into Categories</a></li>
+                                            <li><a href="../../worksheets/Kindergarten/measurement-and-data/sort-and-count-objects.pdf" class="worksheet-link">Counting Objects in Categories</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Grade 1 Panel -->
+                <div class="grade-panel" role="tabpanel" id="elem-grade-1" aria-labelledby="tab-elem-1">
+                    <div class="content-layout">
+                        <!-- Left Sidebar: Domain Tabs -->
+                        <div class="domain-sidebar">
+                            <div class="domain-tabs" role="tablist" aria-label="Math domains for Grade 1">
+                                <button class="domain-tab-button active" role="tab" aria-selected="true"
+                                        aria-controls="1-arithmetic" id="tab-1-arithmetic">
+                                    Arithmetic & Operations
+                                </button>
+                                <button class="domain-tab-button" role="tab" aria-selected="false"
+                                        aria-controls="1-geometry" id="tab-1-geometry">
+                                    Geometry
+                                </button>
+                                <button class="domain-tab-button" role="tab" aria-selected="false"
+                                        aria-controls="1-measurement" id="tab-1-measurement">
+                                    Measurement & Data
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Right Content: Worksheet Cards -->
+                        <div class="domain-content">
+                            <!-- Arithmetic Panel -->
+                            <div class="domain-panel active" role="tabpanel" id="1-arithmetic" aria-labelledby="tab-1-arithmetic">
+                                <div class="grid-container">
+                                    <div class="grade-card">
+                                        <h3>Arithmetic & Operations</h3>
+                                        <ul>
+<li><a href="../../worksheets/Grade1/addition-and-subtraction/addition-within-20.pdf" class="worksheet-link">Addition within 20</a></li>
+<li><a href="../../worksheets/Grade1/addition-and-subtraction/subtraction-within-20.pdf" class="worksheet-link">Subtraction within 20</a></li>
+<li><a href="../../worksheets/Grade1/addition-and-subtraction/addition-word-problems.pdf" class="worksheet-link">Addition Word Problems</a></li>
+<li><a href="../../worksheets/Grade1/addition-and-subtraction/subtraction-word-problems.pdf" class="worksheet-link">Subtraction Word Problems</a></li>
+<li><a href="../../worksheets/Grade1/addition-and-subtraction/fact-families.pdf" class="worksheet-link">Fact Families</a></li>
+<li><a href="../../worksheets/Grade1/addition-and-subtraction/missing-addends.pdf" class="worksheet-link">Missing Addends</a></li>
+<li><a href="../../worksheets/Grade1/addition-and-subtraction/three-number-addition.pdf" class="worksheet-link">Three Number Addition</a></li>
+<li><a href="../../worksheets/Grade1/addition-and-subtraction/true-or-false-equations.pdf" class="worksheet-link">True or False Equations</a></li>
+<li><a href="../../worksheets/Grade1/place-value/place-value.pdf" class="worksheet-link">Tens and Ones</a></li>
+<li><a href="../../worksheets/Grade1/place-value/counting-to-120.pdf" class="worksheet-link">Counting to 120</a></li>
+<li><a href="../../worksheets/Grade1/place-value/comparing-two-digit-numbers.pdf" class="worksheet-link">Comparing Two-Digit Numbers</a></li>
+<li><a href="../../worksheets/Grade1/place-value/10-more-10-less.pdf" class="worksheet-link">10 More/10 Less</a></li>
+<li><a href="../../worksheets/Grade1/place-value/teen-numbers.pdf" class="worksheet-link">Numbers 11-19 (Teen Numbers)</a></li>
+<li><a href="../../worksheets/Grade1/place-value/expanded-form.pdf" class="worksheet-link">Expanded Form</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Geometry Panel -->
+                            <div class="domain-panel" role="tabpanel" id="1-geometry" aria-labelledby="tab-1-geometry">
+                                <div class="grid-container">
+                                    <div class="grade-card">
+                                        <h3>Geometry</h3>
+                                        <ul>
+<li><a href="../../worksheets/Grade1/geometry-and-fractions/2d-shape-attributes.pdf" class="worksheet-link">2D Shape Attributes</a></li>
+<li><a href="../../worksheets/Grade1/geometry-and-fractions/3d-shape-attributes.pdf" class="worksheet-link">3D Shape Attributes</a></li>
+<li><a href="../../worksheets/Grade1/geometry-and-fractions/composing-shapes.pdf" class="worksheet-link">Composing Shapes</a></li>
+<li><a href="../../worksheets/Grade1/geometry-and-fractions/halves-and-fourths.pdf" class="worksheet-link">Halves and Fourths</a></li>
+<li><a href="../../worksheets/Grade1/geometry-and-fractions/equal-shares.pdf" class="worksheet-link">Equal Shares</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Measurement Panel -->
+                            <div class="domain-panel" role="tabpanel" id="1-measurement" aria-labelledby="tab-1-measurement">
+                                <div class="grid-container">
+                                    <div class="grade-card">
+                                        <h3>Measurement & Data</h3>
+                                        <ul>
+<li><a href="../../worksheets/Grade1/measurement-and-time/ordering-by-length.pdf" class="worksheet-link">Ordering by Length</a></li>
+<li><a href="../../worksheets/Grade1/measurement-and-time/measuring-with-units.pdf" class="worksheet-link">Measuring with Units</a></li>
+<li><a href="../../worksheets/Grade1/measurement-and-time/telling-time-to-hour.pdf" class="worksheet-link">Telling Time to the Hour</a></li>
+<li><a href="../../worksheets/Grade1/measurement-and-time/telling-time-to-half-hour.pdf" class="worksheet-link">Telling Time to the Half Hour</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Grade 2 Panel -->
+                <div class="grade-panel" role="tabpanel" id="elem-grade-2" aria-labelledby="tab-elem-2">
+                    <div class="content-layout">
+                        <div class="domain-sidebar">
+                            <div class="domain-tabs" role="tablist" aria-label="Math domains for Grade 2">
+                                <button class="domain-tab-button active" role="tab" aria-selected="true"
+                                        aria-controls="2-arithmetic" id="tab-2-arithmetic">
+                                    Arithmetic & Operations
+                                </button>
+                                <button class="domain-tab-button" role="tab" aria-selected="false"
+                                        aria-controls="2-measurement" id="tab-2-measurement">
+                                    Measurement & Data
+                                </button>
+                            </div>
+                        </div>
+                        <div class="domain-content">
+                            <div class="domain-panel active" role="tabpanel" id="2-arithmetic" aria-labelledby="tab-2-arithmetic">
+                                <div class="grid-container">
+                                    <div class="grade-card">
+                                        <h3>Arithmetic & Operations</h3>
+                                        <ul>
+<li><a href="../../worksheets/Grade2/addition-and-subtraction/addition-within-100.pdf" class="worksheet-link">Addition within 100</a></li>
+<li><a href="../../worksheets/Grade2/addition-and-subtraction/subtraction-within-100.pdf" class="worksheet-link">Subtraction within 100</a></li>
+<li><a href="../../worksheets/Grade2/addition-and-subtraction/two-step-word-problems.pdf" class="worksheet-link">Two-Step Word Problems</a></li>
+<li><a href="../../worksheets/Grade2/addition-and-subtraction/mental-math-strategies.pdf" class="worksheet-link">Mental Math Strategies</a></li>
+<li><a href="../../worksheets/Grade2/addition-and-subtraction/addition-fluency-practice.pdf" class="worksheet-link">Addition Fluency Practice</a></li>
+<li><a href="../../worksheets/Grade2/addition-and-subtraction/subtraction-fluency-practice.pdf" class="worksheet-link">Subtraction Fluency Practice</a></li>
+<li><a href="../../worksheets/Grade2/place-value/three-digit-numbers.pdf" class="worksheet-link">Three-Digit Numbers</a></li>
+<li><a href="../../worksheets/Grade2/place-value/hundreds-tens-ones.pdf" class="worksheet-link">Hundreds, Tens, and Ones</a></li>
+<li><a href="../../worksheets/Grade2/place-value/comparing-three-digit-numbers.pdf" class="worksheet-link">Comparing Three-Digit Numbers</a></li>
+<li><a href="../../worksheets/Grade2/place-value/skip-counting.pdf" class="worksheet-link">Skip Counting by 5s, 10s, 100s</a></li>
+<li><a href="../../worksheets/Grade2/place-value/expanded-form-to-1000.pdf" class="worksheet-link">Expanded Form to 1000</a></li>
+<li><a href="../../worksheets/Grade2/place-value/number-word-form.pdf" class="worksheet-link">Number Word Form</a></li>
+<li><a href="../../worksheets/Grade2/multiplication-division-foundations/even-and-odd-numbers.pdf" class="worksheet-link">Even and Odd Numbers</a></li>
+<li><a href="../../worksheets/Grade2/multiplication-division-foundations/arrays-repeated-addition.pdf" class="worksheet-link">Arrays and Repeated Addition</a></li>
+<li><a href="../../worksheets/Grade2/multiplication-division-foundations/equal-groups.pdf" class="worksheet-link">Equal Groups</a></li>
+<li><a href="../../worksheets/Grade2/multiplication-division-foundations/rows-and-columns.pdf" class="worksheet-link">Rows and Columns</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="domain-panel" role="tabpanel" id="2-measurement" aria-labelledby="tab-2-measurement">
+                                <div class="grid-container">
+                                    <div class="grade-card">
+                                        <h3>Measurement & Data</h3>
+                                        <ul>
+<li><a href="../../worksheets/Grade2/measurement/measuring-length-inches-feet.pdf" class="worksheet-link">Measuring Length (Inches, Feet)</a></li>
+<li><a href="../../worksheets/Grade2/measurement/measuring-length-centimeters-meters.pdf" class="worksheet-link">Measuring Length (Centimeters, Meters)</a></li>
+<li><a href="../../worksheets/Grade2/measurement/estimating-length.pdf" class="worksheet-link">Estimating Length</a></li>
+<li><a href="../../worksheets/Grade2/measurement/telling-time-5-minutes.pdf" class="worksheet-link">Telling Time to 5 Minutes</a></li>
+<li><a href="../../worksheets/Grade2/measurement/am-and-pm.pdf" class="worksheet-link">A.M. and P.M.</a></li>
+<li><a href="../../worksheets/Grade2/measurement/counting-money.pdf" class="worksheet-link">Counting Money</a></li>
+<li><a href="../../worksheets/Grade2/measurement/money-word-problems.pdf" class="worksheet-link">Money Word Problems</a></li>
+<li><a href="../../worksheets/Grade2/data-and-geometry/line-plots.pdf" class="worksheet-link">Line Plots</a></li>
+<li><a href="../../worksheets/Grade2/data-and-geometry/picture-graphs.pdf" class="worksheet-link">Picture Graphs</a></li>
+<li><a href="../../worksheets/Grade2/data-and-geometry/bar-graphs.pdf" class="worksheet-link">Bar Graphs</a></li>
+<li><a href="../../worksheets/Grade2/data-and-geometry/shape-attributes.pdf" class="worksheet-link">Shape Attributes</a></li>
+<li><a href="../../worksheets/Grade2/data-and-geometry/partitioning-rectangles.pdf" class="worksheet-link">Partitioning Rectangles</a></li>
+<li><a href="../../worksheets/Grade2/data-and-geometry/fractions-halves-thirds-fourths.pdf" class="worksheet-link">Fractions: Halves, Thirds, Fourths</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Grade 3 Panel -->
+                <div class="grade-panel" role="tabpanel" id="elem-grade-3" aria-labelledby="tab-elem-3">
+                    <div class="content-layout">
+                        <div class="domain-sidebar">
+                            <div class="domain-tabs" role="tablist" aria-label="Math domains for Grade 3">
+                                <button class="domain-tab-button active" role="tab" aria-selected="true"
+                                        aria-controls="3-arithmetic" id="tab-3-arithmetic">
+                                    Arithmetic & Operations
+                                </button>
+                                <button class="domain-tab-button" role="tab" aria-selected="false"
+                                        aria-controls="3-fractions" id="tab-3-fractions">
+                                    Fractions
+                                </button>
+                                <button class="domain-tab-button" role="tab" aria-selected="false"
+                                        aria-controls="3-geometry" id="tab-3-geometry">
+                                    Geometry
+                                </button>
+                                <button class="domain-tab-button" role="tab" aria-selected="false"
+                                        aria-controls="3-measurement" id="tab-3-measurement">
+                                    Measurement & Data
+                                </button>
+                            </div>
+                        </div>
+                        <div class="domain-content">
+                            <div class="domain-panel active" role="tabpanel" id="3-arithmetic" aria-labelledby="tab-3-arithmetic">
+                                <div class="grid-container">
+                                    <div class="grade-card">
+                                        <h3>Arithmetic & Operations</h3>
+                                        <ul>
+<li><a href="../../worksheets/Grade3/multiplication-and-division/multiplication-facts-0-10.pdf" class="worksheet-link">Multiplication Facts 0-10</a></li>
+<li><a href="../../worksheets/Grade3/multiplication-and-division/division-facts-0-10.pdf" class="worksheet-link">Division Facts 0-10</a></li>
+<li><a href="../../worksheets/Grade3/multiplication-and-division/multiplication-word-problems.pdf" class="worksheet-link">Multiplication Word Problems</a></li>
+<li><a href="../../worksheets/Grade3/multiplication-and-division/division-word-problems.pdf" class="worksheet-link">Division Word Problems</a></li>
+<li><a href="../../worksheets/Grade3/multiplication-and-division/multiplication-properties.pdf" class="worksheet-link">Multiplication Properties</a></li>
+<li><a href="../../worksheets/Grade3/multiplication-and-division/fact-families.pdf" class="worksheet-link">Fact Families (×÷)</a></li>
+<li><a href="../../worksheets/Grade3/multiplication-and-division/two-step-problems.pdf" class="worksheet-link">Two-Step Problems</a></li>
+<li><a href="../../worksheets/Grade3/multiplication-and-division/number-patterns.pdf" class="worksheet-link">Number Patterns</a></li>
+<li><a href="../../worksheets/Grade3/place-value-and-rounding/rounding-to-nearest-10.pdf" class="worksheet-link">Rounding to Nearest 10</a></li>
+<li><a href="../../worksheets/Grade3/place-value-and-rounding/rounding-to-nearest-100.pdf" class="worksheet-link">Rounding to Nearest 100</a></li>
+<li><a href="../../worksheets/Grade3/place-value-and-rounding/addition-within-1000.pdf" class="worksheet-link">Addition within 1000</a></li>
+<li><a href="../../worksheets/Grade3/place-value-and-rounding/subtraction-within-1000.pdf" class="worksheet-link">Subtraction within 1000</a></li>
+<li><a href="../../worksheets/Grade3/place-value-and-rounding/multiplying-multiples-of-10.pdf" class="worksheet-link">Multiplying by Multiples of 10</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="domain-panel" role="tabpanel" id="3-fractions" aria-labelledby="tab-3-fractions">
+                                <div class="grid-container">
+                                    <div class="grade-card">
+                                        <h3>Fractions</h3>
+                                        <ul>
+<li><a href="../../worksheets/Grade3/fractions/understanding-fractions.pdf" class="worksheet-link">Understanding Fractions</a></li>
+<li><a href="../../worksheets/Grade3/fractions/fractions-on-number-line.pdf" class="worksheet-link">Fractions on a Number Line</a></li>
+<li><a href="../../worksheets/Grade3/fractions/equivalent-fractions.pdf" class="worksheet-link">Equivalent Fractions</a></li>
+<li><a href="../../worksheets/Grade3/fractions/comparing-fractions.pdf" class="worksheet-link">Comparing Fractions</a></li>
+<li><a href="../../worksheets/Grade3/fractions/ordering-fractions.pdf" class="worksheet-link">Ordering Fractions</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="domain-panel" role="tabpanel" id="3-geometry" aria-labelledby="tab-3-geometry">
+                                <div class="grid-container">
+                                    <div class="grade-card">
+                                        <h3>Geometry</h3>
+                                        <ul>
+<li><a href="../../worksheets/Grade3/geometry/area-concepts.pdf" class="worksheet-link">Area Concepts</a></li>
+<li><a href="../../worksheets/Grade3/geometry/area-and-multiplication.pdf" class="worksheet-link">Area and Multiplication</a></li>
+<li><a href="../../worksheets/Grade3/geometry/perimeter.pdf" class="worksheet-link">Perimeter</a></li>
+<li><a href="../../worksheets/Grade3/geometry/quadrilaterals.pdf" class="worksheet-link">Quadrilaterals</a></li>
+<li><a href="../../worksheets/Grade3/geometry/partitioning-shapes.pdf" class="worksheet-link">Partitioning Shapes</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="domain-panel" role="tabpanel" id="3-measurement" aria-labelledby="tab-3-measurement">
+                                <div class="grid-container">
+                                    <div class="grade-card">
+                                        <h3>Measurement & Data</h3>
+                                        <ul>
+<li><a href="../../worksheets/Grade3/measurement-and-data/elapsed-time.pdf" class="worksheet-link">Elapsed Time</a></li>
+<li><a href="../../worksheets/Grade3/measurement-and-data/liquid-volume.pdf" class="worksheet-link">Liquid Volume</a></li>
+<li><a href="../../worksheets/Grade3/measurement-and-data/mass-and-weight.pdf" class="worksheet-link">Mass and Weight</a></li>
+<li><a href="../../worksheets/Grade3/measurement-and-data/scaled-picture-graphs.pdf" class="worksheet-link">Scaled Picture Graphs</a></li>
+<li><a href="../../worksheets/Grade3/measurement-and-data/scaled-bar-graphs.pdf" class="worksheet-link">Scaled Bar Graphs</a></li>
+<li><a href="../../worksheets/Grade3/measurement-and-data/line-plots-with-fractions.pdf" class="worksheet-link">Line Plots with Fractions</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Grade 4 Panel -->
+                <div class="grade-panel" role="tabpanel" id="elem-grade-4" aria-labelledby="tab-elem-4">
+                    <div class="content-layout">
+                        <div class="domain-sidebar">
+                            <div class="domain-tabs" role="tablist" aria-label="Math domains for Grade 4">
+                                <button class="domain-tab-button active" role="tab" aria-selected="true"
+                                        aria-controls="4-geometry" id="tab-4-geometry">
+                                    Geometry
+                                </button>
+                                <button class="domain-tab-button" role="tab" aria-selected="false"
+                                        aria-controls="4-measurement" id="tab-4-measurement">
+                                    Measurement & Data
+                                </button>
+                            </div>
+                        </div>
+                        <div class="domain-content">
+                            <div class="domain-panel active" role="tabpanel" id="4-geometry" aria-labelledby="tab-4-geometry">
+                                <div class="grid-container">
+                                    <div class="grade-card">
+                                        <h3>Geometry</h3>
+                                        <ul>
+<li><a href="../../worksheets/Grade4/geometry/points-lines-rays.pdf" class="worksheet-link">Points, Lines, and Rays</a></li>
+<li><a href="../../worksheets/Grade4/geometry/angles.pdf" class="worksheet-link">Angles</a></li>
+<li><a href="../../worksheets/Grade4/geometry/measuring-angles.pdf" class="worksheet-link">Measuring Angles</a></li>
+<li><a href="../../worksheets/Grade4/geometry/classifying-triangles.pdf" class="worksheet-link">Classifying Triangles</a></li>
+<li><a href="../../worksheets/Grade4/geometry/classifying-quadrilaterals.pdf" class="worksheet-link">Classifying Quadrilaterals</a></li>
+<li><a href="../../worksheets/Grade4/geometry/line-symmetry.pdf" class="worksheet-link">Line Symmetry</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="domain-panel" role="tabpanel" id="4-measurement" aria-labelledby="tab-4-measurement">
+                                <div class="grid-container">
+                                    <div class="grade-card">
+                                        <h3>Measurement & Data</h3>
+                                        <ul>
+<li><a href="../../worksheets/Grade4/measurement/converting-units-length.pdf" class="worksheet-link">Converting Units (Length)</a></li>
+<li><a href="../../worksheets/Grade4/measurement/converting-units-weight.pdf" class="worksheet-link">Converting Units (Weight)</a></li>
+<li><a href="../../worksheets/Grade4/measurement/converting-units-volume.pdf" class="worksheet-link">Converting Units (Volume)</a></li>
+<li><a href="../../worksheets/Grade4/measurement/converting-units-time.pdf" class="worksheet-link">Converting Units (Time)</a></li>
+<li><a href="../../worksheets/Grade4/measurement/area-formulas.pdf" class="worksheet-link">Area Formulas</a></li>
+<li><a href="../../worksheets/Grade4/measurement/perimeter-formulas.pdf" class="worksheet-link">Perimeter Formulas</a></li>
+<li><a href="../../worksheets/Grade4/measurement/line-plots-with-fractions.pdf" class="worksheet-link">Line Plots with Fractions</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Grade 5 Panel -->
+                <div class="grade-panel" role="tabpanel" id="elem-grade-5" aria-labelledby="tab-elem-5">
+                    <div class="content-layout">
+                        <div class="domain-sidebar">
+                            <div class="domain-tabs" role="tablist" aria-label="Math domains for Grade 5">
+                                <button class="domain-tab-button active" role="tab" aria-selected="true"
+                                        aria-controls="5-fractions" id="tab-5-fractions">
+                                    Fractions
+                                </button>
+                                <button class="domain-tab-button" role="tab" aria-selected="false"
+                                        aria-controls="5-geometry" id="tab-5-geometry">
+                                    Geometry
+                                </button>
+                                <button class="domain-tab-button" role="tab" aria-selected="false"
+                                        aria-controls="5-measurement" id="tab-5-measurement">
+                                    Measurement & Data
+                                </button>
+                            </div>
+                        </div>
+                        <div class="domain-content">
+                            <div class="domain-panel active" role="tabpanel" id="5-fractions" aria-labelledby="tab-5-fractions">
+                                <div class="grid-container">
+                                    <div class="grade-card">
+                                        <h3>Fractions</h3>
+                                        <ul>
+<li><a href="../../worksheets/Grade5/fractions/adding-fractions-unlike-denominators.pdf" class="worksheet-link">Adding Fractions (Unlike Denominators)</a></li>
+<li><a href="../../worksheets/Grade5/fractions/subtracting-fractions-unlike-denominators.pdf" class="worksheet-link">Subtracting Fractions (Unlike Denominators)</a></li>
+<li><a href="../../worksheets/Grade5/fractions/fractions-as-division.pdf" class="worksheet-link">Fractions as Division</a></li>
+<li><a href="../../worksheets/Grade5/fractions/multiplying-fractions.pdf" class="worksheet-link">Multiplying Fractions</a></li>
+<li><a href="../../worksheets/Grade5/fractions/multiplying-mixed-numbers.pdf" class="worksheet-link">Multiplying Mixed Numbers</a></li>
+<li><a href="../../worksheets/Grade5/fractions/dividing-unit-fractions.pdf" class="worksheet-link">Dividing Unit Fractions</a></li>
+<li><a href="../../worksheets/Grade5/fractions/scaling-and-fractions.pdf" class="worksheet-link">Scaling and Fractions</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="domain-panel" role="tabpanel" id="5-geometry" aria-labelledby="tab-5-geometry">
+                                <div class="grid-container">
+                                    <div class="grade-card">
+                                        <h3>Geometry</h3>
+                                        <ul>
+<li><a href="../../worksheets/Grade5/geometry/coordinate-plane.pdf" class="worksheet-link">Coordinate Plane</a></li>
+<li><a href="../../worksheets/Grade5/geometry/graphing-points.pdf" class="worksheet-link">Graphing Points</a></li>
+<li><a href="../../worksheets/Grade5/geometry/classifying-2d-shapes.pdf" class="worksheet-link">Classifying 2D Shapes</a></li>
+<li><a href="../../worksheets/Grade5/geometry/shape-hierarchies.pdf" class="worksheet-link">Shape Hierarchies</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="domain-panel" role="tabpanel" id="5-measurement" aria-labelledby="tab-5-measurement">
+                                <div class="grid-container">
+                                    <div class="grade-card">
+                                        <h3>Measurement & Data</h3>
+                                        <ul>
+<li><a href="../../worksheets/Grade5/measurement/converting-metric-units.pdf" class="worksheet-link">Converting Metric Units</a></li>
+<li><a href="../../worksheets/Grade5/measurement/converting-customary-units.pdf" class="worksheet-link">Converting Customary Units</a></li>
+<li><a href="../../worksheets/Grade5/measurement/line-plots-with-fractions.pdf" class="worksheet-link">Line Plots with Fractions</a></li>
+<li><a href="../../worksheets/Grade5/measurement/understanding-volume.pdf" class="worksheet-link">Understanding Volume</a></li>
+<li><a href="../../worksheets/Grade5/measurement/volume-formulas.pdf" class="worksheet-link">Volume Formulas</a></li>
+<li><a href="../../worksheets/Grade5/measurement/volume-of-composite-figures.pdf" class="worksheet-link">Volume of Composite Figures</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- MIDDLE SCHOOL SECTION -->
+        <section class="school-section" id="middle-section">
+            <h2 class="section-title">Middle School</h2>
+
+            <!-- Grade Tabs -->
+            <div class="grade-tabs" role="tablist" aria-label="Middle school grade levels">
+                <button class="grade-tab-button active" role="tab" aria-selected="true"
+                        aria-controls="middle-grade-6" id="tab-middle-6" data-grade="6">
+                    Grade 6
+                </button>
+                <button class="grade-tab-button" role="tab" aria-selected="false"
+                        aria-controls="middle-grade-7" id="tab-middle-7" data-grade="7">
+                    Grade 7
+                </button>
+                <button class="grade-tab-button" role="tab" aria-selected="false"
+                        aria-controls="middle-grade-8" id="tab-middle-8" data-grade="8">
+                    Grade 8
+                </button>
+            </div>
+
+            <!-- Grade Panels -->
+            <div class="grade-panels">
+
+                <!-- Grade 6 Panel -->
+                <div class="grade-panel active" role="tabpanel" id="middle-grade-6" aria-labelledby="tab-middle-6">
+                    <div class="content-layout">
+                        <div class="domain-sidebar">
+                            <div class="domain-tabs" role="tablist" aria-label="Math domains for Grade 6">
+                                <button class="domain-tab-button active" role="tab" aria-selected="true"
+                                        aria-controls="6-geometry" id="tab-6-geometry">
+                                    Geometry
+                                </button>
+                                <button class="domain-tab-button" role="tab" aria-selected="false"
+                                        aria-controls="6-algebra" id="tab-6-algebra">
+                                    Algebra
+                                </button>
+                            </div>
+                        </div>
+                        <div class="domain-content">
+                            <div class="domain-panel active" role="tabpanel" id="6-geometry" aria-labelledby="tab-6-geometry">
+                                <div class="grid-container">
+                                    <div class="grade-card">
+                                        <h3>Geometry</h3>
+                                        <ul>
+<li><a href="../../worksheets/Grade6/geometry/area-of-triangles.pdf" class="worksheet-link">Area of Triangles</a></li>
+<li><a href="../../worksheets/Grade6/geometry/area-of-quadrilaterals.pdf" class="worksheet-link">Area of Quadrilaterals</a></li>
+<li><a href="../../worksheets/Grade6/geometry/area-of-polygons.pdf" class="worksheet-link">Area of Polygons</a></li>
+<li><a href="../../worksheets/Grade6/geometry/volume-of-rectangular-prisms.pdf" class="worksheet-link">Volume of Rectangular Prisms</a></li>
+<li><a href="../../worksheets/Grade6/geometry/surface-area.pdf" class="worksheet-link">Surface Area</a></li>
+<li><a href="../../worksheets/Grade6/geometry/nets-of-3d-figures.pdf" class="worksheet-link">Nets of 3D Figures</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="domain-panel" role="tabpanel" id="6-algebra" aria-labelledby="tab-6-algebra">
+                                <div class="grid-container">
+                                    <div class="grade-card">
+                                        <h3>Algebra</h3>
+                                        <ul>
+<li><a href="../../worksheets/Grade6/expressions-and-equations/writing-expressions.pdf" class="worksheet-link">Writing Expressions</a></li>
+<li><a href="../../worksheets/Grade6/expressions-and-equations/evaluating-expressions.pdf" class="worksheet-link">Evaluating Expressions</a></li>
+<li><a href="../../worksheets/Grade6/expressions-and-equations/equivalent-expressions.pdf" class="worksheet-link">Equivalent Expressions</a></li>
+<li><a href="../../worksheets/Grade6/expressions-and-equations/exponents.pdf" class="worksheet-link">Exponents</a></li>
+<li><a href="../../worksheets/Grade6/expressions-and-equations/order-of-operations-with-exponents.pdf" class="worksheet-link">Order of Operations with Exponents</a></li>
+<li><a href="../../worksheets/Grade6/expressions-and-equations/solving-one-step-equations.pdf" class="worksheet-link">Solving One-Step Equations</a></li>
+<li><a href="../../worksheets/Grade6/expressions-and-equations/solving-inequalities.pdf" class="worksheet-link">Solving Inequalities</a></li>
+<li><a href="../../worksheets/Grade6/expressions-and-equations/graphing-on-coordinate-plane.pdf" class="worksheet-link">Graphing on Coordinate Plane</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Grade 7 Panel -->
+                <div class="grade-panel" role="tabpanel" id="middle-grade-7" aria-labelledby="tab-middle-7">
+                    <div class="content-layout">
+                        <div class="domain-sidebar">
+                            <div class="domain-tabs" role="tablist" aria-label="Math domains for Grade 7">
+                                <button class="domain-tab-button active" role="tab" aria-selected="true"
+                                        aria-controls="7-geometry" id="tab-7-geometry">
+                                    Geometry
+                                </button>
+                                <button class="domain-tab-button" role="tab" aria-selected="false"
+                                        aria-controls="7-measurement" id="tab-7-measurement">
+                                    Measurement & Data
+                                </button>
+                                <button class="domain-tab-button" role="tab" aria-selected="false"
+                                        aria-controls="7-algebra" id="tab-7-algebra">
+                                    Algebra
+                                </button>
+                            </div>
+                        </div>
+                        <div class="domain-content">
+                            <div class="domain-panel active" role="tabpanel" id="7-geometry" aria-labelledby="tab-7-geometry">
+                                <div class="grid-container">
+                                    <div class="grade-card">
+                                        <h3>Geometry</h3>
+                                        <ul>
+<li><a href="../../worksheets/Grade7/geometry/scale-drawings.pdf" class="worksheet-link">Scale Drawings</a></li>
+<li><a href="../../worksheets/Grade7/geometry/drawing-geometric-figures.pdf" class="worksheet-link">Drawing Geometric Figures</a></li>
+<li><a href="../../worksheets/Grade7/geometry/cross-sections-of-3d-figures.pdf" class="worksheet-link">Cross-Sections of 3D Figures</a></li>
+<li><a href="../../worksheets/Grade7/geometry/circumference.pdf" class="worksheet-link">Circumference</a></li>
+<li><a href="../../worksheets/Grade7/geometry/area-of-circles.pdf" class="worksheet-link">Area of Circles</a></li>
+<li><a href="../../worksheets/Grade7/geometry/angle-relationships.pdf" class="worksheet-link">Angle Relationships</a></li>
+<li><a href="../../worksheets/Grade7/geometry/surface-area.pdf" class="worksheet-link">Surface Area</a></li>
+<li><a href="../../worksheets/Grade7/geometry/volume.pdf" class="worksheet-link">Volume</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="domain-panel" role="tabpanel" id="7-measurement" aria-labelledby="tab-7-measurement">
+                                <div class="grid-container">
+                                    <div class="grade-card">
+                                        <h3>Measurement & Data</h3>
+                                        <ul>
+<li><a href="../../worksheets/Grade7/statistics-and-probability/random-sampling.pdf" class="worksheet-link">Random Sampling</a></li>
+<li><a href="../../worksheets/Grade7/statistics-and-probability/making-inferences.pdf" class="worksheet-link">Making Inferences</a></li>
+<li><a href="../../worksheets/Grade7/statistics-and-probability/comparing-populations.pdf" class="worksheet-link">Comparing Populations</a></li>
+<li><a href="../../worksheets/Grade7/statistics-and-probability/measures-of-center.pdf" class="worksheet-link">Measures of Center</a></li>
+<li><a href="../../worksheets/Grade7/statistics-and-probability/measures-of-variability.pdf" class="worksheet-link">Measures of Variability</a></li>
+<li><a href="../../worksheets/Grade7/statistics-and-probability/probability-models.pdf" class="worksheet-link">Probability Models</a></li>
+<li><a href="../../worksheets/Grade7/statistics-and-probability/compound-events.pdf" class="worksheet-link">Compound Events</a></li>
+<li><a href="../../worksheets/Grade7/statistics-and-probability/sample-space.pdf" class="worksheet-link">Sample Space</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="domain-panel" role="tabpanel" id="7-algebra" aria-labelledby="tab-7-algebra">
+                                <div class="grid-container">
+                                    <div class="grade-card">
+                                        <h3>Algebra</h3>
+                                        <ul>
+<li><a href="../../worksheets/Grade7/expressions-and-equations/simplifying-expressions.pdf" class="worksheet-link">Simplifying Expressions</a></li>
+<li><a href="../../worksheets/Grade7/expressions-and-equations/combining-like-terms.pdf" class="worksheet-link">Combining Like Terms</a></li>
+<li><a href="../../worksheets/Grade7/expressions-and-equations/distributive-property.pdf" class="worksheet-link">Distributive Property</a></li>
+<li><a href="../../worksheets/Grade7/expressions-and-equations/factoring-expressions.pdf" class="worksheet-link">Factoring Expressions</a></li>
+<li><a href="../../worksheets/Grade7/expressions-and-equations/solving-multi-step-equations.pdf" class="worksheet-link">Solving Multi-Step Equations</a></li>
+<li><a href="../../worksheets/Grade7/expressions-and-equations/solving-multi-step-inequalities.pdf" class="worksheet-link">Solving Multi-Step Inequalities</a></li>
+<li><a href="../../worksheets/Grade7/expressions-and-equations/word-problems-with-equations.pdf" class="worksheet-link">Word Problems with Equations</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Grade 8 Panel -->
+                <div class="grade-panel" role="tabpanel" id="middle-grade-8" aria-labelledby="tab-middle-8">
+                    <div class="content-layout">
+                        <div class="domain-sidebar">
+                            <div class="domain-tabs" role="tablist" aria-label="Math domains for Grade 8">
+                                <button class="domain-tab-button active" role="tab" aria-selected="true"
+                                        aria-controls="8-geometry" id="tab-8-geometry">
+                                    Geometry
+                                </button>
+                                <button class="domain-tab-button" role="tab" aria-selected="false"
+                                        aria-controls="8-algebra" id="tab-8-algebra">
+                                    Algebra
+                                </button>
+                            </div>
+                        </div>
+                        <div class="domain-content">
+                            <div class="domain-panel active" role="tabpanel" id="8-geometry" aria-labelledby="tab-8-geometry">
+                                <div class="grid-container">
+                                    <div class="grade-card">
+                                        <h3>Geometry</h3>
+                                        <ul>
+<li><a href="../../worksheets/Grade8/geometry/transformations-translations.pdf" class="worksheet-link">Transformations (Translations)</a></li>
+<li><a href="../../worksheets/Grade8/geometry/transformations-reflections.pdf" class="worksheet-link">Transformations (Reflections)</a></li>
+<li><a href="../../worksheets/Grade8/geometry/transformations-rotations.pdf" class="worksheet-link">Transformations (Rotations)</a></li>
+<li><a href="../../worksheets/Grade8/geometry/transformations-dilations.pdf" class="worksheet-link">Transformations (Dilations)</a></li>
+<li><a href="../../worksheets/Grade8/geometry/congruence.pdf" class="worksheet-link">Congruence</a></li>
+<li><a href="../../worksheets/Grade8/geometry/similarity.pdf" class="worksheet-link">Similarity</a></li>
+<li><a href="../../worksheets/Grade8/geometry/pythagorean-theorem.pdf" class="worksheet-link">Pythagorean Theorem</a></li>
+<li><a href="../../worksheets/Grade8/geometry/distance-formula.pdf" class="worksheet-link">Distance Formula</a></li>
+<li><a href="../../worksheets/Grade8/geometry/volume-of-cylinders.pdf" class="worksheet-link">Volume of Cylinders</a></li>
+<li><a href="../../worksheets/Grade8/geometry/volume-of-cones.pdf" class="worksheet-link">Volume of Cones</a></li>
+<li><a href="../../worksheets/Grade8/geometry/volume-of-spheres.pdf" class="worksheet-link">Volume of Spheres</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="domain-panel" role="tabpanel" id="8-algebra" aria-labelledby="tab-8-algebra">
+                                <div class="grid-container">
+                                    <div class="grade-card">
+                                        <h3>Algebra</h3>
+                                        <ul>
+<li><a href="../../worksheets/Grade8/expressions-and-equations/proportional-relationships.pdf" class="worksheet-link">Proportional Relationships</a></li>
+<li><a href="../../worksheets/Grade8/expressions-and-equations/slope.pdf" class="worksheet-link">Slope</a></li>
+<li><a href="../../worksheets/Grade8/expressions-and-equations/slope-intercept-form.pdf" class="worksheet-link">Slope-Intercept Form</a></li>
+<li><a href="../../worksheets/Grade8/expressions-and-equations/graphing-linear-equations.pdf" class="worksheet-link">Graphing Linear Equations</a></li>
+<li><a href="../../worksheets/Grade8/expressions-and-equations/writing-linear-equations.pdf" class="worksheet-link">Writing Linear Equations</a></li>
+<li><a href="../../worksheets/Grade8/expressions-and-equations/solving-linear-equations.pdf" class="worksheet-link">Solving Linear Equations</a></li>
+<li><a href="../../worksheets/Grade8/expressions-and-equations/systems-of-equations-graphing.pdf" class="worksheet-link">Systems of Equations (Graphing)</a></li>
+<li><a href="../../worksheets/Grade8/expressions-and-equations/systems-of-equations-substitution.pdf" class="worksheet-link">Systems of Equations (Substitution)</a></li>
+<li><a href="../../worksheets/Grade8/expressions-and-equations/systems-of-equations-elimination.pdf" class="worksheet-link">Systems of Equations (Elimination)</a></li>
+<li><a href="../../worksheets/Grade8/functions/understanding-functions.pdf" class="worksheet-link">Understanding Functions</a></li>
+<li><a href="../../worksheets/Grade8/functions/function-notation.pdf" class="worksheet-link">Function Notation</a></li>
+<li><a href="../../worksheets/Grade8/functions/linear-vs-nonlinear-functions.pdf" class="worksheet-link">Linear vs Nonlinear Functions</a></li>
+<li><a href="../../worksheets/Grade8/functions/comparing-functions.pdf" class="worksheet-link">Comparing Functions</a></li>
+<li><a href="../../worksheets/Grade8/functions/rate-of-change.pdf" class="worksheet-link">Rate of Change</a></li>
+<li><a href="../../worksheets/Grade8/functions/interpreting-graphs.pdf" class="worksheet-link">Interpreting Graphs</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
         </section>
 
         <section class="related-grades" aria-labelledby="related-pages-title">

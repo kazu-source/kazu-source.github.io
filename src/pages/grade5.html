@@ -57,7 +57,7 @@
 
         /* Stabilize header and navigation to prevent layout shifts */
         header {
-            min-height: 120px;
+            min-height: 60px;
         }
         .site-title img {
             height: 50px;
@@ -616,18 +616,23 @@
 
             <div class="domain-section">
                 <h3>Geometry (5.G)</h3>
-                <div class="grid-container">
-                    <div class="grid-item">
-                        <div class="grid-item-header">
-                            <div class="grid-item-title">
-                                <h4>Graph Points on the Coordinate Plane</h4>
-                                <div class="grid-item-summary">
-                                    <p><strong>5.G.1-2</strong> Use a coordinate system to represent and interpret mathematical and real-world problems. Graph points in the first quadrant.</p>
-                                </div>
+                <div class="tab-container">
+                    <div class="tab-list" role="tablist" aria-label="Geometry skills">
+                        <button class="tab-button active" role="tab" aria-selected="true" aria-controls="tab-panel-g5-1" id="tab-g5-1" data-domain="g5">
+                            <h4>Graph Points on the Coordinate Plane</h4>
+                            <div class="tab-summary">
+                                <p><strong>5.G.1-2</strong> Use a coordinate system to represent and interpret mathematical and real-world problems. Graph points in the first quadrant.</p>
                             </div>
-                            <div class="expand-icon">+</div>
-                        </div>
-                        <div class="grid-item-details">
+                        </button>
+                        <button class="tab-button" role="tab" aria-selected="false" aria-controls="tab-panel-g5-2" id="tab-g5-2" data-domain="g5">
+                            <h4>Classify Two-Dimensional Figures</h4>
+                            <div class="tab-summary">
+                                <p><strong>5.G.3-4</strong> Understand attributes of two-dimensional figures. Classify figures in a hierarchy based on properties.</p>
+                            </div>
+                        </button>
+                    </div>
+                    <div class="tab-panels">
+                        <div class="tab-panel active" role="tabpanel" id="tab-panel-g5-1" aria-labelledby="tab-g5-1">
                             <h5>What Students Learn:</h5>
                             <p>Students are introduced to the coordinate plane with a focus on the first quadrant (positive x and y values). They learn to use ordered pairs to name points, graph points, and interpret the coordinates. They apply this to solve real-world and mathematical problems, forming a foundation for algebra and graphing in later grades.</p>
 
@@ -650,18 +655,7 @@
                                 <p>Pattern: Plot points (1, 2), (2, 4), (3, 6), (4, 8). What pattern do you see? y is always 2 times x</p>
                             </div>
                         </div>
-                    </div>
-                    <div class="grid-item">
-                        <div class="grid-item-header">
-                            <div class="grid-item-title">
-                                <h4>Classify Two-Dimensional Figures</h4>
-                                <div class="grid-item-summary">
-                                    <p><strong>5.G.3-4</strong> Understand attributes of two-dimensional figures. Classify figures in a hierarchy based on properties.</p>
-                                </div>
-                            </div>
-                            <div class="expand-icon">+</div>
-                        </div>
-                        <div class="grid-item-details">
+                        <div class="tab-panel" role="tabpanel" id="tab-panel-g5-2" aria-labelledby="tab-g5-2">
                             <h5>What Students Learn:</h5>
                             <p>Students develop deeper understanding of how two-dimensional shapes are related to each other. They learn that shapes can be classified in a hierarchy - for example, all squares are rectangles, but not all rectangles are squares. They identify attributes like parallel sides, perpendicular sides, and angles, and use these to classify shapes into categories and subcategories.</p>
 

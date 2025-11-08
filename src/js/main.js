@@ -276,4 +276,160 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     });
+
+    // Resources Page - Grade-First Navigation
+    const gradeTabButtons = document.querySelectorAll('.grade-tab-button');
+    const domainTabButtons = document.querySelectorAll('.domain-tab-button');
+
+    // Grade tab switching (horizontal tabs at top)
+    gradeTabButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            const panelId = this.getAttribute('aria-controls');
+            const schoolSection = this.closest('.school-section');
+
+            if (!schoolSection) return;
+
+            const allGradeTabs = schoolSection.querySelectorAll('.grade-tab-button');
+            const allGradePanels = schoolSection.querySelectorAll('.grade-panel');
+
+            // Remove active class from all grade tabs and panels
+            allGradeTabs.forEach(tab => {
+                tab.classList.remove('active');
+                tab.setAttribute('aria-selected', 'false');
+            });
+
+            allGradePanels.forEach(panel => {
+                panel.classList.remove('active');
+            });
+
+            // Add active class to clicked tab and corresponding panel
+            this.classList.add('active');
+            this.setAttribute('aria-selected', 'true');
+
+            const targetPanel = document.getElementById(panelId);
+            if (targetPanel) {
+                targetPanel.classList.add('active');
+            }
+
+            // Announce to screen readers
+            const gradeName = this.textContent.trim();
+            announceToScreenReader(gradeName + ' selected');
+        });
+
+        // Keyboard navigation for grade tabs
+        button.addEventListener('keydown', function(e) {
+            const schoolSection = this.closest('.school-section');
+            if (!schoolSection) return;
+
+            const allGradeTabs = Array.from(schoolSection.querySelectorAll('.grade-tab-button'));
+            const currentIndex = allGradeTabs.indexOf(this);
+            let targetTab = null;
+
+            switch(e.key) {
+                case 'ArrowRight':
+                    e.preventDefault();
+                    targetTab = allGradeTabs[currentIndex + 1] || allGradeTabs[0];
+                    break;
+                case 'ArrowLeft':
+                    e.preventDefault();
+                    targetTab = allGradeTabs[currentIndex - 1] || allGradeTabs[allGradeTabs.length - 1];
+                    break;
+                case 'Home':
+                    e.preventDefault();
+                    targetTab = allGradeTabs[0];
+                    break;
+                case 'End':
+                    e.preventDefault();
+                    targetTab = allGradeTabs[allGradeTabs.length - 1];
+                    break;
+                case 'Enter':
+                case ' ':
+                    e.preventDefault();
+                    this.click();
+                    return;
+            }
+
+            if (targetTab) {
+                targetTab.focus();
+                targetTab.click();
+            }
+        });
+    });
+
+    // Domain tab switching (vertical tabs in sidebar)
+    domainTabButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            const panelId = this.getAttribute('aria-controls');
+            const gradePanel = this.closest('.grade-panel');
+
+            if (!gradePanel) return;
+
+            const allDomainTabs = gradePanel.querySelectorAll('.domain-tab-button');
+            const allDomainPanels = gradePanel.querySelectorAll('.domain-panel');
+
+            // Remove active class from all domain tabs and panels
+            allDomainTabs.forEach(tab => {
+                tab.classList.remove('active');
+                tab.setAttribute('aria-selected', 'false');
+            });
+
+            allDomainPanels.forEach(panel => {
+                panel.classList.remove('active');
+            });
+
+            // Add active class to clicked tab and corresponding panel
+            this.classList.add('active');
+            this.setAttribute('aria-selected', 'true');
+
+            const targetPanel = document.getElementById(panelId);
+            if (targetPanel) {
+                targetPanel.classList.add('active');
+            }
+
+            // Announce to screen readers
+            const domainName = this.textContent.trim();
+            announceToScreenReader(domainName + ' domain selected');
+        });
+
+        // Keyboard navigation for domain tabs
+        button.addEventListener('keydown', function(e) {
+            const gradePanel = this.closest('.grade-panel');
+            if (!gradePanel) return;
+
+            const allDomainTabs = Array.from(gradePanel.querySelectorAll('.domain-tab-button'));
+            const currentIndex = allDomainTabs.indexOf(this);
+            let targetTab = null;
+
+            switch(e.key) {
+                case 'ArrowDown':
+                case 'ArrowRight':
+                    e.preventDefault();
+                    targetTab = allDomainTabs[currentIndex + 1] || allDomainTabs[0];
+                    break;
+                case 'ArrowUp':
+                case 'ArrowLeft':
+                    e.preventDefault();
+                    targetTab = allDomainTabs[currentIndex - 1] || allDomainTabs[allDomainTabs.length - 1];
+                    break;
+                case 'Home':
+                    e.preventDefault();
+                    targetTab = allDomainTabs[0];
+                    break;
+                case 'End':
+                    e.preventDefault();
+                    targetTab = allDomainTabs[allDomainTabs.length - 1];
+                    break;
+                case 'Enter':
+                case ' ':
+                    e.preventDefault();
+                    this.click();
+                    return;
+            }
+
+            if (targetTab) {
+                targetTab.focus();
+                targetTab.click();
+            }
+        });
+    });
 });
