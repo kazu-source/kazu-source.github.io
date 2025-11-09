@@ -303,18 +303,31 @@ document.addEventListener('DOMContentLoaded', function() {
         const clientWidth = tabList.clientWidth;
         const maxScroll = scrollWidth - clientWidth;
 
+        console.log('Scroll Info:', {
+            scrollLeft,
+            scrollWidth,
+            clientWidth,
+            maxScroll,
+            atStart: scrollLeft <= 5,
+            atEnd: scrollLeft >= maxScroll - 5
+        });
+
         // At start (hide left arrow)
         if (scrollLeft <= 5) {
             tabContainer.classList.add('at-start');
+            console.log('Added at-start class to tab-container');
         } else {
             tabContainer.classList.remove('at-start');
+            console.log('Removed at-start class from tab-container');
         }
 
         // At end (hide right arrow)
         if (scrollLeft >= maxScroll - 5) {
             tabContainer.classList.add('at-end');
+            console.log('Added at-end class to tab-container');
         } else {
             tabContainer.classList.remove('at-end');
+            console.log('Removed at-end class from tab-container');
         }
     }
 
@@ -326,6 +339,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
         // Update on scroll
         tabList.addEventListener('scroll', () => {
+            console.log('Scroll event fired!');
             updateScrollIndicators(tabList);
         });
 
@@ -338,6 +352,11 @@ document.addEventListener('DOMContentLoaded', function() {
         window.addEventListener('load', () => {
             updateScrollIndicators(tabList);
         });
+
+        // Also check after a short delay to ensure layout is complete
+        setTimeout(() => {
+            updateScrollIndicators(tabList);
+        }, 100);
     });
 
     // Resources Page - Grade-First Navigation

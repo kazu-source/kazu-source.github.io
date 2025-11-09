@@ -1060,6 +1060,8 @@ footer {
         overflow-y: hidden;
         scroll-behavior: smooth;
         -webkit-overflow-scrolling: touch;
+        position: relative;
+        padding-bottom: 3px;
 
         /* Firefox scrollbar styling */
         scrollbar-width: auto;
@@ -1100,18 +1102,18 @@ footer {
         position: absolute;
         left: 0;
         top: 0;
-        height: 57px;
-        width: 70px;
+        height: 54px;
+        width: 90px;
         background: linear-gradient(to right,
-            rgba(139, 92, 246, 0.15) 0%,
-            rgba(139, 92, 246, 0.12) 40%,
-            rgba(139, 92, 246, 0.08) 60%,
-            rgba(139, 92, 246, 0.04) 80%,
+            rgba(139, 92, 246, 0.35) 0%,
+            rgba(139, 92, 246, 0.28) 35%,
+            rgba(139, 92, 246, 0.18) 55%,
+            rgba(139, 92, 246, 0.08) 75%,
             transparent 100%);
         -webkit-mask-image: linear-gradient(to right, black 0%, black 30%, transparent 100%);
         mask-image: linear-gradient(to right, black 0%, black 30%, transparent 100%);
-        backdrop-filter: blur(4px) opacity(1);
-        -webkit-backdrop-filter: blur(4px) opacity(1);
+        backdrop-filter: blur(6px) opacity(1);
+        -webkit-backdrop-filter: blur(6px) opacity(1);
         border-radius: var(--radius-sm);
         border-top-left-radius: var(--radius-sm);
         border-bottom-left-radius: var(--radius-sm);
@@ -1120,14 +1122,20 @@ footer {
         display: flex;
         align-items: center;
         justify-content: center;
-        font-size: 2.5rem;
-        font-weight: bold;
-        color: var(--primary-purple);
+        padding-left: 8px;
+        font-size: 3rem;
+        font-weight: 900;
+        color: var(--primary-orange);
+        -webkit-text-stroke: 3px rgba(0, 0, 0, 0.9);
+        paint-order: stroke fill;
         text-shadow:
-            0 0 8px rgba(255, 255, 255, 0.9),
-            0 2px 4px rgba(139, 92, 246, 0.3);
-        filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+            0 0 16px rgba(255, 255, 255, 1),
+            0 0 8px rgba(255, 111, 0, 0.8),
+            0 2px 8px rgba(139, 92, 246, 0.5),
+            0 4px 12px rgba(0, 0, 0, 0.3);
+        filter: drop-shadow(0 3px 6px rgba(0, 0, 0, 0.2));
         transition: opacity var(--transition-base);
+        opacity: 0.85;
     }
 
     /* Right gradient fade overlay with chevron */
@@ -1136,18 +1144,18 @@ footer {
         position: absolute;
         right: 0;
         top: 0;
-        height: 57px;
-        width: 70px;
+        height: 54px;
+        width: 90px;
         background: linear-gradient(to left,
-            rgba(139, 92, 246, 0.15) 0%,
-            rgba(139, 92, 246, 0.12) 40%,
-            rgba(139, 92, 246, 0.08) 60%,
-            rgba(139, 92, 246, 0.04) 80%,
+            rgba(139, 92, 246, 0.35) 0%,
+            rgba(139, 92, 246, 0.28) 35%,
+            rgba(139, 92, 246, 0.18) 55%,
+            rgba(139, 92, 246, 0.08) 75%,
             transparent 100%);
         -webkit-mask-image: linear-gradient(to left, black 0%, black 30%, transparent 100%);
         mask-image: linear-gradient(to left, black 0%, black 30%, transparent 100%);
-        backdrop-filter: blur(4px) opacity(1);
-        -webkit-backdrop-filter: blur(4px) opacity(1);
+        backdrop-filter: blur(6px) opacity(1);
+        -webkit-backdrop-filter: blur(6px) opacity(1);
         border-radius: var(--radius-sm);
         border-top-right-radius: var(--radius-sm);
         border-bottom-right-radius: var(--radius-sm);
@@ -1156,49 +1164,66 @@ footer {
         display: flex;
         align-items: center;
         justify-content: center;
-        font-size: 2.5rem;
-        font-weight: bold;
-        color: var(--primary-purple);
+        padding-right: 0px;
+        font-size: 3rem;
+        font-weight: 900;
+        color: var(--primary-orange);
+        -webkit-text-stroke: 3px rgba(0, 0, 0, 0.9);
+        text-stroke: 3px rgba(0, 0, 0, 0.9);
+        paint-order: stroke fill;
         text-shadow:
-            0 0 8px rgba(255, 255, 255, 0.9),
-            0 2px 4px rgba(139, 92, 246, 0.3);
-        filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+            0 0 16px rgba(255, 255, 255, 1),
+            0 0 8px rgba(255, 111, 0, 0.8),
+            0 2px 8px rgba(139, 92, 246, 0.5),
+            0 4px 12px rgba(0, 0, 0, 0.3);
+        filter: drop-shadow(0 3px 6px rgba(0, 0, 0, 0.2));
         transition: opacity var(--transition-base);
+        opacity: 0.85;
     }
 
     /* Night mode adjustments for gradient overlays */
     html.night-mode .tab-container::before {
         background: linear-gradient(to right,
-            rgba(139, 92, 246, 0.25) 0%,
-            rgba(139, 92, 246, 0.18) 40%,
-            rgba(139, 92, 246, 0.12) 60%,
-            rgba(139, 92, 246, 0.06) 80%,
+            rgba(139, 92, 246, 0.45) 0%,
+            rgba(139, 92, 246, 0.35) 35%,
+            rgba(139, 92, 246, 0.22) 55%,
+            rgba(139, 92, 246, 0.10) 75%,
             transparent 100%);
+        -webkit-text-stroke: 3px rgba(0, 0, 0, 0.95);
+        text-stroke: 3px rgba(0, 0, 0, 0.95);
         text-shadow:
-            0 0 12px rgba(0, 0, 0, 0.8),
-            0 2px 6px rgba(139, 92, 246, 0.5);
+            0 0 18px rgba(255, 255, 255, 0.8),
+            0 0 10px rgba(255, 111, 0, 1),
+            0 2px 10px rgba(139, 92, 246, 0.8),
+            0 4px 14px rgba(0, 0, 0, 0.6);
+        opacity: 0.85;
     }
 
     html.night-mode .tab-container::after {
         background: linear-gradient(to left,
-            rgba(139, 92, 246, 0.25) 0%,
-            rgba(139, 92, 246, 0.18) 40%,
-            rgba(139, 92, 246, 0.12) 60%,
-            rgba(139, 92, 246, 0.06) 80%,
+            rgba(139, 92, 246, 0.45) 0%,
+            rgba(139, 92, 246, 0.35) 35%,
+            rgba(139, 92, 246, 0.22) 55%,
+            rgba(139, 92, 246, 0.10) 75%,
             transparent 100%);
+        -webkit-text-stroke: 3px rgba(0, 0, 0, 0.95);
+        text-stroke: 3px rgba(0, 0, 0, 0.95);
         text-shadow:
-            0 0 12px rgba(0, 0, 0, 0.8),
-            0 2px 6px rgba(139, 92, 246, 0.5);
+            0 0 18px rgba(255, 255, 255, 0.8),
+            0 0 10px rgba(255, 111, 0, 1),
+            0 2px 10px rgba(139, 92, 246, 0.8),
+            0 4px 14px rgba(0, 0, 0, 0.6);
+        opacity: 0.85;
     }
 
     /* Hide left gradient when scrolled to start */
     .tab-container.at-start::before {
-        opacity: 0;
+        opacity: 0 !important;
     }
 
     /* Hide right gradient when scrolled to end */
     .tab-container.at-end::after {
-        opacity: 0;
+        opacity: 0 !important;
     }
 
     .tab-button {
