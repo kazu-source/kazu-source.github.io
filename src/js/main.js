@@ -357,6 +357,56 @@ document.addEventListener('DOMContentLoaded', function() {
         setTimeout(() => {
             updateScrollIndicators(tabList);
         }, 100);
+
+        // Add click handlers for arrow navigation
+        const tabContainer = tabList.closest('.tab-container');
+        if (tabContainer) {
+            // Left arrow click - activate previous tab
+            const leftArrowRegion = document.createElement('div');
+            leftArrowRegion.style.position = 'absolute';
+            leftArrowRegion.style.left = '0';
+            leftArrowRegion.style.top = '0';
+            leftArrowRegion.style.width = '90px';
+            leftArrowRegion.style.height = '54px';
+            leftArrowRegion.style.cursor = 'pointer';
+            leftArrowRegion.style.zIndex = '11';
+            leftArrowRegion.setAttribute('aria-label', 'Go to previous tab');
+            leftArrowRegion.addEventListener('click', () => {
+                const activeTab = tabList.querySelector('.tab-button.active');
+                if (activeTab) {
+                    const allTabs = Array.from(tabList.querySelectorAll('.tab-button'));
+                    const currentIndex = allTabs.indexOf(activeTab);
+                    if (currentIndex > 0) {
+                        const previousTab = allTabs[currentIndex - 1];
+                        previousTab.click();
+                    }
+                }
+            });
+            tabContainer.appendChild(leftArrowRegion);
+
+            // Right arrow click - activate next tab
+            const rightArrowRegion = document.createElement('div');
+            rightArrowRegion.style.position = 'absolute';
+            rightArrowRegion.style.right = '0';
+            rightArrowRegion.style.top = '0';
+            rightArrowRegion.style.width = '90px';
+            rightArrowRegion.style.height = '54px';
+            rightArrowRegion.style.cursor = 'pointer';
+            rightArrowRegion.style.zIndex = '11';
+            rightArrowRegion.setAttribute('aria-label', 'Go to next tab');
+            rightArrowRegion.addEventListener('click', () => {
+                const activeTab = tabList.querySelector('.tab-button.active');
+                if (activeTab) {
+                    const allTabs = Array.from(tabList.querySelectorAll('.tab-button'));
+                    const currentIndex = allTabs.indexOf(activeTab);
+                    if (currentIndex < allTabs.length - 1) {
+                        const nextTab = allTabs[currentIndex + 1];
+                        nextTab.click();
+                    }
+                }
+            });
+            tabContainer.appendChild(rightArrowRegion);
+        }
     });
 
     // Resources Page - Grade-First Navigation
