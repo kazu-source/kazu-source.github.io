@@ -229,7 +229,7 @@ body.night-mode .logo-dark {
     display: block;
     color: var(--white);
     text-decoration: none;
-    padding: 0.875rem 1.25rem;
+    padding: 1.1rem 1.25rem;
     font-weight: 500;
     font-size: 0.95rem;
     transition: all var(--transition-base);
@@ -578,6 +578,7 @@ footer {
 .domain-section {
     margin: var(--spacing-lg) 0;
     padding: var(--spacing-lg);
+    padding-top: 1.1rem;
     border: 2px solid var(--border-color);
     border-radius: var(--radius-xl);
     background-color: var(--card-bg);
@@ -591,6 +592,7 @@ footer {
 
 .domain-section h3 {
     color: var(--dark-blue);
+    margin-top: 0;
     margin-bottom: var(--spacing-md);
     padding-bottom: var(--spacing-sm);
     border-bottom: 3px solid var(--primary-blue);
@@ -917,11 +919,14 @@ footer {
     border: 2px solid var(--border-color);
     border-radius: var(--radius-md);
     padding: 1rem;
-    text-align: left;
+    text-align: center;
     cursor: pointer;
     transition: all var(--transition-base);
     position: relative;
     overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .tab-button::before {
@@ -958,7 +963,7 @@ footer {
 }
 
 .tab-button h4 {
-    margin: 0 0 0.5rem 0;
+    margin: 0;
     color: var(--text-primary);
     font-size: 1.1rem;
     font-weight: 600;
@@ -1044,6 +1049,7 @@ footer {
 @media (max-width: 768px) {
     .tab-container {
         flex-direction: column;
+        position: relative;
     }
 
     .tab-list {
@@ -1051,7 +1057,148 @@ footer {
         max-width: 100%;
         flex-direction: row;
         overflow-x: auto;
-        scrollbar-width: thin;
+        overflow-y: hidden;
+        scroll-behavior: smooth;
+        -webkit-overflow-scrolling: touch;
+
+        /* Firefox scrollbar styling */
+        scrollbar-width: auto;
+        scrollbar-color: var(--primary-purple) var(--bg-secondary);
+    }
+
+    /* Styled scrollbar for webkit browsers (Chrome, Safari, Edge) */
+    .tab-list::-webkit-scrollbar {
+        height: 14px;
+        width: 14px;
+    }
+
+    .tab-list::-webkit-scrollbar-track {
+        background: var(--bg-secondary);
+        border-radius: 10px;
+        margin: 0 4px;
+    }
+
+    .tab-list::-webkit-scrollbar-thumb {
+        background: var(--primary-purple);
+        border-radius: 10px;
+        border: 3px solid var(--bg-secondary);
+        min-width: 40px;
+    }
+
+    .tab-list::-webkit-scrollbar-thumb:hover {
+        background: #7c3aed;
+        border: 2px solid var(--bg-secondary);
+    }
+
+    .tab-list::-webkit-scrollbar-thumb:active {
+        background: #6d28d9;
+    }
+
+    /* Left gradient fade overlay with chevron */
+    .tab-container::before {
+        content: '←';
+        position: absolute;
+        left: 0;
+        top: 0;
+        height: 57px;
+        width: 70px;
+        background: linear-gradient(to right,
+            rgba(139, 92, 246, 0.15) 0%,
+            rgba(139, 92, 246, 0.12) 40%,
+            rgba(139, 92, 246, 0.08) 60%,
+            rgba(139, 92, 246, 0.04) 80%,
+            transparent 100%);
+        -webkit-mask-image: linear-gradient(to right, black 0%, black 30%, transparent 100%);
+        mask-image: linear-gradient(to right, black 0%, black 30%, transparent 100%);
+        backdrop-filter: blur(4px) opacity(1);
+        -webkit-backdrop-filter: blur(4px) opacity(1);
+        border-radius: var(--radius-sm);
+        border-top-left-radius: var(--radius-sm);
+        border-bottom-left-radius: var(--radius-sm);
+        pointer-events: none;
+        z-index: 10;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 2.5rem;
+        font-weight: bold;
+        color: var(--primary-purple);
+        text-shadow:
+            0 0 8px rgba(255, 255, 255, 0.9),
+            0 2px 4px rgba(139, 92, 246, 0.3);
+        filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+        transition: opacity var(--transition-base);
+    }
+
+    /* Right gradient fade overlay with chevron */
+    .tab-container::after {
+        content: '→';
+        position: absolute;
+        right: 0;
+        top: 0;
+        height: 57px;
+        width: 70px;
+        background: linear-gradient(to left,
+            rgba(139, 92, 246, 0.15) 0%,
+            rgba(139, 92, 246, 0.12) 40%,
+            rgba(139, 92, 246, 0.08) 60%,
+            rgba(139, 92, 246, 0.04) 80%,
+            transparent 100%);
+        -webkit-mask-image: linear-gradient(to left, black 0%, black 30%, transparent 100%);
+        mask-image: linear-gradient(to left, black 0%, black 30%, transparent 100%);
+        backdrop-filter: blur(4px) opacity(1);
+        -webkit-backdrop-filter: blur(4px) opacity(1);
+        border-radius: var(--radius-sm);
+        border-top-right-radius: var(--radius-sm);
+        border-bottom-right-radius: var(--radius-sm);
+        pointer-events: none;
+        z-index: 10;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 2.5rem;
+        font-weight: bold;
+        color: var(--primary-purple);
+        text-shadow:
+            0 0 8px rgba(255, 255, 255, 0.9),
+            0 2px 4px rgba(139, 92, 246, 0.3);
+        filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+        transition: opacity var(--transition-base);
+    }
+
+    /* Night mode adjustments for gradient overlays */
+    html.night-mode .tab-container::before {
+        background: linear-gradient(to right,
+            rgba(139, 92, 246, 0.25) 0%,
+            rgba(139, 92, 246, 0.18) 40%,
+            rgba(139, 92, 246, 0.12) 60%,
+            rgba(139, 92, 246, 0.06) 80%,
+            transparent 100%);
+        text-shadow:
+            0 0 12px rgba(0, 0, 0, 0.8),
+            0 2px 6px rgba(139, 92, 246, 0.5);
+    }
+
+    html.night-mode .tab-container::after {
+        background: linear-gradient(to left,
+            rgba(139, 92, 246, 0.25) 0%,
+            rgba(139, 92, 246, 0.18) 40%,
+            rgba(139, 92, 246, 0.12) 60%,
+            rgba(139, 92, 246, 0.06) 80%,
+            transparent 100%);
+        text-shadow:
+            0 0 12px rgba(0, 0, 0, 0.8),
+            0 2px 6px rgba(139, 92, 246, 0.5);
+    }
+
+    /* Hide left gradient when scrolled to start */
+    .tab-container.at-start::before {
+        opacity: 0;
+    }
+
+    /* Hide right gradient when scrolled to end */
+    .tab-container.at-end::after {
+        opacity: 0;
     }
 
     .tab-button {
@@ -1059,9 +1206,63 @@ footer {
         flex-shrink: 0;
     }
 
+    /* Disable hover transform on mobile to prevent cutting off active button */
     .tab-button:hover {
-        transform: translateX(0);
-        transform: translateY(-2px);
+        transform: none;
+    }
+
+    /* On touch devices, disable hover effects entirely */
+    @media (hover: none) {
+        .tab-button:hover {
+            border-color: var(--border-color);
+            box-shadow: none;
+        }
+    }
+
+    /* Center h2 elements vertically in grade-overview and standards-grid */
+    .grade-overview h2,
+    .standards-grid h2 {
+        text-align: center;
+    }
+
+    /* Center h3 elements in domain-section */
+    .domain-section h3 {
+        text-align: center;
+    }
+
+    /* Center h2 titles and buttons on index.html */
+    #parents-title,
+    #student-title,
+    #grade-selection-title {
+        text-align: center;
+    }
+
+    .for-parents a,
+    .student-section a {
+        display: block !important;
+        margin: 0 auto !important;
+        text-align: center;
+        max-width: fit-content;
+    }
+
+    /* Center grade level links */
+    .grade-card ul {
+        text-align: center;
+    }
+
+    .grade-card li {
+        text-align: center;
+    }
+
+    /* Shrink hero title to prevent overflow on small screens */
+    #hero-title {
+        font-size: 1.75rem;
+    }
+
+    /* Shrink grade selection title and reduce top margin */
+    #grade-selection-title {
+        font-size: 1.75rem;
+        margin-top: 0.5rem;
     }
 }
 

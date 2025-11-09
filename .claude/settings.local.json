@@ -8,8 +8,7 @@
       "Bash(c:UsersAdministratorDocumentsGitHubwhymathold_resources_backup.html)",
       "Bash(cat:*)",
       "Bash(python parse_resources.py:*)",
-      "Bash(organized_worksheets.md)",
-      "Bash(git checkout:*)"
+      "Bash(organized_worksheets.md)"
     ],
     "deny": [],
     "ask": []

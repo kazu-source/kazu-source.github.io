@@ -221,6 +221,19 @@ document.addEventListener('DOMContentLoaded', function() {
                 targetPanel.classList.add('active');
             }
 
+            // Scroll the clicked button into view on mobile (when horizontal scrolling)
+            if (window.innerWidth <= 768) {
+                const tabList = this.closest('.tab-list');
+                if (tabList) {
+                    // Scroll the button into view within the tab list
+                    this.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'nearest',
+                        inline: 'center'
+                    });
+                }
+            }
+
             // Announce to screen readers
             const tabTitle = this.querySelector('h4').textContent;
             announceToScreenReader(tabTitle + ' tab selected');
@@ -274,6 +287,56 @@ document.addEventListener('DOMContentLoaded', function() {
                 targetTab.focus();
                 targetTab.click();
             }
+        });
+    });
+
+    // Tab list scroll indicators (mobile)
+    // Update gradient visibility based on scroll position
+    function updateScrollIndicators(tabList) {
+        if (!tabList) return;
+
+        const tabContainer = tabList.closest('.tab-container');
+        if (!tabContainer) return;
+
+        const scrollLeft = tabList.scrollLeft;
+        const scrollWidth = tabList.scrollWidth;
+        const clientWidth = tabList.clientWidth;
+        const maxScroll = scrollWidth - clientWidth;
+
+        // At start (hide left arrow)
+        if (scrollLeft <= 5) {
+            tabContainer.classList.add('at-start');
+        } else {
+            tabContainer.classList.remove('at-start');
+        }
+
+        // At end (hide right arrow)
+        if (scrollLeft >= maxScroll - 5) {
+            tabContainer.classList.add('at-end');
+        } else {
+            tabContainer.classList.remove('at-end');
+        }
+    }
+
+    // Initialize scroll indicators for all tab lists
+    const tabLists = document.querySelectorAll('.tab-list');
+    tabLists.forEach(tabList => {
+        // Initial check
+        updateScrollIndicators(tabList);
+
+        // Update on scroll
+        tabList.addEventListener('scroll', () => {
+            updateScrollIndicators(tabList);
+        });
+
+        // Update on window resize
+        window.addEventListener('resize', () => {
+            updateScrollIndicators(tabList);
+        });
+
+        // Update after images or content loads
+        window.addEventListener('load', () => {
+            updateScrollIndicators(tabList);
         });
     });
 
