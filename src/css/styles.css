@@ -578,6 +578,7 @@ footer {
 .domain-section {
     margin: var(--spacing-lg) 0;
     padding: var(--spacing-lg);
+    padding-top: 1.1rem;
     border: 2px solid var(--border-color);
     border-radius: var(--radius-xl);
     background-color: var(--card-bg);
@@ -591,6 +592,7 @@ footer {
 
 .domain-section h3 {
     color: var(--dark-blue);
+    margin-top: 0;
     margin-bottom: var(--spacing-md);
     padding-bottom: var(--spacing-sm);
     border-bottom: 3px solid var(--primary-blue);
@@ -1098,23 +1100,33 @@ footer {
         position: absolute;
         left: 0;
         top: 0;
-        height: 60px;
-        width: 60px;
+        height: 57px;
+        width: 70px;
         background: linear-gradient(to right,
-            var(--bg-primary) 0%,
-            var(--bg-primary) 30%,
-            rgba(248, 250, 252, 0.95) 50%,
-            rgba(248, 250, 252, 0.7) 70%,
+            rgba(139, 92, 246, 0.15) 0%,
+            rgba(139, 92, 246, 0.12) 40%,
+            rgba(139, 92, 246, 0.08) 60%,
+            rgba(139, 92, 246, 0.04) 80%,
             transparent 100%);
+        -webkit-mask-image: linear-gradient(to right, black 0%, black 30%, transparent 100%);
+        mask-image: linear-gradient(to right, black 0%, black 30%, transparent 100%);
+        backdrop-filter: blur(4px) opacity(1);
+        -webkit-backdrop-filter: blur(4px) opacity(1);
+        border-radius: var(--radius-sm);
+        border-top-left-radius: var(--radius-md);
+        border-bottom-left-radius: var(--radius-md);
         pointer-events: none;
-        z-index: 1000;
+        z-index: 10;
         display: flex;
         align-items: center;
         justify-content: center;
-        font-size: 2rem;
+        font-size: 2.5rem;
         font-weight: bold;
         color: var(--primary-purple);
-        text-shadow: 0 0 4px rgba(255, 255, 255, 0.8);
+        text-shadow:
+            0 0 8px rgba(255, 255, 255, 0.9),
+            0 2px 4px rgba(139, 92, 246, 0.3);
+        filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
         transition: opacity var(--transition-base);
     }
 
@@ -1124,43 +1136,59 @@ footer {
         position: absolute;
         right: 0;
         top: 0;
-        height: 60px;
-        width: 60px;
+        height: 57px;
+        width: 70px;
         background: linear-gradient(to left,
-            var(--bg-primary) 0%,
-            var(--bg-primary) 30%,
-            rgba(248, 250, 252, 0.95) 50%,
-            rgba(248, 250, 252, 0.7) 70%,
+            rgba(139, 92, 246, 0.15) 0%,
+            rgba(139, 92, 246, 0.12) 40%,
+            rgba(139, 92, 246, 0.08) 60%,
+            rgba(139, 92, 246, 0.04) 80%,
             transparent 100%);
+        -webkit-mask-image: linear-gradient(to left, black 0%, black 30%, transparent 100%);
+        mask-image: linear-gradient(to left, black 0%, black 30%, transparent 100%);
+        backdrop-filter: blur(4px) opacity(1);
+        -webkit-backdrop-filter: blur(4px) opacity(1);
+        border-radius: var(--radius-sm);
+        border-top-right-radius: var(--radius-md);
+        border-bottom-right-radius: var(--radius-md);
         pointer-events: none;
-        z-index: 1000;
+        z-index: 10;
         display: flex;
         align-items: center;
         justify-content: center;
-        font-size: 2rem;
+        font-size: 2.5rem;
         font-weight: bold;
         color: var(--primary-purple);
-        text-shadow: 0 0 4px rgba(255, 255, 255, 0.8);
+        text-shadow:
+            0 0 8px rgba(255, 255, 255, 0.9),
+            0 2px 4px rgba(139, 92, 246, 0.3);
+        filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
         transition: opacity var(--transition-base);
     }
 
     /* Night mode adjustments for gradient overlays */
     html.night-mode .tab-container::before {
         background: linear-gradient(to right,
-            var(--bg-primary) 0%,
-            var(--bg-primary) 30%,
-            rgba(15, 23, 42, 0.95) 50%,
-            rgba(15, 23, 42, 0.7) 70%,
+            rgba(139, 92, 246, 0.25) 0%,
+            rgba(139, 92, 246, 0.18) 40%,
+            rgba(139, 92, 246, 0.12) 60%,
+            rgba(139, 92, 246, 0.06) 80%,
             transparent 100%);
+        text-shadow:
+            0 0 12px rgba(0, 0, 0, 0.8),
+            0 2px 6px rgba(139, 92, 246, 0.5);
     }
 
     html.night-mode .tab-container::after {
         background: linear-gradient(to left,
-            var(--bg-primary) 0%,
-            var(--bg-primary) 30%,
-            rgba(15, 23, 42, 0.95) 50%,
-            rgba(15, 23, 42, 0.7) 70%,
+            rgba(139, 92, 246, 0.25) 0%,
+            rgba(139, 92, 246, 0.18) 40%,
+            rgba(139, 92, 246, 0.12) 60%,
+            rgba(139, 92, 246, 0.06) 80%,
             transparent 100%);
+        text-shadow:
+            0 0 12px rgba(0, 0, 0, 0.8),
+            0 2px 6px rgba(139, 92, 246, 0.5);
     }
 
     /* Hide left gradient when scrolled to start */
@@ -1178,9 +1206,17 @@ footer {
         flex-shrink: 0;
     }
 
+    /* Disable hover transform on mobile to prevent cutting off active button */
     .tab-button:hover {
-        transform: translateX(0);
-        transform: translateY(-2px);
+        transform: none;
+    }
+
+    /* On touch devices, disable hover effects entirely */
+    @media (hover: none) {
+        .tab-button:hover {
+            border-color: var(--border-color);
+            box-shadow: none;
+        }
     }
 }
 

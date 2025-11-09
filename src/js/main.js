@@ -221,6 +221,19 @@ document.addEventListener('DOMContentLoaded', function() {
                 targetPanel.classList.add('active');
             }
 
+            // Scroll the clicked button into view on mobile (when horizontal scrolling)
+            if (window.innerWidth <= 768) {
+                const tabList = this.closest('.tab-list');
+                if (tabList) {
+                    // Scroll the button into view within the tab list
+                    this.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'nearest',
+                        inline: 'center'
+                    });
+                }
+            }
+
             // Announce to screen readers
             const tabTitle = this.querySelector('h4').textContent;
             announceToScreenReader(tabTitle + ' tab selected');
