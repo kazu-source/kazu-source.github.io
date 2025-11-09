@@ -1113,8 +1113,8 @@ footer {
         backdrop-filter: blur(4px) opacity(1);
         -webkit-backdrop-filter: blur(4px) opacity(1);
         border-radius: var(--radius-sm);
-        border-top-left-radius: var(--radius-md);
-        border-bottom-left-radius: var(--radius-md);
+        border-top-left-radius: var(--radius-sm);
+        border-bottom-left-radius: var(--radius-sm);
         pointer-events: none;
         z-index: 10;
         display: flex;
@@ -1149,8 +1149,8 @@ footer {
         backdrop-filter: blur(4px) opacity(1);
         -webkit-backdrop-filter: blur(4px) opacity(1);
         border-radius: var(--radius-sm);
-        border-top-right-radius: var(--radius-md);
-        border-bottom-right-radius: var(--radius-md);
+        border-top-right-radius: var(--radius-sm);
+        border-bottom-right-radius: var(--radius-sm);
         pointer-events: none;
         z-index: 10;
         display: flex;
@@ -1217,6 +1217,17 @@ footer {
             border-color: var(--border-color);
             box-shadow: none;
         }
+    }
+
+    /* Center h2 elements vertically in grade-overview and standards-grid */
+    .grade-overview h2,
+    .standards-grid h2 {
+        text-align: center;
+    }
+
+    /* Center h3 elements in domain-section */
+    .domain-section h3 {
+        text-align: center;
     }
 }
 
