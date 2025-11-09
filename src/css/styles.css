@@ -229,7 +229,7 @@ body.night-mode .logo-dark {
     display: block;
     color: var(--white);
     text-decoration: none;
-    padding: 0.875rem 1.25rem;
+    padding: 1.1rem 1.25rem;
     font-weight: 500;
     font-size: 0.95rem;
     transition: all var(--transition-base);
@@ -1228,6 +1228,41 @@ footer {
     /* Center h3 elements in domain-section */
     .domain-section h3 {
         text-align: center;
+    }
+
+    /* Center h2 titles and buttons on index.html */
+    #parents-title,
+    #student-title,
+    #grade-selection-title {
+        text-align: center;
+    }
+
+    .for-parents a,
+    .student-section a {
+        display: block !important;
+        margin: 0 auto !important;
+        text-align: center;
+        max-width: fit-content;
+    }
+
+    /* Center grade level links */
+    .grade-card ul {
+        text-align: center;
+    }
+
+    .grade-card li {
+        text-align: center;
+    }
+
+    /* Shrink hero title to prevent overflow on small screens */
+    #hero-title {
+        font-size: 1.75rem;
+    }
+
+    /* Shrink grade selection title and reduce top margin */
+    #grade-selection-title {
+        font-size: 1.75rem;
+        margin-top: 0.5rem;
     }
 }
 
