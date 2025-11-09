@@ -1,0 +1,12 @@
+{
+    "claudeCode.environmentVariables": [
+
+    ],
+    "permissions": {
+        "allow": [
+          "Bash(npm run test)",
+          "Bash(npm run lint)",
+          "Bash(git status)"
+        ]
+      }
+}
