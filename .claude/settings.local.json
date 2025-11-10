@@ -9,11 +9,7 @@
       "Bash(cat:*)",
       "Bash(python parse_resources.py:*)",
       "Bash(organized_worksheets.md)",
-      "Bash(find:*)",
-      "Bash(done)",
-      "Bash(for grade in 3 4 5)",
-      "Bash(do echo \"=== Grade $grade on resources ===\")",
-      "Bash(xargs:*)"
+      "Bash(find:*)"
     ],
     "deny": [],
     "ask": []
