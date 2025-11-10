@@ -9,7 +9,13 @@
       "Bash(cat:*)",
       "Bash(python parse_resources.py:*)",
       "Bash(organized_worksheets.md)",
-      "Bash(find:*)"
+      "Bash(find:*)",
+      "Bash(for file in grade3.html grade4.html grade5.html grade6.html grade7.html grade8.html)",
+      "Bash(do grep -n \"main role=\"\"main\"\"\" \"$file\")",
+      "Bash(done)",
+      "Bash(python add_footer_ads.py:*)",
+      "Bash(del add_footer_ads.py)",
+      "Bash(python update_footer_ad_slot.py:*)"
     ],
     "deny": [],
     "ask": []
