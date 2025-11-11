@@ -338,8 +338,8 @@ body.night-mode .logo-dark {
     display: none; /* Hide the underline for dropdown items */
 }
 
-/* Mobile Navigation */
-@media (max-width: 768px) {
+/* Mobile and Tablet Navigation */
+@media (max-width: 1024px) {
     .main-nav ul {
         flex-direction: column;
         align-items: stretch;
@@ -389,46 +389,104 @@ body.night-mode .logo-dark {
     .main-nav .dropdown-menu li {
         border-bottom: 1px solid rgba(255, 255, 255, 0.05);
     }
+
+    /* Full width night mode toggle on mobile and tablet */
+    .night-mode-toggle {
+        justify-content: center;
+        width: 100%;
+    }
 }
 
-/* Night Mode Toggle Button */
-.night-mode-btn {
-    background: rgba(255, 255, 255, 0.2);
-    border: 2px solid rgba(255, 255, 255, 0.3);
-    border-radius: var(--radius-lg);
-    padding: 0.5rem 1rem;
-    cursor: pointer;
+/* Night Mode Toggle Slider */
+.night-mode-toggle {
     display: flex;
     align-items: center;
-    gap: 0.5rem;
+    justify-content: center;
+    gap: 0.6rem;
+    cursor: pointer;
+    position: relative;
+    padding: 1.1rem 1rem;
+    margin: 0.25rem 0;
+}
+
+.night-mode-toggle input[type="checkbox"] {
+    display: none;
+}
+
+.night-mode-toggle .slider {
+    width: 52px;
+    height: 28px;
+    background: rgba(255, 255, 255, 0.2);
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-radius: 34px;
+    position: relative;
     transition: all var(--transition-base);
-    font-size: 1.2rem;
-    margin: 0.25rem;
+    flex-shrink: 0;
 }
 
-.night-mode-btn:hover {
+.night-mode-toggle .slider::before {
+    content: '';
+    position: absolute;
+    height: 20px;
+    width: 20px;
+    left: 2px;
+    bottom: 2px;
+    background-color: white;
+    border-radius: 50%;
+    transition: all var(--transition-base);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.night-mode-toggle input[type="checkbox"]:checked + .slider {
+    background: rgba(139, 92, 246, 0.3);
+    border-color: rgba(139, 92, 246, 0.5);
+}
+
+.night-mode-toggle input[type="checkbox"]:checked + .slider::before {
+    transform: translateX(24px);
+}
+
+.night-mode-toggle:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: var(--radius-sm);
+}
+
+.night-mode-toggle:hover .slider {
     background: rgba(255, 255, 255, 0.3);
-    transform: scale(1.05);
 }
 
-.night-mode-btn:focus {
+.night-mode-toggle input[type="checkbox"]:checked:hover + .slider {
+    background: rgba(139, 92, 246, 0.4);
+}
+
+.night-mode-toggle:focus-within {
     outline: 2px solid var(--white);
     outline-offset: 2px;
+    border-radius: var(--radius-sm);
 }
 
-.night-mode-btn .sun-icon,
-.night-mode-btn .moon-icon {
+.night-mode-toggle .sun-icon,
+.night-mode-toggle .moon-icon {
+    font-size: 1.3rem;
     transition: all var(--transition-base);
+    line-height: 1;
+    flex-shrink: 0;
 }
 
-html:not(.night-mode) .night-mode-btn .moon-icon,
-body:not(.night-mode) .night-mode-btn .moon-icon {
-    display: none;
+.night-mode-toggle .sun-icon {
+    opacity: 1;
 }
 
-html.night-mode .night-mode-btn .sun-icon,
-body.night-mode .night-mode-btn .sun-icon {
-    display: none;
+.night-mode-toggle .moon-icon {
+    opacity: 0.5;
+}
+
+.night-mode-toggle input[type="checkbox"]:checked ~ .sun-icon {
+    opacity: 0.5;
+}
+
+.night-mode-toggle input[type="checkbox"]:checked ~ .moon-icon {
+    opacity: 1;
 }
 
 /* Grid layout for topics */
@@ -1835,9 +1893,10 @@ body.night-mode .resources-section a:hover {
 }
 
 /* Enhanced button focus states */
-.night-mode-btn:focus {
+.night-mode-toggle:focus-within {
     outline: 3px solid var(--primary-orange);
     outline-offset: 2px;
+    border-radius: 34px;
 }
 
 /* Ensure toggle icons are properly sized and visible */

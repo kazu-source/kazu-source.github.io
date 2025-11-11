@@ -7,16 +7,20 @@ function initNightMode() {
     if (savedNightMode === 'enabled') {
         document.documentElement.classList.add('night-mode');
         document.body.classList.add('night-mode');
+        // Set checkbox state to match saved preference
+        if (nightModeToggle) {
+            nightModeToggle.checked = true;
+        }
     }
 
-    // Toggle night mode on button click
+    // Toggle night mode on checkbox change
     if (nightModeToggle) {
-        nightModeToggle.addEventListener('click', function() {
+        nightModeToggle.addEventListener('change', function() {
             document.documentElement.classList.toggle('night-mode');
             document.body.classList.toggle('night-mode');
 
             // Save preference to localStorage
-            if (document.body.classList.contains('night-mode')) {
+            if (this.checked) {
                 localStorage.setItem('nightMode', 'enabled');
             } else {
                 localStorage.setItem('nightMode', 'disabled');

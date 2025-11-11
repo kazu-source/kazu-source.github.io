@@ -20,15 +20,15 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
 
-        // Handle dropdown toggles on mobile
+        // Handle dropdown toggles on mobile and tablet
         const dropdowns = mainNav.querySelectorAll('.dropdown');
         dropdowns.forEach(dropdown => {
             const dropdownToggle = dropdown.querySelector('a[aria-haspopup="true"]');
 
             if (dropdownToggle) {
                 dropdownToggle.addEventListener('click', (e) => {
-                    // On mobile, toggle the dropdown
-                    if (window.innerWidth <= 768) {
+                    // On mobile and tablet, toggle the dropdown
+                    if (window.innerWidth <= 1024) {
                         e.preventDefault();
                         dropdown.classList.toggle('active');
                         const isExpanded = dropdown.classList.contains('active');

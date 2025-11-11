@@ -212,10 +212,12 @@
                 <li><a href="about.html">About</a></li>
                 <li><a href="contact.html">Contact</a></li>
                 <li>
-                    <button id="night-mode-toggle" class="night-mode-btn" aria-label="Toggle night mode">
+                    <label class="night-mode-toggle" aria-label="Toggle night mode">
                         <span class="sun-icon">☀️</span>
+                        <input type="checkbox" id="night-mode-toggle" aria-label="Toggle night mode">
+                        <span class="slider"></span>
                         <span class="moon-icon">🌙</span>
-                    </button>
+                    </label>
                 </li>
             </ul>
         </nav>
@@ -1916,6 +1918,26 @@
                         aria-controls="hs-algebra2" id="tab-hs-algebra2" data-grade="algebra2">
                     Algebra II
                 </button>
+                <button class="grade-tab-button" role="tab" aria-selected="false"
+                        aria-controls="hs-intmath1" id="tab-hs-intmath1" data-grade="integratedmath1">
+                    Integrated Math I
+                </button>
+                <button class="grade-tab-button" role="tab" aria-selected="false"
+                        aria-controls="hs-intmath2" id="tab-hs-intmath2" data-grade="integratedmath2">
+                    Integrated Math II
+                </button>
+                <button class="grade-tab-button" role="tab" aria-selected="false"
+                        aria-controls="hs-intmath3" id="tab-hs-intmath3" data-grade="integratedmath3">
+                    Integrated Math III
+                </button>
+                <button class="grade-tab-button" role="tab" aria-selected="false"
+                        aria-controls="hs-calculus" id="tab-hs-calculus" data-grade="calculus">
+                    Calculus
+                </button>
+                <button class="grade-tab-button" role="tab" aria-selected="false"
+                        aria-controls="hs-apstats" id="tab-hs-apstats" data-grade="apstats">
+                    AP Statistics
+                </button>
             </div>
 
             <!-- Course Panels -->
@@ -2379,6 +2401,725 @@
                                             <li><a href="../../worksheets/Algebra2/statistics/normal-distribution.pdf" class="worksheet-link unavailable">Fit Normal Distribution</a></li>
                                             <li><a href="../../worksheets/Algebra2/statistics/empirical-rule.pdf" class="worksheet-link unavailable">68-95-99.7 Rule</a></li>
                                             <li><a href="../../worksheets/Algebra2/statistics/z-scores.pdf" class="worksheet-link unavailable">Z-Scores and Percentiles</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Integrated Math I Panel -->
+                <div class="grade-panel" role="tabpanel" id="hs-intmath1" aria-labelledby="tab-hs-intmath1">
+                    <div class="content-layout">
+                        <!-- Left Sidebar: Domain Tabs -->
+                        <div class="domain-sidebar">
+                            <div class="domain-tabs" role="tablist" aria-label="Math domains for Integrated Math I">
+                                <button class="domain-tab-button active" role="tab" aria-selected="true"
+                                        aria-controls="intmath1-nq" id="tab-intmath1-nq">
+                                    Number and Quantity
+                                </button>
+                                <button class="domain-tab-button" role="tab" aria-selected="false"
+                                        aria-controls="intmath1-alg" id="tab-intmath1-alg">
+                                    Algebra
+                                </button>
+                                <button class="domain-tab-button" role="tab" aria-selected="false"
+                                        aria-controls="intmath1-func" id="tab-intmath1-func">
+                                    Functions
+                                </button>
+                                <button class="domain-tab-button" role="tab" aria-selected="false"
+                                        aria-controls="intmath1-geom" id="tab-intmath1-geom">
+                                    Geometry
+                                </button>
+                                <button class="domain-tab-button" role="tab" aria-selected="false"
+                                        aria-controls="intmath1-stat" id="tab-intmath1-stat">
+                                    Statistics and Probability
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Right Content: Worksheet Cards -->
+                        <div class="domain-content">
+                            <!-- Number and Quantity Panel -->
+                            <div class="domain-panel active" role="tabpanel" id="intmath1-nq" aria-labelledby="tab-intmath1-nq">
+                                <div class="grid-container">
+                                    <div class="grade-card">
+                                        <h3>Quantities</h3>
+                                        <ul>
+                                            <li><a href="../../worksheets/IntegratedMath1/number-quantity/units-problem-solving.pdf" class="worksheet-link unavailable">Units in Problem Solving</a></li>
+                                            <li><a href="../../worksheets/IntegratedMath1/number-quantity/descriptive-modeling.pdf" class="worksheet-link unavailable">Defining Quantities for Modeling</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Algebra Panel -->
+                            <div class="domain-panel" role="tabpanel" id="intmath1-alg" aria-labelledby="tab-intmath1-alg">
+                                <div class="grid-container">
+                                    <div class="grade-card">
+                                        <h3>Seeing Structure in Expressions</h3>
+                                        <ul>
+                                            <li><a href="../../worksheets/IntegratedMath1/algebra/interpret-expressions.pdf" class="worksheet-link unavailable">Interpret Parts of Expressions</a></li>
+                                        </ul>
+                                    </div>
+                                    <div class="grade-card">
+                                        <h3>Creating Equations</h3>
+                                        <ul>
+                                            <li><a href="../../worksheets/IntegratedMath1/algebra/create-equations.pdf" class="worksheet-link unavailable">Create Equations from Context</a></li>
+                                            <li><a href="../../worksheets/IntegratedMath1/algebra/systems-inequalities.pdf" class="worksheet-link unavailable">Systems of Equations and Inequalities</a></li>
+                                            <li><a href="../../worksheets/IntegratedMath1/algebra/rearrange-formulas.pdf" class="worksheet-link unavailable">Rearrange Formulas</a></li>
+                                        </ul>
+                                    </div>
+                                    <div class="grade-card">
+                                        <h3>Reasoning with Equations</h3>
+                                        <ul>
+                                            <li><a href="../../worksheets/IntegratedMath1/algebra/solve-linear.pdf" class="worksheet-link unavailable">Solve Linear Equations</a></li>
+                                            <li><a href="../../worksheets/IntegratedMath1/algebra/systems-of-equations.pdf" class="worksheet-link unavailable">Solve Systems of Equations</a></li>
+                                            <li><a href="../../worksheets/IntegratedMath1/algebra/graph-inequalities.pdf" class="worksheet-link unavailable">Graph Linear Inequalities</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Functions Panel -->
+                            <div class="domain-panel" role="tabpanel" id="intmath1-func" aria-labelledby="tab-intmath1-func">
+                                <div class="grid-container">
+                                    <div class="grade-card">
+                                        <h3>Interpreting Functions</h3>
+                                        <ul>
+                                            <li><a href="../../worksheets/IntegratedMath1/functions/function-notation.pdf" class="worksheet-link unavailable">Function Notation</a></li>
+                                            <li><a href="../../worksheets/IntegratedMath1/functions/key-features.pdf" class="worksheet-link unavailable">Interpret Key Features of Graphs</a></li>
+                                            <li><a href="../../worksheets/IntegratedMath1/functions/rate-of-change.pdf" class="worksheet-link unavailable">Average Rate of Change</a></li>
+                                        </ul>
+                                    </div>
+                                    <div class="grade-card">
+                                        <h3>Building Functions</h3>
+                                        <ul>
+                                            <li><a href="../../worksheets/IntegratedMath1/functions/build-functions.pdf" class="worksheet-link unavailable">Build Functions from Context</a></li>
+                                            <li><a href="../../worksheets/IntegratedMath1/functions/sequences.pdf" class="worksheet-link unavailable">Arithmetic and Geometric Sequences</a></li>
+                                            <li><a href="../../worksheets/IntegratedMath1/functions/transformations.pdf" class="worksheet-link unavailable">Function Transformations</a></li>
+                                        </ul>
+                                    </div>
+                                    <div class="grade-card">
+                                        <h3>Linear & Exponential Models</h3>
+                                        <ul>
+                                            <li><a href="../../worksheets/IntegratedMath1/functions/linear-exponential.pdf" class="worksheet-link unavailable">Distinguish Linear and Exponential</a></li>
+                                            <li><a href="../../worksheets/IntegratedMath1/functions/construct-models.pdf" class="worksheet-link unavailable">Construct Linear and Exponential Models</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Geometry Panel -->
+                            <div class="domain-panel" role="tabpanel" id="intmath1-geom" aria-labelledby="tab-intmath1-geom">
+                                <div class="grid-container">
+                                    <div class="grade-card">
+                                        <h3>Congruence & Transformations</h3>
+                                        <ul>
+                                            <li><a href="../../worksheets/IntegratedMath1/geometry/transformations.pdf" class="worksheet-link unavailable">Transformations in the Plane</a></li>
+                                            <li><a href="../../worksheets/IntegratedMath1/geometry/congruence.pdf" class="worksheet-link unavailable">Congruence and Rigid Motions</a></li>
+                                            <li><a href="../../worksheets/IntegratedMath1/geometry/triangle-congruence.pdf" class="worksheet-link unavailable">Triangle Congruence Criteria</a></li>
+                                            <li><a href="../../worksheets/IntegratedMath1/geometry/constructions.pdf" class="worksheet-link unavailable">Geometric Constructions</a></li>
+                                        </ul>
+                                    </div>
+                                    <div class="grade-card">
+                                        <h3>Coordinate Geometry</h3>
+                                        <ul>
+                                            <li><a href="../../worksheets/IntegratedMath1/geometry/coordinate-proofs.pdf" class="worksheet-link unavailable">Coordinate Proofs</a></li>
+                                            <li><a href="../../worksheets/IntegratedMath1/geometry/parallel-perpendicular.pdf" class="worksheet-link unavailable">Parallel and Perpendicular Lines</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Statistics and Probability Panel -->
+                            <div class="domain-panel" role="tabpanel" id="intmath1-stat" aria-labelledby="tab-intmath1-stat">
+                                <div class="grid-container">
+                                    <div class="grade-card">
+                                        <h3>Interpreting Categorical & Quantitative Data</h3>
+                                        <ul>
+                                            <li><a href="../../worksheets/IntegratedMath1/statistics/data-displays.pdf" class="worksheet-link unavailable">Data Displays and Summary Statistics</a></li>
+                                            <li><a href="../../worksheets/IntegratedMath1/statistics/scatter-plots.pdf" class="worksheet-link unavailable">Scatter Plots and Linear Models</a></li>
+                                            <li><a href="../../worksheets/IntegratedMath1/statistics/correlation-causation.pdf" class="worksheet-link unavailable">Correlation vs. Causation</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Integrated Math II Panel -->
+                <div class="grade-panel" role="tabpanel" id="hs-intmath2" aria-labelledby="tab-hs-intmath2">
+                    <div class="content-layout">
+                        <!-- Left Sidebar: Domain Tabs -->
+                        <div class="domain-sidebar">
+                            <div class="domain-tabs" role="tablist" aria-label="Math domains for Integrated Math II">
+                                <button class="domain-tab-button active" role="tab" aria-selected="true"
+                                        aria-controls="intmath2-nq" id="tab-intmath2-nq">
+                                    Number and Quantity
+                                </button>
+                                <button class="domain-tab-button" role="tab" aria-selected="false"
+                                        aria-controls="intmath2-alg" id="tab-intmath2-alg">
+                                    Algebra
+                                </button>
+                                <button class="domain-tab-button" role="tab" aria-selected="false"
+                                        aria-controls="intmath2-func" id="tab-intmath2-func">
+                                    Functions
+                                </button>
+                                <button class="domain-tab-button" role="tab" aria-selected="false"
+                                        aria-controls="intmath2-geom" id="tab-intmath2-geom">
+                                    Geometry
+                                </button>
+                                <button class="domain-tab-button" role="tab" aria-selected="false"
+                                        aria-controls="intmath2-stat" id="tab-intmath2-stat">
+                                    Statistics and Probability
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Right Content: Worksheet Cards -->
+                        <div class="domain-content">
+                            <!-- Number and Quantity Panel -->
+                            <div class="domain-panel active" role="tabpanel" id="intmath2-nq" aria-labelledby="tab-intmath2-nq">
+                                <div class="grid-container">
+                                    <div class="grade-card">
+                                        <h3>Real Number System</h3>
+                                        <ul>
+                                            <li><a href="../../worksheets/IntegratedMath2/number-quantity/rational-exponents.pdf" class="worksheet-link unavailable">Rational Exponents and Radicals</a></li>
+                                            <li><a href="../../worksheets/IntegratedMath2/number-quantity/rational-irrational.pdf" class="worksheet-link unavailable">Rational and Irrational Numbers</a></li>
+                                        </ul>
+                                    </div>
+                                    <div class="grade-card">
+                                        <h3>Complex Number System</h3>
+                                        <ul>
+                                            <li><a href="../../worksheets/IntegratedMath2/number-quantity/complex-numbers-intro.pdf" class="worksheet-link unavailable">Introduction to Complex Numbers</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Algebra Panel -->
+                            <div class="domain-panel" role="tabpanel" id="intmath2-alg" aria-labelledby="tab-intmath2-alg">
+                                <div class="grid-container">
+                                    <div class="grade-card">
+                                        <h3>Structure of Expressions</h3>
+                                        <ul>
+                                            <li><a href="../../worksheets/IntegratedMath2/algebra/factor-quadratics.pdf" class="worksheet-link unavailable">Factor Quadratic Expressions</a></li>
+                                            <li><a href="../../worksheets/IntegratedMath2/algebra/complete-square.pdf" class="worksheet-link unavailable">Complete the Square</a></li>
+                                        </ul>
+                                    </div>
+                                    <div class="grade-card">
+                                        <h3>Polynomial Operations</h3>
+                                        <ul>
+                                            <li><a href="../../worksheets/IntegratedMath2/algebra/polynomial-operations.pdf" class="worksheet-link unavailable">Add, Subtract, and Multiply Polynomials</a></li>
+                                            <li><a href="../../worksheets/IntegratedMath2/algebra/polynomial-identities.pdf" class="worksheet-link unavailable">Polynomial Identities</a></li>
+                                        </ul>
+                                    </div>
+                                    <div class="grade-card">
+                                        <h3>Solving Equations</h3>
+                                        <ul>
+                                            <li><a href="../../worksheets/IntegratedMath2/algebra/solve-quadratics.pdf" class="worksheet-link unavailable">Solve Quadratic Equations</a></li>
+                                            <li><a href="../../worksheets/IntegratedMath2/algebra/systems-linear-quadratic.pdf" class="worksheet-link unavailable">Systems with Quadratic Equations</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Functions Panel -->
+                            <div class="domain-panel" role="tabpanel" id="intmath2-func" aria-labelledby="tab-intmath2-func">
+                                <div class="grid-container">
+                                    <div class="grade-card">
+                                        <h3>Interpreting Functions</h3>
+                                        <ul>
+                                            <li><a href="../../worksheets/IntegratedMath2/functions/compare-functions.pdf" class="worksheet-link unavailable">Compare Functions</a></li>
+                                            <li><a href="../../worksheets/IntegratedMath2/functions/zeros-extrema.pdf" class="worksheet-link unavailable">Zeros and Extrema</a></li>
+                                        </ul>
+                                    </div>
+                                    <div class="grade-card">
+                                        <h3>Building Functions</h3>
+                                        <ul>
+                                            <li><a href="../../worksheets/IntegratedMath2/functions/inverse-functions.pdf" class="worksheet-link unavailable">Inverse Functions</a></li>
+                                            <li><a href="../../worksheets/IntegratedMath2/functions/function-composition.pdf" class="worksheet-link unavailable">Compose Functions</a></li>
+                                        </ul>
+                                    </div>
+                                    <div class="grade-card">
+                                        <h3>Quadratic Models</h3>
+                                        <ul>
+                                            <li><a href="../../worksheets/IntegratedMath2/functions/quadratic-models.pdf" class="worksheet-link unavailable">Construct Quadratic Models</a></li>
+                                            <li><a href="../../worksheets/IntegratedMath2/functions/vertex-form.pdf" class="worksheet-link unavailable">Vertex Form and Applications</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Geometry Panel -->
+                            <div class="domain-panel" role="tabpanel" id="intmath2-geom" aria-labelledby="tab-intmath2-geom">
+                                <div class="grid-container">
+                                    <div class="grade-card">
+                                        <h3>Similarity & Right Triangles</h3>
+                                        <ul>
+                                            <li><a href="../../worksheets/IntegratedMath2/geometry/similarity.pdf" class="worksheet-link unavailable">Similarity and Dilations</a></li>
+                                            <li><a href="../../worksheets/IntegratedMath2/geometry/pythagorean-theorem.pdf" class="worksheet-link unavailable">Pythagorean Theorem and Proofs</a></li>
+                                            <li><a href="../../worksheets/IntegratedMath2/geometry/right-triangle-trig.pdf" class="worksheet-link unavailable">Right Triangle Trigonometry</a></li>
+                                        </ul>
+                                    </div>
+                                    <div class="grade-card">
+                                        <h3>Circles</h3>
+                                        <ul>
+                                            <li><a href="../../worksheets/IntegratedMath2/geometry/circle-properties.pdf" class="worksheet-link unavailable">Circle Properties and Theorems</a></li>
+                                            <li><a href="../../worksheets/IntegratedMath2/geometry/arc-sector.pdf" class="worksheet-link unavailable">Arc Length and Sector Area</a></li>
+                                        </ul>
+                                    </div>
+                                    <div class="grade-card">
+                                        <h3>Volume & Measurement</h3>
+                                        <ul>
+                                            <li><a href="../../worksheets/IntegratedMath2/geometry/volume-formulas.pdf" class="worksheet-link unavailable">Volume Formulas</a></li>
+                                            <li><a href="../../worksheets/IntegratedMath2/geometry/density-problems.pdf" class="worksheet-link unavailable">Density and Rate Problems</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Statistics and Probability Panel -->
+                            <div class="domain-panel" role="tabpanel" id="intmath2-stat" aria-labelledby="tab-intmath2-stat">
+                                <div class="grid-container">
+                                    <div class="grade-card">
+                                        <h3>Conditional Probability</h3>
+                                        <ul>
+                                            <li><a href="../../worksheets/IntegratedMath2/statistics/conditional-probability.pdf" class="worksheet-link unavailable">Conditional Probability</a></li>
+                                            <li><a href="../../worksheets/IntegratedMath2/statistics/independence.pdf" class="worksheet-link unavailable">Independence</a></li>
+                                            <li><a href="../../worksheets/IntegratedMath2/statistics/two-way-tables.pdf" class="worksheet-link unavailable">Two-Way Frequency Tables</a></li>
+                                            <li><a href="../../worksheets/IntegratedMath2/statistics/probability-rules.pdf" class="worksheet-link unavailable">Addition and Multiplication Rules</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Integrated Math III Panel -->
+                <div class="grade-panel" role="tabpanel" id="hs-intmath3" aria-labelledby="tab-hs-intmath3">
+                    <div class="content-layout">
+                        <!-- Left Sidebar: Domain Tabs -->
+                        <div class="domain-sidebar">
+                            <div class="domain-tabs" role="tablist" aria-label="Math domains for Integrated Math III">
+                                <button class="domain-tab-button active" role="tab" aria-selected="true"
+                                        aria-controls="intmath3-nq" id="tab-intmath3-nq">
+                                    Number and Quantity
+                                </button>
+                                <button class="domain-tab-button" role="tab" aria-selected="false"
+                                        aria-controls="intmath3-alg" id="tab-intmath3-alg">
+                                    Algebra
+                                </button>
+                                <button class="domain-tab-button" role="tab" aria-selected="false"
+                                        aria-controls="intmath3-func" id="tab-intmath3-func">
+                                    Functions
+                                </button>
+                                <button class="domain-tab-button" role="tab" aria-selected="false"
+                                        aria-controls="intmath3-geom" id="tab-intmath3-geom">
+                                    Geometry
+                                </button>
+                                <button class="domain-tab-button" role="tab" aria-selected="false"
+                                        aria-controls="intmath3-stat" id="tab-intmath3-stat">
+                                    Statistics and Probability
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Right Content: Worksheet Cards -->
+                        <div class="domain-content">
+                            <!-- Number and Quantity Panel -->
+                            <div class="domain-panel active" role="tabpanel" id="intmath3-nq" aria-labelledby="tab-intmath3-nq">
+                                <div class="grid-container">
+                                    <div class="grade-card">
+                                        <h3>Complex Numbers</h3>
+                                        <ul>
+                                            <li><a href="../../worksheets/IntegratedMath3/number-quantity/complex-arithmetic.pdf" class="worksheet-link unavailable">Complex Number Operations</a></li>
+                                            <li><a href="../../worksheets/IntegratedMath3/number-quantity/complex-solutions.pdf" class="worksheet-link unavailable">Solve Equations with Complex Solutions</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Algebra Panel -->
+                            <div class="domain-panel" role="tabpanel" id="intmath3-alg" aria-labelledby="tab-intmath3-alg">
+                                <div class="grid-container">
+                                    <div class="grade-card">
+                                        <h3>Polynomial & Rational</h3>
+                                        <ul>
+                                            <li><a href="../../worksheets/IntegratedMath3/algebra/polynomial-division.pdf" class="worksheet-link unavailable">Polynomial Division</a></li>
+                                            <li><a href="../../worksheets/IntegratedMath3/algebra/remainder-theorem.pdf" class="worksheet-link unavailable">Remainder and Factor Theorems</a></li>
+                                            <li><a href="../../worksheets/IntegratedMath3/algebra/rational-expressions.pdf" class="worksheet-link unavailable">Operations with Rational Expressions</a></li>
+                                        </ul>
+                                    </div>
+                                    <div class="grade-card">
+                                        <h3>Solving Advanced Equations</h3>
+                                        <ul>
+                                            <li><a href="../../worksheets/IntegratedMath3/algebra/rational-equations.pdf" class="worksheet-link unavailable">Solve Rational Equations</a></li>
+                                            <li><a href="../../worksheets/IntegratedMath3/algebra/radical-equations.pdf" class="worksheet-link unavailable">Solve Radical Equations</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Functions Panel -->
+                            <div class="domain-panel" role="tabpanel" id="intmath3-func" aria-labelledby="tab-intmath3-func">
+                                <div class="grid-container">
+                                    <div class="grade-card">
+                                        <h3>Advanced Functions</h3>
+                                        <ul>
+                                            <li><a href="../../worksheets/IntegratedMath3/functions/polynomial-functions.pdf" class="worksheet-link unavailable">Graph Polynomial Functions</a></li>
+                                            <li><a href="../../worksheets/IntegratedMath3/functions/rational-functions.pdf" class="worksheet-link unavailable">Graph Rational Functions</a></li>
+                                            <li><a href="../../worksheets/IntegratedMath3/functions/exponential-models.pdf" class="worksheet-link unavailable">Exponential Growth and Decay</a></li>
+                                        </ul>
+                                    </div>
+                                    <div class="grade-card">
+                                        <h3>Logarithms & Trigonometry</h3>
+                                        <ul>
+                                            <li><a href="../../worksheets/IntegratedMath3/functions/logarithms.pdf" class="worksheet-link unavailable">Logarithmic Functions</a></li>
+                                            <li><a href="../../worksheets/IntegratedMath3/functions/solve-exponential.pdf" class="worksheet-link unavailable">Solve Exponential Equations</a></li>
+                                            <li><a href="../../worksheets/IntegratedMath3/functions/unit-circle.pdf" class="worksheet-link unavailable">Unit Circle and Trigonometry</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Geometry Panel -->
+                            <div class="domain-panel" role="tabpanel" id="intmath3-geom" aria-labelledby="tab-intmath3-geom">
+                                <div class="grid-container">
+                                    <div class="grade-card">
+                                        <h3>General Triangles</h3>
+                                        <ul>
+                                            <li><a href="../../worksheets/IntegratedMath3/geometry/law-of-sines.pdf" class="worksheet-link unavailable">Law of Sines</a></li>
+                                            <li><a href="../../worksheets/IntegratedMath3/geometry/law-of-cosines.pdf" class="worksheet-link unavailable">Law of Cosines</a></li>
+                                        </ul>
+                                    </div>
+                                    <div class="grade-card">
+                                        <h3>Conic Sections & 3D</h3>
+                                        <ul>
+                                            <li><a href="../../worksheets/IntegratedMath3/geometry/circles-standard-form.pdf" class="worksheet-link unavailable">Circles in Standard Form</a></li>
+                                            <li><a href="../../worksheets/IntegratedMath3/geometry/parabolas.pdf" class="worksheet-link unavailable">Parabolas and Vertex Form</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Statistics and Probability Panel -->
+                            <div class="domain-panel" role="tabpanel" id="intmath3-stat" aria-labelledby="tab-intmath3-stat">
+                                <div class="grid-container">
+                                    <div class="grade-card">
+                                        <h3>Statistical Inference</h3>
+                                        <ul>
+                                            <li><a href="../../worksheets/IntegratedMath3/statistics/sampling.pdf" class="worksheet-link unavailable">Sample Surveys and Experiments</a></li>
+                                            <li><a href="../../worksheets/IntegratedMath3/statistics/simulations.pdf" class="worksheet-link unavailable">Use Simulations</a></li>
+                                            <li><a href="../../worksheets/IntegratedMath3/statistics/margin-of-error.pdf" class="worksheet-link unavailable">Margins of Error</a></li>
+                                            <li><a href="../../worksheets/IntegratedMath3/statistics/normal-distribution.pdf" class="worksheet-link unavailable">Normal Distribution</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Calculus Panel -->
+                <div class="grade-panel" role="tabpanel" id="hs-calculus" aria-labelledby="tab-hs-calculus">
+                    <div class="content-layout">
+                        <!-- Left Sidebar: Domain Tabs -->
+                        <div class="domain-sidebar">
+                            <div class="domain-tabs" role="tablist" aria-label="Math domains for Calculus">
+                                <button class="domain-tab-button active" role="tab" aria-selected="true"
+                                        aria-controls="calc-limits" id="tab-calc-limits">
+                                    Limits and Continuity
+                                </button>
+                                <button class="domain-tab-button" role="tab" aria-selected="false"
+                                        aria-controls="calc-deriv" id="tab-calc-deriv">
+                                    Derivatives
+                                </button>
+                                <button class="domain-tab-button" role="tab" aria-selected="false"
+                                        aria-controls="calc-integ" id="tab-calc-integ">
+                                    Integrals
+                                </button>
+                                <button class="domain-tab-button" role="tab" aria-selected="false"
+                                        aria-controls="calc-series" id="tab-calc-series">
+                                    Series and Differential Equations
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Right Content: Worksheet Cards -->
+                        <div class="domain-content">
+                            <!-- Limits and Continuity Panel -->
+                            <div class="domain-panel active" role="tabpanel" id="calc-limits" aria-labelledby="tab-calc-limits">
+                                <div class="grid-container">
+                                    <div class="grade-card">
+                                        <h3>Limits - Definition and Interpretation</h3>
+                                        <ul>
+                                            <li><a href="../../worksheets/Calculus/limits/limit-definition.pdf" class="worksheet-link unavailable">Limit Definition and Interpretation</a></li>
+                                            <li><a href="../../worksheets/Calculus/limits/evaluating-limits.pdf" class="worksheet-link unavailable">Evaluating Limits</a></li>
+                                        </ul>
+                                    </div>
+                                    <div class="grade-card">
+                                        <h3>Continuity</h3>
+                                        <ul>
+                                            <li><a href="../../worksheets/Calculus/limits/continuity.pdf" class="worksheet-link unavailable">Continuity and Discontinuities</a></li>
+                                        </ul>
+                                    </div>
+                                    <div class="grade-card">
+                                        <h3>Intermediate and Extreme Value Theorems</h3>
+                                        <ul>
+                                            <li><a href="../../worksheets/Calculus/limits/ivt-evt.pdf" class="worksheet-link unavailable">IVT and EVT Applications</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Derivatives Panel -->
+                            <div class="domain-panel" role="tabpanel" id="calc-deriv" aria-labelledby="tab-calc-deriv">
+                                <div class="grid-container">
+                                    <div class="grade-card">
+                                        <h3>Definition and Interpretation</h3>
+                                        <ul>
+                                            <li><a href="../../worksheets/Calculus/derivatives/derivative-definition.pdf" class="worksheet-link unavailable">Derivative Definition</a></li>
+                                            <li><a href="../../worksheets/Calculus/derivatives/basic-rules.pdf" class="worksheet-link unavailable">Basic Derivative Rules</a></li>
+                                        </ul>
+                                    </div>
+                                    <div class="grade-card">
+                                        <h3>Chain Rule and Advanced Techniques</h3>
+                                        <ul>
+                                            <li><a href="../../worksheets/Calculus/derivatives/chain-rule.pdf" class="worksheet-link unavailable">Chain Rule</a></li>
+                                            <li><a href="../../worksheets/Calculus/derivatives/implicit-differentiation.pdf" class="worksheet-link unavailable">Implicit Differentiation</a></li>
+                                            <li><a href="../../worksheets/Calculus/derivatives/parametric.pdf" class="worksheet-link unavailable">Parametric Differentiation</a></li>
+                                            <li><a href="../../worksheets/Calculus/derivatives/higher-order.pdf" class="worksheet-link unavailable">Higher Order Derivatives</a></li>
+                                        </ul>
+                                    </div>
+                                    <div class="grade-card">
+                                        <h3>Applications</h3>
+                                        <ul>
+                                            <li><a href="../../worksheets/Calculus/derivatives/mvt.pdf" class="worksheet-link unavailable">Mean Value Theorem</a></li>
+                                            <li><a href="../../worksheets/Calculus/derivatives/curve-sketching.pdf" class="worksheet-link unavailable">Curve Sketching</a></li>
+                                            <li><a href="../../worksheets/Calculus/derivatives/optimization.pdf" class="worksheet-link unavailable">Optimization</a></li>
+                                            <li><a href="../../worksheets/Calculus/derivatives/related-rates.pdf" class="worksheet-link unavailable">Related Rates</a></li>
+                                            <li><a href="../../worksheets/Calculus/derivatives/newtons-method.pdf" class="worksheet-link unavailable">Newton's Method</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Integrals Panel -->
+                            <div class="domain-panel" role="tabpanel" id="calc-integ" aria-labelledby="tab-calc-integ">
+                                <div class="grid-container">
+                                    <div class="grade-card">
+                                        <h3>Definite Integral Definition</h3>
+                                        <ul>
+                                            <li><a href="../../worksheets/Calculus/integrals/definite-integral.pdf" class="worksheet-link unavailable">Definite Integral Definition</a></li>
+                                            <li><a href="../../worksheets/Calculus/integrals/riemann-sums.pdf" class="worksheet-link unavailable">Riemann Sums</a></li>
+                                        </ul>
+                                    </div>
+                                    <div class="grade-card">
+                                        <h3>Fundamental Theorem of Calculus</h3>
+                                        <ul>
+                                            <li><a href="../../worksheets/Calculus/integrals/ftc.pdf" class="worksheet-link unavailable">Fundamental Theorem of Calculus</a></li>
+                                            <li><a href="../../worksheets/Calculus/integrals/antiderivatives.pdf" class="worksheet-link unavailable">Antiderivatives</a></li>
+                                        </ul>
+                                    </div>
+                                    <div class="grade-card">
+                                        <h3>Integration Techniques</h3>
+                                        <ul>
+                                            <li><a href="../../worksheets/Calculus/integrals/u-substitution.pdf" class="worksheet-link unavailable">U-Substitution</a></li>
+                                            <li><a href="../../worksheets/Calculus/integrals/integration-by-parts.pdf" class="worksheet-link unavailable">Integration by Parts</a></li>
+                                            <li><a href="../../worksheets/Calculus/integrals/trig-integration.pdf" class="worksheet-link unavailable">Trigonometric Integration</a></li>
+                                            <li><a href="../../worksheets/Calculus/integrals/rational-functions.pdf" class="worksheet-link unavailable">Rational Function Integration</a></li>
+                                            <li><a href="../../worksheets/Calculus/integrals/inverse-trig.pdf" class="worksheet-link unavailable">Inverse Trigonometric Functions</a></li>
+                                        </ul>
+                                    </div>
+                                    <div class="grade-card">
+                                        <h3>Applications and Special Topics</h3>
+                                        <ul>
+                                            <li><a href="../../worksheets/Calculus/integrals/area-between-curves.pdf" class="worksheet-link unavailable">Area Between Curves</a></li>
+                                            <li><a href="../../worksheets/Calculus/integrals/volume.pdf" class="worksheet-link unavailable">Volume Applications</a></li>
+                                            <li><a href="../../worksheets/Calculus/integrals/numerical-integration.pdf" class="worksheet-link unavailable">Numerical Integration</a></li>
+                                            <li><a href="../../worksheets/Calculus/integrals/improper-integrals.pdf" class="worksheet-link unavailable">Improper Integrals</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Series and Differential Equations Panel -->
+                            <div class="domain-panel" role="tabpanel" id="calc-series" aria-labelledby="tab-calc-series">
+                                <div class="grid-container">
+                                    <div class="grade-card">
+                                        <h3>Convergence and Divergence</h3>
+                                        <ul>
+                                            <li><a href="../../worksheets/Calculus/series/convergence-tests.pdf" class="worksheet-link unavailable">Convergence Tests</a></li>
+                                            <li><a href="../../worksheets/Calculus/series/radius-of-convergence.pdf" class="worksheet-link unavailable">Radius of Convergence</a></li>
+                                        </ul>
+                                    </div>
+                                    <div class="grade-card">
+                                        <h3>Series Operations</h3>
+                                        <ul>
+                                            <li><a href="../../worksheets/Calculus/series/term-by-term.pdf" class="worksheet-link unavailable">Term-by-Term Operations</a></li>
+                                            <li><a href="../../worksheets/Calculus/series/taylor-series.pdf" class="worksheet-link unavailable">Taylor Series</a></li>
+                                        </ul>
+                                    </div>
+                                    <div class="grade-card">
+                                        <h3>Differential Equations</h3>
+                                        <ul>
+                                            <li><a href="../../worksheets/Calculus/series/differential-equations.pdf" class="worksheet-link unavailable">Solve Differential Equations</a></li>
+                                            <li><a href="../../worksheets/Calculus/series/slope-fields.pdf" class="worksheet-link unavailable">Slope Fields</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- AP Statistics Panel -->
+                <div class="grade-panel" role="tabpanel" id="hs-apstats" aria-labelledby="tab-hs-apstats">
+                    <div class="content-layout">
+                        <!-- Left Sidebar: Domain Tabs -->
+                        <div class="domain-sidebar">
+                            <div class="domain-tabs" role="tablist" aria-label="Math domains for AP Statistics">
+                                <button class="domain-tab-button active" role="tab" aria-selected="true"
+                                        aria-controls="apstats-prob" id="tab-apstats-prob">
+                                    Probability Foundations
+                                </button>
+                                <button class="domain-tab-button" role="tab" aria-selected="false"
+                                        aria-controls="apstats-dist" id="tab-apstats-dist">
+                                    Distributions
+                                </button>
+                                <button class="domain-tab-button" role="tab" aria-selected="false"
+                                        aria-controls="apstats-desc" id="tab-apstats-desc">
+                                    Descriptive Statistics
+                                </button>
+                                <button class="domain-tab-button" role="tab" aria-selected="false"
+                                        aria-controls="apstats-inf" id="tab-apstats-inf">
+                                    Statistical Inference
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Right Content: Worksheet Cards -->
+                        <div class="domain-content">
+                            <!-- Probability Foundations Panel -->
+                            <div class="domain-panel active" role="tabpanel" id="apstats-prob" aria-labelledby="tab-apstats-prob">
+                                <div class="grid-container">
+                                    <div class="grade-card">
+                                        <h3>Finite Sample Spaces</h3>
+                                        <ul>
+                                            <li><a href="../../worksheets/APStats/probability/sample-spaces.pdf" class="worksheet-link unavailable">Finite Sample Spaces</a></li>
+                                            <li><a href="../../worksheets/APStats/probability/probability-rules.pdf" class="worksheet-link unavailable">Probability Rules</a></li>
+                                        </ul>
+                                    </div>
+                                    <div class="grade-card">
+                                        <h3>Conditional Probability</h3>
+                                        <ul>
+                                            <li><a href="../../worksheets/APStats/probability/conditional-probability.pdf" class="worksheet-link unavailable">Conditional Probability</a></li>
+                                            <li><a href="../../worksheets/APStats/probability/independence.pdf" class="worksheet-link unavailable">Independence</a></li>
+                                        </ul>
+                                    </div>
+                                    <div class="grade-card">
+                                        <h3>Discrete Random Variables</h3>
+                                        <ul>
+                                            <li><a href="../../worksheets/APStats/probability/discrete-rv.pdf" class="worksheet-link unavailable">Discrete Random Variables</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Distributions Panel -->
+                            <div class="domain-panel" role="tabpanel" id="apstats-dist" aria-labelledby="tab-apstats-dist">
+                                <div class="grid-container">
+                                    <div class="grade-card">
+                                        <h3>Continuous Random Variables</h3>
+                                        <ul>
+                                            <li><a href="../../worksheets/APStats/distributions/continuous-rv.pdf" class="worksheet-link unavailable">Continuous Random Variables</a></li>
+                                        </ul>
+                                    </div>
+                                    <div class="grade-card">
+                                        <h3>Mean and Variance</h3>
+                                        <ul>
+                                            <li><a href="../../worksheets/APStats/distributions/mean-discrete.pdf" class="worksheet-link unavailable">Mean of Discrete Random Variable</a></li>
+                                            <li><a href="../../worksheets/APStats/distributions/variance-discrete.pdf" class="worksheet-link unavailable">Variance of Discrete Random Variable</a></li>
+                                        </ul>
+                                    </div>
+                                    <div class="grade-card">
+                                        <h3>Standard Distributions</h3>
+                                        <ul>
+                                            <li><a href="../../worksheets/APStats/distributions/binomial.pdf" class="worksheet-link unavailable">Binomial Distribution</a></li>
+                                            <li><a href="../../worksheets/APStats/distributions/geometric.pdf" class="worksheet-link unavailable">Geometric Distribution</a></li>
+                                            <li><a href="../../worksheets/APStats/distributions/uniform.pdf" class="worksheet-link unavailable">Uniform Distribution</a></li>
+                                        </ul>
+                                    </div>
+                                    <div class="grade-card">
+                                        <h3>Normal Distribution</h3>
+                                        <ul>
+                                            <li><a href="../../worksheets/APStats/distributions/normal-distribution.pdf" class="worksheet-link unavailable">Normal Distribution</a></li>
+                                            <li><a href="../../worksheets/APStats/distributions/z-scores.pdf" class="worksheet-link unavailable">Z-Scores and Standard Normal</a></li>
+                                        </ul>
+                                    </div>
+                                    <div class="grade-card">
+                                        <h3>Central Limit Theorem</h3>
+                                        <ul>
+                                            <li><a href="../../worksheets/APStats/distributions/central-limit-theorem.pdf" class="worksheet-link unavailable">Central Limit Theorem</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Descriptive Statistics Panel -->
+                            <div class="domain-panel" role="tabpanel" id="apstats-desc" aria-labelledby="tab-apstats-desc">
+                                <div class="grid-container">
+                                    <div class="grade-card">
+                                        <h3>Measures of Center and Spread</h3>
+                                        <ul>
+                                            <li><a href="../../worksheets/APStats/descriptive/center-spread.pdf" class="worksheet-link unavailable">Measures of Center and Spread</a></li>
+                                            <li><a href="../../worksheets/APStats/descriptive/variance-sd.pdf" class="worksheet-link unavailable">Variance and Standard Deviation</a></li>
+                                        </ul>
+                                    </div>
+                                    <div class="grade-card">
+                                        <h3>Least Squares Regression</h3>
+                                        <ul>
+                                            <li><a href="../../worksheets/APStats/descriptive/regression.pdf" class="worksheet-link unavailable">Least Squares Regression</a></li>
+                                            <li><a href="../../worksheets/APStats/descriptive/correlation.pdf" class="worksheet-link unavailable">Correlation Coefficient</a></li>
+                                        </ul>
+                                    </div>
+                                    <div class="grade-card">
+                                        <h3>Organizing and Describing Data</h3>
+                                        <ul>
+                                            <li><a href="../../worksheets/APStats/descriptive/data-displays.pdf" class="worksheet-link unavailable">Data Displays</a></li>
+                                            <li><a href="../../worksheets/APStats/descriptive/outliers.pdf" class="worksheet-link unavailable">Identifying Outliers</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Statistical Inference Panel -->
+                            <div class="domain-panel" role="tabpanel" id="apstats-inf" aria-labelledby="tab-apstats-inf">
+                                <div class="grid-container">
+                                    <div class="grade-card">
+                                        <h3>Sampling Distributions</h3>
+                                        <ul>
+                                            <li><a href="../../worksheets/APStats/inference/sampling-distributions.pdf" class="worksheet-link unavailable">Sampling Distributions</a></li>
+                                            <li><a href="../../worksheets/APStats/inference/sampling-properties.pdf" class="worksheet-link unavailable">Sampling Distribution Properties</a></li>
+                                        </ul>
+                                    </div>
+                                    <div class="grade-card">
+                                        <h3>Confidence Intervals</h3>
+                                        <ul>
+                                            <li><a href="../../worksheets/APStats/inference/confidence-intervals.pdf" class="worksheet-link unavailable">Confidence Intervals</a></li>
+                                            <li><a href="../../worksheets/APStats/inference/margin-of-error.pdf" class="worksheet-link unavailable">Margin of Error</a></li>
+                                        </ul>
+                                    </div>
+                                    <div class="grade-card">
+                                        <h3>Hypothesis Testing</h3>
+                                        <ul>
+                                            <li><a href="../../worksheets/APStats/inference/p-values.pdf" class="worksheet-link unavailable">P-values</a></li>
+                                            <li><a href="../../worksheets/APStats/inference/hypothesis-testing.pdf" class="worksheet-link unavailable">Hypothesis Testing</a></li>
+                                            <li><a href="../../worksheets/APStats/inference/chi-square.pdf" class="worksheet-link unavailable">Chi-Square Test</a></li>
                                         </ul>
                                     </div>
                                 </div>
