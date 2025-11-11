@@ -135,7 +135,6 @@
     .main-nav a:hover,
     .main-nav a:focus {
         color: var(--primary-orange);
-        transform: translateX(10px);
     }
 
     .main-nav .dropdown-menu a {
