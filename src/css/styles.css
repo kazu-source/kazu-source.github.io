@@ -1374,6 +1374,10 @@ body.night-mode .worksheet-link.unavailable::after {
     white-space: nowrap;
     position: relative;
     bottom: -2px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .grade-tab-button:hover {

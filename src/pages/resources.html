@@ -12,20 +12,20 @@
     </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Free printable math worksheets for K-8 students. Download practice materials organized by grade level and skill area.">
-    <meta name="keywords" content="math worksheets, printable math, math practice, free worksheets, K-8 math resources">
+    <meta name="description" content="Free printable math worksheets for K-12 students. Download practice materials organized by grade level and skill area.">
+    <meta name="keywords" content="math worksheets, printable math, math practice, free worksheets, K-12 math resources">
     <meta name="author" content="Fresh Math">
     <meta name="robots" content="index, follow">
 
     <meta property="og:title" content="Free Math Worksheets | Fresh Math">
-    <meta property="og:description" content="Comprehensive collection of free printable math worksheets for students, organized by grade level from kindergarten through 8th grade.">
+    <meta property="og:description" content="Comprehensive collection of free printable math worksheets for students, organized by grade level from kindergarten through 12th grade.">
     <meta property="og:type" content="article">
     <meta property="og:url" content="https://mathskillsforkids.com/pages/resources.html">
     <meta property="og:image" content="https://mathskillsforkids.com/images/fresh-math-social.jpg">
 
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Free Math Worksheets | Fresh Math">
-    <meta name="twitter:description" content="Comprehensive collection of free printable math worksheets for students, organized by grade level from kindergarten through 8th grade.">
+    <meta name="twitter:description" content="Comprehensive collection of free printable math worksheets for students, organized by grade level from kindergarten through 12th grade.">
     <meta name="twitter:image" content="https://mathskillsforkids.com/images/fresh-math-social.jpg">
 
     <meta name="theme-color" content="#8B5CF6">
@@ -81,6 +81,75 @@
             background-color: #0F172A !important;
             color: #F1F5F9 !important;
         }
+
+        /* Scrollbar styling for grade tabs and domain tabs */
+        .grade-tabs {
+            /* Firefox scrollbar styling */
+            scrollbar-width: auto;
+            scrollbar-color: var(--primary-purple) var(--bg-secondary);
+        }
+
+        /* Styled scrollbar for grade tabs - webkit browsers (Chrome, Safari, Edge) */
+        .grade-tabs::-webkit-scrollbar {
+            height: 14px;
+            width: 14px;
+        }
+
+        .grade-tabs::-webkit-scrollbar-track {
+            background: var(--bg-secondary);
+            border-radius: 10px;
+            margin: 0 4px;
+        }
+
+        .grade-tabs::-webkit-scrollbar-thumb {
+            background: var(--primary-purple);
+            border-radius: 10px;
+            border: 3px solid var(--bg-secondary);
+            min-width: 40px;
+        }
+
+        .grade-tabs::-webkit-scrollbar-thumb:hover {
+            background: #7c3aed;
+            border: 2px solid var(--bg-secondary);
+        }
+
+        .grade-tabs::-webkit-scrollbar-thumb:active {
+            background: #6d28d9;
+        }
+
+        .domain-tabs {
+            /* Firefox scrollbar styling */
+            scrollbar-width: auto;
+            scrollbar-color: var(--primary-purple) var(--bg-secondary);
+        }
+
+        /* Styled scrollbar for domain tabs - webkit browsers (Chrome, Safari, Edge) */
+        .domain-tabs::-webkit-scrollbar {
+            height: 14px;
+            width: 14px;
+        }
+
+        .domain-tabs::-webkit-scrollbar-track {
+            background: var(--bg-secondary);
+            border-radius: 10px;
+            margin: 0 4px;
+        }
+
+        .domain-tabs::-webkit-scrollbar-thumb {
+            background: var(--primary-purple);
+            border-radius: 10px;
+            border: 3px solid var(--bg-secondary);
+            min-width: 40px;
+        }
+
+        .domain-tabs::-webkit-scrollbar-thumb:hover {
+            background: #7c3aed;
+            border: 2px solid var(--bg-secondary);
+        }
+
+        .domain-tabs::-webkit-scrollbar-thumb:active {
+            background: #6d28d9;
+        }
     </style>
     <link rel="stylesheet" href="../css/fonts.css">
     <link rel="stylesheet" href="../css/styles.css">
@@ -107,7 +176,7 @@
                 <li><a href="../../index.html">Home</a></li>
                 <li class="dropdown">
                     <a href="#" aria-haspopup="true" aria-expanded="false">
-                        Elementary
+                        K-8
                         <span class="dropdown-arrow">▼</span>
                     </a>
                     <ul class="dropdown-menu">
@@ -117,14 +186,6 @@
                         <li><a href="grade3.html">Grade 3</a></li>
                         <li><a href="grade4.html">Grade 4</a></li>
                         <li><a href="grade5.html">Grade 5</a></li>
-                    </ul>
-                </li>
-                <li class="dropdown">
-                    <a href="#" aria-haspopup="true" aria-expanded="false">
-                        Middle School
-                        <span class="dropdown-arrow">▼</span>
-                    </a>
-                    <ul class="dropdown-menu">
                         <li><a href="grade6.html">Grade 6</a></li>
                         <li><a href="grade7.html">Grade 7</a></li>
                         <li><a href="grade8.html">Grade 8</a></li>
@@ -139,6 +200,11 @@
                         <li><a href="algebra1.html">Algebra I</a></li>
                         <li><a href="geometry.html">Geometry</a></li>
                         <li><a href="algebra2.html">Algebra II</a></li>
+                        <li><a href="integratedmath1.html">Integrated Math I</a></li>
+                        <li><a href="integratedmath2.html">Integrated Math II</a></li>
+                        <li><a href="integratedmath3.html">Integrated Math III</a></li>
+                        <li><a href="apstats.html">AP Statistics</a></li>
+                        <li><a href="calculus.html">Calculus</a></li>
                     </ul>
                 </li>
                 <li><a href="parents.html">Parents</a></li>
@@ -203,35 +269,47 @@
             <p style="margin-top: 1rem;"><strong>Current Progress:</strong> Going from Kindergarten to 8th grade, skipping Geometry sections. Currently on: 2nd grade.</p>
         </section>
 
-        <!-- ELEMENTARY SCHOOL SECTION -->
-        <section class="school-section" id="elementary-section">
-            <h2 class="section-title">Elementary School</h2>
+        <!-- K-8 SECTION -->
+        <section class="school-section" id="k8-section">
+            <h2 class="section-title">K-8th Grade</h2>
 
             <!-- Grade Tabs -->
-            <div class="grade-tabs" role="tablist" aria-label="Elementary grade levels">
+            <div class="grade-tabs" role="tablist" aria-label="K-12 grade levels">
                 <button class="grade-tab-button active" role="tab" aria-selected="true"
-                        aria-controls="elem-grade-k" id="tab-elem-k" data-grade="k">
+                        aria-controls="k8-grade-k" id="tab-k8-k" data-grade="k">
                     Kindergarten
                 </button>
                 <button class="grade-tab-button" role="tab" aria-selected="false"
-                        aria-controls="elem-grade-1" id="tab-elem-1" data-grade="1">
+                        aria-controls="k8-grade-1" id="tab-k8-1" data-grade="1">
                     Grade 1
                 </button>
                 <button class="grade-tab-button" role="tab" aria-selected="false"
-                        aria-controls="elem-grade-2" id="tab-elem-2" data-grade="2">
+                        aria-controls="k8-grade-2" id="tab-k8-2" data-grade="2">
                     Grade 2
                 </button>
                 <button class="grade-tab-button" role="tab" aria-selected="false"
-                        aria-controls="elem-grade-3" id="tab-elem-3" data-grade="3">
+                        aria-controls="k8-grade-3" id="tab-k8-3" data-grade="3">
                     Grade 3
                 </button>
                 <button class="grade-tab-button" role="tab" aria-selected="false"
-                        aria-controls="elem-grade-4" id="tab-elem-4" data-grade="4">
+                        aria-controls="k8-grade-4" id="tab-k8-4" data-grade="4">
                     Grade 4
                 </button>
                 <button class="grade-tab-button" role="tab" aria-selected="false"
-                        aria-controls="elem-grade-5" id="tab-elem-5" data-grade="5">
+                        aria-controls="k8-grade-5" id="tab-k8-5" data-grade="5">
                     Grade 5
+                </button>
+                <button class="grade-tab-button" role="tab" aria-selected="false"
+                        aria-controls="k8-grade-6" id="tab-k8-6" data-grade="6">
+                    Grade 6
+                </button>
+                <button class="grade-tab-button" role="tab" aria-selected="false"
+                        aria-controls="k8-grade-7" id="tab-k8-7" data-grade="7">
+                    Grade 7
+                </button>
+                <button class="grade-tab-button" role="tab" aria-selected="false"
+                        aria-controls="k8-grade-8" id="tab-k8-8" data-grade="8">
+                    Grade 8
                 </button>
             </div>
 
@@ -239,7 +317,7 @@
             <div class="grade-panels">
 
                 <!-- Kindergarten Panel -->
-                <div class="grade-panel active" role="tabpanel" id="elem-grade-k" aria-labelledby="tab-elem-k">
+                <div class="grade-panel active" role="tabpanel" id="k8-grade-k" aria-labelledby="tab-k8-k">
                     <div class="content-layout">
                         <!-- Left Sidebar: Domain Tabs -->
                         <div class="domain-sidebar">
@@ -386,7 +464,7 @@
                 </div>
 
                 <!-- Grade 1 Panel -->
-                <div class="grade-panel" role="tabpanel" id="elem-grade-1" aria-labelledby="tab-elem-1">
+                <div class="grade-panel" role="tabpanel" id="k8-grade-1" aria-labelledby="tab-k8-1">
                     <div class="content-layout">
                         <!-- Left Sidebar: Domain Tabs -->
                         <div class="domain-sidebar">
@@ -546,7 +624,7 @@
                 </div>
 
                 <!-- Grade 2 Panel -->
-                <div class="grade-panel" role="tabpanel" id="elem-grade-2" aria-labelledby="tab-elem-2">
+                <div class="grade-panel" role="tabpanel" id="k8-grade-2" aria-labelledby="tab-k8-2">
                     <div class="content-layout">
                         <div class="domain-sidebar">
                             <div class="domain-tabs" role="tablist" aria-label="Math domains for Grade 2">
@@ -703,7 +781,7 @@
                 </div>
 
                 <!-- Grade 3 Panel -->
-                <div class="grade-panel" role="tabpanel" id="elem-grade-3" aria-labelledby="tab-elem-3">
+                <div class="grade-panel" role="tabpanel" id="k8-grade-3" aria-labelledby="tab-k8-3">
                     <div class="content-layout">
                         <div class="domain-sidebar">
                             <div class="domain-tabs" role="tablist" aria-label="Math domains for Grade 3">
@@ -844,7 +922,7 @@
                 </div>
 
                 <!-- Grade 4 Panel -->
-                <div class="grade-panel" role="tabpanel" id="elem-grade-4" aria-labelledby="tab-elem-4">
+                <div class="grade-panel" role="tabpanel" id="k8-grade-4" aria-labelledby="tab-k8-4">
                     <div class="content-layout">
                         <div class="domain-sidebar">
                             <div class="domain-tabs" role="tablist" aria-label="Math domains for Grade 4">
@@ -1061,7 +1139,7 @@
                 </div>
 
                 <!-- Grade 5 Panel -->
-                <div class="grade-panel" role="tabpanel" id="elem-grade-5" aria-labelledby="tab-elem-5">
+                <div class="grade-panel" role="tabpanel" id="k8-grade-5" aria-labelledby="tab-k8-5">
                     <div class="content-layout">
                         <div class="domain-sidebar">
                             <div class="domain-tabs" role="tablist" aria-label="Math domains for Grade 5">
@@ -1292,34 +1370,8 @@
                     </div>
                 </div>
 
-            </div>
-        </section>
-
-        <!-- MIDDLE SCHOOL SECTION -->
-        <section class="school-section" id="middle-section">
-            <h2 class="section-title">Middle School</h2>
-
-            <!-- Grade Tabs -->
-            <div class="grade-tabs" role="tablist" aria-label="Middle school grade levels">
-                <button class="grade-tab-button active" role="tab" aria-selected="true"
-                        aria-controls="middle-grade-6" id="tab-middle-6" data-grade="6">
-                    Grade 6
-                </button>
-                <button class="grade-tab-button" role="tab" aria-selected="false"
-                        aria-controls="middle-grade-7" id="tab-middle-7" data-grade="7">
-                    Grade 7
-                </button>
-                <button class="grade-tab-button" role="tab" aria-selected="false"
-                        aria-controls="middle-grade-8" id="tab-middle-8" data-grade="8">
-                    Grade 8
-                </button>
-            </div>
-
-            <!-- Grade Panels -->
-            <div class="grade-panels">
-
                 <!-- Grade 6 Panel -->
-                <div class="grade-panel active" role="tabpanel" id="middle-grade-6" aria-labelledby="tab-middle-6">
+                <div class="grade-panel" role="tabpanel" id="k8-grade-6" aria-labelledby="tab-k8-6">
                     <div class="content-layout">
                         <div class="domain-sidebar">
                             <div class="domain-tabs" role="tablist" aria-label="Math domains for Grade 6">
@@ -1489,7 +1541,7 @@
                 </div>
 
                 <!-- Grade 7 Panel -->
-                <div class="grade-panel" role="tabpanel" id="middle-grade-7" aria-labelledby="tab-middle-7">
+                <div class="grade-panel" role="tabpanel" id="k8-grade-7" aria-labelledby="tab-k8-7">
                     <div class="content-layout">
                         <div class="domain-sidebar">
                             <div class="domain-tabs" role="tablist" aria-label="Math domains for Grade 7">
@@ -1665,7 +1717,7 @@
                 </div>
 
                 <!-- Grade 8 Panel -->
-                <div class="grade-panel" role="tabpanel" id="middle-grade-8" aria-labelledby="tab-middle-8">
+                <div class="grade-panel" role="tabpanel" id="k8-grade-8" aria-labelledby="tab-k8-8">
                     <div class="content-layout">
                         <div class="domain-sidebar">
                             <div class="domain-tabs" role="tablist" aria-label="Math domains for Grade 8">

@@ -12,7 +12,8 @@
       "Bash(find:*)",
       "Bash(for file in index.html src/pages/*.html)",
       "Bash(do if grep -q \"High School\" \"$file\")",
-      "Bash(fi)"
+      "Bash(fi)",
+      "Bash(python:*)"
     ],
     "deny": [],
     "ask": []
