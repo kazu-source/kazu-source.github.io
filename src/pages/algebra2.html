@@ -87,8 +87,45 @@
     <link rel="stylesheet" href="../css/styles.css">
     <link rel="stylesheet" href="../css/mobile-nav.css">
 
-    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://mathskillsforkids.com"},{"@type":"ListItem","position":2,"name":"Algebra II","item":"https://mathskillsforkids.com/pages/algebra2.html"}]}</script>
-    <script type="application/ld+json">{"@context":"https://schema.org","@type":"Course","name":"Algebra II Standards","description":"Comprehensive Algebra II mathematics curriculum including polynomial functions, rational expressions, logarithms, trigonometry, conic sections, and statistics","provider":{"@type":"EducationalOrganization","name":"Fresh Math"},"educationalLevel":"High School","coursePrerequisites":"Geometry","hasCourseInstance":{"@type":"CourseInstance","courseMode":"online","courseWorkload":"PT1Y"}}</script>
+    <!-- Breadcrumb Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [{
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://mathskillsforkids.com"
+      },{
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Algebra II",
+        "item": "https://mathskillsforkids.com/pages/algebra2.html"
+      }]
+    }
+    </script>
+
+    <!-- Educational Content Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Course",
+      "name": "Algebra II Standards",
+      "description": "Comprehensive Algebra II mathematics curriculum including polynomial functions, rational expressions, logarithms, trigonometry, conic sections, and statistics",
+      "provider": {
+        "@type": "EducationalOrganization",
+        "name": "Fresh Math"
+      },
+      "educationalLevel": "High School",
+      "coursePrerequisites": "Geometry",
+      "hasCourseInstance": {
+        "@type": "CourseInstance",
+        "courseMode": "online",
+        "courseWorkload": "PT1Y"
+      }
+    }
+    </script>
 </head>
 <body>
     <!-- Skip to main content link for keyboard users -->
@@ -205,783 +242,310 @@
         <section class="standards-grid">
             <h2>Math Standards by Domain</h2>
 
-            <!-- Number and Quantity -->
             <div class="domain-section">
                 <h3>Number and Quantity</h3>
-
-                <div class="standard-category">
-                    <h4>The Complex Number System (N-CN)</h4>
-
-                    <div class="tab-container">
-                        <div class="tab-list" role="tablist" aria-label="Complex Numbers">
-                            <button class="tab-button active" role="tab" aria-selected="true" aria-controls="ncn-1-panel" id="ncn-1-tab" data-status="unavailable">
-                                N-CN.1
-                            </button>
-                        </div>
-                        <div class="tab-panels">
-                            <div class="tab-panel active" role="tabpanel" id="ncn-1-panel" aria-labelledby="ncn-1-tab">
-                                <p><strong>Standard:</strong> Know there is a complex number i such that i² = −1, and every complex number has the form a + bi with a and b real.</p>
-                            </div>
-                        </div>
+                <div class="tab-container">
+                    <div class="tab-list" role="tablist" aria-label="Number and Quantity skills">
+                        <button class="tab-button active" role="tab" aria-selected="true" aria-controls="tab-panel-num-1" id="tab-num-1" data-domain="num">
+                            <h4>Complex Numbers</h4>
+                        </button>
                     </div>
+                    <div class="tab-panels">
+                        <div class="tab-panel active" role="tabpanel" id="tab-panel-num-1" aria-labelledby="tab-num-1">
+                            <h5>What Students Learn:</h5>
+                            <p>Students extend the number system to include complex numbers. They learn to perform arithmetic with complex numbers, solve quadratic equations with complex solutions, and understand the Fundamental Theorem of Algebra.</p>
 
-                    <div class="tab-container">
-                        <div class="tab-list" role="tablist" aria-label="Complex Arithmetic">
-                            <button class="tab-button active" role="tab" aria-selected="true" aria-controls="ncn-2-panel" id="ncn-2-tab" data-status="unavailable">
-                                N-CN.2
-                            </button>
-                        </div>
-                        <div class="tab-panels">
-                            <div class="tab-panel active" role="tabpanel" id="ncn-2-panel" aria-labelledby="ncn-2-tab">
-                                <p><strong>Standard:</strong> Use the relation i² = −1 and the commutative, associative, and distributive properties to add, subtract, and multiply complex numbers.</p>
-                            </div>
-                        </div>
-                    </div>
+                            <h5>Key Skills:</h5>
+                            <ul>
+                                <li>Understand that i² = -1 and every complex number has the form a + bi</li>
+                                <li>Add, subtract, and multiply complex numbers using properties of operations</li>
+                                <li>Solve quadratic equations with real coefficients that have complex solutions</li>
+                                <li>Extend polynomial identities to complex numbers (e.g., x² + 4 = (x + 2i)(x - 2i))</li>
+                                <li>Know the Fundamental Theorem of Algebra: every polynomial has complex roots</li>
+                            </ul>
 
-                    <div class="tab-container">
-                        <div class="tab-list" role="tablist" aria-label="Complex Solutions">
-                            <button class="tab-button active" role="tab" aria-selected="true" aria-controls="ncn-7-panel" id="ncn-7-tab" data-status="unavailable">
-                                N-CN.7
-                            </button>
-                        </div>
-                        <div class="tab-panels">
-                            <div class="tab-panel active" role="tabpanel" id="ncn-7-panel" aria-labelledby="ncn-7-tab">
-                                <p><strong>Standard:</strong> Solve quadratic equations with real coefficients that have complex solutions.</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="tab-container">
-                        <div class="tab-list" role="tablist" aria-label="Polynomial Identities">
-                            <button class="tab-button active" role="tab" aria-selected="true" aria-controls="ncn-8-panel" id="ncn-8-tab" data-status="unavailable">
-                                N-CN.8 (+)
-                            </button>
-                        </div>
-                        <div class="tab-panels">
-                            <div class="tab-panel active" role="tabpanel" id="ncn-8-panel" aria-labelledby="ncn-8-tab">
-                                <p><strong>Standard:</strong> (+) Extend polynomial identities to the complex numbers. For example, rewrite x² + 4 as (x + 2i)(x – 2i).</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="tab-container">
-                        <div class="tab-list" role="tablist" aria-label="Fundamental Theorem">
-                            <button class="tab-button active" role="tab" aria-selected="true" aria-controls="ncn-9-panel" id="ncn-9-tab" data-status="unavailable">
-                                N-CN.9 (+)
-                            </button>
-                        </div>
-                        <div class="tab-panels">
-                            <div class="tab-panel active" role="tabpanel" id="ncn-9-panel" aria-labelledby="ncn-9-tab">
-                                <p><strong>Standard:</strong> (+) Know the Fundamental Theorem of Algebra; show that it is true for quadratic polynomials.</p>
+                            <div class="example-box">
+                                <strong>Example:</strong>
+                                <p>Add complex numbers: (3 + 2i) + (5 - 4i) = 8 - 2i</p>
+                                <p>Multiply: (2 + 3i)(1 - i) = 2 - 2i + 3i - 3i² = 2 + i + 3 = 5 + i</p>
+                                <p>Solve x² + 4 = 0: x² = -4, so x = ±2i</p>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <!-- Algebra -->
             <div class="domain-section">
                 <h3>Algebra</h3>
+                <div class="tab-container">
+                    <div class="tab-list" role="tablist" aria-label="Algebra skills">
+                        <button class="tab-button active" role="tab" aria-selected="true" aria-controls="tab-panel-alg-1" id="tab-alg-1" data-domain="alg">
+                            <h4>Polynomial and Rational Expressions</h4>
+                        </button>
+                        <button class="tab-button" role="tab" aria-selected="false" aria-controls="tab-panel-alg-2" id="tab-alg-2" data-domain="alg">
+                            <h4>Advanced Equations</h4>
+                        </button>
+                    </div>
+                    <div class="tab-panels">
+                        <div class="tab-panel active" role="tabpanel" id="tab-panel-alg-1" aria-labelledby="tab-alg-1">
+                            <h5>What Students Learn:</h5>
+                            <p>Students work with polynomials and rational expressions, learning to factor, apply the Remainder Theorem, use polynomial identities, and perform operations with rational expressions. They also work with geometric series.</p>
 
-                <div class="standard-category">
-                    <h4>Seeing Structure in Expressions (A-SSE)</h4>
+                            <h5>Key Skills:</h5>
+                            <ul>
+                                <li>Use structure to rewrite expressions (e.g., factor to reveal zeros)</li>
+                                <li>Derive and use the formula for the sum of a finite geometric series</li>
+                                <li>Apply the Remainder Theorem: the remainder when dividing by (x - a) is p(a)</li>
+                                <li>Identify zeros of polynomials from factorizations and sketch graphs</li>
+                                <li>Prove polynomial identities and use them for numerical relationships</li>
+                                <li>Apply the Binomial Theorem to expand (x + y)ⁿ</li>
+                                <li>Rewrite rational expressions in different forms using long division</li>
+                                <li>Add, subtract, multiply, and divide rational expressions</li>
+                            </ul>
 
-                    <div class="tab-container">
-                        <div class="tab-list" role="tablist" aria-label="Interpret Expressions">
-                            <button class="tab-button active" role="tab" aria-selected="true" aria-controls="asse-1-panel" id="asse-1-tab" data-status="unavailable">
-                                A-SSE.1 ⭐
-                            </button>
-                        </div>
-                        <div class="tab-panels">
-                            <div class="tab-panel active" role="tabpanel" id="asse-1-panel" aria-labelledby="asse-1-tab">
-                                <p><strong>Standard:</strong> Interpret expressions that represent a quantity in terms of its context.</p>
-                                <p><strong>a.</strong> Interpret parts of an expression, such as terms, factors, and coefficients.</p>
-                                <p><strong>b.</strong> Interpret complicated expressions by viewing one or more of their parts as a single entity.</p>
+                            <div class="example-box">
+                                <strong>Example:</strong>
+                                <p>Sum of geometric series: 1 + 2 + 4 + 8 + ... + 512 = (2¹⁰ - 1)/(2 - 1) = 1023</p>
+                                <p>Factor x³ - 8 to reveal zeros: x³ - 8 = (x - 2)(x² + 2x + 4), so x = 2 is a zero</p>
+                                <p>Binomial expansion: (x + 2)³ = x³ + 3x²(2) + 3x(4) + 8 = x³ + 6x² + 12x + 8</p>
                             </div>
                         </div>
-                    </div>
+                        <div class="tab-panel" role="tabpanel" id="tab-panel-alg-2" aria-labelledby="tab-alg-2">
+                            <h5>What Students Learn:</h5>
+                            <p>Students solve radical and rational equations, being mindful of extraneous solutions. They continue working with absolute value equations and understand how graphs of equations represent solutions.</p>
 
-                    <div class="tab-container">
-                        <div class="tab-list" role="tablist" aria-label="Rewrite Expressions">
-                            <button class="tab-button active" role="tab" aria-selected="true" aria-controls="asse-2-panel" id="asse-2-tab" data-status="unavailable">
-                                A-SSE.2
-                            </button>
-                        </div>
-                        <div class="tab-panels">
-                            <div class="tab-panel active" role="tabpanel" id="asse-2-panel" aria-labelledby="asse-2-tab">
-                                <p><strong>Standard:</strong> Use the structure of an expression to identify ways to rewrite it.</p>
-                            </div>
-                        </div>
-                    </div>
+                            <h5>Key Skills:</h5>
+                            <ul>
+                                <li>Solve radical equations: √(2x + 3) = 5, square both sides to get 2x + 3 = 25</li>
+                                <li>Solve rational equations and check for extraneous solutions</li>
+                                <li>Recognize when squaring both sides may introduce extraneous solutions</li>
+                                <li>Solve absolute value equations and inequalities</li>
+                                <li>Understand that graph intersections represent solutions</li>
+                                <li>Use technology to find approximate solutions</li>
+                            </ul>
 
-                    <div class="tab-container">
-                        <div class="tab-list" role="tablist" aria-label="Geometric Series">
-                            <button class="tab-button active" role="tab" aria-selected="true" aria-controls="asse-4-panel" id="asse-4-tab" data-status="unavailable">
-                                A-SSE.4 ⭐
-                            </button>
-                        </div>
-                        <div class="tab-panels">
-                            <div class="tab-panel active" role="tabpanel" id="asse-4-panel" aria-labelledby="asse-4-tab">
-                                <p><strong>Standard:</strong> Derive the formula for the sum of a finite geometric series (when the common ratio is not 1), and use the formula to solve problems.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="standard-category">
-                    <h4>Arithmetic with Polynomials and Rational Expressions (A-APR)</h4>
-
-                    <div class="tab-container">
-                        <div class="tab-list" role="tablist" aria-label="Polynomial Operations">
-                            <button class="tab-button active" role="tab" aria-selected="true" aria-controls="aapr-1-panel" id="aapr-1-tab" data-status="unavailable">
-                                A-APR.1
-                            </button>
-                        </div>
-                        <div class="tab-panels">
-                            <div class="tab-panel active" role="tabpanel" id="aapr-1-panel" aria-labelledby="aapr-1-tab">
-                                <p><strong>Standard:</strong> Understand that polynomials form a system analogous to the integers, namely, they are closed under the operations of addition, subtraction, and multiplication; add, subtract, and multiply polynomials.</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="tab-container">
-                        <div class="tab-list" role="tablist" aria-label="Remainder Theorem">
-                            <button class="tab-button active" role="tab" aria-selected="true" aria-controls="aapr-2-panel" id="aapr-2-tab" data-status="unavailable">
-                                A-APR.2
-                            </button>
-                        </div>
-                        <div class="tab-panels">
-                            <div class="tab-panel active" role="tabpanel" id="aapr-2-panel" aria-labelledby="aapr-2-tab">
-                                <p><strong>Standard:</strong> Know and apply the Remainder Theorem: For a polynomial p(x) and a number a, the remainder on division by x – a is p(a), so p(a) = 0 if and only if (x – a) is a factor of p(x).</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="tab-container">
-                        <div class="tab-list" role="tablist" aria-label="Zeros of Polynomials">
-                            <button class="tab-button active" role="tab" aria-selected="true" aria-controls="aapr-3-panel" id="aapr-3-tab" data-status="unavailable">
-                                A-APR.3
-                            </button>
-                        </div>
-                        <div class="tab-panels">
-                            <div class="tab-panel active" role="tabpanel" id="aapr-3-panel" aria-labelledby="aapr-3-tab">
-                                <p><strong>Standard:</strong> Identify zeros of polynomials when suitable factorizations are available, and use the zeros to construct a rough graph of the function defined by the polynomial.</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="tab-container">
-                        <div class="tab-list" role="tablist" aria-label="Polynomial Identities">
-                            <button class="tab-button active" role="tab" aria-selected="true" aria-controls="aapr-4-panel" id="aapr-4-tab" data-status="unavailable">
-                                A-APR.4
-                            </button>
-                        </div>
-                        <div class="tab-panels">
-                            <div class="tab-panel active" role="tabpanel" id="aapr-4-panel" aria-labelledby="aapr-4-tab">
-                                <p><strong>Standard:</strong> Prove polynomial identities and use them to describe numerical relationships.</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="tab-container">
-                        <div class="tab-list" role="tablist" aria-label="Binomial Theorem">
-                            <button class="tab-button active" role="tab" aria-selected="true" aria-controls="aapr-5-panel" id="aapr-5-tab" data-status="unavailable">
-                                A-APR.5 (+)
-                            </button>
-                        </div>
-                        <div class="tab-panels">
-                            <div class="tab-panel active" role="tabpanel" id="aapr-5-panel" aria-labelledby="aapr-5-tab">
-                                <p><strong>Standard:</strong> (+) Know and apply the Binomial Theorem for the expansion of (x + y)ⁿ in powers of x and y for a positive integer n, where x and y are any numbers, with coefficients determined for example by Pascal's Triangle.</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="tab-container">
-                        <div class="tab-list" role="tablist" aria-label="Rational Expressions">
-                            <button class="tab-button active" role="tab" aria-selected="true" aria-controls="aapr-6-panel" id="aapr-6-tab" data-status="unavailable">
-                                A-APR.6
-                            </button>
-                        </div>
-                        <div class="tab-panels">
-                            <div class="tab-panel active" role="tabpanel" id="aapr-6-panel" aria-labelledby="aapr-6-tab">
-                                <p><strong>Standard:</strong> Rewrite simple rational expressions in different forms; write a(x)/b(x) in the form q(x) + r(x)/b(x), where a(x), b(x), q(x), and r(x) are polynomials with the degree of r(x) less than the degree of b(x), using inspection, long division, or, for the more complicated examples, a computer algebra system.</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="tab-container">
-                        <div class="tab-list" role="tablist" aria-label="Rational Expression Operations">
-                            <button class="tab-button active" role="tab" aria-selected="true" aria-controls="aapr-7-panel" id="aapr-7-tab" data-status="unavailable">
-                                A-APR.7 (+)
-                            </button>
-                        </div>
-                        <div class="tab-panels">
-                            <div class="tab-panel active" role="tabpanel" id="aapr-7-panel" aria-labelledby="aapr-7-tab">
-                                <p><strong>Standard:</strong> (+) Understand that rational expressions form a system analogous to the rational numbers, closed under addition, subtraction, multiplication, and division by a nonzero rational expression; add, subtract, multiply, and divide rational expressions.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="standard-category">
-                    <h4>Creating Equations (A-CED)</h4>
-
-                    <div class="tab-container">
-                        <div class="tab-list" role="tablist" aria-label="Create Equations">
-                            <button class="tab-button active" role="tab" aria-selected="true" aria-controls="aced-1-panel" id="aced-1-tab" data-status="unavailable">
-                                A-CED.1 ⭐
-                            </button>
-                        </div>
-                        <div class="tab-panels">
-                            <div class="tab-panel active" role="tabpanel" id="aced-1-panel" aria-labelledby="aced-1-tab">
-                                <p><strong>Standard:</strong> Create equations and inequalities in one variable including ones with absolute value and use them to solve problems. Include equations arising from linear and quadratic functions, and simple rational and exponential functions.</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="tab-container">
-                        <div class="tab-list" role="tablist" aria-label="Multi-Variable Equations">
-                            <button class="tab-button active" role="tab" aria-selected="true" aria-controls="aced-2-panel" id="aced-2-tab" data-status="unavailable">
-                                A-CED.2 ⭐
-                            </button>
-                        </div>
-                        <div class="tab-panels">
-                            <div class="tab-panel active" role="tabpanel" id="aced-2-panel" aria-labelledby="aced-2-tab">
-                                <p><strong>Standard:</strong> Create equations in two or more variables to represent relationships between quantities; graph equations on coordinate axes with labels and scales.</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="tab-container">
-                        <div class="tab-list" role="tablist" aria-label="Constraints">
-                            <button class="tab-button active" role="tab" aria-selected="true" aria-controls="aced-3-panel" id="aced-3-tab" data-status="unavailable">
-                                A-CED.3 ⭐
-                            </button>
-                        </div>
-                        <div class="tab-panels">
-                            <div class="tab-panel active" role="tabpanel" id="aced-3-panel" aria-labelledby="aced-3-tab">
-                                <p><strong>Standard:</strong> Represent constraints by equations or inequalities, and by systems of equations and/or inequalities, and interpret solutions as viable or non-viable options in a modeling context.</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="tab-container">
-                        <div class="tab-list" role="tablist" aria-label="Rearrange Formulas">
-                            <button class="tab-button active" role="tab" aria-selected="true" aria-controls="aced-4-panel" id="aced-4-tab" data-status="unavailable">
-                                A-CED.4 ⭐
-                            </button>
-                        </div>
-                        <div class="tab-panels">
-                            <div class="tab-panel active" role="tabpanel" id="aced-4-panel" aria-labelledby="aced-4-tab">
-                                <p><strong>Standard:</strong> Rearrange formulas to highlight a quantity of interest, using the same reasoning as in solving equations.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="standard-category">
-                    <h4>Reasoning with Equations and Inequalities (A-REI)</h4>
-
-                    <div class="tab-container">
-                        <div class="tab-list" role="tablist" aria-label="Radical Equations">
-                            <button class="tab-button active" role="tab" aria-selected="true" aria-controls="arei-2-panel" id="arei-2-tab" data-status="unavailable">
-                                A-REI.2
-                            </button>
-                        </div>
-                        <div class="tab-panels">
-                            <div class="tab-panel active" role="tabpanel" id="arei-2-panel" aria-labelledby="arei-2-tab">
-                                <p><strong>Standard:</strong> Solve simple rational and radical equations in one variable, and give examples showing how extraneous solutions may arise.</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="tab-container">
-                        <div class="tab-list" role="tablist" aria-label="Absolute Value">
-                            <button class="tab-button active" role="tab" aria-selected="true" aria-controls="arei-3-1-panel" id="arei-3-1-tab" data-status="unavailable">
-                                A-REI.3.1
-                            </button>
-                        </div>
-                        <div class="tab-panels">
-                            <div class="tab-panel active" role="tabpanel" id="arei-3-1-panel" aria-labelledby="arei-3-1-tab">
-                                <p><strong>Standard:</strong> Solve one-variable equations and inequalities involving absolute value, graphing the solutions and interpreting them in context.</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="tab-container">
-                        <div class="tab-list" role="tablist" aria-label="Graph Intersections">
-                            <button class="tab-button active" role="tab" aria-selected="true" aria-controls="arei-11-panel" id="arei-11-tab" data-status="unavailable">
-                                A-REI.11 ⭐
-                            </button>
-                        </div>
-                        <div class="tab-panels">
-                            <div class="tab-panel active" role="tabpanel" id="arei-11-panel" aria-labelledby="arei-11-tab">
-                                <p><strong>Standard:</strong> Explain why the x-coordinates of the points where the graphs of the equations y = f(x) and y = g(x) intersect are the solutions of the equation f(x) = g(x); find the solutions approximately, e.g., using technology to graph the functions, make tables of values, or find successive approximations. Include cases where f(x) and/or g(x) are linear, polynomial, rational, absolute value, exponential, and logarithmic functions.</p>
+                            <div class="example-box">
+                                <strong>Example:</strong>
+                                <p>Solve √(x + 5) = x - 1: Square both sides: x + 5 = x² - 2x + 1, so x² - 3x - 4 = 0</p>
+                                <p>Factor: (x - 4)(x + 1) = 0, giving x = 4 or x = -1</p>
+                                <p>Check: x = 4 works (√9 = 3), but x = -1 doesn't (√4 ≠ -2). Only x = 4 is valid.</p>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <!-- Functions -->
             <div class="domain-section">
                 <h3>Functions</h3>
+                <div class="tab-container">
+                    <div class="tab-list" role="tablist" aria-label="Functions skills">
+                        <button class="tab-button active" role="tab" aria-selected="true" aria-controls="tab-panel-func-1" id="tab-func-1" data-domain="func">
+                            <h4>Analyzing and Graphing Functions</h4>
+                        </button>
+                        <button class="tab-button" role="tab" aria-selected="false" aria-controls="tab-panel-func-2" id="tab-func-2" data-domain="func">
+                            <h4>Logarithmic Functions</h4>
+                        </button>
+                        <button class="tab-button" role="tab" aria-selected="false" aria-controls="tab-panel-func-3" id="tab-func-3" data-domain="func">
+                            <h4>Trigonometric Functions</h4>
+                        </button>
+                    </div>
+                    <div class="tab-panels">
+                        <div class="tab-panel active" role="tabpanel" id="tab-panel-func-1" aria-labelledby="tab-func-1">
+                            <h5>What Students Learn:</h5>
+                            <p>Students deepen their understanding of functions by analyzing key features, working with transformations, and graphing polynomial, rational, radical, and piecewise functions. They combine functions and find inverses.</p>
 
-                <div class="standard-category">
-                    <h4>Interpreting Functions (F-IF)</h4>
+                            <h5>Key Skills:</h5>
+                            <ul>
+                                <li>Interpret key features: intercepts, intervals of increase/decrease, maxima/minima, end behavior</li>
+                                <li>Relate domain to graphs and contexts</li>
+                                <li>Calculate and interpret average rate of change</li>
+                                <li>Graph polynomial functions showing zeros and end behavior</li>
+                                <li>Graph square root, cube root, piecewise, absolute value functions</li>
+                                <li>Graph exponential and logarithmic functions</li>
+                                <li>Write functions in equivalent forms to reveal properties</li>
+                                <li>Compare functions represented in different ways</li>
+                                <li>Combine functions arithmetically</li>
+                                <li>Understand function transformations: shifts, stretches, reflections</li>
+                                <li>Find inverse functions algebraically</li>
+                            </ul>
 
-                    <div class="tab-container">
-                        <div class="tab-list" role="tablist" aria-label="Key Features">
-                            <button class="tab-button active" role="tab" aria-selected="true" aria-controls="fif-4-panel" id="fif-4-tab" data-status="unavailable">
-                                F-IF.4 ⭐
-                            </button>
-                        </div>
-                        <div class="tab-panels">
-                            <div class="tab-panel active" role="tabpanel" id="fif-4-panel" aria-labelledby="fif-4-tab">
-                                <p><strong>Standard:</strong> For a function that models a relationship between two quantities, interpret key features of graphs and tables in terms of the quantities, and sketch graphs showing key features given a verbal description of the relationship.</p>
+                            <div class="example-box">
+                                <strong>Example:</strong>
+                                <p>Graph f(x) = (x - 2)² + 3: This is a parabola shifted right 2 and up 3, with vertex (2, 3)</p>
+                                <p>Find inverse of f(x) = 3x - 7: Switch x and y: x = 3y - 7, solve: y = (x + 7)/3, so f⁻¹(x) = (x + 7)/3</p>
                             </div>
                         </div>
-                    </div>
+                        <div class="tab-panel" role="tabpanel" id="tab-panel-func-2" aria-labelledby="tab-func-2">
+                            <h5>What Students Learn:</h5>
+                            <p>Students learn logarithms as the inverse of exponential functions. They prove and apply logarithm laws, change bases, and use logarithms to solve exponential equations.</p>
 
-                    <div class="tab-container">
-                        <div class="tab-list" role="tablist" aria-label="Domain">
-                            <button class="tab-button active" role="tab" aria-selected="true" aria-controls="fif-5-panel" id="fif-5-tab" data-status="unavailable">
-                                F-IF.5 ⭐
-                            </button>
-                        </div>
-                        <div class="tab-panels">
-                            <div class="tab-panel active" role="tabpanel" id="fif-5-panel" aria-labelledby="fif-5-tab">
-                                <p><strong>Standard:</strong> Relate the domain of a function to its graph and, where applicable, to the quantitative relationship it describes.</p>
+                            <h5>Key Skills:</h5>
+                            <ul>
+                                <li>Express solutions to exponential equations as logarithms: if 10ˣ = 50, then x = log₁₀(50)</li>
+                                <li>Evaluate logarithms using technology</li>
+                                <li>Prove logarithm laws: log(ab) = log(a) + log(b), log(aⁿ) = n·log(a)</li>
+                                <li>Use change of base formula: log_b(x) = log(x)/log(b)</li>
+                                <li>Simplify logarithmic expressions using properties</li>
+                                <li>Solve exponential equations using logarithms</li>
+                            </ul>
+
+                            <div class="example-box">
+                                <strong>Example:</strong>
+                                <p>Solve 5 · 2ˣ = 80: Divide by 5: 2ˣ = 16, take log: x·log(2) = log(16), so x = log(16)/log(2) = 4</p>
+                                <p>Simplify log(8) + log(125) - log(1000) using base 10: log(8·125/1000) = log(1) = 0</p>
                             </div>
                         </div>
-                    </div>
+                        <div class="tab-panel" role="tabpanel" id="tab-panel-func-3" aria-labelledby="tab-func-3">
+                            <h5>What Students Learn:</h5>
+                            <p>Students extend trigonometry to the unit circle and all real numbers, learning radian measure, graphing trigonometric functions, modeling periodic phenomena, and using trigonometric identities.</p>
 
-                    <div class="tab-container">
-                        <div class="tab-list" role="tablist" aria-label="Rate of Change">
-                            <button class="tab-button active" role="tab" aria-selected="true" aria-controls="fif-6-panel" id="fif-6-tab" data-status="unavailable">
-                                F-IF.6 ⭐
-                            </button>
-                        </div>
-                        <div class="tab-panels">
-                            <div class="tab-panel active" role="tabpanel" id="fif-6-panel" aria-labelledby="fif-6-tab">
-                                <p><strong>Standard:</strong> Calculate and interpret the average rate of change of a function (presented symbolically or as a table) over a specified interval. Estimate the rate of change from a graph.</p>
-                            </div>
-                        </div>
-                    </div>
+                            <h5>Key Skills:</h5>
+                            <ul>
+                                <li>Understand radian measure as arc length on the unit circle</li>
+                                <li>Use the unit circle to extend sine, cosine, tangent to all real numbers</li>
+                                <li>Graph all six trigonometric functions</li>
+                                <li>Model periodic phenomena using trig functions (amplitude, frequency, midline)</li>
+                                <li>Prove and use the Pythagorean identity: sin²(θ) + cos²(θ) = 1</li>
+                                <li>Find trig values given one value and the quadrant</li>
+                            </ul>
 
-                    <div class="tab-container">
-                        <div class="tab-list" role="tablist" aria-label="Graph Functions">
-                            <button class="tab-button active" role="tab" aria-selected="true" aria-controls="fif-7-panel" id="fif-7-tab" data-status="unavailable">
-                                F-IF.7 ⭐
-                            </button>
-                        </div>
-                        <div class="tab-panels">
-                            <div class="tab-panel active" role="tabpanel" id="fif-7-panel" aria-labelledby="fif-7-tab">
-                                <p><strong>Standard:</strong> Graph functions expressed symbolically and show key features of the graph, by hand in simple cases and using technology for more complicated cases.</p>
-                                <p><strong>b.</strong> Graph square root, cube root, and piecewise-defined functions, including step functions and absolute value functions.</p>
-                                <p><strong>c.</strong> Graph polynomial functions, identifying zeros when suitable factorizations are available, and showing end behavior.</p>
-                                <p><strong>e.</strong> Graph exponential and logarithmic functions, showing intercepts and end behavior, and trigonometric functions, showing period, midline, and amplitude.</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="tab-container">
-                        <div class="tab-list" role="tablist" aria-label="Equivalent Forms">
-                            <button class="tab-button active" role="tab" aria-selected="true" aria-controls="fif-8-panel" id="fif-8-tab" data-status="unavailable">
-                                F-IF.8
-                            </button>
-                        </div>
-                        <div class="tab-panels">
-                            <div class="tab-panel active" role="tabpanel" id="fif-8-panel" aria-labelledby="fif-8-tab">
-                                <p><strong>Standard:</strong> Write a function defined by an expression in different but equivalent forms to reveal and explain different properties of the function.</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="tab-container">
-                        <div class="tab-list" role="tablist" aria-label="Compare Functions">
-                            <button class="tab-button active" role="tab" aria-selected="true" aria-controls="fif-9-panel" id="fif-9-tab" data-status="unavailable">
-                                F-IF.9
-                            </button>
-                        </div>
-                        <div class="tab-panels">
-                            <div class="tab-panel active" role="tabpanel" id="fif-9-panel" aria-labelledby="fif-9-tab">
-                                <p><strong>Standard:</strong> Compare properties of two functions each represented in a different way (algebraically, graphically, numerically in tables, or by verbal descriptions).</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="standard-category">
-                    <h4>Building Functions (F-BF)</h4>
-
-                    <div class="tab-container">
-                        <div class="tab-list" role="tablist" aria-label="Write Functions">
-                            <button class="tab-button active" role="tab" aria-selected="true" aria-controls="fbf-1-panel" id="fbf-1-tab" data-status="unavailable">
-                                F-BF.1 ⭐
-                            </button>
-                        </div>
-                        <div class="tab-panels">
-                            <div class="tab-panel active" role="tabpanel" id="fbf-1-panel" aria-labelledby="fbf-1-tab">
-                                <p><strong>Standard:</strong> Write a function that describes a relationship between two quantities.</p>
-                                <p><strong>b.</strong> Combine standard function types using arithmetic operations.</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="tab-container">
-                        <div class="tab-list" role="tablist" aria-label="Transformations">
-                            <button class="tab-button active" role="tab" aria-selected="true" aria-controls="fbf-3-panel" id="fbf-3-tab" data-status="unavailable">
-                                F-BF.3
-                            </button>
-                        </div>
-                        <div class="tab-panels">
-                            <div class="tab-panel active" role="tabpanel" id="fbf-3-panel" aria-labelledby="fbf-3-tab">
-                                <p><strong>Standard:</strong> Identify the effect on the graph of replacing f(x) by f(x) + k, kf(x), f(kx), and f(x + k) for specific values of k (both positive and negative); find the value of k given the graphs. Experiment with cases and illustrate an explanation of the effects on the graph using technology.</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="tab-container">
-                        <div class="tab-list" role="tablist" aria-label="Inverse Functions">
-                            <button class="tab-button active" role="tab" aria-selected="true" aria-controls="fbf-4-panel" id="fbf-4-tab" data-status="unavailable">
-                                F-BF.4
-                            </button>
-                        </div>
-                        <div class="tab-panels">
-                            <div class="tab-panel active" role="tabpanel" id="fbf-4-panel" aria-labelledby="fbf-4-tab">
-                                <p><strong>Standard:</strong> Find inverse functions.</p>
-                                <p><strong>a.</strong> Solve an equation of the form f(x) = c for a simple function f that has an inverse and write an expression for the inverse.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="standard-category">
-                    <h4>Linear, Quadratic, and Exponential Models (F-LE)</h4>
-
-                    <div class="tab-container">
-                        <div class="tab-list" role="tablist" aria-label="Logarithms">
-                            <button class="tab-button active" role="tab" aria-selected="true" aria-controls="fle-4-panel" id="fle-4-tab" data-status="unavailable">
-                                F-LE.4 ⭐
-                            </button>
-                        </div>
-                        <div class="tab-panels">
-                            <div class="tab-panel active" role="tabpanel" id="fle-4-panel" aria-labelledby="fle-4-tab">
-                                <p><strong>Standard:</strong> For exponential models, express as a logarithm the solution to ab<sup>ct</sup> = d where a, c, and d are numbers and the base b is 2, 10, or e; evaluate the logarithm using technology.</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="tab-container">
-                        <div class="tab-list" role="tablist" aria-label="Laws of Logarithms">
-                            <button class="tab-button active" role="tab" aria-selected="true" aria-controls="fle-4-1-panel" id="fle-4-1-tab" data-status="unavailable">
-                                F-LE.4.1 ⭐
-                            </button>
-                        </div>
-                        <div class="tab-panels">
-                            <div class="tab-panel active" role="tabpanel" id="fle-4-1-panel" aria-labelledby="fle-4-1-tab">
-                                <p><strong>Standard:</strong> Prove simple laws of logarithms.</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="tab-container">
-                        <div class="tab-list" role="tablist" aria-label="Change of Base">
-                            <button class="tab-button active" role="tab" aria-selected="true" aria-controls="fle-4-2-panel" id="fle-4-2-tab" data-status="unavailable">
-                                F-LE.4.2 ⭐
-                            </button>
-                        </div>
-                        <div class="tab-panels">
-                            <div class="tab-panel active" role="tabpanel" id="fle-4-2-panel" aria-labelledby="fle-4-2-tab">
-                                <p><strong>Standard:</strong> Use the definition of logarithms to translate between logarithms in any base.</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="tab-container">
-                        <div class="tab-list" role="tablist" aria-label="Properties of Logarithms">
-                            <button class="tab-button active" role="tab" aria-selected="true" aria-controls="fle-4-3-panel" id="fle-4-3-tab" data-status="unavailable">
-                                F-LE.4.3 ⭐
-                            </button>
-                        </div>
-                        <div class="tab-panels">
-                            <div class="tab-panel active" role="tabpanel" id="fle-4-3-panel" aria-labelledby="fle-4-3-tab">
-                                <p><strong>Standard:</strong> Understand and use the properties of logarithms to simplify logarithmic numeric expressions and to identify their approximate values.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="standard-category">
-                    <h4>Trigonometric Functions (F-TF)</h4>
-
-                    <div class="tab-container">
-                        <div class="tab-list" role="tablist" aria-label="Radian Measure">
-                            <button class="tab-button active" role="tab" aria-selected="true" aria-controls="ftf-1-panel" id="ftf-1-tab" data-status="unavailable">
-                                F-TF.1
-                            </button>
-                        </div>
-                        <div class="tab-panels">
-                            <div class="tab-panel active" role="tabpanel" id="ftf-1-panel" aria-labelledby="ftf-1-tab">
-                                <p><strong>Standard:</strong> Understand radian measure of an angle as the length of the arc on the unit circle subtended by the angle.</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="tab-container">
-                        <div class="tab-list" role="tablist" aria-label="Unit Circle">
-                            <button class="tab-button active" role="tab" aria-selected="true" aria-controls="ftf-2-panel" id="ftf-2-tab" data-status="unavailable">
-                                F-TF.2
-                            </button>
-                        </div>
-                        <div class="tab-panels">
-                            <div class="tab-panel active" role="tabpanel" id="ftf-2-panel" aria-labelledby="ftf-2-tab">
-                                <p><strong>Standard:</strong> Explain how the unit circle in the coordinate plane enables the extension of trigonometric functions to all real numbers, interpreted as radian measures of angles traversed counterclockwise around the unit circle.</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="tab-container">
-                        <div class="tab-list" role="tablist" aria-label="Graph Trig Functions">
-                            <button class="tab-button active" role="tab" aria-selected="true" aria-controls="ftf-2-1-panel" id="ftf-2-1-tab" data-status="unavailable">
-                                F-TF.2.1
-                            </button>
-                        </div>
-                        <div class="tab-panels">
-                            <div class="tab-panel active" role="tabpanel" id="ftf-2-1-panel" aria-labelledby="ftf-2-1-tab">
-                                <p><strong>Standard:</strong> Graph all 6 basic trigonometric functions.</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="tab-container">
-                        <div class="tab-list" role="tablist" aria-label="Model Periodic Phenomena">
-                            <button class="tab-button active" role="tab" aria-selected="true" aria-controls="ftf-5-panel" id="ftf-5-tab" data-status="unavailable">
-                                F-TF.5 ⭐
-                            </button>
-                        </div>
-                        <div class="tab-panels">
-                            <div class="tab-panel active" role="tabpanel" id="ftf-5-panel" aria-labelledby="ftf-5-tab">
-                                <p><strong>Standard:</strong> Choose trigonometric functions to model periodic phenomena with specified amplitude, frequency, and midline.</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="tab-container">
-                        <div class="tab-list" role="tablist" aria-label="Pythagorean Identity">
-                            <button class="tab-button active" role="tab" aria-selected="true" aria-controls="ftf-8-panel" id="ftf-8-tab" data-status="unavailable">
-                                F-TF.8
-                            </button>
-                        </div>
-                        <div class="tab-panels">
-                            <div class="tab-panel active" role="tabpanel" id="ftf-8-panel" aria-labelledby="ftf-8-tab">
-                                <p><strong>Standard:</strong> Prove the Pythagorean identity sin²(θ) + cos²(θ) = 1 and use it to find sin(θ), cos(θ), or tan(θ) given sin(θ), cos(θ), or tan(θ) and the quadrant of the angle.</p>
+                            <div class="example-box">
+                                <strong>Example:</strong>
+                                <p>Model temperature with T(t) = 15·sin(2π(t-3)/12) + 65, where t is hours after midnight. This has amplitude 15°, period 12 hours, midline at 65°, and peaks at 3 PM.</p>
+                                <p>If sin(θ) = 3/5 in quadrant II, find cos(θ): Use sin²(θ) + cos²(θ) = 1: 9/25 + cos²(θ) = 1, so cos²(θ) = 16/25. In quadrant II, cos(θ) = -4/5.</p>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <!-- Geometry -->
             <div class="domain-section">
                 <h3>Geometry</h3>
+                <div class="tab-container">
+                    <div class="tab-list" role="tablist" aria-label="Geometry skills">
+                        <button class="tab-button active" role="tab" aria-selected="true" aria-controls="tab-panel-geom-1" id="tab-geom-1" data-domain="geom">
+                            <h4>Conic Sections</h4>
+                        </button>
+                    </div>
+                    <div class="tab-panels">
+                        <div class="tab-panel active" role="tabpanel" id="tab-panel-geom-1" aria-labelledby="tab-geom-1">
+                            <h5>What Students Learn:</h5>
+                            <p>Students work with conic sections, learning to complete the square to put equations in standard form and identify whether an equation represents a circle or parabola (in Algebra II, ellipses and hyperbolas are typically introduced but not emphasized).</p>
 
-                <div class="standard-category">
-                    <h4>Expressing Geometric Properties with Equations (G-GPE)</h4>
+                            <h5>Key Skills:</h5>
+                            <ul>
+                                <li>Complete the square to convert quadratic equations to standard form</li>
+                                <li>Identify whether an equation represents a circle or parabola</li>
+                                <li>Graph circles and parabolas from their equations</li>
+                                <li>Write equations of circles given center and radius</li>
+                                <li>Write equations of parabolas given key features</li>
+                            </ul>
 
-                    <div class="tab-container">
-                        <div class="tab-list" role="tablist" aria-label="Conic Sections">
-                            <button class="tab-button active" role="tab" aria-selected="true" aria-controls="ggpe-3-1-panel" id="ggpe-3-1-tab" data-status="unavailable">
-                                G-GPE.3.1
-                            </button>
-                        </div>
-                        <div class="tab-panels">
-                            <div class="tab-panel active" role="tabpanel" id="ggpe-3-1-panel" aria-labelledby="ggpe-3-1-tab">
-                                <p><strong>Standard:</strong> Given a quadratic equation of the form ax² + by² + cx + dy + e = 0, use the method for completing the square to put the equation into standard form; identify whether the graph of the equation is a circle, ellipse, parabola, or hyperbola and graph the equation. [In Algebra II, this standard addresses only circles and parabolas.]</p>
+                            <div class="example-box">
+                                <strong>Example:</strong>
+                                <p>Given x² + y² + 6x - 4y - 3 = 0, complete the square:</p>
+                                <p>(x² + 6x + 9) + (y² - 4y + 4) = 3 + 9 + 4</p>
+                                <p>(x + 3)² + (y - 2)² = 16</p>
+                                <p>This is a circle with center (-3, 2) and radius 4.</p>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <!-- Statistics and Probability -->
             <div class="domain-section">
                 <h3>Statistics and Probability</h3>
+                <div class="tab-container">
+                    <div class="tab-list" role="tablist" aria-label="Statistics skills">
+                        <button class="tab-button active" role="tab" aria-selected="true" aria-controls="tab-panel-stat-1" id="tab-stat-1" data-domain="stat">
+                            <h4>Statistical Inference</h4>
+                        </button>
+                        <button class="tab-button" role="tab" aria-selected="false" aria-controls="tab-panel-stat-2" id="tab-stat-2" data-domain="stat">
+                            <h4>Normal Distributions</h4>
+                        </button>
+                    </div>
+                    <div class="tab-panels">
+                        <div class="tab-panel active" role="tabpanel" id="tab-panel-stat-1" aria-labelledby="tab-stat-1">
+                            <h5>What Students Learn:</h5>
+                            <p>Students learn about statistical inference, understanding how to make conclusions about populations from samples. They explore different data collection methods, use simulations to develop margins of error, and evaluate statistical reports critically.</p>
 
-                <div class="standard-category">
-                    <h4>Interpreting Categorical and Quantitative Data (S-ID)</h4>
+                            <h5>Key Skills:</h5>
+                            <ul>
+                                <li>Understand statistics as making inferences about population parameters from random samples</li>
+                                <li>Use simulation to test if a model is consistent with data</li>
+                                <li>Distinguish among sample surveys, experiments, and observational studies</li>
+                                <li>Explain the role of randomization in each study type</li>
+                                <li>Estimate population means or proportions from sample data</li>
+                                <li>Develop margins of error using simulation models</li>
+                                <li>Compare treatments using data from randomized experiments</li>
+                                <li>Use simulations to determine if differences are significant</li>
+                                <li>Evaluate reports based on data critically</li>
+                            </ul>
 
-                    <div class="tab-container">
-                        <div class="tab-list" role="tablist" aria-label="Normal Distribution">
-                            <button class="tab-button active" role="tab" aria-selected="true" aria-controls="sid-4-panel" id="sid-4-tab" data-status="unavailable">
-                                S-ID.4 ⭐
-                            </button>
-                        </div>
-                        <div class="tab-panels">
-                            <div class="tab-panel active" role="tabpanel" id="sid-4-panel" aria-labelledby="sid-4-tab">
-                                <p><strong>Standard:</strong> Use the mean and standard deviation of a data set to fit it to a normal distribution and to estimate population percentages. Recognize that there are data sets for which such a procedure is not appropriate. Use calculators, spreadsheets, and tables to estimate areas under the normal curve.</p>
+                            <div class="example-box">
+                                <strong>Example:</strong>
+                                <p>A poll of 1000 voters finds 520 support a candidate. Estimate the population proportion: 520/1000 = 0.52 or 52%.</p>
+                                <p>Using simulation, the margin of error might be ±3%, meaning we're confident the true population proportion is between 49% and 55%.</p>
                             </div>
                         </div>
-                    </div>
-                </div>
+                        <div class="tab-panel" role="tabpanel" id="tab-panel-stat-2" aria-labelledby="tab-stat-2">
+                            <h5>What Students Learn:</h5>
+                            <p>Students work with normal distributions, learning to fit data to normal curves, use mean and standard deviation to estimate percentages, and recognize when normal distribution is appropriate.</p>
 
-                <div class="standard-category">
-                    <h4>Making Inferences and Justifying Conclusions (S-IC)</h4>
+                            <h5>Key Skills:</h5>
+                            <ul>
+                                <li>Use mean and standard deviation to fit data to a normal distribution</li>
+                                <li>Estimate population percentages using the normal curve</li>
+                                <li>Recognize data sets where normal distribution is inappropriate</li>
+                                <li>Use calculators, spreadsheets, and tables to estimate areas under the normal curve</li>
+                                <li>Interpret z-scores and percentiles</li>
+                                <li>Apply the 68-95-99.7 rule (empirical rule)</li>
+                            </ul>
 
-                    <div class="tab-container">
-                        <div class="tab-list" role="tablist" aria-label="Statistics Process">
-                            <button class="tab-button active" role="tab" aria-selected="true" aria-controls="sic-1-panel" id="sic-1-tab" data-status="unavailable">
-                                S-IC.1 ⭐
-                            </button>
-                        </div>
-                        <div class="tab-panels">
-                            <div class="tab-panel active" role="tabpanel" id="sic-1-panel" aria-labelledby="sic-1-tab">
-                                <p><strong>Standard:</strong> Understand statistics as a process for making inferences about population parameters based on a random sample from that population.</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="tab-container">
-                        <div class="tab-list" role="tablist" aria-label="Model Consistency">
-                            <button class="tab-button active" role="tab" aria-selected="true" aria-controls="sic-2-panel" id="sic-2-tab" data-status="unavailable">
-                                S-IC.2 ⭐
-                            </button>
-                        </div>
-                        <div class="tab-panels">
-                            <div class="tab-panel active" role="tabpanel" id="sic-2-panel" aria-labelledby="sic-2-tab">
-                                <p><strong>Standard:</strong> Decide if a specified model is consistent with results from a given data-generating process, e.g., using simulation.</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="tab-container">
-                        <div class="tab-list" role="tablist" aria-label="Study Types">
-                            <button class="tab-button active" role="tab" aria-selected="true" aria-controls="sic-3-panel" id="sic-3-tab" data-status="unavailable">
-                                S-IC.3 ⭐
-                            </button>
-                        </div>
-                        <div class="tab-panels">
-                            <div class="tab-panel active" role="tabpanel" id="sic-3-panel" aria-labelledby="sic-3-tab">
-                                <p><strong>Standard:</strong> Recognize the purposes of and differences among sample surveys, experiments, and observational studies; explain how randomization relates to each.</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="tab-container">
-                        <div class="tab-list" role="tablist" aria-label="Margin of Error">
-                            <button class="tab-button active" role="tab" aria-selected="true" aria-controls="sic-4-panel" id="sic-4-tab" data-status="unavailable">
-                                S-IC.4 ⭐
-                            </button>
-                        </div>
-                        <div class="tab-panels">
-                            <div class="tab-panel active" role="tabpanel" id="sic-4-panel" aria-labelledby="sic-4-tab">
-                                <p><strong>Standard:</strong> Use data from a sample survey to estimate a population mean or proportion; develop a margin of error through the use of simulation models for random sampling.</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="tab-container">
-                        <div class="tab-list" role="tablist" aria-label="Compare Treatments">
-                            <button class="tab-button active" role="tab" aria-selected="true" aria-controls="sic-5-panel" id="sic-5-tab" data-status="unavailable">
-                                S-IC.5 ⭐
-                            </button>
-                        </div>
-                        <div class="tab-panels">
-                            <div class="tab-panel active" role="tabpanel" id="sic-5-panel" aria-labelledby="sic-5-tab">
-                                <p><strong>Standard:</strong> Use data from a randomized experiment to compare two treatments; use simulations to decide if differences between parameters are significant.</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="tab-container">
-                        <div class="tab-list" role="tablist" aria-label="Evaluate Reports">
-                            <button class="tab-button active" role="tab" aria-selected="true" aria-controls="sic-6-panel" id="sic-6-tab" data-status="unavailable">
-                                S-IC.6 ⭐
-                            </button>
-                        </div>
-                        <div class="tab-panels">
-                            <div class="tab-panel active" role="tabpanel" id="sic-6-panel" aria-labelledby="sic-6-tab">
-                                <p><strong>Standard:</strong> Evaluate reports based on data.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="standard-category">
-                    <h4>Using Probability to Make Decisions (S-MD)</h4>
-
-                    <div class="tab-container">
-                        <div class="tab-list" role="tablist" aria-label="Fair Decisions">
-                            <button class="tab-button active" role="tab" aria-selected="true" aria-controls="smd-6-panel" id="smd-6-tab" data-status="unavailable">
-                                S-MD.6 ⭐ (+)
-                            </button>
-                        </div>
-                        <div class="tab-panels">
-                            <div class="tab-panel active" role="tabpanel" id="smd-6-panel" aria-labelledby="smd-6-tab">
-                                <p><strong>Standard:</strong> (+) Use probabilities to make fair decisions (e.g., drawing by lots, using a random number generator).</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="tab-container">
-                        <div class="tab-list" role="tablist" aria-label="Analyze Decisions">
-                            <button class="tab-button active" role="tab" aria-selected="true" aria-controls="smd-7-panel" id="smd-7-tab" data-status="unavailable">
-                                S-MD.7 ⭐ (+)
-                            </button>
-                        </div>
-                        <div class="tab-panels">
-                            <div class="tab-panel active" role="tabpanel" id="smd-7-panel" aria-labelledby="smd-7-tab">
-                                <p><strong>Standard:</strong> (+) Analyze decisions and strategies using probability concepts (e.g., product testing, medical testing, pulling a hockey goalie at the end of a game).</p>
+                            <div class="example-box">
+                                <strong>Example:</strong>
+                                <p>Test scores have mean 75 and standard deviation 8. Using the empirical rule:</p>
+                                <p>• About 68% of scores are between 67 and 83 (within 1 standard deviation)</p>
+                                <p>• About 95% are between 59 and 91 (within 2 standard deviations)</p>
+                                <p>• About 99.7% are between 51 and 99 (within 3 standard deviations)</p>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-
         </section>
 
-        <section class="practice-areas">
-            <h2>Mathematical Practices</h2>
-            <div class="practices-grid">
-                <div class="practice-card">
-                    <h3>1. Make sense of problems and persevere in solving them</h3>
-                </div>
-                <div class="practice-card">
-                    <h3>2. Reason abstractly and quantitatively</h3>
-                </div>
-                <div class="practice-card">
-                    <h3>3. Construct viable arguments and critique the reasoning of others</h3>
-                </div>
-                <div class="practice-card">
-                    <h3>4. Model with mathematics</h3>
-                </div>
-                <div class="practice-card">
-                    <h3>5. Use appropriate tools strategically</h3>
-                </div>
-                <div class="practice-card">
-                    <h3>6. Attend to precision</h3>
-                </div>
-                <div class="practice-card">
-                    <h3>7. Look for and make use of structure</h3>
-                </div>
-                <div class="practice-card">
-                    <h3>8. Look for and express regularity in repeated reasoning</h3>
-                </div>
+        <!-- Related Grade Levels Section for Internal Linking -->
+        <section class="related-grades" aria-labelledby="related-grades-title">
+            <h2 id="related-grades-title">Explore Other Course Levels</h2>
+            <div style="display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center;">
+                <a href="geometry.html" style="background-color: #8B5CF6; color: white; padding: 0.75rem 1.5rem; border-radius: 6px; text-decoration: none; font-weight: 500;">← Geometry</a>
             </div>
+            <p style="text-align: center; margin-top: 1rem;">
+                <a href="../../index.html" style="text-decoration: underline;">View all grades K-8 and High School courses</a>
+            </p>
         </section>
     </main>
 
-    <footer>
-        <p>&copy; 2025 Fresh Math. All rights reserved.</p>
-        <nav>
-            <ul>
-                <li><a href="privacy.html">Privacy Policy</a></li>
-                <li><a href="terms.html">Terms of Service</a></li>
-            </ul>
-        </nav>
-    </footer>
+    <!-- Banner Ad Above Footer -->
+    <div class="footer-ad-container" aria-label="Advertisement">
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7972856053289695"
+            crossorigin="anonymous"></script>
+        <!-- Banner ad -->
+        <ins class="adsbygoogle"
+            style="display:block"
+            data-ad-client="ca-pub-7972856053289695"
+            data-ad-slot="2397709453"
+            data-ad-format="auto"
+            data-full-width-responsive="true"></ins>
+        <script>
+            (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+    </div>
 
+    <footer>
+        <p>&copy; 2025 Fresh Math</p>
+    </footer>
     <script src="../js/main.js"></script>
     <script src="../js/mobile-nav.js" defer></script>
 </body>

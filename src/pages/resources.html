@@ -1872,10 +1872,135 @@
                 <!-- Algebra I Panel -->
                 <div class="grade-panel active" role="tabpanel" id="hs-algebra1" aria-labelledby="tab-hs-algebra1">
                     <div class="content-layout">
-                        <div class="course-overview">
-                            <h3>Algebra I Overview</h3>
-                            <p>Build a strong foundation in algebraic thinking with linear equations, quadratic functions, exponential models, and data analysis.</p>
-                            <a href="algebra1.html" class="view-standards-btn">View All Standards & Worksheets →</a>
+                        <!-- Left Sidebar: Domain Tabs -->
+                        <div class="domain-sidebar">
+                            <div class="domain-tabs" role="tablist" aria-label="Math domains for Algebra I">
+                                <button class="domain-tab-button active" role="tab" aria-selected="true"
+                                        aria-controls="alg1-nq" id="tab-alg1-nq">
+                                    Number and Quantity
+                                </button>
+                                <button class="domain-tab-button" role="tab" aria-selected="false"
+                                        aria-controls="alg1-alg" id="tab-alg1-alg">
+                                    Algebra
+                                </button>
+                                <button class="domain-tab-button" role="tab" aria-selected="false"
+                                        aria-controls="alg1-func" id="tab-alg1-func">
+                                    Functions
+                                </button>
+                                <button class="domain-tab-button" role="tab" aria-selected="false"
+                                        aria-controls="alg1-stat" id="tab-alg1-stat">
+                                    Statistics and Probability
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Right Content: Worksheet Cards -->
+                        <div class="domain-content">
+                            <!-- Number and Quantity Panel -->
+                            <div class="domain-panel active" role="tabpanel" id="alg1-nq" aria-labelledby="tab-alg1-nq">
+                                <div class="grid-container">
+                                    <div class="grade-card">
+                                        <h3>The Real Number System</h3>
+                                        <ul>
+                                            <li><a href="../../worksheets/Algebra1/number-quantity/rational-exponents.pdf" class="worksheet-link unavailable">Rational Exponents and Radicals</a></li>
+                                            <li><a href="../../worksheets/Algebra1/number-quantity/rational-irrational.pdf" class="worksheet-link unavailable">Rational and Irrational Numbers</a></li>
+                                        </ul>
+                                    </div>
+                                    <div class="grade-card">
+                                        <h3>Quantities</h3>
+                                        <ul>
+                                            <li><a href="../../worksheets/Algebra1/number-quantity/units-problem-solving.pdf" class="worksheet-link unavailable">Units in Problem Solving</a></li>
+                                            <li><a href="../../worksheets/Algebra1/number-quantity/descriptive-modeling.pdf" class="worksheet-link unavailable">Defining Quantities for Modeling</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Algebra Panel -->
+                            <div class="domain-panel" role="tabpanel" id="alg1-alg" aria-labelledby="tab-alg1-alg">
+                                <div class="grid-container">
+                                    <div class="grade-card">
+                                        <h3>Seeing Structure in Expressions</h3>
+                                        <ul>
+                                            <li><a href="../../worksheets/Algebra1/algebra/interpret-expressions.pdf" class="worksheet-link unavailable">Interpret Parts of Expressions</a></li>
+                                            <li><a href="../../worksheets/Algebra1/algebra/factor-quadratics.pdf" class="worksheet-link unavailable">Factor Quadratics to Reveal Zeros</a></li>
+                                            <li><a href="../../worksheets/Algebra1/algebra/complete-square.pdf" class="worksheet-link unavailable">Complete the Square</a></li>
+                                        </ul>
+                                    </div>
+                                    <div class="grade-card">
+                                        <h3>Polynomial Operations</h3>
+                                        <ul>
+                                            <li><a href="../../worksheets/Algebra1/algebra/add-subtract-polynomials.pdf" class="worksheet-link unavailable">Add and Subtract Polynomials</a></li>
+                                            <li><a href="../../worksheets/Algebra1/algebra/multiply-polynomials.pdf" class="worksheet-link unavailable">Multiply Polynomials</a></li>
+                                        </ul>
+                                    </div>
+                                    <div class="grade-card">
+                                        <h3>Creating Equations</h3>
+                                        <ul>
+                                            <li><a href="../../worksheets/Algebra1/algebra/create-equations.pdf" class="worksheet-link unavailable">Create Equations from Context</a></li>
+                                            <li><a href="../../worksheets/Algebra1/algebra/systems-inequalities.pdf" class="worksheet-link unavailable">Systems of Equations and Inequalities</a></li>
+                                            <li><a href="../../worksheets/Algebra1/algebra/rearrange-formulas.pdf" class="worksheet-link unavailable">Rearrange Formulas</a></li>
+                                        </ul>
+                                    </div>
+                                    <div class="grade-card">
+                                        <h3>Reasoning with Equations</h3>
+                                        <ul>
+                                            <li><a href="../../worksheets/Algebra1/algebra/solve-linear-equations.pdf" class="worksheet-link unavailable">Solve Linear Equations</a></li>
+                                            <li><a href="../../worksheets/Algebra1/algebra/solve-quadratics.pdf" class="worksheet-link unavailable">Solve Quadratic Equations</a></li>
+                                            <li><a href="../../worksheets/Algebra1/algebra/systems-linear.pdf" class="worksheet-link unavailable">Solve Systems of Linear Equations</a></li>
+                                            <li><a href="../../worksheets/Algebra1/algebra/graph-inequalities.pdf" class="worksheet-link unavailable">Graph Linear Inequalities</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Functions Panel -->
+                            <div class="domain-panel" role="tabpanel" id="alg1-func" aria-labelledby="tab-alg1-func">
+                                <div class="grid-container">
+                                    <div class="grade-card">
+                                        <h3>Interpreting Functions</h3>
+                                        <ul>
+                                            <li><a href="../../worksheets/Algebra1/functions/function-notation.pdf" class="worksheet-link unavailable">Function Notation</a></li>
+                                            <li><a href="../../worksheets/Algebra1/functions/key-features-graphs.pdf" class="worksheet-link unavailable">Key Features of Graphs</a></li>
+                                            <li><a href="../../worksheets/Algebra1/functions/rate-of-change.pdf" class="worksheet-link unavailable">Average Rate of Change</a></li>
+                                            <li><a href="../../worksheets/Algebra1/functions/graph-functions.pdf" class="worksheet-link unavailable">Graph Functions</a></li>
+                                        </ul>
+                                    </div>
+                                    <div class="grade-card">
+                                        <h3>Building Functions</h3>
+                                        <ul>
+                                            <li><a href="../../worksheets/Algebra1/functions/write-functions.pdf" class="worksheet-link unavailable">Write Functions from Context</a></li>
+                                            <li><a href="../../worksheets/Algebra1/functions/arithmetic-sequences.pdf" class="worksheet-link unavailable">Arithmetic Sequences</a></li>
+                                            <li><a href="../../worksheets/Algebra1/functions/geometric-sequences.pdf" class="worksheet-link unavailable">Geometric Sequences</a></li>
+                                            <li><a href="../../worksheets/Algebra1/functions/transformations.pdf" class="worksheet-link unavailable">Function Transformations</a></li>
+                                        </ul>
+                                    </div>
+                                    <div class="grade-card">
+                                        <h3>Linear, Quadratic, & Exponential Models</h3>
+                                        <ul>
+                                            <li><a href="../../worksheets/Algebra1/functions/linear-vs-exponential.pdf" class="worksheet-link unavailable">Distinguish Linear and Exponential</a></li>
+                                            <li><a href="../../worksheets/Algebra1/functions/construct-models.pdf" class="worksheet-link unavailable">Construct Function Models</a></li>
+                                            <li><a href="../../worksheets/Algebra1/functions/interpret-parameters.pdf" class="worksheet-link unavailable">Interpret Function Parameters</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Statistics and Probability Panel -->
+                            <div class="domain-panel" role="tabpanel" id="alg1-stat" aria-labelledby="tab-alg1-stat">
+                                <div class="grid-container">
+                                    <div class="grade-card">
+                                        <h3>Interpreting Data</h3>
+                                        <ul>
+                                            <li><a href="../../worksheets/Algebra1/statistics/data-displays.pdf" class="worksheet-link unavailable">Create Data Displays</a></li>
+                                            <li><a href="../../worksheets/Algebra1/statistics/summary-statistics.pdf" class="worksheet-link unavailable">Use Summary Statistics</a></li>
+                                            <li><a href="../../worksheets/Algebra1/statistics/scatter-plots.pdf" class="worksheet-link unavailable">Interpret Scatter Plots</a></li>
+                                            <li><a href="../../worksheets/Algebra1/statistics/linear-models.pdf" class="worksheet-link unavailable">Fit Linear Models to Data</a></li>
+                                            <li><a href="../../worksheets/Algebra1/statistics/correlation-causation.pdf" class="worksheet-link unavailable">Correlation vs. Causation</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -1883,10 +2008,186 @@
                 <!-- Geometry Panel -->
                 <div class="grade-panel" role="tabpanel" id="hs-geometry" aria-labelledby="tab-hs-geometry">
                     <div class="content-layout">
-                        <div class="course-overview">
-                            <h3>Geometry Overview</h3>
-                            <p>Explore congruence, similarity, trigonometry, circles, coordinate geometry, and formal mathematical proofs.</p>
-                            <a href="geometry.html" class="view-standards-btn">View All Standards & Worksheets →</a>
+                        <!-- Left Sidebar: Domain Tabs -->
+                        <div class="domain-sidebar">
+                            <div class="domain-tabs" role="tablist" aria-label="Math domains for Geometry">
+                                <button class="domain-tab-button active" role="tab" aria-selected="true"
+                                        aria-controls="geom-cong" id="tab-geom-cong">
+                                    Congruence and Transformations
+                                </button>
+                                <button class="domain-tab-button" role="tab" aria-selected="false"
+                                        aria-controls="geom-sim" id="tab-geom-sim">
+                                    Similarity and Trigonometry
+                                </button>
+                                <button class="domain-tab-button" role="tab" aria-selected="false"
+                                        aria-controls="geom-circ" id="tab-geom-circ">
+                                    Circles
+                                </button>
+                                <button class="domain-tab-button" role="tab" aria-selected="false"
+                                        aria-controls="geom-coord" id="tab-geom-coord">
+                                    Coordinate Geometry
+                                </button>
+                                <button class="domain-tab-button" role="tab" aria-selected="false"
+                                        aria-controls="geom-prob" id="tab-geom-prob">
+                                    Probability
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Right Content: Worksheet Cards -->
+                        <div class="domain-content">
+                            <!-- Congruence and Transformations Panel -->
+                            <div class="domain-panel active" role="tabpanel" id="geom-cong" aria-labelledby="tab-geom-cong">
+                                <div class="grid-container">
+                                    <div class="grade-card">
+                                        <h3>Transformations and Rigid Motions</h3>
+                                        <ul>
+                                            <li><a href="../../worksheets/Geometry/congruence/transformations.pdf" class="worksheet-link unavailable">Transformations in the Plane</a></li>
+                                            <li><a href="../../worksheets/Geometry/congruence/symmetries.pdf" class="worksheet-link unavailable">Symmetries of Shapes</a></li>
+                                            <li><a href="../../worksheets/Geometry/congruence/rigid-motions.pdf" class="worksheet-link unavailable">Rigid Motions and Congruence</a></li>
+                                        </ul>
+                                    </div>
+                                    <div class="grade-card">
+                                        <h3>Triangle Congruence</h3>
+                                        <ul>
+                                            <li><a href="../../worksheets/Geometry/congruence/sss-congruence.pdf" class="worksheet-link unavailable">SSS Congruence</a></li>
+                                            <li><a href="../../worksheets/Geometry/congruence/sas-congruence.pdf" class="worksheet-link unavailable">SAS Congruence</a></li>
+                                            <li><a href="../../worksheets/Geometry/congruence/asa-congruence.pdf" class="worksheet-link unavailable">ASA Congruence</a></li>
+                                        </ul>
+                                    </div>
+                                    <div class="grade-card">
+                                        <h3>Proving Geometric Theorems</h3>
+                                        <ul>
+                                            <li><a href="../../worksheets/Geometry/congruence/vertical-angles.pdf" class="worksheet-link unavailable">Vertical Angles Theorem</a></li>
+                                            <li><a href="../../worksheets/Geometry/congruence/parallel-lines.pdf" class="worksheet-link unavailable">Parallel Lines and Transversals</a></li>
+                                            <li><a href="../../worksheets/Geometry/congruence/triangle-theorems.pdf" class="worksheet-link unavailable">Triangle Theorems</a></li>
+                                            <li><a href="../../worksheets/Geometry/congruence/parallelogram-proofs.pdf" class="worksheet-link unavailable">Parallelogram Properties</a></li>
+                                        </ul>
+                                    </div>
+                                    <div class="grade-card">
+                                        <h3>Geometric Constructions</h3>
+                                        <ul>
+                                            <li><a href="../../worksheets/Geometry/congruence/basic-constructions.pdf" class="worksheet-link unavailable">Copy Segments and Angles</a></li>
+                                            <li><a href="../../worksheets/Geometry/congruence/bisectors.pdf" class="worksheet-link unavailable">Construct Bisectors</a></li>
+                                            <li><a href="../../worksheets/Geometry/congruence/perpendicular-parallel.pdf" class="worksheet-link unavailable">Perpendicular and Parallel Lines</a></li>
+                                            <li><a href="../../worksheets/Geometry/congruence/inscribed-polygons.pdf" class="worksheet-link unavailable">Inscribed Polygons</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Similarity and Trigonometry Panel -->
+                            <div class="domain-panel" role="tabpanel" id="geom-sim" aria-labelledby="tab-geom-sim">
+                                <div class="grid-container">
+                                    <div class="grade-card">
+                                        <h3>Similarity and Dilations</h3>
+                                        <ul>
+                                            <li><a href="../../worksheets/Geometry/similarity/dilations.pdf" class="worksheet-link unavailable">Dilations and Similarity</a></li>
+                                            <li><a href="../../worksheets/Geometry/similarity/aa-similarity.pdf" class="worksheet-link unavailable">AA Similarity Criterion</a></li>
+                                            <li><a href="../../worksheets/Geometry/similarity/pythagorean-proof.pdf" class="worksheet-link unavailable">Pythagorean Theorem via Similarity</a></li>
+                                        </ul>
+                                    </div>
+                                    <div class="grade-card">
+                                        <h3>Trigonometric Ratios</h3>
+                                        <ul>
+                                            <li><a href="../../worksheets/Geometry/similarity/sine-cosine-tangent.pdf" class="worksheet-link unavailable">Sine, Cosine, and Tangent</a></li>
+                                            <li><a href="../../worksheets/Geometry/similarity/complementary-angles.pdf" class="worksheet-link unavailable">Complementary Angle Relationships</a></li>
+                                            <li><a href="../../worksheets/Geometry/similarity/special-triangles.pdf" class="worksheet-link unavailable">30-60-90 and 45-45-90 Triangles</a></li>
+                                        </ul>
+                                    </div>
+                                    <div class="grade-card">
+                                        <h3>Right Triangle Applications</h3>
+                                        <ul>
+                                            <li><a href="../../worksheets/Geometry/similarity/solve-right-triangles.pdf" class="worksheet-link unavailable">Solve Right Triangles</a></li>
+                                            <li><a href="../../worksheets/Geometry/similarity/angle-of-elevation.pdf" class="worksheet-link unavailable">Angles of Elevation and Depression</a></li>
+                                            <li><a href="../../worksheets/Geometry/similarity/real-world-trig.pdf" class="worksheet-link unavailable">Real-World Trigonometry Problems</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Circles Panel -->
+                            <div class="domain-panel" role="tabpanel" id="geom-circ" aria-labelledby="tab-geom-circ">
+                                <div class="grid-container">
+                                    <div class="grade-card">
+                                        <h3>Circle Properties and Theorems</h3>
+                                        <ul>
+                                            <li><a href="../../worksheets/Geometry/circles/inscribed-angles.pdf" class="worksheet-link unavailable">Inscribed and Central Angles</a></li>
+                                            <li><a href="../../worksheets/Geometry/circles/tangent-lines.pdf" class="worksheet-link unavailable">Tangent Lines to Circles</a></li>
+                                            <li><a href="../../worksheets/Geometry/circles/inscribed-circumscribed.pdf" class="worksheet-link unavailable">Inscribed and Circumscribed Circles</a></li>
+                                        </ul>
+                                    </div>
+                                    <div class="grade-card">
+                                        <h3>Arc Length and Sector Area</h3>
+                                        <ul>
+                                            <li><a href="../../worksheets/Geometry/circles/radian-measure.pdf" class="worksheet-link unavailable">Radian Measure</a></li>
+                                            <li><a href="../../worksheets/Geometry/circles/arc-length.pdf" class="worksheet-link unavailable">Arc Length</a></li>
+                                            <li><a href="../../worksheets/Geometry/circles/sector-area.pdf" class="worksheet-link unavailable">Sector Area</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Coordinate Geometry Panel -->
+                            <div class="domain-panel" role="tabpanel" id="geom-coord" aria-labelledby="tab-geom-coord">
+                                <div class="grid-container">
+                                    <div class="grade-card">
+                                        <h3>Equations of Circles and Parabolas</h3>
+                                        <ul>
+                                            <li><a href="../../worksheets/Geometry/coordinate/circle-equations.pdf" class="worksheet-link unavailable">Equations of Circles</a></li>
+                                            <li><a href="../../worksheets/Geometry/coordinate/complete-square.pdf" class="worksheet-link unavailable">Complete the Square</a></li>
+                                            <li><a href="../../worksheets/Geometry/coordinate/parabola-equations.pdf" class="worksheet-link unavailable">Parabola Equations</a></li>
+                                        </ul>
+                                    </div>
+                                    <div class="grade-card">
+                                        <h3>Coordinate Proofs</h3>
+                                        <ul>
+                                            <li><a href="../../worksheets/Geometry/coordinate/slope-proofs.pdf" class="worksheet-link unavailable">Parallel and Perpendicular Lines</a></li>
+                                            <li><a href="../../worksheets/Geometry/coordinate/quadrilateral-proofs.pdf" class="worksheet-link unavailable">Prove Quadrilateral Properties</a></li>
+                                            <li><a href="../../worksheets/Geometry/coordinate/distance-formula.pdf" class="worksheet-link unavailable">Distance Formula Applications</a></li>
+                                        </ul>
+                                    </div>
+                                    <div class="grade-card">
+                                        <h3>Volume and 3D Geometry</h3>
+                                        <ul>
+                                            <li><a href="../../worksheets/Geometry/coordinate/volume-formulas.pdf" class="worksheet-link unavailable">Volume Formulas</a></li>
+                                            <li><a href="../../worksheets/Geometry/coordinate/cross-sections.pdf" class="worksheet-link unavailable">Cross-Sections of 3D Objects</a></li>
+                                            <li><a href="../../worksheets/Geometry/coordinate/scaling.pdf" class="worksheet-link unavailable">Effects of Scaling</a></li>
+                                        </ul>
+                                    </div>
+                                    <div class="grade-card">
+                                        <h3>Geometric Modeling</h3>
+                                        <ul>
+                                            <li><a href="../../worksheets/Geometry/coordinate/model-objects.pdf" class="worksheet-link unavailable">Model Real Objects</a></li>
+                                            <li><a href="../../worksheets/Geometry/coordinate/density-problems.pdf" class="worksheet-link unavailable">Density and Rate Problems</a></li>
+                                            <li><a href="../../worksheets/Geometry/coordinate/design-problems.pdf" class="worksheet-link unavailable">Design Problems</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Probability Panel -->
+                            <div class="domain-panel" role="tabpanel" id="geom-prob" aria-labelledby="tab-geom-prob">
+                                <div class="grid-container">
+                                    <div class="grade-card">
+                                        <h3>Conditional Probability</h3>
+                                        <ul>
+                                            <li><a href="../../worksheets/Geometry/probability/conditional-probability.pdf" class="worksheet-link unavailable">Conditional Probability</a></li>
+                                            <li><a href="../../worksheets/Geometry/probability/independence.pdf" class="worksheet-link unavailable">Independence</a></li>
+                                            <li><a href="../../worksheets/Geometry/probability/two-way-tables.pdf" class="worksheet-link unavailable">Two-Way Tables</a></li>
+                                        </ul>
+                                    </div>
+                                    <div class="grade-card">
+                                        <h3>Probability Rules and Applications</h3>
+                                        <ul>
+                                            <li><a href="../../worksheets/Geometry/probability/addition-rule.pdf" class="worksheet-link unavailable">Addition Rule</a></li>
+                                            <li><a href="../../worksheets/Geometry/probability/multiplication-rule.pdf" class="worksheet-link unavailable">Multiplication Rule</a></li>
+                                            <li><a href="../../worksheets/Geometry/probability/permutations-combinations.pdf" class="worksheet-link unavailable">Permutations and Combinations</a></li>
+                                            <li><a href="../../worksheets/Geometry/probability/probability-decisions.pdf" class="worksheet-link unavailable">Making Fair Decisions</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -1894,10 +2195,142 @@
                 <!-- Algebra II Panel -->
                 <div class="grade-panel" role="tabpanel" id="hs-algebra2" aria-labelledby="tab-hs-algebra2">
                     <div class="content-layout">
-                        <div class="course-overview">
-                            <h3>Algebra II Overview</h3>
-                            <p>Master advanced algebra including polynomial functions, rational expressions, logarithms, trigonometry, and statistical inference.</p>
-                            <a href="algebra2.html" class="view-standards-btn">View All Standards & Worksheets →</a>
+                        <!-- Left Sidebar: Domain Tabs -->
+                        <div class="domain-sidebar">
+                            <div class="domain-tabs" role="tablist" aria-label="Math domains for Algebra II">
+                                <button class="domain-tab-button active" role="tab" aria-selected="true"
+                                        aria-controls="alg2-num" id="tab-alg2-num">
+                                    Number and Quantity
+                                </button>
+                                <button class="domain-tab-button" role="tab" aria-selected="false"
+                                        aria-controls="alg2-alg" id="tab-alg2-alg">
+                                    Algebra
+                                </button>
+                                <button class="domain-tab-button" role="tab" aria-selected="false"
+                                        aria-controls="alg2-func" id="tab-alg2-func">
+                                    Functions
+                                </button>
+                                <button class="domain-tab-button" role="tab" aria-selected="false"
+                                        aria-controls="alg2-geom" id="tab-alg2-geom">
+                                    Geometry
+                                </button>
+                                <button class="domain-tab-button" role="tab" aria-selected="false"
+                                        aria-controls="alg2-stat" id="tab-alg2-stat">
+                                    Statistics and Probability
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Right Content: Worksheet Cards -->
+                        <div class="domain-content">
+                            <!-- Number and Quantity Panel -->
+                            <div class="domain-panel active" role="tabpanel" id="alg2-num" aria-labelledby="tab-alg2-num">
+                                <div class="grid-container">
+                                    <div class="grade-card">
+                                        <h3>Complex Numbers</h3>
+                                        <ul>
+                                            <li><a href="../../worksheets/Algebra2/number-quantity/complex-arithmetic.pdf" class="worksheet-link unavailable">Complex Number Operations</a></li>
+                                            <li><a href="../../worksheets/Algebra2/number-quantity/complex-solutions.pdf" class="worksheet-link unavailable">Solve Equations with Complex Solutions</a></li>
+                                            <li><a href="../../worksheets/Algebra2/number-quantity/polynomial-identities.pdf" class="worksheet-link unavailable">Polynomial Identities with Complex Numbers</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Algebra Panel -->
+                            <div class="domain-panel" role="tabpanel" id="alg2-alg" aria-labelledby="tab-alg2-alg">
+                                <div class="grid-container">
+                                    <div class="grade-card">
+                                        <h3>Polynomial and Rational Expressions</h3>
+                                        <ul>
+                                            <li><a href="../../worksheets/Algebra2/algebra/geometric-series.pdf" class="worksheet-link unavailable">Geometric Series</a></li>
+                                            <li><a href="../../worksheets/Algebra2/algebra/remainder-theorem.pdf" class="worksheet-link unavailable">Remainder Theorem</a></li>
+                                            <li><a href="../../worksheets/Algebra2/algebra/polynomial-identities.pdf" class="worksheet-link unavailable">Prove Polynomial Identities</a></li>
+                                            <li><a href="../../worksheets/Algebra2/algebra/binomial-theorem.pdf" class="worksheet-link unavailable">Binomial Theorem</a></li>
+                                            <li><a href="../../worksheets/Algebra2/algebra/rational-expressions.pdf" class="worksheet-link unavailable">Operations with Rational Expressions</a></li>
+                                        </ul>
+                                    </div>
+                                    <div class="grade-card">
+                                        <h3>Advanced Equations</h3>
+                                        <ul>
+                                            <li><a href="../../worksheets/Algebra2/algebra/radical-equations.pdf" class="worksheet-link unavailable">Solve Radical Equations</a></li>
+                                            <li><a href="../../worksheets/Algebra2/algebra/rational-equations.pdf" class="worksheet-link unavailable">Solve Rational Equations</a></li>
+                                            <li><a href="../../worksheets/Algebra2/algebra/extraneous-solutions.pdf" class="worksheet-link unavailable">Check for Extraneous Solutions</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Functions Panel -->
+                            <div class="domain-panel" role="tabpanel" id="alg2-func" aria-labelledby="tab-alg2-func">
+                                <div class="grid-container">
+                                    <div class="grade-card">
+                                        <h3>Analyzing and Graphing Functions</h3>
+                                        <ul>
+                                            <li><a href="../../worksheets/Algebra2/functions/key-features.pdf" class="worksheet-link unavailable">Interpret Key Features of Graphs</a></li>
+                                            <li><a href="../../worksheets/Algebra2/functions/graph-polynomial.pdf" class="worksheet-link unavailable">Graph Polynomial Functions</a></li>
+                                            <li><a href="../../worksheets/Algebra2/functions/graph-rational.pdf" class="worksheet-link unavailable">Graph Rational Functions</a></li>
+                                            <li><a href="../../worksheets/Algebra2/functions/transformations.pdf" class="worksheet-link unavailable">Function Transformations</a></li>
+                                            <li><a href="../../worksheets/Algebra2/functions/inverse-functions.pdf" class="worksheet-link unavailable">Find Inverse Functions</a></li>
+                                        </ul>
+                                    </div>
+                                    <div class="grade-card">
+                                        <h3>Logarithmic Functions</h3>
+                                        <ul>
+                                            <li><a href="../../worksheets/Algebra2/functions/logarithms-intro.pdf" class="worksheet-link unavailable">Introduction to Logarithms</a></li>
+                                            <li><a href="../../worksheets/Algebra2/functions/logarithm-laws.pdf" class="worksheet-link unavailable">Logarithm Properties</a></li>
+                                            <li><a href="../../worksheets/Algebra2/functions/change-of-base.pdf" class="worksheet-link unavailable">Change of Base Formula</a></li>
+                                            <li><a href="../../worksheets/Algebra2/functions/solve-exponential.pdf" class="worksheet-link unavailable">Solve Exponential Equations</a></li>
+                                        </ul>
+                                    </div>
+                                    <div class="grade-card">
+                                        <h3>Trigonometric Functions</h3>
+                                        <ul>
+                                            <li><a href="../../worksheets/Algebra2/functions/unit-circle.pdf" class="worksheet-link unavailable">Unit Circle and Radian Measure</a></li>
+                                            <li><a href="../../worksheets/Algebra2/functions/graph-trig.pdf" class="worksheet-link unavailable">Graph Trigonometric Functions</a></li>
+                                            <li><a href="../../worksheets/Algebra2/functions/model-periodic.pdf" class="worksheet-link unavailable">Model Periodic Phenomena</a></li>
+                                            <li><a href="../../worksheets/Algebra2/functions/pythagorean-identity.pdf" class="worksheet-link unavailable">Pythagorean Identity</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Geometry Panel -->
+                            <div class="domain-panel" role="tabpanel" id="alg2-geom" aria-labelledby="tab-alg2-geom">
+                                <div class="grid-container">
+                                    <div class="grade-card">
+                                        <h3>Conic Sections</h3>
+                                        <ul>
+                                            <li><a href="../../worksheets/Algebra2/geometry/circles-standard-form.pdf" class="worksheet-link unavailable">Circles in Standard Form</a></li>
+                                            <li><a href="../../worksheets/Algebra2/geometry/parabolas.pdf" class="worksheet-link unavailable">Parabolas</a></li>
+                                            <li><a href="../../worksheets/Algebra2/geometry/complete-square-conics.pdf" class="worksheet-link unavailable">Complete the Square for Conics</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Statistics and Probability Panel -->
+                            <div class="domain-panel" role="tabpanel" id="alg2-stat" aria-labelledby="tab-alg2-stat">
+                                <div class="grid-container">
+                                    <div class="grade-card">
+                                        <h3>Statistical Inference</h3>
+                                        <ul>
+                                            <li><a href="../../worksheets/Algebra2/statistics/sampling.pdf" class="worksheet-link unavailable">Sample Surveys and Experiments</a></li>
+                                            <li><a href="../../worksheets/Algebra2/statistics/simulations.pdf" class="worksheet-link unavailable">Use Simulations</a></li>
+                                            <li><a href="../../worksheets/Algebra2/statistics/margin-of-error.pdf" class="worksheet-link unavailable">Margins of Error</a></li>
+                                            <li><a href="../../worksheets/Algebra2/statistics/evaluate-reports.pdf" class="worksheet-link unavailable">Evaluate Statistical Reports</a></li>
+                                        </ul>
+                                    </div>
+                                    <div class="grade-card">
+                                        <h3>Normal Distributions</h3>
+                                        <ul>
+                                            <li><a href="../../worksheets/Algebra2/statistics/normal-distribution.pdf" class="worksheet-link unavailable">Fit Normal Distribution</a></li>
+                                            <li><a href="../../worksheets/Algebra2/statistics/empirical-rule.pdf" class="worksheet-link unavailable">68-95-99.7 Rule</a></li>
+                                            <li><a href="../../worksheets/Algebra2/statistics/z-scores.pdf" class="worksheet-link unavailable">Z-Scores and Percentiles</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
