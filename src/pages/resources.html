@@ -82,6 +82,18 @@
             color: #F1F5F9 !important;
         }
 
+        /* Night mode: inactive grade tabs text to white, keep active purple */
+        html.night-mode .grade-tab-button:not(.active),
+        body.night-mode .grade-tab-button:not(.active) {
+            color: #FFFFFF !important;
+        }
+
+        /* Reduce vertical spacing in Coming Soon section by half */
+        .notice {
+            padding: 0.5rem 1.5rem;
+            margin: 0.75rem 0;
+        }
+
         /* Scrollbar styling for grade tabs and domain tabs */
         .grade-tabs {
             /* Firefox scrollbar styling */

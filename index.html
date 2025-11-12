@@ -83,6 +83,11 @@
             background-color: #0F172A !important;
             color: #F1F5F9 !important;
         }
+
+        /* Reduce vertical spacing between grade level links by 30% */
+        .grade-card a {
+            padding: 0.56rem 0.8rem;
+        }
     </style>
     <link rel="stylesheet" href="src/css/fonts.css">
     <link rel="stylesheet" href="src/css/styles.css">
@@ -141,8 +146,8 @@
         </button>
         <nav class="main-nav" role="navigation" aria-label="Main navigation">
             <div class="mobile-nav-logo">
-                <img src="icons/FreshMath_White/FreshMath_White_Primary.png" alt="Fresh Math" class="mobile-logo-light" />
-                <img src="icons/FreshMath_Black/FreshMath_Black_Primary.png" alt="Fresh Math" class="mobile-logo-dark" />
+                <img src="src/icons/FreshMath_White/FreshMath_White_Primary.png" alt="Fresh Math" class="mobile-logo-light" />
+                <img src="src/icons/FreshMath_Black/FreshMath_Black_Primary.png" alt="Fresh Math" class="mobile-logo-dark" />
             </div>
             <ul>
                 <li><a href="index.html">Home</a></li>
@@ -236,23 +241,36 @@
             <p class="intro-text">Discover what math skills your child needs at each grade level, from Kindergarten through 12th grade. Our comprehensive guide helps parents and students understand grade-specific math standards. The website is based on the California Common Core Standards. The website and its' resources are completely FREE and available for use at home or in a classroom setting. I only ask that you disable adblock so I can keep the website running on ads.</p>
         </section>
 
-        <section class="for-parents" aria-labelledby="parents-title">
-            <h2 id="parents-title">For Parents</h2>
-            <p>Understanding your child's math journey is important. Here you'll find:</p>
-            <ul>
-                <li>Grade-specific math skills and standards</li>
-                <li>Key concepts your child should master</li>
-                <li>Topics covered throughout the school year</li>
-                <li>Resources to support learning at home</li>
-            </ul>
-            <a href="src/pages/parents.html" style="background-color: #8B5CF6; color: white; padding: 0.75rem 1.5rem; border-radius: 6px; text-decoration: none; font-weight: 500; display: inline-block;">Parent Resources</a>
-        </section>
+        <div class="for-users-container">
+            <section class="student-section" aria-labelledby="student-title">
+                <h2 id="student-title">For Students</h2>
+                <p>Hey there! Want to know what you'll be learning in math this year? Click on your grade level above or check out some worksheets below.</p>
+                <ul>
+                    <li>See what topics you'll cover</li>
+                    <li>Find helpful resources for practice</li>
+                    <li>Get ready for your next grade level</li>
+                </ul>
+                <a href="src/pages/resources.html" style="background-color: #8B5CF6; color: white; padding: 0.75rem 1.5rem; border-radius: 6px; text-decoration: none; font-weight: 500; display: inline-block;">Learning Resources</a>
+            </section>
+
+            <section class="for-parents" aria-labelledby="parents-title">
+                <h2 id="parents-title">For Parents</h2>
+                <p>Understanding your child's math journey is important. Here you'll find:</p>
+                <ul>
+                    <li>Grade-specific math skills and standards</li>
+                    <li>Key concepts your child should master</li>
+                    <li>Topics covered throughout the school year</li>
+                    <li>Resources to support learning at home</li>
+                </ul>
+                <a href="src/pages/parents.html" style="background-color: #8B5CF6; color: white; padding: 0.75rem 1.5rem; border-radius: 6px; text-decoration: none; font-weight: 500; display: inline-block;">Parent Resources</a>
+            </section>
+        </div>
 
         <section class="grade-selection" aria-labelledby="grade-selection-title">
             <h2 id="grade-selection-title">Choose Your Grade Level</h2>
             <div class="grid-container">
                 <div class="grade-card k8" role="region" aria-labelledby="k8-title">
-                    <h3 id="k8-title">K-12</h3>
+                    <h3 id="k8-title">K-8</h3>
                     <ul>
                         <li><a href="src/pages/kindergarten.html">Kindergarten</a></li>
                         <li><a href="src/pages/grade1.html">Grade 1</a></li>
@@ -265,18 +283,20 @@
                         <li><a href="src/pages/grade8.html">Grade 8</a></li>
                     </ul>
                 </div>
+                <div class="grade-card highschool" role="region" aria-labelledby="highschool-title">
+                    <h3 id="highschool-title">High School</h3>
+                    <ul>
+                        <li><a href="src/pages/algebra1.html">Algebra I</a></li>
+                        <li><a href="src/pages/geometry.html">Geometry</a></li>
+                        <li><a href="src/pages/algebra2.html">Algebra II</a></li>
+                        <li><a href="src/pages/integratedmath1.html">Integrated Math I</a></li>
+                        <li><a href="src/pages/integratedmath2.html">Integrated Math II</a></li>
+                        <li><a href="src/pages/integratedmath3.html">Integrated Math III</a></li>
+                        <li><a href="src/pages/apstats.html">AP Statistics</a></li>
+                        <li><a href="src/pages/calculus.html">Calculus</a></li>
+                    </ul>
+                </div>
             </div>
-        </section>
-
-        <section class="student-section" aria-labelledby="student-title">
-            <h2 id="student-title">For Students</h2>
-            <p>Hey there! Want to know what you'll be learning in math this year? Click on your grade level above or check out some worksheets below.</p>
-            <ul>
-                <li>See what topics you'll cover</li>
-                <li>Find helpful resources for practice</li>
-                <li>Get ready for your next grade level</li>
-            </ul>
-            <a href="src/pages/resources.html" style="background-color: #8B5CF6; color: white; padding: 0.75rem 1.5rem; border-radius: 6px; text-decoration: none; font-weight: 500; display: inline-block;">Learning Resources</a>
         </section>
     </main>
 

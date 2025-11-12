@@ -91,60 +91,61 @@
     <style>
         .about-container {
             max-width: 1000px;
-            margin: 2rem auto;
+            margin: 1.4rem auto;
             padding: 0 1rem;
         }
 
         .about-section {
-            background-color: var(--card-bg);
-            padding: 2.5rem;
+            background: linear-gradient(135deg, rgba(74, 144, 226, 0.1) 0%, rgba(139, 92, 246, 0.1) 100%);
+            border: 2px solid rgba(74, 144, 226, 0.2);
+            padding: 1.75rem;
             border-radius: 8px;
             box-shadow: var(--shadow-md);
-            margin-bottom: 2rem;
+            margin-bottom: 1.4rem;
             transition: background-color var(--transition-base);
         }
 
         .about-section h3 {
             color: #8B5CF6;
-            margin-bottom: 1rem;
+            margin-bottom: 0.7rem;
             font-size: 1.75rem;
         }
 
         .about-section p {
             color: var(--text-secondary);
             line-height: 1.8;
-            margin-bottom: 1rem;
+            margin-bottom: 0.7rem;
         }
 
         .about-section ul {
-            margin: 1rem 0;
-            padding-left: 2rem;
+            margin: 0.7rem 0;
+            padding-left: 1.4rem;
         }
 
         .about-section ul li {
             color: var(--text-secondary);
             line-height: 1.8;
-            margin-bottom: 0.5rem;
+            margin-bottom: 0.35rem;
         }
 
         .mission-vision-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 2rem;
-            margin: 2rem 0;
+            margin: 1.4rem 0;
         }
 
         .mission-card, .vision-card {
             background: linear-gradient(135deg, #8B5CF6 0%, #7C3AED 100%);
             color: white;
-            padding: 2rem;
+            padding: 1.4rem;
             border-radius: 8px;
             box-shadow: 0 4px 12px rgba(139, 92, 246, 0.3);
         }
 
         .mission-card h4, .vision-card h4 {
             font-size: 1.5rem;
-            margin-bottom: 1rem;
+            margin-bottom: 0.7rem;
             color: white;
         }
 
@@ -157,12 +158,12 @@
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 1.5rem;
-            margin-top: 2rem;
+            margin-top: 1.4rem;
         }
 
         .value-card {
             background-color: var(--bg-secondary);
-            padding: 1.5rem;
+            padding: 1.05rem;
             border-radius: 8px;
             border-left: 4px solid #8B5CF6;
             transition: transform 0.2s, box-shadow 0.2s, background-color var(--transition-base);
@@ -175,7 +176,7 @@
 
         .value-card h5 {
             color: #8B5CF6;
-            margin-bottom: 0.75rem;
+            margin-bottom: 0.525rem;
             font-size: 1.25rem;
         }
 
@@ -187,15 +188,15 @@
 
         .team-section {
             background-color: var(--bg-secondary);
-            padding: 2rem;
+            padding: 1.4rem;
             border-radius: 8px;
-            margin: 2rem 0;
+            margin: 1.4rem 0;
             transition: background-color var(--transition-base);
         }
 
         .team-section h3 {
             color: #8B5CF6;
-            margin-bottom: 1.5rem;
+            margin-bottom: 1.05rem;
             text-align: center;
         }
 
@@ -203,12 +204,12 @@
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 2rem;
-            margin-top: 2rem;
+            margin-top: 1.4rem;
         }
 
         .team-member {
             background-color: var(--card-bg);
-            padding: 2rem;
+            padding: 1.4rem;
             border-radius: 8px;
             text-align: center;
             box-shadow: var(--shadow-sm);
@@ -220,7 +221,7 @@
             height: 120px;
             background: linear-gradient(135deg, #E0E7FF 0%, #DDD6FE 100%);
             border-radius: 50%;
-            margin: 0 auto 1rem;
+            margin: 0 auto 0.7rem;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -230,13 +231,13 @@
 
         .team-member h4 {
             color: var(--text-primary);
-            margin-bottom: 0.5rem;
+            margin-bottom: 0.35rem;
         }
 
         .team-member .role {
             color: #8B5CF6;
             font-weight: 600;
-            margin-bottom: 0.75rem;
+            margin-bottom: 0.525rem;
             font-size: 0.95rem;
         }
 
@@ -249,16 +250,16 @@
         .stats-section {
             background: linear-gradient(135deg, #8B5CF6 0%, #7C3AED 100%);
             color: white;
-            padding: 3rem 2rem;
+            padding: 2.1rem 1.4rem;
             border-radius: 8px;
-            margin: 2rem 0;
+            margin: 1.4rem 0;
         }
 
         .stats-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
             gap: 2rem;
-            margin-top: 2rem;
+            margin-top: 1.4rem;
         }
 
         .stat-item {
@@ -268,7 +269,7 @@
         .stat-number {
             font-size: 3rem;
             font-weight: 700;
-            margin-bottom: 0.5rem;
+            margin-bottom: 0.35rem;
         }
 
         .stat-label {
@@ -278,21 +279,21 @@
 
         .cta-section {
             background-color: var(--bg-secondary);
-            padding: 1.5rem;
+            padding: 1.05rem;
             border-radius: 8px;
             text-align: center;
-            margin-top: 1.5rem;
+            margin-top: 1.05rem;
             transition: background-color var(--transition-base);
         }
 
         .cta-section h3 {
             color: var(--text-primary);
-            margin-bottom: 1rem;
+            margin-bottom: 0.7rem;
         }
 
         .cta-section p {
             color: var(--text-secondary);
-            margin-bottom: 1.5rem;
+            margin-bottom: 1.05rem;
             max-width: 600px;
             margin-left: auto;
             margin-right: auto;
@@ -339,7 +340,7 @@
 
         @media (max-width: 768px) {
             .about-section {
-                padding: 1.5rem;
+                padding: 1.05rem;
             }
 
             .mission-vision-grid,
@@ -356,7 +357,19 @@
 
         /* Add top margin to h3 and h4 elements */
         h3, h4 {
-            margin-top: 16px;
+            margin-top: 11.2px;
+        }
+
+        /* Night mode styling for about-section */
+        html.night-mode .about-section,
+        body.night-mode .about-section {
+            background: linear-gradient(135deg, rgba(74, 144, 226, 0.25) 0%, rgba(139, 92, 246, 0.25) 100%) !important;
+            border-color: rgba(74, 144, 226, 0.4) !important;
+        }
+
+        html.night-mode .about-section h3,
+        body.night-mode .about-section h3 {
+            color: #FFFFFF !important;
         }
     </style>
 </head>
@@ -521,28 +534,6 @@
                     </div>
                 </div>
             </div>
-
-            <!-- Team Section (Optional) 
-            <div class="team-section">
-                <h3>Meet Our Team</h3>
-                <p style="text-align: center; margin-bottom: 2rem;">[Add a description of your team and their dedication to math education.]</p>
-                <div class="team-grid">
-                    <div class="team-member">
-                        <div class="team-member-placeholder">[?]</div>
-                        <h4>[Team Member Name]</h4>
-                        <p class="role">[Role/Title]</p>
-                        <p>[Brief bio describing their background, expertise, and role in Fresh Math.]</p>
-                    </div>
-                    <div class="team-member">
-                        <div class="team-member-placeholder">[?]</div>
-                        <h4>[Team Member Name]</h4>
-                        <p class="role">[Role/Title]</p>
-                        <p>[Brief bio describing their background, expertise, and role in Fresh Math.]</p>
-                    </div>
-                    Add more team members as needed, or remove this section if not applicable
-                </div>
-            </div> -->
-            <!-- Call to Action -->
             <div class="cta-section">
                 <h3>Join the Fresh Math Community</h3>
                 <p>Start exploring our free resources today and help your child build a strong foundation in mathematics!</p>
