@@ -2105,11 +2105,11 @@ body.night-mode .resources-section a:hover {
 }
 
 .ad-sidebar-left {
-    left: 10px;
+    left: 40px;
 }
 
 .ad-sidebar-right {
-    right: 10px;
+    right: 40px;
 }
 
 /* Hide ads on tablets and mobile */
