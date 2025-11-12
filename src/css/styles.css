@@ -1477,8 +1477,12 @@ body.night-mode .worksheet-link.unavailable::after {
     gap: 0.5rem;
     border-bottom: 2px solid var(--border-color);
     overflow-x: auto;
+    overflow-y: hidden;
     scrollbar-width: thin;
-    padding-bottom: 0.5rem;
+    padding-top: 6px;
+    padding-bottom: 0;
+    padding-left: 6px;
+    padding-right: 6px;
     margin-bottom: 1.5rem;
 }
 
@@ -1495,7 +1499,7 @@ body.night-mode .worksheet-link.unavailable::after {
     transition: all var(--transition-base);
     white-space: nowrap;
     position: relative;
-    bottom: -2px;
+    margin-bottom: -2px;
     text-align: center;
     display: flex;
     align-items: center;
@@ -1843,7 +1847,8 @@ body.night-mode .intro-text {
 
 html.night-mode .hero,
 body.night-mode .hero {
-    background: linear-gradient(135deg, rgba(74, 144, 226, 0.1) 0%, rgba(139, 92, 246, 0.1) 100%);
+    background: linear-gradient(135deg, rgba(74, 144, 226, 0.15) 0%, rgba(139, 92, 246, 0.15) 100%);
+    border-color: rgba(74, 144, 226, 0.3);
 }
 
 html.night-mode .grade-overview,
