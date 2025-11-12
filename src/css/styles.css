@@ -747,7 +747,7 @@ footer {
 
 .hero h2 {
     color: var(--dark-blue);
-    font-size: 2.5rem;
+    font-size: 2.25rem;
     font-weight: 700;
     margin-top: 0;
     margin-bottom: var(--spacing-sm);
@@ -1687,7 +1687,8 @@ body.night-mode .worksheet-link.unavailable::after {
 
 /* Related Grades / Footer Sections */
 .related-grades {
-    background-color: var(--bg-secondary);
+    background: linear-gradient(135deg, rgba(74, 144, 226, 0.1) 0%, rgba(139, 92, 246, 0.1) 100%);
+    border: 2px solid rgba(74, 144, 226, 0.2);
     padding: 1.5rem;
     margin: 1rem 0;
     border-radius: 8px;
