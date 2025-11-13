@@ -16,7 +16,8 @@
       "Bash(python:*)",
       "Bash(for file in algebra1.html algebra2.html apstats.html calculus.html contact.html geometry.html grade2.html grade3.html grade4.html grade5.html grade6.html grade7.html grade8.html integratedmath1.html integratedmath2.html integratedmath3.html kindergarten.html parents.html)",
       "Bash(do echo \"Processing $file\")",
-      "Bash(done)"
+      "Bash(done)",
+      "Bash(pip install:*)"
     ],
     "deny": [],
     "ask": []
