@@ -27,6 +27,25 @@ from typing import Union
 class PDFWorksheetGenerator:
     """Generates PDF worksheets with LaTeX-rendered equations."""
 
+    # Page layout constants
+    BLEED_EDGE = 0.125 * inch  # Standard print bleed
+    TOP_MARGIN = 0.5 * inch
+    BOTTOM_MARGIN = 0.5 * inch
+    BOTTOM_PADDING = 1.0 * inch  # Static padding to keep problems from extending too low
+
+    # Spacing constraints per problem type (min, max)
+    MIN_SPACING = {
+        'linear_equation': 0.6 * inch,
+        'system_of_equations': 1.0 * inch,
+        'inequality': 1.5 * inch
+    }
+
+    MAX_SPACING = {
+        'linear_equation': 2.5 * inch,
+        'system_of_equations': 2.0 * inch,
+        'inequality': 2.5 * inch
+    }
+
     def __init__(self):
         """Initialize the PDF generator."""
         # Configure matplotlib for LaTeX rendering
@@ -74,6 +93,46 @@ class PDFWorksheetGenerator:
             print(f"Warning: Could not register custom fonts: {e}")
             print("Falling back to default fonts")
 
+    def _calculate_dynamic_spacing(self, problem_type: str, num_problems: int,
+                                   start_y: float, end_y: float) -> float:
+        """
+        Calculate optimal vertical spacing for problems in a column.
+
+        Args:
+            problem_type: Type of problem (linear_equation, system_of_equations, inequality)
+            num_problems: Number of problems in this column
+            start_y: Starting y position (top of column)
+            end_y: Ending y position (bottom limit, accounting for footer + bleed + padding)
+
+        Returns:
+            Optimal spacing in inches
+        """
+        # Calculate available space
+        # We need to account for the space that the last problem takes up
+        # For inequalities, add extra space for the number line
+        if problem_type == 'inequality':
+            problem_height = 0.8 * inch  # Approximate height for inequality with number line
+        elif problem_type == 'system_of_equations':
+            problem_height = 0.4 * inch  # Approximate height for two-line system
+        else:
+            problem_height = 0.2 * inch  # Approximate height for single equation
+
+        available_space = start_y - end_y - problem_height
+
+        # Calculate ideal spacing to fill the space
+        if num_problems > 1:
+            ideal_spacing = available_space / (num_problems - 1)
+        else:
+            ideal_spacing = available_space
+
+        # Apply constraints
+        min_spacing = self.MIN_SPACING.get(problem_type, 0.6 * inch)
+        max_spacing = self.MAX_SPACING.get(problem_type, 1.5 * inch)
+
+        optimal_spacing = max(min_spacing, min(ideal_spacing, max_spacing))
+
+        return optimal_spacing
+
     def render_latex_to_image(self, latex_str: str, fontsize: int = 16) -> ImageReader:
         """
         Render a LaTeX string to an image using matplotlib.
@@ -105,7 +164,7 @@ class PDFWorksheetGenerator:
 
     def render_system_to_image(self, eq1: str, eq2: str, fontsize: int = 16) -> ImageReader:
         """
-        Render a system of equations as two lines with a brace.
+        Render a system of equations as two lines without a brace.
 
         Args:
             eq1: First equation in LaTeX
@@ -122,11 +181,8 @@ class PDFWorksheetGenerator:
         ax.axis('off')
 
         # Render both equations
-        ax.text(0.12, 0.70, f'${eq1}$', fontsize=fontsize, verticalalignment='center')
-        ax.text(0.12, 0.30, f'${eq2}$', fontsize=fontsize, verticalalignment='center')
-
-        # Add a simple brace using text (not LaTeX)
-        ax.text(0.02, 0.50, '{', fontsize=fontsize*3, verticalalignment='center', family='monospace')
+        ax.text(0.05, 0.70, f'${eq1}$', fontsize=fontsize, verticalalignment='center')
+        ax.text(0.05, 0.30, f'${eq2}$', fontsize=fontsize, verticalalignment='center')
 
         # Save to bytes buffer
         buf = io.BytesIO()
@@ -310,14 +366,54 @@ class PDFWorksheetGenerator:
     def _draw_worksheet_page(self, c: canvas.Canvas, equations: List[Union[Equation, SystemProblem, InequalityProblem]],
                             title: str, width: float, height: float):
         """Draw the main worksheet page with problems."""
-        # Header fields at top - use Poppins if available, else Lexend
+        # Header with logo in top right
+        y_pos = height - 0.5 * inch
+
+        # Draw QR code in top left corner
+        try:
+            base_dir = os.path.dirname(os.path.dirname(__file__))
+            qr_path = os.path.join(base_dir, 'src', 'icons', 'freshmath_qr.png')
+
+            if os.path.exists(qr_path):
+                qr_size = 0.6 * inch  # QR code size
+                # Position 0.25 inches from top and left edges
+                qr_x = 0.25 * inch
+                qr_y = height - 0.25 * inch - qr_size  # 0.25" from top
+
+                c.drawImage(qr_path, qr_x, qr_y, width=qr_size, height=qr_size,
+                           preserveAspectRatio=True, mask='auto')
+        except Exception as e:
+            pass  # Silently skip if QR code not available
+
+        # Draw logo in top right (1.2 inches - reduced by 25%)
+        try:
+            base_dir = os.path.dirname(os.path.dirname(__file__))
+            logo_path = os.path.join(base_dir, 'src', 'icons', 'FreshMath_V3',
+                                     'Black', 'FreshMath_Black_Secondary.png')
+
+            if os.path.exists(logo_path):
+                logo_size = 1.2 * inch  # Reduced by 25% from 1.6 inches
+                # Position in top right corner with margin
+                logo_x = width - logo_size - 0.25 * inch
+                logo_y = y_pos - logo_size + 0.3 * inch  # Adjust vertical alignment
+
+                c.drawImage(logo_path, logo_x, logo_y, width=logo_size, height=logo_size,
+                           preserveAspectRatio=True, mask='auto')
+        except Exception as e:
+            print(f"Warning: Could not load logo: {e}")
+
+        # Header fields - use Poppins if available, else Lexend
         try:
             c.setFont("Poppins", 11)
         except:
             c.setFont("Lexend", 11)
-        y_pos = height - 0.5 * inch
+
+        # Name on left (positioned after QR code)
         c.drawString(1 * inch, y_pos, "Name: _________________________")
-        c.drawRightString(width - 1 * inch, y_pos, "Date: _____________")
+
+        # Date to the left of logo (in top right area)
+        date_x = width - 1.2 * inch - 0.7 * inch  # Position left of logo with some spacing
+        c.drawRightString(date_x, y_pos, "Date: _____________")
 
         # Title below header - use Poppins-Bold if available
         try:
@@ -346,14 +442,6 @@ class PDFWorksheetGenerator:
 
         config = get_config(problem_type)
 
-        # Instructions - use Lexend
-        y_pos -= 0.5 * inch
-        try:
-            c.setFont("Lexend", 10)
-        except:
-            c.setFont("Helvetica", 10)
-        c.drawString(1 * inch, y_pos, config.instructions)
-
         # Draw problems - use Lexend
         y_pos -= 0.5 * inch
         try:
@@ -361,9 +449,28 @@ class PDFWorksheetGenerator:
         except:
             c.setFont("Helvetica", 11)
 
+        # Calculate usable vertical space with bleed edge and static padding
+        header_end = y_pos  # Current position after instructions
+        footer_start = self.BOTTOM_MARGIN + self.BLEED_EDGE + self.BOTTOM_PADDING  # 0.625" + 1.0" = 1.625"
+        usable_space = header_end - footer_start
+
         # Use configuration for layout
         problems_per_page = min(len(equations), config.problems_per_page)
-        spacing = config.vertical_spacing * inch
+
+        # Determine problems per column based on problem type
+        if is_inequality or is_system:
+            problems_per_column = 4  # 2 columns × 4 rows
+        else:  # linear equations
+            problems_per_column = 5  # First two columns have 5 problems
+
+        # Calculate dynamic spacing for first column
+        actual_problems_first_column = min(problems_per_page, problems_per_column)
+        spacing = self._calculate_dynamic_spacing(
+            problem_type,
+            actual_problems_first_column,
+            header_end,
+            footer_start
+        )
 
         x_start = 1 * inch
         y_start = y_pos
@@ -374,22 +481,54 @@ class PDFWorksheetGenerator:
                 # Inequalities: 2 columns x 4 rows
                 if idx > 0 and idx % 4 == 0:
                     # Move to second column after 4 problems
+                    # Recalculate spacing for remaining problems
+                    remaining_problems = min(problems_per_page - idx, 4)
+                    spacing = self._calculate_dynamic_spacing(
+                        problem_type,
+                        remaining_problems,
+                        y_start,
+                        footer_start
+                    )
                     x_start = 4.25 * inch
                     y_pos = y_start
             elif is_system:
                 # Systems: single column or 2 columns depending on space
                 if idx > 0 and idx % 4 == 0 and idx < 8:
+                    # Recalculate spacing for remaining problems
+                    remaining_problems = min(problems_per_page - idx, 4)
+                    spacing = self._calculate_dynamic_spacing(
+                        problem_type,
+                        remaining_problems,
+                        y_start,
+                        footer_start
+                    )
                     x_start = 4.25 * inch
                     y_pos = y_start
             else:
                 # Regular equations: 3 columns of 5
                 if idx > 0 and idx % 5 == 0:
                     if idx == 5:
+                        # Second column
+                        remaining_problems = min(problems_per_page - idx, 5)
+                        spacing = self._calculate_dynamic_spacing(
+                            problem_type,
+                            remaining_problems,
+                            y_start,
+                            footer_start
+                        )
                         x_start = 4.5 * inch
                         y_pos = y_start
                     elif idx == 10:
+                        # Third column
+                        remaining_problems = min(problems_per_page - idx, 5)
+                        spacing = self._calculate_dynamic_spacing(
+                            problem_type,
+                            remaining_problems,
+                            y_start,
+                            footer_start
+                        )
                         x_start = 1 * inch
-                        y_pos = y_start - 3.5 * inch
+                        y_pos = y_start
 
             # Problem number and equation text - use Lexend
             try:
@@ -410,12 +549,21 @@ class PDFWorksheetGenerator:
                 # Convert LaTeX equation to plain text (remove LaTeX formatting)
                 plain_text = equation.latex.replace('\\leq', '≤').replace('\\geq', '≥').replace('\\', '')
                 c.drawString(x_start, y_pos, f"{idx + 1}. {plain_text}")
+            elif is_system:
+                # For systems: display both equations as plain text
+                # Convert LaTeX to plain text
+                eq1_plain = equation.equation1_latex.replace('\\', '')
+                eq2_plain = equation.equation2_latex.replace('\\', '')
+                c.drawString(x_start, y_pos, f"{idx + 1}. {eq1_plain}")
+                c.drawString(x_start + 0.25 * inch, y_pos - 0.25 * inch, eq2_plain)
             else:
-                c.drawString(x_start, y_pos, f"{idx + 1}.")
+                # For regular equations: display equation as plain text
+                plain_text = equation.latex.replace('\\', '')
+                c.drawString(x_start, y_pos, f"{idx + 1}. {plain_text}")
 
-            # Render equation/system/inequality as image using configuration
-            try:
-                if is_inequality:
+            # Render number line for inequalities only
+            if is_inequality:
+                try:
                     # Inequality: render just BLANK number line for students to fill in
                     img = self.render_blank_numberline(
                         equation.number_line_min,
@@ -425,23 +573,7 @@ class PDFWorksheetGenerator:
                         equation.inequality_type,
                         show_solution=False  # Blank number line on worksheet
                     )
-                elif is_system:
-                    # Systems: render two equations with brace
-                    img = self.render_system_to_image(
-                        equation.equation1_latex,
-                        equation.equation2_latex,
-                        fontsize=config.latex_fontsize
-                    )
-                else:
-                    # Single equation
-                    img = self.render_latex_to_image(
-                        equation.latex,
-                        fontsize=config.latex_fontsize
-                    )
 
-                # Draw image with configured dimensions
-                # For inequalities, only constrain width to prevent shrinking
-                if is_inequality:
                     # Number line width - slightly shorter than full column
                     numberline_width = 3.0 * inch
                     # Calculate height based on aspect ratio (8" wide x 1.2" tall for number line only)
@@ -455,44 +587,24 @@ class PDFWorksheetGenerator:
                         height=natural_height,
                         preserveAspectRatio=True
                     )
-                else:
-                    c.drawImage(
-                        img,
-                        x_start + 0.25 * inch,
-                        y_pos - config.vertical_offset * inch,
-                        width=config.image_width * inch,
-                        height=config.image_height * inch,
-                        preserveAspectRatio=True
-                    )
-            except Exception as e:
-                # Fallback to plain text if LaTeX rendering fails
-                c.setFont("Courier", 9)
-                if is_system:
-                    c.drawString(x_start + 0.25 * inch, y_pos, equation.equation1_latex)
-                    c.drawString(x_start + 0.25 * inch, y_pos - 0.2 * inch, equation.equation2_latex)
-                else:
-                    c.drawString(x_start + 0.25 * inch, y_pos, equation.latex)
-                print(f"Warning: LaTeX rendering failed: {e}")
+                except Exception as e:
+                    print(f"Warning: Number line rendering failed: {e}")
 
             y_pos -= spacing
 
         # Footer - use Lexend
         try:
-            c.setFont("Lexend", 8)
+            c.setFont("Lexend", 10)
         except:
-            c.setFont("Helvetica", 8)
-        c.drawCentredString(width / 2, 0.5 * inch,
-                           f"Generated on {datetime.now().strftime('%B %d, %Y')}")
-
-        # Add Fresh Math logo to bottom right
-        self._draw_logo(c, width, height)
+            c.setFont("Helvetica", 10)
+        c.drawCentredString(width / 2, 0.5 * inch, "freshmath.org")
 
     def _draw_logo(self, c: canvas.Canvas, width: float, height: float):
         """Draw the Fresh Math logo in the bottom right corner."""
         try:
             # Get the path to the logo
             base_dir = os.path.dirname(os.path.dirname(__file__))
-            logo_path = os.path.join(base_dir, 'src', 'icons', 'FreshMath_V3', 'Subtext', 'Black', 'FreshMath_Black_Secondary_Subtext.png')
+            logo_path = os.path.join(base_dir, 'src', 'icons', 'FreshMath_V3', 'Black', 'FreshMath_Black_Secondary.png')
 
             if os.path.exists(logo_path):
                 # Logo size (0.8 inches - twice as big)
@@ -510,7 +622,43 @@ class PDFWorksheetGenerator:
 
     def _draw_answer_key_page(self, c: canvas.Canvas, equations: List[Union[Equation, SystemProblem, InequalityProblem]],
                              title: str, width: float, height: float):
-        """Draw the answer key page."""
+        """Draw the answer key page with same layout as worksheet, answers in red."""
+        # Header with logo in top right (matching worksheet page)
+        y_pos = height - 0.5 * inch
+
+        # Draw QR code in top left corner
+        try:
+            base_dir = os.path.dirname(os.path.dirname(__file__))
+            qr_path = os.path.join(base_dir, 'src', 'icons', 'freshmath_qr.png')
+
+            if os.path.exists(qr_path):
+                qr_size = 0.6 * inch  # QR code size
+                # Position 0.25 inches from top and left edges
+                qr_x = 0.25 * inch
+                qr_y = height - 0.25 * inch - qr_size  # 0.25" from top
+
+                c.drawImage(qr_path, qr_x, qr_y, width=qr_size, height=qr_size,
+                           preserveAspectRatio=True, mask='auto')
+        except Exception as e:
+            pass  # Silently skip if QR code not available
+
+        # Draw logo in top right (1.2 inches - reduced by 25%)
+        try:
+            base_dir = os.path.dirname(os.path.dirname(__file__))
+            logo_path = os.path.join(base_dir, 'src', 'icons', 'FreshMath_V3',
+                                     'Black', 'FreshMath_Black_Secondary.png')
+
+            if os.path.exists(logo_path):
+                logo_size = 1.2 * inch  # Reduced by 25% from 1.6 inches
+                # Position in top right corner with margin
+                logo_x = width - logo_size - 0.25 * inch
+                logo_y = y_pos - logo_size + 0.3 * inch  # Adjust vertical alignment
+
+                c.drawImage(logo_path, logo_x, logo_y, width=logo_size, height=logo_size,
+                           preserveAspectRatio=True, mask='auto')
+        except Exception as e:
+            print(f"Warning: Could not load logo: {e}")
+
         # Title - use Poppins-Bold if available
         try:
             c.setFont("Poppins-Bold", 18)
@@ -519,22 +667,72 @@ class PDFWorksheetGenerator:
                 c.setFont("Lexend-Bold", 18)
             except:
                 c.setFont("Helvetica-Bold", 18)
-        c.drawCentredString(width / 2, height - 0.75 * inch, f"{title} - Answer Key")
+        y_pos -= 0.5 * inch
+        c.drawCentredString(width / 2, y_pos, f"{title} - Answer Key")
 
-        # Check problem type
-        is_system = equations and isinstance(equations[0], SystemProblem)
-        is_inequality = equations and isinstance(equations[0], InequalityProblem)
+        # Detect problem type and get configuration
+        if equations and isinstance(equations[0], SystemProblem):
+            problem_type = 'system_of_equations'
+            is_system = True
+            is_inequality = False
+        elif equations and isinstance(equations[0], InequalityProblem):
+            problem_type = 'inequality'
+            is_system = False
+            is_inequality = True
+        else:
+            problem_type = 'linear_equation'
+            is_system = False
+            is_inequality = False
+
+        config = get_config(problem_type)
+
+        # Start drawing problems - use same layout as worksheet
+        y_pos -= 0.5 * inch
+        try:
+            c.setFont("Lexend", 11)
+        except:
+            c.setFont("Helvetica", 11)
+
+        # Calculate usable vertical space with bleed edge and static padding (same as worksheet)
+        header_end = y_pos
+        footer_start = self.BOTTOM_MARGIN + self.BLEED_EDGE + self.BOTTOM_PADDING
+        usable_space = header_end - footer_start
+
+        # Use configuration for layout
+        problems_per_page = min(len(equations), config.problems_per_page)
+
+        # Determine problems per column based on problem type
+        if is_inequality or is_system:
+            problems_per_column = 4  # 2 columns × 4 rows
+        else:  # linear equations
+            problems_per_column = 5  # First two columns have 5 problems
+
+        # Calculate dynamic spacing for first column (same as worksheet)
+        actual_problems_first_column = min(problems_per_page, problems_per_column)
+        spacing = self._calculate_dynamic_spacing(
+            problem_type,
+            actual_problems_first_column,
+            header_end,
+            footer_start
+        )
+
+        x_start = 1 * inch
+        y_start = y_pos
 
         if is_inequality:
             # For inequalities: show number lines with solutions in 2-column layout
-            y_pos = height - 1.25 * inch
-            x_start = 1 * inch
-            y_start = y_pos
-
-            for idx, equation in enumerate(equations[:8]):  # Only show 8 problems
+            for idx, equation in enumerate(equations[:problems_per_page]):
                 # Layout: 2 columns x 4 rows (same as worksheet)
                 if idx > 0 and idx % 4 == 0:
                     # Move to second column after 4 problems
+                    # Recalculate spacing for remaining problems
+                    remaining_problems = min(problems_per_page - idx, 4)
+                    spacing = self._calculate_dynamic_spacing(
+                        problem_type,
+                        remaining_problems,
+                        y_start,
+                        footer_start
+                    )
                     x_start = 4.25 * inch
                     y_pos = y_start
 
@@ -596,56 +794,97 @@ class PDFWorksheetGenerator:
                 except Exception as e:
                     print(f"Warning: Answer key rendering failed: {e}")
 
-                y_pos -= 2.0 * inch  # Same spacing as worksheet
+                y_pos -= spacing
+
+        elif is_system:
+            # For systems: 2 columns x 4 rows layout with answers in red
+            for idx, equation in enumerate(equations[:problems_per_page]):
+                # Layout: 2 columns x 4 rows (same as worksheet)
+                if idx > 0 and idx % 4 == 0:
+                    # Move to second column after 4 problems
+                    # Recalculate spacing for remaining problems
+                    remaining_problems = min(problems_per_page - idx, 4)
+                    spacing = self._calculate_dynamic_spacing(
+                        problem_type,
+                        remaining_problems,
+                        y_start,
+                        footer_start
+                    )
+                    x_start = 4.25 * inch
+                    y_pos = y_start
+
+                # Display problem number and both equations as plain text
+                try:
+                    c.setFont("Lexend", 11)
+                except:
+                    c.setFont("Helvetica", 11)
+
+                eq1_plain = equation.equation1_latex.replace('\\', '')
+                eq2_plain = equation.equation2_latex.replace('\\', '')
+                c.drawString(x_start, y_pos, f"{idx + 1}. {eq1_plain}")
+                c.drawString(x_start + 0.25 * inch, y_pos - 0.25 * inch, eq2_plain)
+
+                # Display answer in RED below the equations
+                c.setFillColorRGB(1, 0, 0)  # Red color
+                c.drawString(x_start + 0.25 * inch, y_pos - 0.55 * inch, equation.solution)
+                c.setFillColorRGB(0, 0, 0)  # Reset to black
+
+                y_pos -= spacing
 
         else:
-            # For equations and systems: text-based answers in 3 columns
-            y_pos = height - 1.5 * inch
-            try:
-                c.setFont("Lexend", 11)
-            except:
-                c.setFont("Helvetica", 11)
+            # For linear equations: 3 columns x 5 rows layout with answers in red
+            for idx, equation in enumerate(equations[:problems_per_page]):
+                # Layout: 3 columns of 5 problems each (same as worksheet)
+                if idx > 0 and idx % 5 == 0:
+                    if idx == 5:
+                        # Second column
+                        remaining_problems = min(problems_per_page - idx, 5)
+                        spacing = self._calculate_dynamic_spacing(
+                            problem_type,
+                            remaining_problems,
+                            y_start,
+                            footer_start
+                        )
+                        x_start = 4.5 * inch
+                        y_pos = y_start
+                    elif idx == 10:
+                        # Third column
+                        remaining_problems = min(problems_per_page - idx, 5)
+                        spacing = self._calculate_dynamic_spacing(
+                            problem_type,
+                            remaining_problems,
+                            y_start,
+                            footer_start
+                        )
+                        x_start = 1 * inch
+                        y_pos = y_start
 
-            col1_x = 1 * inch
-            col2_x = 4 * inch
-            col3_x = 6.5 * inch
+                # Display problem number and equation as plain text
+                try:
+                    c.setFont("Lexend", 11)
+                except:
+                    c.setFont("Helvetica", 11)
 
-            for idx, equation in enumerate(equations):
-                # Determine column
-                if idx % 3 == 0:
-                    x_pos = col1_x
-                elif idx % 3 == 1:
-                    x_pos = col2_x
+                plain_text = equation.latex.replace('\\', '')
+                c.drawString(x_start, y_pos, f"{idx + 1}. {plain_text}")
+
+                # Display answer in RED below the equation
+                c.setFillColorRGB(1, 0, 0)  # Red color
+                if equation.solution == int(equation.solution):
+                    solution_str = f"x = {int(equation.solution)}"
                 else:
-                    x_pos = col3_x
+                    solution_str = f"x = {equation.solution:.2f}"
+                c.drawString(x_start + 0.25 * inch, y_pos - 0.25 * inch, solution_str)
+                c.setFillColorRGB(0, 0, 0)  # Reset to black
 
-                # Format solution based on type
-                if is_system:
-                    # SystemProblem has solution string already formatted
-                    solution_str = equation.solution
-                else:
-                    # Equation object - format x value
-                    if equation.solution == int(equation.solution):
-                        solution_str = f"x = {int(equation.solution)}"
-                    else:
-                        solution_str = f"x = {equation.solution:.2f}"
-
-                c.drawString(x_pos, y_pos, f"{idx + 1}. {solution_str}")
-
-                # Move to next row after every 3 answers
-                if idx % 3 == 2:
-                    y_pos -= 0.35 * inch
+                y_pos -= spacing
 
         # Footer - use Lexend
         try:
-            c.setFont("Lexend", 8)
+            c.setFont("Lexend", 10)
         except:
-            c.setFont("Helvetica", 8)
-        c.drawCentredString(width / 2, 0.5 * inch,
-                           f"Generated on {datetime.now().strftime('%B %d, %Y')}")
-
-        # Add Fresh Math logo to bottom right
-        self._draw_logo(c, width, height)
+            c.setFont("Helvetica", 10)
+        c.drawCentredString(width / 2, 0.5 * inch, "freshmath.org")
 
 
 # Example usage and testing

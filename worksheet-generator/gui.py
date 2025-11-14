@@ -11,6 +11,7 @@ from equation_generator import LinearEquationGenerator
 from systems_generator import SystemsOfEquationsGenerator
 from inequalities_generator import InequalityGenerator
 from pdf_generator import PDFWorksheetGenerator
+from worksheet_config import get_config
 
 
 class WorksheetGeneratorGUI:
@@ -33,6 +34,13 @@ class WorksheetGeneratorGUI:
         self.systems_gen = SystemsOfEquationsGenerator()
         self.inequality_gen = InequalityGenerator()
         self.pdf_gen = PDFWorksheetGenerator()
+
+        # Map display names to config keys
+        self.problem_type_map = {
+            'Linear Equations': 'linear_equation',
+            'Systems of Equations': 'system_of_equations',
+            'Inequalities': 'inequality'
+        }
 
         # Setup UI
         self._create_widgets()
@@ -63,6 +71,7 @@ class WorksheetGeneratorGUI:
         def update_problem_type(event=None):
             self._update_difficulty_descriptions()
             self._update_worksheet_title()
+            self._update_default_num_problems()
 
         type_combo.bind('<<ComboboxSelected>>', update_problem_type)
 
@@ -166,6 +175,15 @@ class WorksheetGeneratorGUI:
         # Capitalize difficulty level for display
         difficulty_capitalized = difficulty.capitalize()
         self.title_var.set(f"{problem_type} - {difficulty_capitalized}")
+
+    def _update_default_num_problems(self):
+        """Update the default number of problems based on problem type."""
+        problem_type = self.problem_type_var.get()
+        # Get the config key from the display name
+        config_key = self.problem_type_map.get(problem_type)
+        if config_key:
+            config = get_config(config_key)
+            self.num_problems_var.set(str(config.default_num_problems))
 
     def generate_worksheet(self):
         """Generate the worksheet PDF based on user inputs."""

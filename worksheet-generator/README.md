@@ -8,7 +8,11 @@ A desktop application for generating printable math worksheets with answer keys.
 - **Professional PDFs** with LaTeX-rendered equations
 - **Visual Number Lines** for inequalities showing solution regions
 - **Answer Keys** on separate page
-- **Smart GUI Interface**: Auto-updates worksheet title based on problem type AND difficulty level
+- **Smart GUI Interface**: Auto-updates worksheet title AND default problem count based on problem type
+- **Smart Defaults**: Different problem types have different default counts based on space requirements:
+  - Pure equations: 10 problems (default)
+  - Inequalities (with number lines): 8 problems
+  - Systems of equations (with coordinate planes): 6 problems
 - **Centralized Configuration**: Easy to add new problem types with consistent rendering
 
 ## Installation
