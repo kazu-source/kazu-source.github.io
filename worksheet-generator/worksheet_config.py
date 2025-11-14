@@ -52,11 +52,11 @@ PROBLEM_TYPE_CONFIGS: Dict[str, ProblemTypeConfig] = {
 
     'inequality': ProblemTypeConfig(
         latex_fontsize=22,  # Larger font for better readability
-        image_width=3.5,
-        image_height=1.4,  # Extra height for number line
-        vertical_offset=0.7,
-        problems_per_page=8,
-        vertical_spacing=1.2,
+        image_width=3.0,    # Smaller width for 2-column layout
+        image_height=1.0,   # Height for number line
+        vertical_offset=0.5,
+        problems_per_page=8,  # 2 columns x 4 rows
+        vertical_spacing=2.0,  # More space for students to work
         instructions="Solve each inequality and graph the solution on the number line."
     ),
 
