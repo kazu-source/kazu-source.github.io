@@ -19,7 +19,9 @@
       "Bash(done)",
       "Bash(pip install:*)",
       "Bash(nul)",
-      "Bash(dir:*)"
+      "Bash(dir:*)",
+      "Bash(word_problems_generator.py)",
+      "Bash(if exist __pycache__ rmdir /s /q __pycache__)"
     ],
     "deny": [],
     "ask": []

@@ -10,6 +10,10 @@ from datetime import datetime
 from equation_generator import LinearEquationGenerator
 from systems_generator import SystemsOfEquationsGenerator
 from inequalities_generator import InequalityGenerator
+from properties_generator import PropertiesOfEqualityGenerator
+from properties_mult_div_generator import PropertiesMultDivGenerator
+from word_problems_generator import WordProblemsGenerator
+from multistep_generator import MultiStepEquationGenerator
 from pdf_generator import PDFWorksheetGenerator
 from worksheet_config import get_config
 
@@ -33,13 +37,21 @@ class WorksheetGeneratorGUI:
         self.equation_gen = LinearEquationGenerator()
         self.systems_gen = SystemsOfEquationsGenerator()
         self.inequality_gen = InequalityGenerator()
+        self.properties_gen = PropertiesOfEqualityGenerator()
+        self.properties_mult_div_gen = PropertiesMultDivGenerator()
+        self.word_problems_gen = WordProblemsGenerator()
+        self.multistep_gen = MultiStepEquationGenerator()
         self.pdf_gen = PDFWorksheetGenerator()
 
         # Map display names to config keys
         self.problem_type_map = {
             'Linear Equations': 'linear_equation',
             'Systems of Equations': 'system_of_equations',
-            'Inequalities': 'inequality'
+            'Inequalities': 'inequality',
+            'Properties of Equality - Add/Subtract': 'properties_of_equality',
+            'Properties of Equality - Mult/Div': 'properties_mult_div',
+            'Word Problems - Add/Subtract': 'word_problems',
+            'Multi-Step Equations': 'multistep_equations'
         }
 
         # Setup UI
@@ -64,7 +76,9 @@ class WorksheetGeneratorGUI:
         self.problem_type_var = tk.StringVar(value="Linear Equations")
         type_combo = ttk.Combobox(main_frame, textvariable=self.problem_type_var,
                                  state="readonly", width=25)
-        type_combo['values'] = ('Linear Equations', 'Systems of Equations', 'Inequalities')
+        type_combo['values'] = ('Linear Equations', 'Systems of Equations', 'Inequalities',
+                                'Properties of Equality - Add/Subtract', 'Properties of Equality - Mult/Div',
+                                'Word Problems - Add/Subtract', 'Multi-Step Equations')
         type_combo.grid(row=1, column=1, sticky=(tk.W, tk.E), pady=10, padx=(10, 0))
 
         # Update difficulty descriptions when problem type changes
@@ -105,6 +119,24 @@ class WorksheetGeneratorGUI:
                 'medium': 'Two-step inequalities (2x + 3 > 11)',
                 'hard': 'Multi-step with parentheses',
                 'challenge': 'Variables on both sides (direction may flip)'
+            },
+            'Properties of Equality - Add/Subtract': {
+                'easy': 'Numbers 1-10 (x + 3 = 8, x - 5 = 2)',
+                'medium': 'Numbers 1-20 (x + 12 = 25, x - 8 = 14)',
+                'hard': 'Numbers 1-50 (may result in negatives)',
+                'challenge': 'Numbers 1-50 (may result in negatives)'
+            },
+            'Properties of Equality - Mult/Div': {
+                'easy': 'Numbers 1-10 (3x = 12, x/2 = 5)',
+                'medium': 'Numbers 1-20 (7x = 42, x/4 = 9)',
+                'hard': 'Numbers 1-50 (larger products/quotients)',
+                'challenge': 'Numbers 1-50 (larger products/quotients)'
+            },
+            'Word Problems - Add/Subtract': {
+                'easy': 'Numbers 1-20 (simple contexts)',
+                'medium': 'Numbers 1-50 (varied contexts)',
+                'hard': 'Numbers 1-100 (complex scenarios)',
+                'challenge': 'Numbers 1-100 (complex scenarios)'
             }
         }
 
@@ -205,6 +237,14 @@ class WorksheetGeneratorGUI:
                 status_text = "Generating systems..."
             elif problem_type == "Inequalities":
                 status_text = "Generating inequalities..."
+            elif problem_type == "Properties of Equality - Add/Subtract":
+                status_text = "Generating properties (add/subtract)..."
+            elif problem_type == "Properties of Equality - Mult/Div":
+                status_text = "Generating properties (mult/div)..."
+            elif problem_type == "Word Problems - Add/Subtract":
+                status_text = "Generating word problems..."
+            elif problem_type == "Multi-Step Equations":
+                status_text = "Generating multi-step equations..."
             else:
                 status_text = "Generating equations..."
             self.status_var.set(status_text)
@@ -215,11 +255,23 @@ class WorksheetGeneratorGUI:
                 equations = self.systems_gen.generate_worksheet(difficulty, num_problems)
             elif problem_type == "Inequalities":
                 equations = self.inequality_gen.generate_worksheet(difficulty, num_problems)
+            elif problem_type == "Properties of Equality - Add/Subtract":
+                equations = self.properties_gen.generate_worksheet(difficulty, num_problems, 'mixed')
+            elif problem_type == "Properties of Equality - Mult/Div":
+                equations = self.properties_mult_div_gen.generate_worksheet(difficulty, num_problems, 'mixed')
+            elif problem_type == "Word Problems - Add/Subtract":
+                equations = self.word_problems_gen.generate_worksheet(difficulty, num_problems, 'mixed')
+            elif problem_type == "Multi-Step Equations":
+                equations = self.multistep_gen.generate_worksheet(difficulty, num_problems)
             else:
                 equations = self.equation_gen.generate_worksheet(difficulty, num_problems)
 
             # Ask user where to save
-            default_filename = f"worksheet_{difficulty}_{datetime.now().strftime('%Y%m%d_%H%M%S')}.pdf"
+            # Get the config key for the problem type
+            config_key = self.problem_type_map.get(problem_type)
+            default_filename = f"{config_key}_{difficulty}.pdf"
+            # Uncomment below to include timestamp in filename:
+            # default_filename = f"{config_key}_{difficulty}_{datetime.now().strftime('%Y%m%d_%H%M%S')}.pdf"
             output_path = filedialog.asksaveasfilename(
                 defaultextension=".pdf",
                 filetypes=[("PDF files", "*.pdf"), ("All files", "*.*")],

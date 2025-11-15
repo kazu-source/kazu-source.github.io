@@ -74,6 +74,58 @@ PROBLEM_TYPE_CONFIGS: Dict[str, ProblemTypeConfig] = {
         instructions="Solve each inequality and graph the solution on the number line."
     ),
 
+    'properties_of_equality': ProblemTypeConfig(
+        latex_fontsize=24,  # Same as linear equations
+        image_width=3.5,
+        image_height=0.7,
+        vertical_offset=0.3,
+        problems_per_page=10,  # 2 columns x 5 rows
+        vertical_spacing=1.0,  # DEPRECATED: kept for backwards compatibility
+        default_num_problems=10,  # Properties worksheets default to 10
+        min_spacing=0.8,  # Minimum spacing
+        max_spacing=2.0,  # Maximum spacing
+        instructions="Solve for x. Identify which property of equality you used."
+    ),
+
+    'properties_mult_div': ProblemTypeConfig(
+        latex_fontsize=16,  # Smaller font for better balance with problem numbers
+        image_width=2.5,    # Reduced width to match smaller font
+        image_height=0.5,   # Reduced height to match smaller font
+        vertical_offset=0.15,  # Reduced offset for better alignment
+        problems_per_page=10,  # 2 columns x 5 rows
+        vertical_spacing=1.0,  # DEPRECATED: kept for backwards compatibility
+        default_num_problems=10,  # Properties worksheets default to 10
+        min_spacing=0.8,  # Minimum spacing
+        max_spacing=2.0,  # Maximum spacing
+        instructions="Solve for x. Identify which property of equality you used."
+    ),
+
+    'word_problems': ProblemTypeConfig(
+        latex_fontsize=24,  # Same as linear equations
+        image_width=3.5,
+        image_height=0.7,
+        vertical_offset=0.3,
+        problems_per_page=4,  # Maximum 4 word problems per page for readability
+        vertical_spacing=1.2,  # DEPRECATED: kept for backwards compatibility
+        default_num_problems=4,  # Word problems default to 4
+        min_spacing=1.5,  # Larger minimum spacing for word problems
+        max_spacing=3.0,  # Maximum spacing
+        instructions="Read each word problem carefully. Write an equation and solve for x."
+    ),
+
+    'multistep_equations': ProblemTypeConfig(
+        latex_fontsize=24,  # Same as linear equations
+        image_width=3.5,
+        image_height=0.7,
+        vertical_offset=0.3,
+        problems_per_page=10,  # 2 columns x 5 rows
+        vertical_spacing=1.0,  # DEPRECATED: kept for backwards compatibility
+        default_num_problems=10,  # Multi-step equations default to 10
+        min_spacing=0.8,  # Minimum spacing
+        max_spacing=2.0,  # Maximum spacing
+        instructions="Solve each two-step equation. Show your work."
+    ),
+
     # Future problem types can be added here
     # 'quadratic': ProblemTypeConfig(...),
 }

@@ -2,10 +2,15 @@
 Test script to verify answer key layouts match worksheet layouts for all problem types.
 """
 
+import os
 from equation_generator import LinearEquationGenerator
 from systems_generator import SystemsOfEquationsGenerator
 from inequalities_generator import InequalityGenerator
 from pdf_generator import PDFWorksheetGenerator
+
+# Create test_output directory if it doesn't exist
+TEST_OUTPUT_DIR = "test_output"
+os.makedirs(TEST_OUTPUT_DIR, exist_ok=True)
 
 def test_linear_equations():
     """Test linear equations with 10 problems."""
@@ -14,7 +19,7 @@ def test_linear_equations():
     equations = generator.generate_worksheet('medium', 10)
 
     pdf_gen = PDFWorksheetGenerator()
-    output_file = "test_linear_answer_key.pdf"
+    output_file = os.path.join(TEST_OUTPUT_DIR, "test_linear_answer_key.pdf")
     pdf_gen.generate_worksheet(equations, output_file,
                                title="Linear Equations Test",
                                include_answer_key=True)
@@ -29,7 +34,7 @@ def test_systems():
     systems = generator.generate_worksheet('medium', 8)
 
     pdf_gen = PDFWorksheetGenerator()
-    output_file = "test_systems_answer_key.pdf"
+    output_file = os.path.join(TEST_OUTPUT_DIR, "test_systems_answer_key.pdf")
     pdf_gen.generate_worksheet(systems, output_file,
                                title="Systems of Equations Test",
                                include_answer_key=True)
@@ -44,7 +49,7 @@ def test_inequalities():
     inequalities = generator.generate_worksheet('medium', 8)
 
     pdf_gen = PDFWorksheetGenerator()
-    output_file = "test_inequality_answer_key.pdf"
+    output_file = os.path.join(TEST_OUTPUT_DIR, "test_inequality_answer_key.pdf")
     pdf_gen.generate_worksheet(inequalities, output_file,
                                title="Inequalities Test",
                                include_answer_key=True)
@@ -61,14 +66,14 @@ def test_edge_cases():
     generator = LinearEquationGenerator()
     equations = generator.generate_worksheet('medium', 15)
     pdf_gen = PDFWorksheetGenerator()
-    pdf_gen.generate_worksheet(equations, "test_linear_15.pdf",
+    pdf_gen.generate_worksheet(equations, os.path.join(TEST_OUTPUT_DIR, "test_linear_15.pdf"),
                                title="Linear Equations - 15 Problems",
                                include_answer_key=True)
 
     # Linear equations with 3 problems (minimal)
     print("  - Linear equations with 3 problems (minimal)...")
     equations = generator.generate_worksheet('medium', 3)
-    pdf_gen.generate_worksheet(equations, "test_linear_3.pdf",
+    pdf_gen.generate_worksheet(equations, os.path.join(TEST_OUTPUT_DIR, "test_linear_3.pdf"),
                                title="Linear Equations - 3 Problems",
                                include_answer_key=True)
 

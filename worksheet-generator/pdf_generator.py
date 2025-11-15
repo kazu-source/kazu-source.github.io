@@ -20,6 +20,9 @@ from reportlab.pdfbase.ttfonts import TTFont
 from equation_generator import Equation
 from systems_generator import SystemProblem
 from inequalities_generator import InequalityProblem
+from properties_generator import PropertyProblem
+from word_problems_generator import WordProblem
+from multistep_generator import MultiStepEquation
 from worksheet_config import get_config, ProblemTypeConfig
 from typing import Union
 
@@ -49,7 +52,7 @@ class PDFWorksheetGenerator:
     def __init__(self):
         """Initialize the PDF generator."""
         # Configure matplotlib for LaTeX rendering
-        plt.rcParams['mathtext.fontset'] = 'cm'  # Computer Modern font
+        plt.rcParams['mathtext.fontset'] = 'stixsans'  # STIX Sans font (cleaner, sans-serif)
         plt.rcParams['font.size'] = 14
 
         # Register custom fonts for ReportLab
@@ -92,6 +95,54 @@ class PDFWorksheetGenerator:
         except Exception as e:
             print(f"Warning: Could not register custom fonts: {e}")
             print("Falling back to default fonts")
+
+    def _wrap_text(self, c: canvas.Canvas, text: str, x: float, y: float, max_width: float, line_height: float = 0.15) -> float:
+        """
+        Wrap text to fit within max_width and draw it.
+
+        Args:
+            c: Canvas object
+            text: Text to wrap
+            x: X position to start drawing
+            y: Y position to start drawing (top of first line)
+            max_width: Maximum width in inches
+            line_height: Line height in inches
+
+        Returns:
+            Y position after last line of text (for positioning next element)
+        """
+        words = text.split(' ')
+        lines = []
+        current_line = []
+
+        for word in words:
+            # Try adding word to current line
+            test_line = ' '.join(current_line + [word])
+            # Get text width in points (convert max_width from inches to points)
+            text_width = c.stringWidth(test_line, c._fontname, c._fontsize)
+
+            if text_width <= max_width * 72:  # Convert inches to points (1 inch = 72 points)
+                current_line.append(word)
+            else:
+                # Line is too long, save current line and start new one
+                if current_line:
+                    lines.append(' '.join(current_line))
+                    current_line = [word]
+                else:
+                    # Single word is too long, add it anyway
+                    lines.append(word)
+
+        # Add remaining words
+        if current_line:
+            lines.append(' '.join(current_line))
+
+        # Draw all lines
+        current_y = y
+        for line in lines:
+            c.drawString(x, current_y, line)
+            current_y -= line_height * inch
+
+        return current_y
 
     def _calculate_dynamic_spacing(self, problem_type: str, num_problems: int,
                                    start_y: float, end_y: float) -> float:
@@ -338,7 +389,7 @@ class PDFWorksheetGenerator:
 
         return ImageReader(buf)
 
-    def generate_worksheet(self, equations: List[Union[Equation, SystemProblem, InequalityProblem]], output_path: str,
+    def generate_worksheet(self, equations: List[Union[Equation, SystemProblem, InequalityProblem, PropertyProblem, WordProblem, MultiStepEquation]], output_path: str,
                           title: str = "Math Worksheet",
                           include_answer_key: bool = True):
         """
@@ -363,9 +414,10 @@ class PDFWorksheetGenerator:
         c.save()
         print(f"Worksheet saved to: {output_path}")
 
-    def _draw_worksheet_page(self, c: canvas.Canvas, equations: List[Union[Equation, SystemProblem, InequalityProblem]],
+    def _draw_worksheet_page(self, c: canvas.Canvas, equations: List[Union[Equation, SystemProblem, InequalityProblem, PropertyProblem, WordProblem, MultiStepEquation]],
                             title: str, width: float, height: float):
         """Draw the main worksheet page with problems."""
+        print(f"DEBUG _draw_worksheet_page: Starting, {len(equations)} equations")
         # Header with logo in top right
         y_pos = height - 0.5 * inch
 
@@ -375,7 +427,7 @@ class PDFWorksheetGenerator:
             qr_path = os.path.join(base_dir, 'src', 'icons', 'freshmath_qr.png')
 
             if os.path.exists(qr_path):
-                qr_size = 0.6 * inch  # QR code size
+                qr_size = 0.55 * inch  # QR code size (0.55 x 0.55 inches)
                 # Position 0.25 inches from top and left edges
                 qr_x = 0.25 * inch
                 qr_y = height - 0.25 * inch - qr_size  # 0.25" from top
@@ -385,14 +437,14 @@ class PDFWorksheetGenerator:
         except Exception as e:
             pass  # Silently skip if QR code not available
 
-        # Draw logo in top right (1.2 inches - reduced by 25%)
+        # Draw logo in top right (0.75 inches)
         try:
             base_dir = os.path.dirname(os.path.dirname(__file__))
             logo_path = os.path.join(base_dir, 'src', 'icons', 'FreshMath_V3',
                                      'Black', 'FreshMath_Black_Secondary.png')
 
             if os.path.exists(logo_path):
-                logo_size = 1.2 * inch  # Reduced by 25% from 1.6 inches
+                logo_size = 0.75 * inch  # 0.75 x 0.75 inches
                 # Position in top right corner with margin
                 logo_x = width - logo_size - 0.25 * inch
                 logo_y = y_pos - logo_size + 0.3 * inch  # Adjust vertical alignment
@@ -412,7 +464,7 @@ class PDFWorksheetGenerator:
         c.drawString(1 * inch, y_pos, "Name: _________________________")
 
         # Date to the left of logo (in top right area)
-        date_x = width - 1.2 * inch - 0.7 * inch  # Position left of logo with some spacing
+        date_x = width - 0.75 * inch - 0.7 * inch  # Position left of logo with some spacing
         c.drawRightString(date_x, y_pos, "Date: _____________")
 
         # Title below header - use Poppins-Bold if available
@@ -427,20 +479,87 @@ class PDFWorksheetGenerator:
         c.drawCentredString(width / 2, y_pos, title)
 
         # Detect problem type and get configuration
+        print(f"DEBUG: eq[0] type: {type(equations[0])}, class name: {type(equations[0]).__name__}")
+        print(f"DEBUG: PropertyProblem class: {PropertyProblem}")
+        print(f"DEBUG: isinstance check: {isinstance(equations[0], PropertyProblem)}")
         if equations and isinstance(equations[0], SystemProblem):
             problem_type = 'system_of_equations'
             is_system = True
             is_inequality = False
+            is_property = False
+            is_word_problem = False
+            is_multistep = False
         elif equations and isinstance(equations[0], InequalityProblem):
             problem_type = 'inequality'
             is_system = False
             is_inequality = True
+            is_property = False
+            is_word_problem = False
+            is_multistep = False
+        elif equations and isinstance(equations[0], PropertyProblem):
+            # Detect which type of properties: add/subtract or mult/div
+            if equations[0].property_type in ['multiplication', 'division']:
+                problem_type = 'properties_mult_div'
+            else:
+                problem_type = 'properties_of_equality'
+            print(f"DEBUG: Detected PropertyProblem, type={problem_type}, prop_type={equations[0].property_type}, latex={repr(equations[0].latex)}")
+            is_system = False
+            is_inequality = False
+            is_property = True
+            is_word_problem = False
+            is_multistep = False
+        elif equations and isinstance(equations[0], WordProblem):
+            problem_type = 'word_problems'
+            is_system = False
+            is_inequality = False
+            is_property = False
+            is_word_problem = True
+            is_multistep = False
+        elif equations and isinstance(equations[0], MultiStepEquation):
+            problem_type = 'multistep_equations'
+            is_system = False
+            is_inequality = False
+            is_property = False
+            is_word_problem = False
+            is_multistep = True
         else:
             problem_type = 'linear_equation'
             is_system = False
             is_inequality = False
+            is_property = False
+            is_word_problem = False
+            is_multistep = False
 
         config = get_config(problem_type)
+
+        # Add instructional text for properties and word problems worksheets
+        if is_property:
+            y_pos -= 0.35 * inch
+            try:
+                c.setFont("Lexend", 11)
+            except:
+                c.setFont("Helvetica", 11)
+            if problem_type == 'properties_mult_div':
+                instructions_text = "Identify the property of equality (Multiplication or Division) used to solve each equation. Show your work."
+            else:
+                instructions_text = "Identify the property of equality (Addition or Subtraction) used to solve each equation. Show your work."
+            c.drawCentredString(width / 2, y_pos, instructions_text)
+        elif is_word_problem:
+            y_pos -= 0.35 * inch
+            try:
+                c.setFont("Lexend", 11)
+            except:
+                c.setFont("Helvetica", 11)
+            instructions_text = "Read each word problem carefully. Write an equation and solve for x. Show your work."
+            c.drawCentredString(width / 2, y_pos, instructions_text)
+        elif is_multistep:
+            y_pos -= 0.35 * inch
+            try:
+                c.setFont("Lexend", 11)
+            except:
+                c.setFont("Helvetica", 11)
+            instructions_text = "Solve each two-step equation. Show your work."
+            c.drawCentredString(width / 2, y_pos, instructions_text)
 
         # Draw problems - use Lexend
         y_pos -= 0.5 * inch
@@ -556,6 +675,42 @@ class PDFWorksheetGenerator:
                 eq2_plain = equation.equation2_latex.replace('\\', '')
                 c.drawString(x_start, y_pos, f"{idx + 1}. {eq1_plain}")
                 c.drawString(x_start + 0.25 * inch, y_pos - 0.25 * inch, eq2_plain)
+            elif is_property:
+                # For properties: display problem number
+                c.drawString(x_start, y_pos, f"{idx + 1}.")
+
+                # Render the equation as LaTeX image
+                try:
+                    print(f"DEBUG: Rendering latex: {repr(equation.latex)}")
+                    img = self.render_latex_to_image(equation.latex, config.latex_fontsize)
+                    print(f"DEBUG: Render succeeded, drawing image...")
+                    c.drawImage(
+                        img,
+                        x_start + 0.25 * inch,
+                        y_pos - config.vertical_offset * inch,
+                        width=config.image_width * inch,
+                        height=config.image_height * inch,
+                        preserveAspectRatio=True
+                    )
+                    print(f"DEBUG: Image drawn successfully")
+                except Exception as e:
+                    # Fallback to plain text if LaTeX rendering fails
+                    print(f"DEBUG: Exception caught! {e}")
+                    import traceback
+                    traceback.print_exc()
+                    c.drawString(x_start + 0.25 * inch, y_pos, equation.equation)
+                    print(f"Warning: LaTeX rendering failed for {equation.equation}: {e}")
+
+                c.drawString(x_start + 0.25 * inch, y_pos - 0.5 * inch, "Property:")
+            elif is_word_problem:
+                # For word problems: display the problem text with wrapping
+                # Draw problem number first
+                c.drawString(x_start, y_pos, f"{idx + 1}.")
+                # Wrap and draw the problem text (full page width minus margins)
+                text_end_y = self._wrap_text(c, equation.problem_text, x_start + 0.25 * inch, y_pos, 6.0, line_height=0.18)
+                # Add blank lines for students to write equation and solve
+                c.drawString(x_start + 0.25 * inch, text_end_y - 0.15 * inch, "Equation: _______________________")
+                c.drawString(x_start + 0.25 * inch, text_end_y - 0.4 * inch, "Solution: _______________________")
             else:
                 # For regular equations: display equation as plain text
                 plain_text = equation.latex.replace('\\', '')
@@ -620,7 +775,7 @@ class PDFWorksheetGenerator:
             # Silently fail if logo can't be loaded
             print(f"Note: Could not load Fresh Math logo: {e}")
 
-    def _draw_answer_key_page(self, c: canvas.Canvas, equations: List[Union[Equation, SystemProblem, InequalityProblem]],
+    def _draw_answer_key_page(self, c: canvas.Canvas, equations: List[Union[Equation, SystemProblem, InequalityProblem, PropertyProblem, WordProblem, MultiStepEquation]],
                              title: str, width: float, height: float):
         """Draw the answer key page with same layout as worksheet, answers in red."""
         # Header with logo in top right (matching worksheet page)
@@ -632,7 +787,7 @@ class PDFWorksheetGenerator:
             qr_path = os.path.join(base_dir, 'src', 'icons', 'freshmath_qr.png')
 
             if os.path.exists(qr_path):
-                qr_size = 0.6 * inch  # QR code size
+                qr_size = 0.55 * inch  # QR code size (0.55 x 0.55 inches)
                 # Position 0.25 inches from top and left edges
                 qr_x = 0.25 * inch
                 qr_y = height - 0.25 * inch - qr_size  # 0.25" from top
@@ -642,14 +797,14 @@ class PDFWorksheetGenerator:
         except Exception as e:
             pass  # Silently skip if QR code not available
 
-        # Draw logo in top right (1.2 inches - reduced by 25%)
+        # Draw logo in top right (0.75 inches)
         try:
             base_dir = os.path.dirname(os.path.dirname(__file__))
             logo_path = os.path.join(base_dir, 'src', 'icons', 'FreshMath_V3',
                                      'Black', 'FreshMath_Black_Secondary.png')
 
             if os.path.exists(logo_path):
-                logo_size = 1.2 * inch  # Reduced by 25% from 1.6 inches
+                logo_size = 0.75 * inch  # 0.75 x 0.75 inches
                 # Position in top right corner with margin
                 logo_x = width - logo_size - 0.25 * inch
                 logo_y = y_pos - logo_size + 0.3 * inch  # Adjust vertical alignment
@@ -675,14 +830,49 @@ class PDFWorksheetGenerator:
             problem_type = 'system_of_equations'
             is_system = True
             is_inequality = False
+            is_property = False
+            is_word_problem = False
+            is_multistep = False
         elif equations and isinstance(equations[0], InequalityProblem):
             problem_type = 'inequality'
             is_system = False
             is_inequality = True
+            is_property = False
+            is_word_problem = False
+            is_multistep = False
+        elif equations and isinstance(equations[0], PropertyProblem):
+            # Detect which type of properties: add/subtract or mult/div
+            if equations[0].property_type in ['multiplication', 'division']:
+                problem_type = 'properties_mult_div'
+            else:
+                problem_type = 'properties_of_equality'
+            print(f"DEBUG: Detected PropertyProblem, type={problem_type}, prop_type={equations[0].property_type}, latex={repr(equations[0].latex)}")
+            is_system = False
+            is_inequality = False
+            is_property = True
+            is_word_problem = False
+            is_multistep = False
+        elif equations and isinstance(equations[0], WordProblem):
+            problem_type = 'word_problems'
+            is_system = False
+            is_inequality = False
+            is_property = False
+            is_word_problem = True
+            is_multistep = False
+        elif equations and isinstance(equations[0], MultiStepEquation):
+            problem_type = 'multistep_equations'
+            is_system = False
+            is_inequality = False
+            is_property = False
+            is_word_problem = False
+            is_multistep = True
         else:
             problem_type = 'linear_equation'
             is_system = False
             is_inequality = False
+            is_property = False
+            is_word_problem = False
+            is_multistep = False
 
         config = get_config(problem_type)
 
@@ -827,6 +1017,77 @@ class PDFWorksheetGenerator:
                 # Display answer in RED below the equations
                 c.setFillColorRGB(1, 0, 0)  # Red color
                 c.drawString(x_start + 0.25 * inch, y_pos - 0.55 * inch, equation.solution)
+                c.setFillColorRGB(0, 0, 0)  # Reset to black
+
+                y_pos -= spacing
+
+        elif is_property:
+            # For properties: 2 columns x 5 rows layout with answers in red
+            for idx, equation in enumerate(equations[:problems_per_page]):
+                # Layout: 2 columns x 5 rows (same as worksheet)
+                if idx > 0 and idx % 5 == 0:
+                    # Move to second column after 5 problems
+                    # Recalculate spacing for remaining problems
+                    remaining_problems = min(problems_per_page - idx, 5)
+                    spacing = self._calculate_dynamic_spacing(
+                        problem_type,
+                        remaining_problems,
+                        y_start,
+                        footer_start
+                    )
+                    x_start = 4.25 * inch
+                    y_pos = y_start
+
+                # Display problem number
+                try:
+                    c.setFont("Lexend", 11)
+                except:
+                    c.setFont("Helvetica", 11)
+
+                c.drawString(x_start, y_pos, f"{idx + 1}.")
+
+                # Render the equation as LaTeX image
+                try:
+                    img = self.render_latex_to_image(equation.latex, config.latex_fontsize)
+                    c.drawImage(
+                        img,
+                        x_start + 0.25 * inch,
+                        y_pos - config.vertical_offset * inch,
+                        width=config.image_width * inch,
+                        height=config.image_height * inch,
+                        preserveAspectRatio=True
+                    )
+                except Exception as e:
+                    # Fallback to plain text if LaTeX rendering fails
+                    c.drawString(x_start + 0.25 * inch, y_pos, equation.equation)
+                    print(f"Warning: LaTeX rendering failed for {equation.equation}: {e}")
+
+                # Display property name and solution in RED
+                c.setFillColorRGB(1, 0, 0)  # Red color
+                property_name = f"{equation.property_type.title()} Property (x = {equation.solution})"
+                c.drawString(x_start + 0.25 * inch, y_pos - 0.5 * inch, f"Property: {property_name}")
+                c.setFillColorRGB(0, 0, 0)  # Reset to black
+
+                y_pos -= spacing
+
+        elif is_word_problem:
+            # For word problems: single column layout with answers in red
+            for idx, equation in enumerate(equations[:problems_per_page]):
+                # Display problem text with wrapping
+                try:
+                    c.setFont("Lexend", 11)
+                except:
+                    c.setFont("Helvetica", 11)
+
+                # Draw problem number first
+                c.drawString(x_start, y_pos, f"{idx + 1}.")
+                # Wrap and draw the problem text (full page width minus margins)
+                text_end_y = self._wrap_text(c, equation.problem_text, x_start + 0.25 * inch, y_pos, 6.0, line_height=0.18)
+
+                # Display equation and solution in RED
+                c.setFillColorRGB(1, 0, 0)  # Red color
+                c.drawString(x_start + 0.25 * inch, text_end_y - 0.15 * inch, f"Equation: {equation.equation}")
+                c.drawString(x_start + 0.25 * inch, text_end_y - 0.4 * inch, f"Solution: x = {equation.solution}")
                 c.setFillColorRGB(0, 0, 0)  # Reset to black
 
                 y_pos -= spacing
