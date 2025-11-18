@@ -30,7 +30,7 @@ def test_all_problem_types():
             print(f"      {eq.latex} -> x = {eq.solution}")
 
         # Generate PDF
-        output_file = f"test_linear_{difficulty}.pdf"
+        output_file = f"tests/test_linear_{difficulty}.pdf"
         pdf_gen.generate_worksheet(
             equations,
             output_file,
@@ -55,7 +55,7 @@ def test_all_problem_types():
             print(f"      Solution: {sys.solution}")
 
         # Generate PDF
-        output_file = f"test_systems_{difficulty}.pdf"
+        output_file = f"tests/test_systems_{difficulty}.pdf"
         pdf_gen.generate_worksheet(
             systems,
             output_file,

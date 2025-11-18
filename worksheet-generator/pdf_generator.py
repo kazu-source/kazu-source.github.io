@@ -1,6 +1,11 @@
 """
 PDF worksheet generator with LaTeX equation rendering.
 Creates printable worksheets and answer keys.
+
+FONT SIZE STANDARDS:
+- Problem numbers: 12pt Lexend
+- Equations: 21pt Lexend (1.75x ratio to problem numbers)
+- This ratio should be maintained across ALL worksheet types
 """
 
 import os
@@ -23,12 +28,19 @@ from inequalities_generator import InequalityProblem
 from properties_generator import PropertyProblem
 from word_problems_generator import WordProblem
 from multistep_generator import MultiStepEquation
+from generators.chapter04.graphing_points import GraphingPointsProblem
+from generators.chapter05.graphing_systems import GraphingSystemProblem
+from generators.chapter11.graphing_parabolas import ParabolaGraphingProblem
 from worksheet_config import get_config, ProblemTypeConfig
 from typing import Union
 
 
 class PDFWorksheetGenerator:
     """Generates PDF worksheets with LaTeX-rendered equations."""
+
+    # Font size standards (maintain 1.75x ratio)
+    PROBLEM_NUMBER_FONT_SIZE = 12  # Lexend 12pt for problem numbers
+    EQUATION_FONT_SIZE = 21  # Lexend 21pt for equations (1.75x ratio)
 
     # Page layout constants
     BLEED_EDGE = 0.125 * inch  # Standard print bleed
@@ -40,32 +52,47 @@ class PDFWorksheetGenerator:
     MIN_SPACING = {
         'linear_equation': 0.6 * inch,
         'system_of_equations': 1.0 * inch,
-        'inequality': 1.5 * inch
+        'inequality': 1.5 * inch,
+        'graphing_points': 3.8 * inch,  # Minimum spacing for 3" graphs + text
+        'graphing_systems': 3.8 * inch,  # Same as graphing_points
+        'graphing_parabolas': 3.8 * inch  # Same as other graphing types
     }
 
     MAX_SPACING = {
         'linear_equation': 2.5 * inch,
         'system_of_equations': 2.0 * inch,
-        'inequality': 2.5 * inch
+        'inequality': 2.5 * inch,
+        'graphing_points': 4.5 * inch,  # Maximum spacing for graphing problems
+        'graphing_systems': 4.5 * inch,  # Same as graphing_points
+        'graphing_parabolas': 4.5 * inch  # Same as other graphing types
     }
 
     def __init__(self):
         """Initialize the PDF generator."""
-        # Configure matplotlib for LaTeX rendering
-        plt.rcParams['mathtext.fontset'] = 'stixsans'  # STIX Sans font (cleaner, sans-serif)
-        plt.rcParams['font.size'] = 14
-
         # Register custom fonts for ReportLab
         self._register_fonts()
 
-        # Try to configure matplotlib to use Lexend for number line labels
+        # Configure matplotlib to use Lexend for all text (including equations)
         try:
             lexend_path = os.path.join(os.path.dirname(__file__), '..', 'Lexend', 'static', 'Lexend-Regular.ttf')
             if os.path.exists(lexend_path):
                 fm.fontManager.addfont(lexend_path)
                 plt.rcParams['font.family'] = 'Lexend'
+                plt.rcParams['font.size'] = 14
+                # Use Lexend for math text as well (not LaTeX rendering)
+                plt.rcParams['mathtext.fontset'] = 'custom'
+                plt.rcParams['mathtext.rm'] = 'Lexend'
+                plt.rcParams['mathtext.it'] = 'Lexend:italic'
+                plt.rcParams['mathtext.bf'] = 'Lexend:bold'
+            else:
+                # Fallback to STIX Sans if Lexend not found
+                plt.rcParams['mathtext.fontset'] = 'stixsans'
+                plt.rcParams['font.size'] = 14
         except Exception as e:
             print(f"Note: Could not configure Lexend for matplotlib: {e}")
+            # Fallback to STIX Sans
+            plt.rcParams['mathtext.fontset'] = 'stixsans'
+            plt.rcParams['font.size'] = 14
 
     def _register_fonts(self):
         """Register custom fonts with ReportLab."""
@@ -165,6 +192,8 @@ class PDFWorksheetGenerator:
             problem_height = 0.8 * inch  # Approximate height for inequality with number line
         elif problem_type == 'system_of_equations':
             problem_height = 0.4 * inch  # Approximate height for two-line system
+        elif problem_type == 'graphing_points':
+            problem_height = 3.8 * inch  # Height for coordinate plane (3.0" image + 0.15" offset + ~0.65" for wrapped text)
         else:
             problem_height = 0.2 * inch  # Approximate height for single equation
 
@@ -201,12 +230,12 @@ class PDFWorksheetGenerator:
         ax = fig.add_axes([0, 0, 1, 1])
         ax.axis('off')
 
-        # Render LaTeX text
-        ax.text(0.05, 0.5, f'${latex_str}$', fontsize=fontsize, verticalalignment='center')
+        # Render LaTeX text (x=0 for left alignment, no padding)
+        ax.text(0, 0.5, f'${latex_str}$', fontsize=fontsize, verticalalignment='center', horizontalalignment='left')
 
-        # Save to bytes buffer
+        # Save to bytes buffer with tight bbox and minimal padding
         buf = io.BytesIO()
-        plt.savefig(buf, format='png', dpi=150, bbox_inches='tight', pad_inches=0.1,
+        plt.savefig(buf, format='png', dpi=150, bbox_inches='tight', pad_inches=0.005,
                     transparent=False, facecolor='white')
         buf.seek(0)
         plt.close(fig)
@@ -244,152 +273,7 @@ class PDFWorksheetGenerator:
 
         return ImageReader(buf)
 
-    def render_blank_numberline(self, min_val: int, max_val: int,
-                               solution: float, is_solution_left: bool,
-                               inequality_type: str, show_solution: bool = False) -> ImageReader:
-        """
-        Render just a number line without equation text.
-
-        Args:
-            min_val: Minimum value on number line
-            max_val: Maximum value on number line
-            solution: The boundary value
-            is_solution_left: True if solution is to the left (x < value)
-            inequality_type: '<', '>', '<=', '>='
-            show_solution: If True, show solution on number line; if False, show blank line
-
-        Returns:
-            ImageReader object for reportlab
-        """
-        # Create figure with just the number line
-        fig, ax_line = plt.subplots(1, 1, figsize=(8, 1.2))
-
-        # Number line using matplotlib's native axis
-        ax_line.set_xlim(min_val - 0.5, max_val + 0.5)
-        ax_line.set_ylim(-1, 1)
-        # Don't use equal aspect - let it stretch to fill width
-
-        # Style the axes - only show bottom spine
-        ax_line.spines['left'].set_visible(False)
-        ax_line.spines['right'].set_visible(False)
-        ax_line.spines['top'].set_visible(False)
-        ax_line.spines['bottom'].set_position(('data', 0))
-        ax_line.spines['bottom'].set_linewidth(3)
-        ax_line.yaxis.set_visible(False)
-
-        # Set x-axis ticks and labels
-        ax_line.set_xticks(range(min_val, max_val + 1))
-        ax_line.tick_params(axis='x', width=3, length=10, labelsize=14)
-
-        # Draw solution only if show_solution is True
-        if show_solution:
-            # Draw solution point
-            is_equal = inequality_type in ['\\leq', '\\geq']
-            if is_equal:
-                # Closed circle
-                ax_line.plot(solution, 0, 'o', markersize=15, color='blue',
-                            markerfacecolor='blue', markeredgewidth=3)
-            else:
-                # Open circle
-                ax_line.plot(solution, 0, 'o', markersize=15, color='blue',
-                            fillstyle='none', markeredgewidth=3)
-
-            # Draw arrow showing solution region
-            if is_solution_left:
-                ax_line.annotate('', xy=(min_val - 0.3, 0), xytext=(solution, 0),
-                               arrowprops=dict(arrowstyle='->', color='blue', lw=4))
-            else:
-                ax_line.annotate('', xy=(max_val + 0.3, 0), xytext=(solution, 0),
-                               arrowprops=dict(arrowstyle='->', color='blue', lw=4))
-
-        # Save to buffer
-        buf = io.BytesIO()
-        plt.tight_layout()
-        plt.savefig(buf, format='png', dpi=150, bbox_inches='tight',
-                    pad_inches=0.1, facecolor='white')
-        buf.seek(0)
-        plt.close(fig)
-
-        return ImageReader(buf)
-
-    def render_inequality_with_numberline(self, latex_str: str, min_val: int, max_val: int,
-                                         solution: float, is_solution_left: bool,
-                                         inequality_type: str, fontsize: int = 18,
-                                         show_solution: bool = True) -> ImageReader:
-        """
-        Render an inequality with a number line.
-
-        Args:
-            latex_str: Inequality in LaTeX format
-            min_val: Minimum value on number line
-            max_val: Maximum value on number line
-            solution: The boundary value
-            is_solution_left: True if solution is to the left (x < value)
-            inequality_type: '<', '>', '<=', '>='
-            fontsize: Font size for inequality
-            show_solution: If True, show solution on number line; if False, show blank line
-
-        Returns:
-            ImageReader object for reportlab
-        """
-        # Create figure with two subplots stacked vertically
-        fig, (ax_eq, ax_line) = plt.subplots(2, 1, figsize=(8, 2.5),
-                                              gridspec_kw={'height_ratios': [1, 2]})
-
-        # Top subplot: inequality equation
-        ax_eq.axis('off')
-        ax_eq.text(0.5, 0.5, f'${latex_str}$', fontsize=fontsize,
-                   ha='center', va='center')
-
-        # Bottom subplot: number line using matplotlib's native axis
-        ax_line.set_xlim(min_val - 0.5, max_val + 0.5)
-        ax_line.set_ylim(-1, 1)
-        ax_line.set_aspect('equal')
-
-        # Style the axes - only show bottom spine
-        ax_line.spines['left'].set_visible(False)
-        ax_line.spines['right'].set_visible(False)
-        ax_line.spines['top'].set_visible(False)
-        ax_line.spines['bottom'].set_position(('data', 0))
-        ax_line.spines['bottom'].set_linewidth(3)
-        ax_line.yaxis.set_visible(False)
-
-        # Set x-axis ticks and labels
-        ax_line.set_xticks(range(min_val, max_val + 1))
-        ax_line.tick_params(axis='x', width=3, length=10, labelsize=14)
-
-        # Draw solution only if show_solution is True
-        if show_solution:
-            # Draw solution point
-            is_equal = inequality_type in ['\\leq', '\\geq']
-            if is_equal:
-                # Closed circle
-                ax_line.plot(solution, 0, 'o', markersize=15, color='blue',
-                            markerfacecolor='blue', markeredgewidth=3)
-            else:
-                # Open circle
-                ax_line.plot(solution, 0, 'o', markersize=15, color='blue',
-                            fillstyle='none', markeredgewidth=3)
-
-            # Draw arrow showing solution region
-            if is_solution_left:
-                ax_line.annotate('', xy=(min_val - 0.3, 0), xytext=(solution, 0),
-                               arrowprops=dict(arrowstyle='->', color='blue', lw=4))
-            else:
-                ax_line.annotate('', xy=(max_val + 0.3, 0), xytext=(solution, 0),
-                               arrowprops=dict(arrowstyle='->', color='blue', lw=4))
-
-        # Save to buffer
-        buf = io.BytesIO()
-        plt.tight_layout()
-        plt.savefig(buf, format='png', dpi=150, bbox_inches='tight',
-                    pad_inches=0.1, facecolor='white')
-        buf.seek(0)
-        plt.close(fig)
-
-        return ImageReader(buf)
-
-    def generate_worksheet(self, equations: List[Union[Equation, SystemProblem, InequalityProblem, PropertyProblem, WordProblem, MultiStepEquation]], output_path: str,
+    def generate_worksheet(self, equations: List[Union[Equation, SystemProblem, InequalityProblem, PropertyProblem, WordProblem, MultiStepEquation, GraphingPointsProblem, GraphingSystemProblem]], output_path: str,
                           title: str = "Math Worksheet",
                           include_answer_key: bool = True):
         """
@@ -417,7 +301,6 @@ class PDFWorksheetGenerator:
     def _draw_worksheet_page(self, c: canvas.Canvas, equations: List[Union[Equation, SystemProblem, InequalityProblem, PropertyProblem, WordProblem, MultiStepEquation]],
                             title: str, width: float, height: float):
         """Draw the main worksheet page with problems."""
-        print(f"DEBUG _draw_worksheet_page: Starting, {len(equations)} equations")
         # Header with logo in top right
         y_pos = height - 0.5 * inch
 
@@ -456,9 +339,9 @@ class PDFWorksheetGenerator:
 
         # Header fields - use Poppins if available, else Lexend
         try:
-            c.setFont("Poppins", 11)
+            c.setFont("Poppins", 12)
         except:
-            c.setFont("Lexend", 11)
+            c.setFont("Lexend", 12)
 
         # Name on left (positioned after QR code)
         c.drawString(1 * inch, y_pos, "Name: _________________________")
@@ -479,9 +362,6 @@ class PDFWorksheetGenerator:
         c.drawCentredString(width / 2, y_pos, title)
 
         # Detect problem type and get configuration
-        print(f"DEBUG: eq[0] type: {type(equations[0])}, class name: {type(equations[0]).__name__}")
-        print(f"DEBUG: PropertyProblem class: {PropertyProblem}")
-        print(f"DEBUG: isinstance check: {isinstance(equations[0], PropertyProblem)}")
         if equations and isinstance(equations[0], SystemProblem):
             problem_type = 'system_of_equations'
             is_system = True
@@ -502,7 +382,6 @@ class PDFWorksheetGenerator:
                 problem_type = 'properties_mult_div'
             else:
                 problem_type = 'properties_of_equality'
-            print(f"DEBUG: Detected PropertyProblem, type={problem_type}, prop_type={equations[0].property_type}, latex={repr(equations[0].latex)}")
             is_system = False
             is_inequality = False
             is_property = True
@@ -522,6 +401,31 @@ class PDFWorksheetGenerator:
             is_property = False
             is_word_problem = False
             is_multistep = True
+            is_graphing = False
+        elif equations and isinstance(equations[0], GraphingPointsProblem):
+            problem_type = 'graphing_points'
+            is_system = False
+            is_inequality = False
+            is_property = False
+            is_word_problem = False
+            is_multistep = False
+            is_graphing = True
+        elif equations and isinstance(equations[0], GraphingSystemProblem):
+            problem_type = 'graphing_systems'
+            is_system = False
+            is_inequality = False
+            is_property = False
+            is_word_problem = False
+            is_multistep = False
+            is_graphing = True
+        elif equations and isinstance(equations[0], ParabolaGraphingProblem):
+            problem_type = 'graphing_parabolas'
+            is_system = False
+            is_inequality = False
+            is_property = False
+            is_word_problem = False
+            is_multistep = False
+            is_graphing = True
         else:
             problem_type = 'linear_equation'
             is_system = False
@@ -529,6 +433,7 @@ class PDFWorksheetGenerator:
             is_property = False
             is_word_problem = False
             is_multistep = False
+            is_graphing = False
 
         config = get_config(problem_type)
 
@@ -536,9 +441,9 @@ class PDFWorksheetGenerator:
         if is_property:
             y_pos -= 0.35 * inch
             try:
-                c.setFont("Lexend", 11)
+                c.setFont("Lexend", 12)
             except:
-                c.setFont("Helvetica", 11)
+                c.setFont("Helvetica", 12)
             if problem_type == 'properties_mult_div':
                 instructions_text = "Identify the property of equality (Multiplication or Division) used to solve each equation. Show your work."
             else:
@@ -547,26 +452,26 @@ class PDFWorksheetGenerator:
         elif is_word_problem:
             y_pos -= 0.35 * inch
             try:
-                c.setFont("Lexend", 11)
+                c.setFont("Lexend", 12)
             except:
-                c.setFont("Helvetica", 11)
+                c.setFont("Helvetica", 12)
             instructions_text = "Read each word problem carefully. Write an equation and solve for x. Show your work."
             c.drawCentredString(width / 2, y_pos, instructions_text)
         elif is_multistep:
             y_pos -= 0.35 * inch
             try:
-                c.setFont("Lexend", 11)
+                c.setFont("Lexend", 12)
             except:
-                c.setFont("Helvetica", 11)
+                c.setFont("Helvetica", 12)
             instructions_text = "Solve each two-step equation. Show your work."
             c.drawCentredString(width / 2, y_pos, instructions_text)
 
         # Draw problems - use Lexend
         y_pos -= 0.5 * inch
         try:
-            c.setFont("Lexend", 11)
+            c.setFont("Lexend", 12)
         except:
-            c.setFont("Helvetica", 11)
+            c.setFont("Helvetica", 12)
 
         # Calculate usable vertical space with bleed edge and static padding
         header_end = y_pos  # Current position after instructions
@@ -579,6 +484,8 @@ class PDFWorksheetGenerator:
         # Determine problems per column based on problem type
         if is_inequality or is_system:
             problems_per_column = 4  # 2 columns × 4 rows
+        elif is_graphing:
+            problems_per_column = 2  # 2 columns × 2 rows
         else:  # linear equations
             problems_per_column = 5  # First two columns have 5 problems
 
@@ -623,6 +530,12 @@ class PDFWorksheetGenerator:
                     )
                     x_start = 4.25 * inch
                     y_pos = y_start
+            elif is_graphing:
+                # Graphing: 2 columns x 2 rows
+                if idx == 2:
+                    # Move to second column for problems 3 and 4
+                    x_start = 4.25 * inch
+                    y_pos = y_start  # Reset to top for second column
             else:
                 # Regular equations: 3 columns of 5
                 if idx > 0 and idx % 5 == 0:
@@ -651,9 +564,9 @@ class PDFWorksheetGenerator:
 
             # Problem number and equation text - use Lexend
             try:
-                c.setFont("Lexend", 11)
+                c.setFont("Lexend", 12)
             except:
-                c.setFont("Helvetica", 11)
+                c.setFont("Helvetica", 12)
 
             if is_inequality:
                 # For inequalities: display equation as plain text next to problem number
@@ -681,9 +594,7 @@ class PDFWorksheetGenerator:
 
                 # Render the equation as LaTeX image
                 try:
-                    print(f"DEBUG: Rendering latex: {repr(equation.latex)}")
                     img = self.render_latex_to_image(equation.latex, config.latex_fontsize)
-                    print(f"DEBUG: Render succeeded, drawing image...")
                     c.drawImage(
                         img,
                         x_start + 0.25 * inch,
@@ -692,10 +603,8 @@ class PDFWorksheetGenerator:
                         height=config.image_height * inch,
                         preserveAspectRatio=True
                     )
-                    print(f"DEBUG: Image drawn successfully")
                 except Exception as e:
                     # Fallback to plain text if LaTeX rendering fails
-                    print(f"DEBUG: Exception caught! {e}")
                     import traceback
                     traceback.print_exc()
                     c.drawString(x_start + 0.25 * inch, y_pos, equation.equation)
@@ -711,6 +620,76 @@ class PDFWorksheetGenerator:
                 # Add blank lines for students to write equation and solve
                 c.drawString(x_start + 0.25 * inch, text_end_y - 0.15 * inch, "Equation: _______________________")
                 c.drawString(x_start + 0.25 * inch, text_end_y - 0.4 * inch, "Solution: _______________________")
+            elif is_graphing:
+                # For graphing problems: display coordinate plane
+                c.drawString(x_start, y_pos, f"{idx + 1}.")
+
+                # For graphing points: display the points to plot as text
+                if hasattr(equation, 'labels'):
+                    c.setFont("Lexend", 10)
+                    points_text = ", ".join(equation.labels)
+                    # Column width is ~3.5 inches, wrap text to fit
+                    text_y = self._wrap_text(c, points_text, x_start + 0.25 * inch, y_pos, 3.0, line_height=0.15)
+                elif hasattr(equation, 'equation_latex'):
+                    # For parabolas: display equation as LaTeX image
+                    try:
+                        img = self.render_latex_to_image(equation.equation_latex, 21)  # 21pt font
+                        # Align the equation image vertically centered with the problem number
+                        c.drawImage(
+                            img,
+                            x_start + 0.25 * inch,
+                            y_pos - 0.09 * inch,  # Reduced offset to align better with 12pt problem numbers
+                            width=2.5 * inch,
+                            height=0.28 * inch,  # Adjusted for 21pt font
+                            preserveAspectRatio=True,
+                            mask='auto'
+                        )
+                        text_y = y_pos - 0.37 * inch
+                    except Exception as e:
+                        print(f"Warning: Failed to render parabola equation: {e}")
+                        text_y = y_pos
+                elif hasattr(equation, 'equation1_latex'):
+                    # For systems: display both equations as LaTeX images
+                    try:
+                        img1 = self.render_latex_to_image(equation.equation1_latex, 21)  # 21pt font
+                        c.drawImage(
+                            img1,
+                            x_start + 0.25 * inch,
+                            y_pos - 0.09 * inch,  # Reduced offset to align better with 12pt problem numbers
+                            width=2.5 * inch,
+                            height=0.28 * inch,  # Adjusted for 21pt font
+                            preserveAspectRatio=True,
+                            mask='auto'
+                        )
+                        img2 = self.render_latex_to_image(equation.equation2_latex, 21)  # 21pt font
+                        c.drawImage(
+                            img2,
+                            x_start + 0.25 * inch,
+                            y_pos - 0.34 * inch,  # Adjusted spacing for 21pt font
+                            width=2.5 * inch,
+                            height=0.28 * inch,  # Adjusted for 21pt font
+                            preserveAspectRatio=True,
+                            mask='auto'
+                        )
+                        text_y = y_pos - 0.60 * inch
+                    except Exception as e:
+                        print(f"Warning: Failed to render system equations: {e}")
+                        text_y = y_pos
+                else:
+                    text_y = y_pos
+
+                # Draw the blank worksheet image (coordinate plane)
+                try:
+                    c.drawImage(
+                        ImageReader(equation.worksheet_image),
+                        x_start,
+                        text_y - config.image_height * inch - 0.15 * inch,
+                        width=config.image_width * inch,
+                        height=config.image_height * inch,
+                        preserveAspectRatio=True
+                    )
+                except Exception as e:
+                    print(f"Warning: Failed to render graphing worksheet image: {e}")
             else:
                 # For regular equations: display equation as plain text
                 plain_text = equation.latex.replace('\\', '')
@@ -719,15 +698,8 @@ class PDFWorksheetGenerator:
             # Render number line for inequalities only
             if is_inequality:
                 try:
-                    # Inequality: render just BLANK number line for students to fill in
-                    img = self.render_blank_numberline(
-                        equation.number_line_min,
-                        equation.number_line_max,
-                        equation.solution,
-                        equation.is_solution_left,
-                        equation.inequality_type,
-                        show_solution=False  # Blank number line on worksheet
-                    )
+                    # Inequality: use worksheet image (blank number line)
+                    img = ImageReader(equation.worksheet_image)
 
                     # Number line width - slightly shorter than full column
                     numberline_width = 3.0 * inch
@@ -846,7 +818,6 @@ class PDFWorksheetGenerator:
                 problem_type = 'properties_mult_div'
             else:
                 problem_type = 'properties_of_equality'
-            print(f"DEBUG: Detected PropertyProblem, type={problem_type}, prop_type={equations[0].property_type}, latex={repr(equations[0].latex)}")
             is_system = False
             is_inequality = False
             is_property = True
@@ -866,6 +837,31 @@ class PDFWorksheetGenerator:
             is_property = False
             is_word_problem = False
             is_multistep = True
+            is_graphing = False
+        elif equations and isinstance(equations[0], GraphingPointsProblem):
+            problem_type = 'graphing_points'
+            is_system = False
+            is_inequality = False
+            is_property = False
+            is_word_problem = False
+            is_multistep = False
+            is_graphing = True
+        elif equations and isinstance(equations[0], GraphingSystemProblem):
+            problem_type = 'graphing_systems'
+            is_system = False
+            is_inequality = False
+            is_property = False
+            is_word_problem = False
+            is_multistep = False
+            is_graphing = True
+        elif equations and isinstance(equations[0], ParabolaGraphingProblem):
+            problem_type = 'graphing_parabolas'
+            is_system = False
+            is_inequality = False
+            is_property = False
+            is_word_problem = False
+            is_multistep = False
+            is_graphing = True
         else:
             problem_type = 'linear_equation'
             is_system = False
@@ -873,15 +869,16 @@ class PDFWorksheetGenerator:
             is_property = False
             is_word_problem = False
             is_multistep = False
+            is_graphing = False
 
         config = get_config(problem_type)
 
         # Start drawing problems - use same layout as worksheet
         y_pos -= 0.5 * inch
         try:
-            c.setFont("Lexend", 11)
+            c.setFont("Lexend", 12)
         except:
-            c.setFont("Helvetica", 11)
+            c.setFont("Helvetica", 12)
 
         # Calculate usable vertical space with bleed edge and static padding (same as worksheet)
         header_end = y_pos
@@ -894,6 +891,8 @@ class PDFWorksheetGenerator:
         # Determine problems per column based on problem type
         if is_inequality or is_system:
             problems_per_column = 4  # 2 columns × 4 rows
+        elif is_graphing:
+            problems_per_column = 2  # 2 columns × 2 rows
         else:  # linear equations
             problems_per_column = 5  # First two columns have 5 problems
 
@@ -928,9 +927,9 @@ class PDFWorksheetGenerator:
 
                 # Problem number and equation text (matching worksheet format) - use Lexend
                 try:
-                    c.setFont("Lexend", 11)
+                    c.setFont("Lexend", 12)
                 except:
-                    c.setFont("Helvetica", 11)
+                    c.setFont("Helvetica", 12)
                 # Convert LaTeX to plain text
                 symbol_map = {
                     '\\leq': '≤',
@@ -943,14 +942,8 @@ class PDFWorksheetGenerator:
 
                 # Render solved number line with solution
                 try:
-                    img = self.render_blank_numberline(
-                        equation.number_line_min,
-                        equation.number_line_max,
-                        equation.solution,
-                        equation.is_solution_left,
-                        equation.inequality_type,
-                        show_solution=True  # Show solution on answer key
-                    )
+                    # Use answer image (number line with solution)
+                    img = ImageReader(equation.answer_image)
 
                     # Draw number line
                     numberline_width = 3.0 * inch
@@ -967,9 +960,9 @@ class PDFWorksheetGenerator:
 
                     # Draw algebraic solution below the number line in RED - use Lexend
                     try:
-                        c.setFont("Lexend", 11)
+                        c.setFont("Lexend", 12)
                     except:
-                        c.setFont("Helvetica", 11)
+                        c.setFont("Helvetica", 12)
                     ineq_symbol = symbol_map.get(equation.inequality_type, equation.inequality_type)
                     if equation.solution == int(equation.solution):
                         solution_str = f"x {ineq_symbol} {int(equation.solution)}"
@@ -1005,9 +998,9 @@ class PDFWorksheetGenerator:
 
                 # Display problem number and both equations as plain text
                 try:
-                    c.setFont("Lexend", 11)
+                    c.setFont("Lexend", 12)
                 except:
-                    c.setFont("Helvetica", 11)
+                    c.setFont("Helvetica", 12)
 
                 eq1_plain = equation.equation1_latex.replace('\\', '')
                 eq2_plain = equation.equation2_latex.replace('\\', '')
@@ -1040,9 +1033,9 @@ class PDFWorksheetGenerator:
 
                 # Display problem number
                 try:
-                    c.setFont("Lexend", 11)
+                    c.setFont("Lexend", 12)
                 except:
-                    c.setFont("Helvetica", 11)
+                    c.setFont("Helvetica", 12)
 
                 c.drawString(x_start, y_pos, f"{idx + 1}.")
 
@@ -1075,9 +1068,9 @@ class PDFWorksheetGenerator:
             for idx, equation in enumerate(equations[:problems_per_page]):
                 # Display problem text with wrapping
                 try:
-                    c.setFont("Lexend", 11)
+                    c.setFont("Lexend", 12)
                 except:
-                    c.setFont("Helvetica", 11)
+                    c.setFont("Helvetica", 12)
 
                 # Draw problem number first
                 c.drawString(x_start, y_pos, f"{idx + 1}.")
@@ -1089,6 +1082,91 @@ class PDFWorksheetGenerator:
                 c.drawString(x_start + 0.25 * inch, text_end_y - 0.15 * inch, f"Equation: {equation.equation}")
                 c.drawString(x_start + 0.25 * inch, text_end_y - 0.4 * inch, f"Solution: x = {equation.solution}")
                 c.setFillColorRGB(0, 0, 0)  # Reset to black
+
+                y_pos -= spacing
+
+        elif is_graphing:
+            # For graphing problems: 2 columns x 2 rows layout with plotted points
+            for idx, equation in enumerate(equations[:problems_per_page]):
+                # Layout: 2 columns x 2 rows
+                if idx == 2:
+                    # Move to second column for problems 3 and 4
+                    x_start = 4.25 * inch
+                    y_pos = y_start  # Reset to top for second column
+
+                # Display problem number and points
+                try:
+                    c.setFont("Lexend", 12)
+                except:
+                    c.setFont("Helvetica", 12)
+
+                c.drawString(x_start, y_pos, f"{idx + 1}.")
+
+                # For graphing points: display the points with solutions
+                if hasattr(equation, 'labels'):
+                    c.setFont("Lexend", 10)
+                    points_text = ", ".join(equation.labels)
+                    text_y = self._wrap_text(c, points_text, x_start + 0.25 * inch, y_pos, 3.0, line_height=0.15)
+                elif hasattr(equation, 'equation_latex'):
+                    # For parabolas: display equation as LaTeX image
+                    try:
+                        img = self.render_latex_to_image(equation.equation_latex, 21)  # 21pt font
+                        # Align the equation image vertically centered with the problem number
+                        c.drawImage(
+                            img,
+                            x_start + 0.25 * inch,
+                            y_pos - 0.09 * inch,  # Reduced offset to align better with 12pt problem numbers
+                            width=2.5 * inch,
+                            height=0.28 * inch,  # Adjusted for 21pt font
+                            preserveAspectRatio=True,
+                            mask='auto'
+                        )
+                        text_y = y_pos - 0.37 * inch
+                    except Exception as e:
+                        print(f"Warning: Failed to render parabola equation: {e}")
+                        text_y = y_pos
+                elif hasattr(equation, 'equation1_latex'):
+                    # For systems: display both equations as LaTeX images
+                    try:
+                        img1 = self.render_latex_to_image(equation.equation1_latex, 21)  # 21pt font
+                        c.drawImage(
+                            img1,
+                            x_start + 0.25 * inch,
+                            y_pos - 0.09 * inch,  # Reduced offset to align better with 12pt problem numbers
+                            width=2.5 * inch,
+                            height=0.28 * inch,  # Adjusted for 21pt font
+                            preserveAspectRatio=True,
+                            mask='auto'
+                        )
+                        img2 = self.render_latex_to_image(equation.equation2_latex, 21)  # 21pt font
+                        c.drawImage(
+                            img2,
+                            x_start + 0.25 * inch,
+                            y_pos - 0.34 * inch,  # Adjusted spacing for 21pt font
+                            width=2.5 * inch,
+                            height=0.28 * inch,  # Adjusted for 21pt font
+                            preserveAspectRatio=True,
+                            mask='auto'
+                        )
+                        text_y = y_pos - 0.60 * inch
+                    except Exception as e:
+                        print(f"Warning: Failed to render system equations: {e}")
+                        text_y = y_pos
+                else:
+                    text_y = y_pos
+
+                # Draw the answer image (coordinate plane with solution)
+                try:
+                    c.drawImage(
+                        ImageReader(equation.answer_image),
+                        x_start,
+                        text_y - config.image_height * inch - 0.15 * inch,
+                        width=config.image_width * inch,
+                        height=config.image_height * inch,
+                        preserveAspectRatio=True
+                    )
+                except Exception as e:
+                    print(f"Warning: Failed to render graphing answer image: {e}")
 
                 y_pos -= spacing
 
@@ -1122,9 +1200,9 @@ class PDFWorksheetGenerator:
 
                 # Display problem number and equation as plain text
                 try:
-                    c.setFont("Lexend", 11)
+                    c.setFont("Lexend", 12)
                 except:
-                    c.setFont("Helvetica", 11)
+                    c.setFont("Helvetica", 12)
 
                 plain_text = equation.latex.replace('\\', '')
                 c.drawString(x_start, y_pos, f"{idx + 1}. {plain_text}")

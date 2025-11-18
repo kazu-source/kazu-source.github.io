@@ -21,7 +21,14 @@
       "Bash(nul)",
       "Bash(dir:*)",
       "Bash(word_problems_generator.py)",
-      "Bash(if exist __pycache__ rmdir /s /q __pycache__)"
+      "Bash(if exist __pycache__ rmdir /s /q __pycache__)",
+      "Bash(for file in worksheet-generator/test*.pdf)",
+      "Bash(do if [ -f \"$file\" ])",
+      "Bash(then mv \"$file\" worksheet-generator/tests/)",
+      "Bash(for i in chapter{01..14})",
+      "Bash(do touch $i/__init__.py)",
+      "Bash(__init__.py)",
+      "Bash(\"c:\\Users\\Administrator\\Documents\\GitHub\\whymath\\worksheet-generator\\generators\\chapter11\\__init__.py\")"
     ],
     "deny": [],
     "ask": []

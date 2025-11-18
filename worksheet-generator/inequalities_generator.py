@@ -7,6 +7,8 @@ import random
 from typing import Tuple, List
 from dataclasses import dataclass
 
+from numberline_utils import create_blank_numberline, create_numberline_with_solution
+
 
 @dataclass
 class InequalityProblem:
@@ -19,6 +21,8 @@ class InequalityProblem:
     number_line_max: int  # Maximum value on number line
     steps: List[str]  # Solution steps (for future expansion)
     difficulty: str  # Difficulty level
+    worksheet_image: object = None  # PIL Image for worksheet (blank number line)
+    answer_image: object = None  # PIL Image for answer key (with solution)
 
 
 class InequalityGenerator:
@@ -114,6 +118,14 @@ class InequalityGenerator:
 
         min_val, max_val = self._get_number_line_range(x)
 
+        # Generate number line images
+        worksheet_img = create_blank_numberline(min_val, max_val)
+        answer_img = create_numberline_with_solution(
+            min_val, max_val,
+            boundary_value=x,
+            inequality_type=ineq_type
+        )
+
         return InequalityProblem(
             latex=latex,
             solution=x,
@@ -122,7 +134,9 @@ class InequalityGenerator:
             number_line_min=min_val,
             number_line_max=max_val,
             steps=steps,
-            difficulty='easy'
+            difficulty='easy',
+            worksheet_image=worksheet_img,
+            answer_image=answer_img
         )
 
     def _generate_medium(self) -> InequalityProblem:
@@ -157,6 +171,14 @@ class InequalityGenerator:
 
         min_val, max_val = self._get_number_line_range(x)
 
+        # Generate number line images
+        worksheet_img = create_blank_numberline(min_val, max_val)
+        answer_img = create_numberline_with_solution(
+            min_val, max_val,
+            boundary_value=x,
+            inequality_type=ineq_type
+        )
+
         return InequalityProblem(
             latex=latex,
             solution=x,
@@ -165,7 +187,9 @@ class InequalityGenerator:
             number_line_min=min_val,
             number_line_max=max_val,
             steps=steps,
-            difficulty='medium'
+            difficulty='medium',
+            worksheet_image=worksheet_img,
+            answer_image=answer_img
         )
 
     def _generate_hard(self) -> InequalityProblem:
@@ -201,6 +225,14 @@ class InequalityGenerator:
 
         min_val, max_val = self._get_number_line_range(x)
 
+        # Generate number line images
+        worksheet_img = create_blank_numberline(min_val, max_val)
+        answer_img = create_numberline_with_solution(
+            min_val, max_val,
+            boundary_value=x,
+            inequality_type=ineq_type
+        )
+
         return InequalityProblem(
             latex=latex,
             solution=x,
@@ -209,7 +241,9 @@ class InequalityGenerator:
             number_line_min=min_val,
             number_line_max=max_val,
             steps=steps,
-            difficulty='hard'
+            difficulty='hard',
+            worksheet_image=worksheet_img,
+            answer_image=answer_img
         )
 
     def _generate_challenge(self) -> InequalityProblem:
@@ -265,6 +299,14 @@ class InequalityGenerator:
 
         min_val, max_val = self._get_number_line_range(x, padding=6)
 
+        # Generate number line images
+        worksheet_img = create_blank_numberline(min_val, max_val)
+        answer_img = create_numberline_with_solution(
+            min_val, max_val,
+            boundary_value=x,
+            inequality_type=final_ineq
+        )
+
         return InequalityProblem(
             latex=latex,
             solution=x,
@@ -273,7 +315,9 @@ class InequalityGenerator:
             number_line_min=min_val,
             number_line_max=max_val,
             steps=steps,
-            difficulty='challenge'
+            difficulty='challenge',
+            worksheet_image=worksheet_img,
+            answer_image=answer_img
         )
 
 

@@ -36,7 +36,7 @@ class ProblemTypeConfig:
 # Configuration for each problem type
 PROBLEM_TYPE_CONFIGS: Dict[str, ProblemTypeConfig] = {
     'linear_equation': ProblemTypeConfig(
-        latex_fontsize=24,  # Larger font for better readability
+        latex_fontsize=21,  # Standard equation font (1.75x ratio with 12pt problem numbers)
         image_width=3.5,
         image_height=0.7,
         vertical_offset=0.3,
@@ -49,7 +49,7 @@ PROBLEM_TYPE_CONFIGS: Dict[str, ProblemTypeConfig] = {
     ),
 
     'system_of_equations': ProblemTypeConfig(
-        latex_fontsize=22,  # Larger font for systems
+        latex_fontsize=21,  # Standard equation font (1.75x ratio with 12pt problem numbers)
         image_width=3.5,
         image_height=1.1,
         vertical_offset=0.55,
@@ -62,7 +62,7 @@ PROBLEM_TYPE_CONFIGS: Dict[str, ProblemTypeConfig] = {
     ),
 
     'inequality': ProblemTypeConfig(
-        latex_fontsize=22,  # Larger font for better readability
+        latex_fontsize=21,  # Standard equation font (1.75x ratio with 12pt problem numbers)
         image_width=3.0,    # Smaller width for 2-column layout
         image_height=1.0,   # Height for number line
         vertical_offset=0.5,
@@ -75,7 +75,7 @@ PROBLEM_TYPE_CONFIGS: Dict[str, ProblemTypeConfig] = {
     ),
 
     'properties_of_equality': ProblemTypeConfig(
-        latex_fontsize=24,  # Same as linear equations
+        latex_fontsize=21,  # Standard equation font (1.75x ratio with 12pt problem numbers)
         image_width=3.5,
         image_height=0.7,
         vertical_offset=0.3,
@@ -88,7 +88,7 @@ PROBLEM_TYPE_CONFIGS: Dict[str, ProblemTypeConfig] = {
     ),
 
     'properties_mult_div': ProblemTypeConfig(
-        latex_fontsize=16,  # Smaller font for better balance with problem numbers
+        latex_fontsize=21,  # Standard equation font (1.75x ratio with 12pt problem numbers)
         image_width=2.5,    # Reduced width to match smaller font
         image_height=0.5,   # Reduced height to match smaller font
         vertical_offset=0.15,  # Reduced offset for better alignment
@@ -101,7 +101,7 @@ PROBLEM_TYPE_CONFIGS: Dict[str, ProblemTypeConfig] = {
     ),
 
     'word_problems': ProblemTypeConfig(
-        latex_fontsize=24,  # Same as linear equations
+        latex_fontsize=21,  # Standard equation font (1.75x ratio with 12pt problem numbers)
         image_width=3.5,
         image_height=0.7,
         vertical_offset=0.3,
@@ -114,7 +114,7 @@ PROBLEM_TYPE_CONFIGS: Dict[str, ProblemTypeConfig] = {
     ),
 
     'multistep_equations': ProblemTypeConfig(
-        latex_fontsize=24,  # Same as linear equations
+        latex_fontsize=21,  # Standard equation font (1.75x ratio with 12pt problem numbers)
         image_width=3.5,
         image_height=0.7,
         vertical_offset=0.3,
@@ -124,6 +124,45 @@ PROBLEM_TYPE_CONFIGS: Dict[str, ProblemTypeConfig] = {
         min_spacing=0.8,  # Minimum spacing
         max_spacing=2.0,  # Maximum spacing
         instructions="Solve each two-step equation. Show your work."
+    ),
+
+    'graphing_points': ProblemTypeConfig(
+        latex_fontsize=18,  # N/A for graphing (images are coordinate planes)
+        image_width=3.0,    # Width for coordinate plane graph
+        image_height=3.0,   # Height for coordinate plane graph (square)
+        vertical_offset=0.3,
+        problems_per_page=4,  # 2 columns x 2 rows for graphs
+        vertical_spacing=1.5,  # DEPRECATED: kept for backwards compatibility
+        default_num_problems=4,  # Graphing problems default to 4
+        min_spacing=1.2,  # Minimum spacing for graphs
+        max_spacing=2.5,  # Maximum spacing
+        instructions="Plot each point on the coordinate plane. Label each point with its letter and coordinates."
+    ),
+
+    'graphing_systems': ProblemTypeConfig(
+        latex_fontsize=18,  # N/A for graphing (equations shown on graph)
+        image_width=3.0,    # Width for coordinate plane graph
+        image_height=3.0,   # Height for coordinate plane graph (square)
+        vertical_offset=0.3,
+        problems_per_page=4,  # 2 columns x 2 rows for graphs
+        vertical_spacing=1.5,  # DEPRECATED: kept for backwards compatibility
+        default_num_problems=4,  # Systems graphing default to 4
+        min_spacing=3.8,  # Minimum spacing for graphs (same as graphing_points)
+        max_spacing=4.5,  # Maximum spacing
+        instructions="Graph both equations on the same coordinate plane. Find and label the intersection point."
+    ),
+
+    'graphing_parabolas': ProblemTypeConfig(
+        latex_fontsize=18,  # N/A for graphing (equation shown on graph)
+        image_width=3.0,    # Width for coordinate plane graph
+        image_height=3.0,   # Height for coordinate plane graph (square)
+        vertical_offset=0.3,
+        problems_per_page=4,  # 2 columns x 2 rows for graphs
+        vertical_spacing=1.5,  # DEPRECATED: kept for backwards compatibility
+        default_num_problems=4,  # Parabola graphing default to 4
+        min_spacing=3.8,  # Minimum spacing for graphs (same as other graphing types)
+        max_spacing=4.5,  # Maximum spacing
+        instructions="Graph the parabola and identify the vertex."
     ),
 
     # Future problem types can be added here
