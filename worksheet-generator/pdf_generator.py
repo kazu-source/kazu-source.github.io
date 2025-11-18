@@ -29,6 +29,10 @@ from properties_generator import PropertyProblem
 from word_problems_generator import WordProblem
 from multistep_generator import MultiStepEquation
 from generators.chapter04.graphing_points import GraphingPointsProblem
+from generators.chapter04.graphing_lines import GraphingLineProblem
+from generators.chapter04.graphing_slope_intercept import SlopeInterceptProblem
+from generators.chapter04.graphing_point_slope import PointSlopeProblem
+from generators.chapter04.graphing_standard_form import StandardFormProblem
 from generators.chapter05.graphing_systems import GraphingSystemProblem
 from generators.chapter11.graphing_parabolas import ParabolaGraphingProblem
 from worksheet_config import get_config, ProblemTypeConfig
@@ -224,6 +228,15 @@ class PDFWorksheetGenerator:
         Returns:
             ImageReader object for reportlab
         """
+        # Check if this is a text-heavy problem (contains \text{, \mathrm{, or has more text than math)
+        # Heuristic: if it contains words like "If", "Is", "Find", "Which", "Input", "Rule", etc.
+        text_indicators = ['If ', 'Is ', 'Find ', 'Which ', 'Verify', 'Input:', 'Rule:', 'Output:']
+        has_text_content = any(indicator in latex_str for indicator in text_indicators)
+
+        if '\\text{' in latex_str or '\\mathrm{' in latex_str or has_text_content:
+            # Use plain text rendering with embedded math
+            return self._render_text_with_math(latex_str, fontsize)
+
         # Create figure with no axes
         fig = plt.figure(figsize=(4, 0.5))
         fig.patch.set_visible(False)
@@ -234,6 +247,46 @@ class PDFWorksheetGenerator:
         ax.text(0, 0.5, f'${latex_str}$', fontsize=fontsize, verticalalignment='center', horizontalalignment='left')
 
         # Save to bytes buffer with tight bbox and minimal padding
+        buf = io.BytesIO()
+        plt.savefig(buf, format='png', dpi=150, bbox_inches='tight', pad_inches=0.005,
+                    transparent=False, facecolor='white')
+        buf.seek(0)
+        plt.close(fig)
+
+        return ImageReader(buf)
+
+    def _render_text_with_math(self, latex_str: str, fontsize: int = 16) -> ImageReader:
+        """
+        Render text-heavy problems as plain text (convert LaTeX text commands to plain text).
+
+        Args:
+            latex_str: LaTeX string with text or mathrm commands
+            fontsize: Font size for rendering
+
+        Returns:
+            ImageReader object for reportlab
+        """
+        import re
+
+        # Convert \text{...} and \mathrm{...} to plain text (remove LaTeX commands, convert \  to spaces)
+        # Replace escaped spaces with actual spaces
+        processed = latex_str.replace('\\ ', ' ')
+
+        # Remove \text{ and \mathrm{ commands but keep content
+        processed = re.sub(r'\\text\{([^}]*)\}', r'\1', processed)
+        processed = re.sub(r'\\mathrm\{([^}]*)\}', r'\1', processed)
+
+        # Create figure
+        fig = plt.figure(figsize=(6, 0.5))
+        fig.patch.set_visible(False)
+        ax = fig.add_axes([0, 0, 1, 1])
+        ax.axis('off')
+
+        # Render as plain text (not wrapped in $...$)
+        ax.text(0, 0.5, processed, fontsize=fontsize, verticalalignment='center',
+                horizontalalignment='left', family='sans-serif')
+
+        # Save to bytes buffer
         buf = io.BytesIO()
         plt.savefig(buf, format='png', dpi=150, bbox_inches='tight', pad_inches=0.005,
                     transparent=False, facecolor='white')
@@ -273,7 +326,7 @@ class PDFWorksheetGenerator:
 
         return ImageReader(buf)
 
-    def generate_worksheet(self, equations: List[Union[Equation, SystemProblem, InequalityProblem, PropertyProblem, WordProblem, MultiStepEquation, GraphingPointsProblem, GraphingSystemProblem]], output_path: str,
+    def generate_worksheet(self, equations: List[Union[Equation, SystemProblem, InequalityProblem, PropertyProblem, WordProblem, MultiStepEquation, GraphingPointsProblem, GraphingLineProblem, SlopeInterceptProblem, PointSlopeProblem, StandardFormProblem, GraphingSystemProblem, ParabolaGraphingProblem]], output_path: str,
                           title: str = "Math Worksheet",
                           include_answer_key: bool = True):
         """
@@ -369,6 +422,7 @@ class PDFWorksheetGenerator:
             is_property = False
             is_word_problem = False
             is_multistep = False
+            is_graphing = False
         elif equations and isinstance(equations[0], InequalityProblem):
             problem_type = 'inequality'
             is_system = False
@@ -376,6 +430,7 @@ class PDFWorksheetGenerator:
             is_property = False
             is_word_problem = False
             is_multistep = False
+            is_graphing = False
         elif equations and isinstance(equations[0], PropertyProblem):
             # Detect which type of properties: add/subtract or mult/div
             if equations[0].property_type in ['multiplication', 'division']:
@@ -387,6 +442,7 @@ class PDFWorksheetGenerator:
             is_property = True
             is_word_problem = False
             is_multistep = False
+            is_graphing = False
         elif equations and isinstance(equations[0], WordProblem):
             problem_type = 'word_problems'
             is_system = False
@@ -394,6 +450,7 @@ class PDFWorksheetGenerator:
             is_property = False
             is_word_problem = True
             is_multistep = False
+            is_graphing = False
         elif equations and isinstance(equations[0], MultiStepEquation):
             problem_type = 'multistep_equations'
             is_system = False
@@ -402,8 +459,22 @@ class PDFWorksheetGenerator:
             is_word_problem = False
             is_multistep = True
             is_graphing = False
-        elif equations and isinstance(equations[0], GraphingPointsProblem):
-            problem_type = 'graphing_points'
+        elif equations and (isinstance(equations[0], GraphingPointsProblem) or
+                           isinstance(equations[0], GraphingLineProblem) or
+                           isinstance(equations[0], SlopeInterceptProblem) or
+                           isinstance(equations[0], PointSlopeProblem) or
+                           isinstance(equations[0], StandardFormProblem)):
+            # Determine specific problem type
+            if isinstance(equations[0], GraphingPointsProblem):
+                problem_type = 'graphing_points'
+            elif isinstance(equations[0], GraphingLineProblem):
+                problem_type = 'graphing_lines'
+            elif isinstance(equations[0], SlopeInterceptProblem):
+                problem_type = 'slope_intercept'
+            elif isinstance(equations[0], PointSlopeProblem):
+                problem_type = 'point_slope'
+            else:  # StandardFormProblem
+                problem_type = 'standard_form'
             is_system = False
             is_inequality = False
             is_property = False
@@ -589,34 +660,17 @@ class PDFWorksheetGenerator:
                 c.drawString(x_start, y_pos, f"{idx + 1}. {eq1_plain}")
                 c.drawString(x_start + 0.25 * inch, y_pos - 0.25 * inch, eq2_plain)
             elif is_property:
-                # For properties: display problem number
-                c.drawString(x_start, y_pos, f"{idx + 1}.")
-
-                # Render the equation as LaTeX image
-                try:
-                    img = self.render_latex_to_image(equation.latex, config.latex_fontsize)
-                    c.drawImage(
-                        img,
-                        x_start + 0.25 * inch,
-                        y_pos - config.vertical_offset * inch,
-                        width=config.image_width * inch,
-                        height=config.image_height * inch,
-                        preserveAspectRatio=True
-                    )
-                except Exception as e:
-                    # Fallback to plain text if LaTeX rendering fails
-                    import traceback
-                    traceback.print_exc()
-                    c.drawString(x_start + 0.25 * inch, y_pos, equation.equation)
-                    print(f"Warning: LaTeX rendering failed for {equation.equation}: {e}")
-
-                c.drawString(x_start + 0.25 * inch, y_pos - 0.5 * inch, "Property:")
-            elif is_word_problem:
+                # For properties: display equation as plain text
+                plain_text = equation.latex.replace('\\', '')
+                c.drawString(x_start, y_pos, f"{idx + 1}. {plain_text}")
+                c.drawString(x_start, y_pos - 0.35 * inch, "Property:")
+            elif is_word_problem or hasattr(equation, 'problem_text'):
                 # For word problems: display the problem text with wrapping
                 # Draw problem number first
                 c.drawString(x_start, y_pos, f"{idx + 1}.")
                 # Wrap and draw the problem text (full page width minus margins)
-                text_end_y = self._wrap_text(c, equation.problem_text, x_start + 0.25 * inch, y_pos, 6.0, line_height=0.18)
+                problem_text = getattr(equation, 'problem_text', equation.latex)
+                text_end_y = self._wrap_text(c, problem_text, x_start + 0.25 * inch, y_pos, 6.0, line_height=0.18)
                 # Add blank lines for students to write equation and solve
                 c.drawString(x_start + 0.25 * inch, text_end_y - 0.15 * inch, "Equation: _______________________")
                 c.drawString(x_start + 0.25 * inch, text_end_y - 0.4 * inch, "Solution: _______________________")
@@ -693,7 +747,19 @@ class PDFWorksheetGenerator:
             else:
                 # For regular equations: display equation as plain text
                 plain_text = equation.latex.replace('\\', '')
-                c.drawString(x_start, y_pos, f"{idx + 1}. {plain_text}")
+
+                # Check if this is a text-heavy problem that needs wrapping
+                text_indicators = ['If ', 'Is ', 'Find ', 'Which ', 'Verify', 'Input:', 'Rule:', 'Output:']
+                needs_wrapping = any(indicator in plain_text for indicator in text_indicators)
+
+                if needs_wrapping:
+                    # Text-heavy problem: draw number, then wrap text
+                    c.drawString(x_start, y_pos, f"{idx + 1}.")
+                    # Wrap text to fit column width (3.0 inches for 3-column layout)
+                    self._wrap_text(c, plain_text, x_start + 0.25 * inch, y_pos, 3.0, line_height=0.18)
+                else:
+                    # Simple equation: draw on single line
+                    c.drawString(x_start, y_pos, f"{idx + 1}. {plain_text}")
 
             # Render number line for inequalities only
             if is_inequality:
@@ -805,6 +871,7 @@ class PDFWorksheetGenerator:
             is_property = False
             is_word_problem = False
             is_multistep = False
+            is_graphing = False
         elif equations and isinstance(equations[0], InequalityProblem):
             problem_type = 'inequality'
             is_system = False
@@ -812,6 +879,7 @@ class PDFWorksheetGenerator:
             is_property = False
             is_word_problem = False
             is_multistep = False
+            is_graphing = False
         elif equations and isinstance(equations[0], PropertyProblem):
             # Detect which type of properties: add/subtract or mult/div
             if equations[0].property_type in ['multiplication', 'division']:
@@ -823,6 +891,7 @@ class PDFWorksheetGenerator:
             is_property = True
             is_word_problem = False
             is_multistep = False
+            is_graphing = False
         elif equations and isinstance(equations[0], WordProblem):
             problem_type = 'word_problems'
             is_system = False
@@ -830,6 +899,7 @@ class PDFWorksheetGenerator:
             is_property = False
             is_word_problem = True
             is_multistep = False
+            is_graphing = False
         elif equations and isinstance(equations[0], MultiStepEquation):
             problem_type = 'multistep_equations'
             is_system = False
@@ -838,8 +908,22 @@ class PDFWorksheetGenerator:
             is_word_problem = False
             is_multistep = True
             is_graphing = False
-        elif equations and isinstance(equations[0], GraphingPointsProblem):
-            problem_type = 'graphing_points'
+        elif equations and (isinstance(equations[0], GraphingPointsProblem) or
+                           isinstance(equations[0], GraphingLineProblem) or
+                           isinstance(equations[0], SlopeInterceptProblem) or
+                           isinstance(equations[0], PointSlopeProblem) or
+                           isinstance(equations[0], StandardFormProblem)):
+            # Determine specific problem type
+            if isinstance(equations[0], GraphingPointsProblem):
+                problem_type = 'graphing_points'
+            elif isinstance(equations[0], GraphingLineProblem):
+                problem_type = 'graphing_lines'
+            elif isinstance(equations[0], SlopeInterceptProblem):
+                problem_type = 'slope_intercept'
+            elif isinstance(equations[0], PointSlopeProblem):
+                problem_type = 'point_slope'
+            else:  # StandardFormProblem
+                problem_type = 'standard_form'
             is_system = False
             is_inequality = False
             is_property = False
@@ -1031,34 +1115,20 @@ class PDFWorksheetGenerator:
                     x_start = 4.25 * inch
                     y_pos = y_start
 
-                # Display problem number
+                # Display problem equation as plain text
                 try:
                     c.setFont("Lexend", 12)
                 except:
                     c.setFont("Helvetica", 12)
 
-                c.drawString(x_start, y_pos, f"{idx + 1}.")
-
-                # Render the equation as LaTeX image
-                try:
-                    img = self.render_latex_to_image(equation.latex, config.latex_fontsize)
-                    c.drawImage(
-                        img,
-                        x_start + 0.25 * inch,
-                        y_pos - config.vertical_offset * inch,
-                        width=config.image_width * inch,
-                        height=config.image_height * inch,
-                        preserveAspectRatio=True
-                    )
-                except Exception as e:
-                    # Fallback to plain text if LaTeX rendering fails
-                    c.drawString(x_start + 0.25 * inch, y_pos, equation.equation)
-                    print(f"Warning: LaTeX rendering failed for {equation.equation}: {e}")
+                plain_text = equation.latex.replace('\\', '')
+                c.drawString(x_start, y_pos, f"{idx + 1}. {plain_text}")
 
                 # Display property name and solution in RED
                 c.setFillColorRGB(1, 0, 0)  # Red color
-                property_name = f"{equation.property_type.title()} Property (x = {equation.solution})"
-                c.drawString(x_start + 0.25 * inch, y_pos - 0.5 * inch, f"Property: {property_name}")
+                property_type = getattr(equation, 'property_type', 'Unknown')
+                property_name = f"{property_type.title()} Property (x = {equation.solution})"
+                c.drawString(x_start, y_pos - 0.35 * inch, f"Property: {property_name}")
                 c.setFillColorRGB(0, 0, 0)  # Reset to black
 
                 y_pos -= spacing
@@ -1075,7 +1145,8 @@ class PDFWorksheetGenerator:
                 # Draw problem number first
                 c.drawString(x_start, y_pos, f"{idx + 1}.")
                 # Wrap and draw the problem text (full page width minus margins)
-                text_end_y = self._wrap_text(c, equation.problem_text, x_start + 0.25 * inch, y_pos, 6.0, line_height=0.18)
+                problem_text = getattr(equation, 'problem_text', equation.latex)
+                text_end_y = self._wrap_text(c, problem_text, x_start + 0.25 * inch, y_pos, 6.0, line_height=0.18)
 
                 # Display equation and solution in RED
                 c.setFillColorRGB(1, 0, 0)  # Red color
@@ -1205,16 +1276,37 @@ class PDFWorksheetGenerator:
                     c.setFont("Helvetica", 12)
 
                 plain_text = equation.latex.replace('\\', '')
-                c.drawString(x_start, y_pos, f"{idx + 1}. {plain_text}")
 
-                # Display answer in RED below the equation
-                c.setFillColorRGB(1, 0, 0)  # Red color
-                if equation.solution == int(equation.solution):
-                    solution_str = f"x = {int(equation.solution)}"
+                # Check if this is a text-heavy problem that needs wrapping
+                text_indicators = ['If ', 'Is ', 'Find ', 'Which ', 'Verify', 'Input:', 'Rule:', 'Output:']
+                needs_wrapping = any(indicator in plain_text for indicator in text_indicators)
+
+                if needs_wrapping:
+                    # Text-heavy problem: draw number, then wrap text
+                    c.drawString(x_start, y_pos, f"{idx + 1}.")
+                    # Wrap text to fit column width (3.0 inches for 3-column layout)
+                    text_end_y = self._wrap_text(c, plain_text, x_start + 0.25 * inch, y_pos, 3.0, line_height=0.18)
+
+                    # Display answer in RED below wrapped text
+                    c.setFillColorRGB(1, 0, 0)  # Red color
+                    if equation.solution == int(equation.solution):
+                        solution_str = f"x = {int(equation.solution)}"
+                    else:
+                        solution_str = f"x = {equation.solution:.2f}"
+                    c.drawString(x_start + 0.25 * inch, text_end_y - 0.15 * inch, solution_str)
+                    c.setFillColorRGB(0, 0, 0)  # Reset to black
                 else:
-                    solution_str = f"x = {equation.solution:.2f}"
-                c.drawString(x_start + 0.25 * inch, y_pos - 0.25 * inch, solution_str)
-                c.setFillColorRGB(0, 0, 0)  # Reset to black
+                    # Simple equation: draw on single line
+                    c.drawString(x_start, y_pos, f"{idx + 1}. {plain_text}")
+
+                    # Display answer in RED below the equation
+                    c.setFillColorRGB(1, 0, 0)  # Red color
+                    if equation.solution == int(equation.solution):
+                        solution_str = f"x = {int(equation.solution)}"
+                    else:
+                        solution_str = f"x = {equation.solution:.2f}"
+                    c.drawString(x_start + 0.25 * inch, y_pos - 0.25 * inch, solution_str)
+                    c.setFillColorRGB(0, 0, 0)  # Reset to black
 
                 y_pos -= spacing
 

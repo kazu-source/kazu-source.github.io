@@ -25,7 +25,8 @@ class PropertiesOfEqualityGenerator:
         self.difficulty_ranges = {
             'easy': (1, 10),      # Numbers 1-10
             'medium': (1, 20),    # Numbers 1-20
-            'hard': (1, 50)       # Numbers 1-50
+            'hard': (1, 50),      # Numbers 1-50
+            'challenge': (1, 100) # Numbers 1-100
         }
 
     def _generate_addition_property(self, difficulty: str) -> PropertyProblem:
@@ -69,7 +70,7 @@ class PropertiesOfEqualityGenerator:
         Solution: x = c - b
 
         Args:
-            difficulty: Difficulty level ('easy', 'medium', 'hard')
+            difficulty: Difficulty level ('easy', 'medium', 'hard', 'challenge')
 
         Returns:
             PropertyProblem object
@@ -80,10 +81,10 @@ class PropertiesOfEqualityGenerator:
         b = random.randint(1, max_val)  # Number being added to x
 
         # For easy/medium: ensure solution is positive
-        # For hard: allow negative solutions
+        # For hard/challenge: allow negative solutions
         if difficulty in ['easy', 'medium']:
             c = random.randint(b + 1, max_val + b)  # Ensures c - b > 0
-        else:  # hard
+        else:  # hard or challenge
             c = random.randint(min_val, max_val + b)
 
         # Solution: x = c - b (must subtract b from both sides)
@@ -100,18 +101,63 @@ class PropertiesOfEqualityGenerator:
             property_type="subtraction"
         )
 
+    def _generate_combined_property(self, difficulty: str) -> PropertyProblem:
+        """
+        Generate a combined property problem for challenge difficulty.
+
+        Format: ax + b = c or ax - b = c (requires both operations)
+        This combines addition/subtraction with coefficient manipulation.
+
+        Args:
+            difficulty: Difficulty level (typically 'challenge')
+
+        Returns:
+            PropertyProblem object
+        """
+        min_val, max_val = self.difficulty_ranges.get(difficulty, (1, 100))
+
+        # Generate coefficient, constant, and solution
+        a = random.randint(2, 5)  # Coefficient for x
+        x = random.randint(min_val // 2, max_val // 2)  # Solution
+        b = random.randint(10, max_val)  # Constant term
+
+        # Randomly choose add or subtract
+        if random.choice([True, False]):
+            # Format: ax + b = c
+            c = a * x + b
+            equation = f"{a}x + {b} = {c}"
+            latex = f"{a}x + {b} = {c}"
+            property_type = "combined (subtraction then division)"
+        else:
+            # Format: ax - b = c
+            c = a * x - b
+            equation = f"{a}x - {b} = {c}"
+            latex = f"{a}x - {b} = {c}"
+            property_type = "combined (addition then division)"
+
+        return PropertyProblem(
+            equation=equation,
+            latex=latex,
+            solution=x,
+            property_type=property_type
+        )
+
     def generate_problem(self, difficulty: str = 'medium',
                         property_type: str = 'mixed') -> PropertyProblem:
         """
         Generate a single property of equality problem.
 
         Args:
-            difficulty: 'easy', 'medium', or 'hard'
+            difficulty: 'easy', 'medium', 'hard', or 'challenge'
             property_type: 'addition', 'subtraction', or 'mixed'
 
         Returns:
             PropertyProblem object
         """
+        # For challenge difficulty, use combined properties
+        if difficulty == 'challenge':
+            return self._generate_combined_property(difficulty)
+
         if property_type == 'mixed':
             # Randomly choose between addition and subtraction
             property_type = random.choice(['addition', 'subtraction'])
@@ -128,7 +174,7 @@ class PropertiesOfEqualityGenerator:
         Generate a complete worksheet of property problems.
 
         Args:
-            difficulty: 'easy', 'medium', or 'hard'
+            difficulty: 'easy', 'medium', 'hard', or 'challenge'
             num_problems: Number of problems to generate
             property_type: 'addition', 'subtraction', or 'mixed'
 
@@ -176,4 +222,13 @@ if __name__ == "__main__":
     for i, prob in enumerate(problems, 1):
         print(f"\n{i}. Equation: {prob.equation}")
         print(f"   Property needed: Subtraction Property of Equality")
+        print(f"   Solution: x = {prob.solution}")
+
+    print("\n" + "=" * 60)
+    print("\nCHALLENGE Problems (Combined Properties):")
+    print("(These are ax + b = c or ax - b = c format, requiring multiple steps)")
+    problems = generator.generate_worksheet('challenge', 3, 'mixed')
+    for i, prob in enumerate(problems, 1):
+        print(f"\n{i}. Equation: {prob.equation}")
+        print(f"   Property needed: {prob.property_type.title()}")
         print(f"   Solution: x = {prob.solution}")

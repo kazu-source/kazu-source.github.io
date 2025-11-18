@@ -35,6 +35,125 @@ class ProblemTypeConfig:
 
 # Configuration for each problem type
 PROBLEM_TYPE_CONFIGS: Dict[str, ProblemTypeConfig] = {
+    # Chapter 1: Basics
+    'variables': ProblemTypeConfig(
+        latex_fontsize=21,
+        image_width=3.5,
+        image_height=0.7,
+        vertical_offset=0.3,
+        problems_per_page=10,
+        vertical_spacing=0.8,
+        default_num_problems=10,
+        min_spacing=0.8,
+        max_spacing=2.0,
+        instructions="Answer each question about variables."
+    ),
+
+    'exponents': ProblemTypeConfig(
+        latex_fontsize=21,
+        image_width=3.5,
+        image_height=0.7,
+        vertical_offset=0.3,
+        problems_per_page=12,
+        vertical_spacing=0.8,
+        default_num_problems=12,
+        min_spacing=0.7,
+        max_spacing=2.0,
+        instructions="Evaluate each exponential expression."
+    ),
+
+    'evaluating_expressions': ProblemTypeConfig(
+        latex_fontsize=21,
+        image_width=3.5,
+        image_height=0.7,
+        vertical_offset=0.3,
+        problems_per_page=10,
+        vertical_spacing=0.8,
+        default_num_problems=10,
+        min_spacing=0.8,
+        max_spacing=2.0,
+        instructions="Evaluate each expression using the given value."
+    ),
+
+    'substitution': ProblemTypeConfig(
+        latex_fontsize=21,
+        image_width=3.5,
+        image_height=0.7,
+        vertical_offset=0.3,
+        problems_per_page=10,
+        vertical_spacing=0.8,
+        default_num_problems=10,
+        min_spacing=0.8,
+        max_spacing=2.0,
+        instructions="Substitute the given value and solve."
+    ),
+
+    'combining_like_terms': ProblemTypeConfig(
+        latex_fontsize=21,
+        image_width=3.5,
+        image_height=0.7,
+        vertical_offset=0.3,
+        problems_per_page=10,
+        vertical_spacing=0.8,
+        default_num_problems=10,
+        min_spacing=0.8,
+        max_spacing=2.0,
+        instructions="Simplify by combining like terms."
+    ),
+
+    # Chapter 2: Equations
+    'equations_intro': ProblemTypeConfig(
+        latex_fontsize=21,
+        image_width=3.5,
+        image_height=0.7,
+        vertical_offset=0.3,
+        problems_per_page=10,
+        vertical_spacing=0.8,
+        default_num_problems=10,
+        min_spacing=0.8,
+        max_spacing=2.0,
+        instructions="Answer each question about equations."
+    ),
+
+    'inputs_outputs': ProblemTypeConfig(
+        latex_fontsize=21,
+        image_width=3.5,
+        image_height=0.7,
+        vertical_offset=0.3,
+        problems_per_page=10,
+        vertical_spacing=0.8,
+        default_num_problems=10,
+        min_spacing=0.8,
+        max_spacing=2.0,
+        instructions="Find the output or input using the given rule."
+    ),
+
+    'solutions': ProblemTypeConfig(
+        latex_fontsize=21,
+        image_width=3.5,
+        image_height=0.7,
+        vertical_offset=0.3,
+        problems_per_page=10,
+        vertical_spacing=0.8,
+        default_num_problems=10,
+        min_spacing=0.8,
+        max_spacing=2.0,
+        instructions="Determine if the value is a solution or find the solution."
+    ),
+
+    'variables_both_sides': ProblemTypeConfig(
+        latex_fontsize=21,
+        image_width=3.5,
+        image_height=0.7,
+        vertical_offset=0.3,
+        problems_per_page=10,
+        vertical_spacing=0.8,
+        default_num_problems=10,
+        min_spacing=0.8,
+        max_spacing=2.0,
+        instructions="Solve each equation with variables on both sides."
+    ),
+
     'linear_equation': ProblemTypeConfig(
         latex_fontsize=21,  # Standard equation font (1.75x ratio with 12pt problem numbers)
         image_width=3.5,
@@ -84,7 +203,7 @@ PROBLEM_TYPE_CONFIGS: Dict[str, ProblemTypeConfig] = {
         default_num_problems=10,  # Properties worksheets default to 10
         min_spacing=0.8,  # Minimum spacing
         max_spacing=2.0,  # Maximum spacing
-        instructions="Solve for x. Identify which property of equality you used."
+        instructions="Solve for x. Identify the property of equality used."
     ),
 
     'properties_mult_div': ProblemTypeConfig(
@@ -137,6 +256,58 @@ PROBLEM_TYPE_CONFIGS: Dict[str, ProblemTypeConfig] = {
         min_spacing=1.2,  # Minimum spacing for graphs
         max_spacing=2.5,  # Maximum spacing
         instructions="Plot each point on the coordinate plane. Label each point with its letter and coordinates."
+    ),
+
+    'graphing_lines': ProblemTypeConfig(
+        latex_fontsize=18,  # N/A for graphing (images are coordinate planes)
+        image_width=3.0,    # Width for coordinate plane graph
+        image_height=3.0,   # Height for coordinate plane graph (square)
+        vertical_offset=0.3,
+        problems_per_page=4,  # 2 columns x 2 rows for graphs
+        vertical_spacing=1.5,  # DEPRECATED: kept for backwards compatibility
+        default_num_problems=6,  # Line graphing default to 6
+        min_spacing=3.8,  # Minimum spacing for graphs
+        max_spacing=4.5,  # Maximum spacing
+        instructions="Graph the line through the two given points."
+    ),
+
+    'slope_intercept': ProblemTypeConfig(
+        latex_fontsize=18,  # N/A for graphing (images are coordinate planes)
+        image_width=3.0,    # Width for coordinate plane graph
+        image_height=3.0,   # Height for coordinate plane graph (square)
+        vertical_offset=0.3,
+        problems_per_page=4,  # 2 columns x 2 rows for graphs
+        vertical_spacing=1.5,  # DEPRECATED: kept for backwards compatibility
+        default_num_problems=6,  # Slope-intercept default to 6
+        min_spacing=3.8,  # Minimum spacing for graphs
+        max_spacing=4.5,  # Maximum spacing
+        instructions="Graph each line using the slope-intercept form y = mx + b."
+    ),
+
+    'point_slope': ProblemTypeConfig(
+        latex_fontsize=18,  # N/A for graphing (images are coordinate planes)
+        image_width=3.0,    # Width for coordinate plane graph
+        image_height=3.0,   # Height for coordinate plane graph (square)
+        vertical_offset=0.3,
+        problems_per_page=4,  # 2 columns x 2 rows for graphs
+        vertical_spacing=1.5,  # DEPRECATED: kept for backwards compatibility
+        default_num_problems=6,  # Point-slope default to 6
+        min_spacing=3.8,  # Minimum spacing for graphs
+        max_spacing=4.5,  # Maximum spacing
+        instructions="Graph each line using the point-slope form y - y₁ = m(x - x₁)."
+    ),
+
+    'standard_form': ProblemTypeConfig(
+        latex_fontsize=18,  # N/A for graphing (images are coordinate planes)
+        image_width=3.0,    # Width for coordinate plane graph
+        image_height=3.0,   # Height for coordinate plane graph (square)
+        vertical_offset=0.3,
+        problems_per_page=4,  # 2 columns x 2 rows for graphs
+        vertical_spacing=1.5,  # DEPRECATED: kept for backwards compatibility
+        default_num_problems=6,  # Standard form default to 6
+        min_spacing=3.8,  # Minimum spacing for graphs
+        max_spacing=4.5,  # Maximum spacing
+        instructions="Graph each line using the standard form Ax + By = C."
     ),
 
     'graphing_systems': ProblemTypeConfig(

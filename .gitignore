@@ -1,1 +1,8 @@
 backend/SETUP_INSTRUCTIONS.md
+
+# Fresh Math Adaptive Testing (local testing only)
+src/pages/adaptive-test.html
+src/js/adaptive-test.js
+src/css/adaptive-test.css
+src/data/test-config.json
+src/data/questions/

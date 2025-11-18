@@ -1,0 +1,40 @@
+================================================================================
+WORKSHEET QUALITY REPORT
+================================================================================
+
+Total Tested: 23
+Passed: 22 (95.7%)
+Failed: 1 (4.3%)
+
+================================================================================
+FAILED TOPICS
+================================================================================
+
+X Unit 2.0 | Intro | Inputs and Outputs
+  - [MEDIUM] Problem 1: Excessive \text{} usage (may not render as equation)
+   LaTeX: \text{Input: } 3, \text{ Rule: multiply by } 5 \text{ then add } 3, \text{ Output: ?}...
+  - [MEDIUM] Problem 2: Excessive \text{} usage (may not render as equation)
+   LaTeX: \text{Input: } 5, \text{ Rule: multiply by } 4 \text{ then add } 7, \text{ Output: ?}...
+  - [MEDIUM] Problem 3: Excessive \text{} usage (may not render as equation)
+   LaTeX: \text{Input: } 5, \text{ Rule: multiply by } 2 \text{ then add } 6, \text{ Output: ?}...
+
+================================================================================
+SAMPLE PROBLEMS
+================================================================================
+
+Unit 2.0 | Intro | Inputs and Outputs:
+  [EASY]
+    1. \text{Input: } 4, \text{ Rule: add } 7, \text{ Output: ?}...
+       Solution: 11, Steps: []
+    2. \text{Input: } 5, \text{ Rule: add } 6, \text{ Output: ?}...
+       Solution: 11, Steps: []
+  [MEDIUM]
+    1. \text{Input: } 3, \text{ Rule: multiply by } 5 \text{ then add } 3, \text{ Outpu...
+       Solution: 18, Steps: []
+    2. \text{Input: } 5, \text{ Rule: multiply by } 4 \text{ then add } 7, \text{ Outpu...
+       Solution: 27, Steps: []
+  [HARD]
+    1. \text{Rule: } 4x + 8, \text{ Output: } 24, \text{ Input: ?}...
+       Solution: 4, Steps: []
+    2. \text{Rule: } 3x + 10, \text{ Output: } 37, \text{ Input: ?}...
+       Solution: 9, Steps: []
