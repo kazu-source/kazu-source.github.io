@@ -60,11 +60,11 @@ class EquationsIntroGenerator:
 
             if random.choice([True, False]):
                 # True equation
-                latex = f"Is {num1}{var} = {num2} an equation? (1=Yes, 0=No)"
+                latex = f"Is {num1}{var} = {num2} an equation?"
                 solution = 1
             else:
                 # Expression (not equation)
-                latex = f"Is {num1}{var} + {num2} an equation? (1=Yes, 0=No)"
+                latex = f"Is {num1}{var} + {num2} an equation?"
                 solution = 0
 
         elif problem_type == 'true_false':
@@ -74,7 +74,7 @@ class EquationsIntroGenerator:
             coef = result // x_val if result % x_val == 0 else random.randint(2, 6)
             actual_result = coef * x_val
 
-            latex = f"If x = {x_val}, is {coef}x = {actual_result} true? (1=Yes, 0=No)"
+            latex = f"If x = {x_val}, is {coef}x = {actual_result} true?"
             solution = 1
 
         else:  # complete
@@ -115,7 +115,7 @@ class EquationsIntroGenerator:
             const = random.randint(1, 8)
             result = coef * x_val + const
 
-            latex = f"Verify: Is x = {x_val} a solution to {coef}x + {const} = {result}? (1=Yes, 0=No)"
+            latex = f"Is x = {x_val} a solution to {coef}x + {const} = {result}?"
             solution = 1
 
         return Equation(latex=latex, solution=solution, steps=[], difficulty='medium')
@@ -138,7 +138,7 @@ class EquationsIntroGenerator:
             coef = random.randint(2, 6)
             wrong_result = coef * x_test + random.randint(1, 5)  # Intentionally wrong
 
-            latex = f"Is x = {x_test} a solution to {coef}x = {wrong_result}? (1=Yes, 0=No)"
+            latex = f"Is x = {x_test} a solution to {coef}x = {wrong_result}?"
             solution = 0
 
         else:  # identity

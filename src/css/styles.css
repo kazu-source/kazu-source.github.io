@@ -1469,6 +1469,8 @@ body.night-mode .worksheet-link.unavailable::after {
     margin-bottom: 1rem;
     margin-top: 0;
     font-weight: 600;
+    padding-bottom: var(--spacing-sm);
+    border-bottom: 3px solid var(--primary-purple);
 }
 
 /* Horizontal Grade Tabs */
@@ -1537,14 +1539,14 @@ body.night-mode .worksheet-link.unavailable::after {
 /* Two-Column Layout: Sidebar + Content */
 .content-layout {
     display: flex;
-    gap: 2rem;
+    gap: 1.5rem;
     margin-top: 1rem;
 }
 
 /* Left Sidebar - Vertical Domain Tabs */
 .domain-sidebar {
-    flex: 0 0 220px;
-    min-width: 220px;
+    flex: 0 0 270px;
+    min-width: 270px;
 }
 
 .domain-tabs {
@@ -1559,16 +1561,18 @@ body.night-mode .worksheet-link.unavailable::after {
     background: var(--card-bg);
     border: 2px solid var(--border-color);
     border-radius: var(--radius-md);
-    padding: 1rem 1.25rem;
-    font-size: 0.95rem;
-    font-weight: 500;
-    color: var(--text-secondary);
+    padding: 1rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--text-primary);
     cursor: pointer;
     transition: all var(--transition-base);
-    text-align: left;
+    text-align: center;
     position: relative;
-    white-space: nowrap;
     overflow: hidden;
+    display: block;
+    min-width: 250px;
+    white-space: nowrap;
     text-overflow: ellipsis;
 }
 
@@ -1580,9 +1584,8 @@ body.night-mode .worksheet-link.unavailable::after {
     bottom: 0;
     width: 4px;
     background: var(--primary-purple);
-    border-radius: var(--radius-md) 0 0 var(--radius-md);
-    opacity: 0;
-    transition: opacity var(--transition-base);
+    transform: scaleY(0);
+    transition: transform var(--transition-base);
 }
 
 .domain-tab-button:hover {
@@ -1592,7 +1595,7 @@ body.night-mode .worksheet-link.unavailable::after {
 }
 
 .domain-tab-button:hover::before {
-    opacity: 0.3;
+    transform: scaleY(0.3);
 }
 
 .domain-tab-button.active {
@@ -1600,10 +1603,11 @@ body.night-mode .worksheet-link.unavailable::after {
     color: var(--primary-purple);
     border-color: var(--primary-purple);
     font-weight: 600;
+    box-shadow: var(--shadow-md);
 }
 
 .domain-tab-button.active::before {
-    opacity: 1;
+    transform: scaleY(1);
 }
 
 /* Right Content Area */
@@ -1633,7 +1637,7 @@ body.night-mode .worksheet-link.unavailable::after {
 
 .domain-panel .grade-card h3 {
     border-bottom: 2px solid var(--border-color);
-    font-size: 1.2rem;
+    font-size: 1rem;
 }
 
 /* Mobile Responsive */

@@ -60,11 +60,11 @@ class SolutionsGenerator:
 
             # Randomly make it correct or incorrect
             if random.choice([True, False]):
-                latex = f"\\text{{Is }} x = {x_val} \\text{{ a solution to }} x + {const} = {total}? \\text{{(1=Yes, 0=No)}}"
+                latex = f"\\text{{Is }} x = {x_val} \\text{{ a solution to }} x + {const} = {total}?"
                 solution = 1
             else:
                 wrong_total = total + random.randint(1, 3)
-                latex = f"\\text{{Is }} x = {x_val} \\text{{ a solution to }} x + {const} = {wrong_total}? \\text{{(1=Yes, 0=No)}}"
+                latex = f"\\text{{Is }} x = {x_val} \\text{{ a solution to }} x + {const} = {wrong_total}?"
                 solution = 0
 
         elif problem_type == 'test_value':
@@ -73,7 +73,7 @@ class SolutionsGenerator:
             mult = random.randint(2, 6)
             result = mult * x_val
 
-            latex = f"\\text{{Does }} x = {x_val} \\text{{ satisfy }} {mult}x = {result}? \\text{{(1=Yes, 0=No)}}"
+            latex = f"\\text{{Does }} x = {x_val} \\text{{ satisfy }} {mult}x = {result}?"
             solution = 1
 
         else:  # find_from_list
@@ -99,11 +99,11 @@ class SolutionsGenerator:
             total = coef * x_val + const
 
             if random.choice([True, False]):
-                latex = f"\\text{{Is }} x = {x_val} \\text{{ a solution to }} {coef}x + {const} = {total}? \\text{{(1=Yes, 0=No)}}"
+                latex = f"\\text{{Is }} x = {x_val} \\text{{ a solution to }} {coef}x + {const} = {total}?"
                 solution = 1
             else:
                 wrong_total = total + random.randint(2, 5)
-                latex = f"\\text{{Is }} x = {x_val} \\text{{ a solution to }} {coef}x + {const} = {wrong_total}? \\text{{(1=Yes, 0=No)}}"
+                latex = f"\\text{{Is }} x = {x_val} \\text{{ a solution to }} {coef}x + {const} = {wrong_total}?"
                 solution = 0
 
         elif problem_type == 'multiple_check':
@@ -145,12 +145,12 @@ class SolutionsGenerator:
 
             if correct_x and random.choice([True, False]):
                 # Use correct solution
-                latex = f"\\text{{Is }} x = {correct_x} \\text{{ a solution to }} {left_coef}x = {right_coef}x + {const}? \\text{{(1=Yes, 0=No)}}"
+                latex = f"\\text{{Is }} x = {correct_x} \\text{{ a solution to }} {left_coef}x = {right_coef}x + {const}?"
                 solution = 1
             else:
                 # Use incorrect solution
                 wrong_x = random.randint(5, 15)
-                latex = f"\\text{{Is }} x = {wrong_x} \\text{{ a solution to }} {left_coef}x = {right_coef}x + {const}? \\text{{(1=Yes, 0=No)}}"
+                latex = f"\\text{{Is }} x = {wrong_x} \\text{{ a solution to }} {left_coef}x = {right_coef}x + {const}?"
                 solution = 0
 
         elif problem_type == 'no_solution':
@@ -159,7 +159,7 @@ class SolutionsGenerator:
             const1 = random.randint(5, 15)
             const2 = const1 + random.randint(1, 5)  # Different constants
 
-            latex = f"\\text{{Does }} {coef}x + {const1} = {coef}x + {const2} \\text{{ have a solution? (1=Yes, 0=No)}}"
+            latex = f"\\text{{Does }} {coef}x + {const1} = {coef}x + {const2} \\text{{ have a solution?}}"
             solution = 0
 
         else:  # infinite_solutions

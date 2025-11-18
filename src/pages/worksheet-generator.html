@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Algebra 1 Worksheet Generator | Why Do I Learn This?</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <style>
+        .generator-container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+
+        .tab-container {
+            display: flex;
+            gap: 0.5rem;
+            margin-bottom: 2rem;
+            border-bottom: 2px solid #e0e0e0;
+        }
+
+        .tab {
+            padding: 1rem 2rem;
+            background: none;
+            border: none;
+            border-bottom: 3px solid transparent;
+            cursor: pointer;
+            font-size: 1.1rem;
+            font-weight: 500;
+            color: #666;
+            transition: all 0.3s;
+        }
+
+        .tab:hover {
+            color: #333;
+            background: #f5f5f5;
+        }
+
+        .tab.active {
+            color: #2563eb;
+            border-bottom-color: #2563eb;
+        }
+
+        .tab-content {
+            display: none;
+            animation: fadeIn 0.3s;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .form-section {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            margin-bottom: 2rem;
+        }
+
+        .form-section h3 {
+            margin-top: 0;
+            color: #1e293b;
+            font-size: 1.3rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: #334155;
+        }
+
+        .form-group select,
+        .form-group input[type="number"],
+        .form-group input[type="text"] {
+            width: 100%;
+            padding: 0.75rem;
+            border: 2px solid #e2e8f0;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+
+        .form-group select:focus,
+        .form-group input:focus {
+            outline: none;
+            border-color: #2563eb;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+        }
+
+        .btn {
+            padding: 0.875rem 2rem;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .btn-primary {
+            background: #2563eb;
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: #1d4ed8;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+        }
+
+        .btn-secondary {
+            background: #64748b;
+            color: white;
+        }
+
+        .btn-secondary:hover {
+            background: #475569;
+        }
+
+        .difficulty-badge {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            border-radius: 12px;
+            font-size: 0.875rem;
+            font-weight: 600;
+        }
+
+        .difficulty-easy { background: #dcfce7; color: #166534; }
+        .difficulty-medium { background: #fef3c7; color: #92400e; }
+        .difficulty-hard { background: #fee2e2; color: #991b1b; }
+        .difficulty-challenge { background: #ddd6fe; color: #5b21b6; }
+
+        .info-box {
+            background: #eff6ff;
+            border-left: 4px solid #2563eb;
+            padding: 1rem;
+            margin: 1rem 0;
+            border-radius: 4px;
+        }
+
+        .info-box p {
+            margin: 0;
+            color: #1e40af;
+        }
+
+        .custom-spec-row {
+            display: grid;
+            grid-template-columns: 1fr 2fr 1fr 1fr auto;
+            gap: 0.5rem;
+            align-items: end;
+            margin-bottom: 0.5rem;
+            padding: 0.5rem;
+            background: #f8fafc;
+            border-radius: 6px;
+        }
+
+        .btn-small {
+            padding: 0.5rem 1rem;
+            font-size: 0.875rem;
+        }
+
+        .btn-danger {
+            background: #dc2626;
+            color: white;
+        }
+
+        .btn-danger:hover {
+            background: #b91c1c;
+        }
+
+        .status-message {
+            padding: 1rem;
+            border-radius: 8px;
+            margin: 1rem 0;
+            display: none;
+        }
+
+        .status-message.show {
+            display: block;
+            animation: slideIn 0.3s;
+        }
+
+        .status-success {
+            background: #dcfce7;
+            color: #166534;
+            border: 1px solid #86efac;
+        }
+
+        .status-error {
+            background: #fee2e2;
+            color: #991b1b;
+            border: 1px solid #fca5a5;
+        }
+
+        .status-loading {
+            background: #dbeafe;
+            color: #1e40af;
+            border: 1px solid #93c5fd;
+        }
+
+        @keyframes slideIn {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .header-section {
+            text-align: center;
+            padding: 3rem 1rem;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            margin-bottom: 2rem;
+        }
+
+        .header-section h1 {
+            margin: 0 0 0.5rem 0;
+            font-size: 2.5rem;
+        }
+
+        .header-section p {
+            margin: 0;
+            font-size: 1.1rem;
+            opacity: 0.95;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+
+        .stat-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #2563eb;
+        }
+
+        .stat-label {
+            color: #64748b;
+            margin-top: 0.5rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="header-section">
+        <h1>Algebra 1 Worksheet Generator</h1>
+        <p>Create custom worksheets with 92 unique problem sets across 23 topics</p>
+    </div>
+
+    <div class="generator-container">
+        <!-- Statistics -->
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-number">92</div>
+                <div class="stat-label">Total Worksheets</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">23</div>
+                <div class="stat-label">Topics</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">4</div>
+                <div class="stat-label">Difficulty Levels</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">6</div>
+                <div class="stat-label">Units Covered</div>
+            </div>
+        </div>
+
+        <!-- Tab Navigation -->
+        <div class="tab-container">
+            <button class="tab active" onclick="showTab('standard')">
+                Standard Worksheet
+            </button>
+            <button class="tab" onclick="showTab('practice')">
+                Practice Test
+            </button>
+            <button class="tab" onclick="showTab('custom')">
+                Custom Builder
+            </button>
+        </div>
+
+        <!-- Status Messages -->
+        <div id="statusMessage" class="status-message"></div>
+
+        <!-- Standard Worksheet Tab -->
+        <div id="standard-tab" class="tab-content active">
+            <form id="standardForm" class="form-section">
+                <h3>Generate Standard Worksheet</h3>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="unit">Unit</label>
+                        <select id="unit" required onchange="updateTopics()">
+                            <option value="">Select Unit...</option>
+                            <option value="1.0">Unit 1: One-Variable Statistics</option>
+                            <option value="2.0">Unit 2: Linear Equations & Inequalities</option>
+                            <option value="3.0">Unit 3: Two-Variable Statistics</option>
+                            <option value="4.0">Unit 4: Functions</option>
+                            <option value="5.0">Unit 5: Systems of Equations</option>
+                            <option value="11.0">Unit 11: Linear Relationships</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="topic">Topic</label>
+                        <select id="topic" required disabled>
+                            <option value="">Select unit first...</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="difficulty">Difficulty Level</label>
+                        <select id="difficulty" required>
+                            <option value="easy">Easy - Basic concepts</option>
+                            <option value="medium" selected>Medium - Standard practice</option>
+                            <option value="hard">Hard - Advanced problems</option>
+                            <option value="challenge">Challenge - Expert level</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="numProblems">Number of Problems</label>
+                        <input type="number" id="numProblems" value="10" min="1" max="30" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="worksheetTitle">Custom Title (Optional)</label>
+                    <input type="text" id="worksheetTitle" placeholder="Leave blank for auto-generated title">
+                </div>
+
+                <button type="submit" class="btn btn-primary">
+                    Generate Worksheet
+                </button>
+            </form>
+
+            <div class="info-box">
+                <p><strong>Note:</strong> Each worksheet includes an answer key on page 2. Worksheets are saved with date stamps for easy organization.</p>
+            </div>
+        </div>
+
+        <!-- Practice Test Tab -->
+        <div id="practice-tab" class="tab-content">
+            <form id="practiceForm" class="form-section">
+                <h3>Generate Practice Test</h3>
+
+                <div class="form-group">
+                    <label for="testType">Test Type</label>
+                    <select id="testType" required onchange="updatePracticeForm()">
+                        <option value="unit">Unit Review - All topics in one unit</option>
+                        <option value="cumulative">Cumulative Test - Multiple units</option>
+                        <option value="spiral">Spiral Review - One topic, all difficulties</option>
+                    </select>
+                </div>
+
+                <div id="unitReviewFields">
+                    <div class="form-group">
+                        <label for="reviewUnit">Unit</label>
+                        <select id="reviewUnit" required>
+                            <option value="1.0">Unit 1: One-Variable Statistics</option>
+                            <option value="2.0">Unit 2: Linear Equations & Inequalities</option>
+                            <option value="3.0">Unit 3: Two-Variable Statistics</option>
+                            <option value="4.0">Unit 4: Functions</option>
+                            <option value="5.0">Unit 5: Systems of Equations</option>
+                            <option value="11.0">Unit 11: Linear Relationships</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div id="cumulativeFields" style="display: none;">
+                    <div class="form-group">
+                        <label>Select Units (check all that apply)</label>
+                        <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 0.5rem; margin-top: 0.5rem;">
+                            <label><input type="checkbox" value="1.0"> Unit 1</label>
+                            <label><input type="checkbox" value="2.0"> Unit 2</label>
+                            <label><input type="checkbox" value="3.0"> Unit 3</label>
+                            <label><input type="checkbox" value="4.0"> Unit 4</label>
+                            <label><input type="checkbox" value="5.0"> Unit 5</label>
+                            <label><input type="checkbox" value="11.0"> Unit 11</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="spiralFields" style="display: none;">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="spiralUnit">Unit</label>
+                            <select id="spiralUnit" onchange="updateSpiralTopics()">
+                                <option value="">Select Unit...</option>
+                                <option value="1.0">Unit 1</option>
+                                <option value="2.0">Unit 2</option>
+                                <option value="3.0">Unit 3</option>
+                                <option value="4.0">Unit 4</option>
+                                <option value="5.0">Unit 5</option>
+                                <option value="11.0">Unit 11</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="spiralTopic">Topic</label>
+                            <select id="spiralTopic" disabled>
+                                <option value="">Select unit first...</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="spiralProblemsPerLevel">Problems Per Difficulty Level</label>
+                        <input type="number" id="spiralProblemsPerLevel" value="5" min="1" max="10">
+                    </div>
+                </div>
+
+                <div id="problemCountField">
+                    <div class="form-group">
+                        <label for="testProblems">Total Problems</label>
+                        <input type="number" id="testProblems" value="20" min="5" max="50" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="difficultyMix">Difficulty Mix</label>
+                    <select id="difficultyMix" required>
+                        <option value="balanced">Balanced - Equal mix of all levels</option>
+                        <option value="progressive">Progressive - Easy to challenge</option>
+                        <option value="easy">All Easy</option>
+                        <option value="medium">All Medium</option>
+                        <option value="hard">All Hard</option>
+                        <option value="challenge">All Challenge</option>
+                    </select>
+                </div>
+
+                <button type="submit" class="btn btn-primary">
+                    Generate Practice Test
+                </button>
+            </form>
+
+            <div class="info-box">
+                <p><strong>Practice Tests:</strong> Combine multiple topics for comprehensive review. Problems are shuffled for mixed practice.</p>
+            </div>
+        </div>
+
+        <!-- Custom Builder Tab -->
+        <div id="custom-tab" class="tab-content">
+            <div class="form-section">
+                <h3>Custom Worksheet Builder</h3>
+                <p>Build a worksheet with specific topics and difficulty levels. Add multiple sections to create a comprehensive custom worksheet.</p>
+
+                <div id="customSpecs"></div>
+
+                <button type="button" class="btn btn-secondary btn-small" onclick="addCustomSpec()">
+                    + Add Topic
+                </button>
+
+                <div class="form-group" style="margin-top: 2rem;">
+                    <label for="customTitle">Worksheet Title</label>
+                    <input type="text" id="customTitle" placeholder="e.g., Equations Unit Test" required>
+                </div>
+
+                <button type="button" class="btn btn-primary" onclick="generateCustomWorksheet()">
+                    Generate Custom Worksheet
+                </button>
+            </div>
+
+            <div class="info-box">
+                <p><strong>Custom Builder:</strong> Create worksheets that combine exactly the topics and difficulties you want. Perfect for targeted practice or assessments.</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="../js/worksheet-generator.js"></script>
+</body>
+</html>

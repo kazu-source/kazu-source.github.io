@@ -162,7 +162,7 @@ class SubstitutionGenerator:
             b = random.randint(2, 5)
             c = random.randint(2, 5)
             solution = a * (x_val ** 2) + b * y_val - c * z_val
-            latex = f"\\text{{Substitute: }} {a}x^2 + {b}y - {c}z \\text{{ when }} x = {x_val}, y = {y_val}, z = {z_val}"
+            latex = f"\\text{{Sub: }} {a}x^2 + {b}y - {c}z \\text{{ for }} x={x_val}, y={y_val}, z={z_val}"
 
         elif problem_type == 'quadratic_multi_var':
             # Quadratic expression with two variables
@@ -195,7 +195,7 @@ class SubstitutionGenerator:
             c = random.randint(1, 4)
             d = random.randint(1, 4)
             solution = a * w_val + b * x_val + c * y_val - d * z_val
-            latex = f"\\text{{Substitute: }} {a}w + {b}x + {c}y - {d}z \\text{{ when }} w = {w_val}, x = {x_val}, y = {y_val}, z = {z_val}"
+            latex = f"\\text{{Sub: }} {a}w + {b}x + {c}y - {d}z \\text{{ for }} w={w_val}, x={x_val}, y={y_val}, z={z_val}"
 
         return SubstitutionProblem(latex=latex, solution=solution, difficulty='challenge')
 

@@ -10,6 +10,7 @@ FONT SIZE STANDARDS:
 
 import os
 import io
+import re
 from typing import List
 from datetime import datetime
 import matplotlib.pyplot as plt
@@ -175,6 +176,165 @@ class PDFWorksheetGenerator:
 
         return current_y
 
+    def _draw_text_with_exponents(self, c: canvas.Canvas, text: str, x: float, y: float, font_size: int) -> float:
+        """
+        Draw text with proper exponent (superscript) rendering.
+
+        Args:
+            c: Canvas object
+            text: Text with exponents (e.g., "x^2 + 3y^3")
+            x: X position to start drawing
+            y: Y position (baseline)
+            font_size: Font size for main text
+
+        Returns:
+            Total width of rendered text
+        """
+        current_x = x
+        i = 0
+
+        while i < len(text):
+            if i < len(text) - 1 and text[i+1] == '^':
+                # Character followed by ^, draw it then handle the exponent
+                c.setFont('Lexend', font_size)
+                c.drawString(current_x, y, text[i])
+                current_x += c.stringWidth(text[i], 'Lexend', font_size)
+
+                # Skip the ^ character
+                i += 2
+
+                # Get the exponent - handle both x^2 and x^{2} formats
+                exponent = ''
+                # Check if exponent is wrapped in curly braces
+                if i < len(text) and text[i] == '{':
+                    i += 1  # Skip opening brace
+                    while i < len(text) and text[i] != '}':
+                        exponent += text[i]
+                        i += 1
+                    if i < len(text) and text[i] == '}':
+                        i += 1  # Skip closing brace
+                else:
+                    # No braces, just get digits
+                    while i < len(text) and (text[i].isdigit() or text[i] == '-'):
+                        exponent += text[i]
+                        i += 1
+
+                # Draw exponent as superscript (smaller font, raised)
+                exp_font_size = int(font_size * 0.7)  # 70% of main font
+                c.setFont('Lexend', exp_font_size)
+                exp_y = y + font_size * 0.4  # Raise by 40% of font size
+                c.drawString(current_x, exp_y, exponent)
+                current_x += c.stringWidth(exponent, 'Lexend', exp_font_size)
+            else:
+                # Regular character
+                c.setFont('Lexend', font_size)
+                c.drawString(current_x, y, text[i])
+                current_x += c.stringWidth(text[i], 'Lexend', font_size)
+                i += 1
+
+        return current_x - x
+
+    def _draw_equation_with_fractions(self, c: canvas.Canvas, equation_text: str, x: float, y: float, font_size: int = 21) -> float:
+        """
+        Draw an equation with proper fraction and exponent rendering.
+
+        Args:
+            c: Canvas object
+            equation_text: LaTeX equation text (e.g., "\\frac{x}{4} + 9 = 11" or "x^2 + 3")
+            x: X position to start drawing
+            y: Y position (baseline for text)
+            font_size: Font size for equation text
+
+        Returns:
+            Width of the rendered equation in points
+        """
+        # Remove backslashes
+        text = equation_text.replace('\\', '')
+        # Remove text{} wrappers: text{content} -> content
+        text = re.sub(r'text\{([^}]*)\}', r'\1', text)
+
+        # Check if we have fractions or exponents
+        has_fractions = 'frac{' in text
+        has_exponents = '^' in text
+
+        if not has_fractions and not has_exponents:
+            # No special formatting needed, just draw normally
+            c.setFont('Lexend', font_size)
+            c.drawString(x, y, text)
+            return c.stringWidth(text, 'Lexend', font_size)
+
+        # If we only have exponents (no fractions), handle them separately for efficiency
+        if has_exponents and not has_fractions:
+            return self._draw_text_with_exponents(c, text, x, y, font_size)
+
+        # Find all fractions in the text using regex
+        # Pattern: frac{numerator}{denominator}
+        fraction_pattern = r'frac\{([^}]+)\}\{([^}]+)\}'
+        fractions = list(re.finditer(fraction_pattern, text))
+
+        # We have fractions - need to draw them specially
+        current_x = x
+        last_end = 0
+
+        # Fraction rendering parameters - adjusted for proper spacing and font size
+        fraction_font_size = 12  # Keep fraction components at 12pt (same as equation text)
+        fraction_spacing = 0.05 * inch  # Extra spacing around fractions
+
+        # Vertical positioning (in points, relative to baseline)
+        # The fraction bar should align with the mathematical axis (where minus/plus signs center)
+        numerator_offset = 8  # Points above baseline
+        denominator_offset = -8  # Points below baseline
+        bar_offset = 4  # Math axis position for 12pt text
+
+        for match in fractions:
+            # Draw text before this fraction
+            before_text = text[last_end:match.start()]
+            if before_text:
+                c.setFont('Lexend', font_size)
+                c.drawString(current_x, y, before_text)
+                current_x += c.stringWidth(before_text, 'Lexend', font_size)
+
+            # Get numerator and denominator
+            numerator = match.group(1)
+            denominator = match.group(2)
+
+            # Calculate fraction dimensions
+            c.setFont('Lexend', fraction_font_size)
+            num_width = c.stringWidth(numerator, 'Lexend', fraction_font_size)
+            denom_width = c.stringWidth(denominator, 'Lexend', fraction_font_size)
+            fraction_width = max(num_width, denom_width) + 4  # Add 4 points padding
+
+            # Add spacing before fraction
+            current_x += fraction_spacing
+
+            # Draw numerator (centered above the baseline)
+            num_x = current_x + (fraction_width - num_width) / 2
+            num_y = y + numerator_offset
+            c.drawString(num_x, num_y, numerator)
+
+            # Draw fraction bar
+            bar_y = y + bar_offset
+            c.setLineWidth(0.5)  # Thinner line for cleaner look
+            c.line(current_x, bar_y, current_x + fraction_width, bar_y)
+
+            # Draw denominator (centered below the bar with proper gap)
+            denom_x = current_x + (fraction_width - denom_width) / 2
+            denom_y = y + denominator_offset
+            c.drawString(denom_x, denom_y, denominator)
+
+            # Move past the fraction
+            current_x += fraction_width + fraction_spacing
+            last_end = match.end()
+
+        # Draw any remaining text after the last fraction
+        remaining_text = text[last_end:]
+        if remaining_text:
+            c.setFont('Lexend', font_size)
+            c.drawString(current_x, y, remaining_text)
+            current_x += c.stringWidth(remaining_text, 'Lexend', font_size)
+
+        return current_x - x  # Return total width
+
     def _calculate_dynamic_spacing(self, problem_type: str, num_problems: int,
                                    start_y: float, end_y: float) -> float:
         """
@@ -297,29 +457,74 @@ class PDFWorksheetGenerator:
 
     def render_system_to_image(self, eq1: str, eq2: str, fontsize: int = 16) -> ImageReader:
         """
-        Render a system of equations as two lines without a brace.
+        Render system equations with LaTeX array environment for perfect alignment.
 
         Args:
-            eq1: First equation in LaTeX
-            eq2: Second equation in LaTeX
+            eq1: First equation (e.g., "2x + 3y = 13")
+            eq2: Second equation (e.g., "x - y = -1")
             fontsize: Font size for rendering
 
         Returns:
             ImageReader object for reportlab
         """
-        # Create figure for system (taller to fit two equations)
+        import re
+
+        # Parse equations to add phantom spacing for alignment
+        # We'll use LaTeX array environment with right-aligned columns
+
+        def format_for_array(eq):
+            """Convert 'ax + by = c' to array format with alignment."""
+            if '=' not in eq:
+                return eq
+
+            left, right = eq.split('=', 1)
+            left = left.strip()
+            right = right.strip()
+
+            # Parse left side: find x term, operator, y term
+            x_match = re.search(r'([+-]?\s*\d*)\s*x', left)
+            y_match = re.search(r'x\s*([+-])\s*(\d*)\s*y', left)
+
+            if not x_match or not y_match:
+                return eq
+
+            # Get x coefficient
+            x_coef = x_match.group(1).replace(' ', '')
+            if x_coef == '' or x_coef == '+':
+                x_coef = '1'
+            elif x_coef == '-':
+                x_coef = '-1'
+
+            # Get y parts
+            y_sign = y_match.group(1)
+            y_coef = y_match.group(2)
+            if not y_coef:
+                y_coef = '1'
+
+            # Format with alignment: coef & x & sign & coef & y & = & constant
+            return f"{x_coef} & x & {y_sign} & {y_coef} & y & = & {right}"
+
+        # Format both equations
+        formatted1 = format_for_array(eq1)
+        formatted2 = format_for_array(eq2)
+
+        # Create LaTeX array with column alignment (r = right, c = center, l = left)
+        # Format: rcrcrcl means: right coef, center x, right sign, center coef, right y, center =, left constant
+        latex_array = r'\begin{array}{rcrcrcl}' + formatted1 + r' \\' + formatted2 + r'\end{array}'
+
+        # Create figure
         fig = plt.figure(figsize=(4, 1.0))
         fig.patch.set_visible(False)
         ax = fig.add_axes([0, 0, 1, 1])
         ax.axis('off')
 
-        # Render both equations
-        ax.text(0.05, 0.70, f'${eq1}$', fontsize=fontsize, verticalalignment='center')
-        ax.text(0.05, 0.30, f'${eq2}$', fontsize=fontsize, verticalalignment='center')
+        # Render the array
+        ax.text(0.5, 0.5, f'${latex_array}$', fontsize=fontsize,
+               verticalalignment='center', horizontalalignment='center')
 
-        # Save to bytes buffer
+        # Save to buffer
         buf = io.BytesIO()
-        plt.savefig(buf, format='png', dpi=150, bbox_inches='tight', pad_inches=0.1,
+        plt.savefig(buf, format='png', dpi=150, bbox_inches='tight', pad_inches=0.05,
                     transparent=False, facecolor='white')
         buf.seek(0)
         plt.close(fig)
@@ -703,29 +908,19 @@ class PDFWorksheetGenerator:
                         print(f"Warning: Failed to render parabola equation: {e}")
                         text_y = y_pos
                 elif hasattr(equation, 'equation1_latex'):
-                    # For systems: display both equations as LaTeX images
+                    # For systems: display both equations as aligned LaTeX image
                     try:
-                        img1 = self.render_latex_to_image(equation.equation1_latex, 21)  # 21pt font
+                        system_img = self.render_system_to_image(equation.equation1_latex, equation.equation2_latex, 21)
                         c.drawImage(
-                            img1,
+                            system_img,
                             x_start + 0.25 * inch,
-                            y_pos - 0.09 * inch,  # Reduced offset to align better with 12pt problem numbers
+                            y_pos - 0.25 * inch,
                             width=2.5 * inch,
-                            height=0.28 * inch,  # Adjusted for 21pt font
+                            height=0.6 * inch,
                             preserveAspectRatio=True,
                             mask='auto'
                         )
-                        img2 = self.render_latex_to_image(equation.equation2_latex, 21)  # 21pt font
-                        c.drawImage(
-                            img2,
-                            x_start + 0.25 * inch,
-                            y_pos - 0.34 * inch,  # Adjusted spacing for 21pt font
-                            width=2.5 * inch,
-                            height=0.28 * inch,  # Adjusted for 21pt font
-                            preserveAspectRatio=True,
-                            mask='auto'
-                        )
-                        text_y = y_pos - 0.60 * inch
+                        text_y = y_pos - 0.85 * inch
                     except Exception as e:
                         print(f"Warning: Failed to render system equations: {e}")
                         text_y = y_pos
@@ -745,8 +940,10 @@ class PDFWorksheetGenerator:
                 except Exception as e:
                     print(f"Warning: Failed to render graphing worksheet image: {e}")
             else:
-                # For regular equations: display equation as plain text
+                # For regular equations: check if they have fractions or are text-heavy
                 plain_text = equation.latex.replace('\\', '')
+                # Remove text{} wrappers: text{content} -> content
+                plain_text = re.sub(r'text\{([^}]*)\}', r'\1', plain_text)
 
                 # Check if this is a text-heavy problem that needs wrapping
                 text_indicators = ['If ', 'Is ', 'Find ', 'Which ', 'Verify', 'Input:', 'Rule:', 'Output:']
@@ -754,12 +951,18 @@ class PDFWorksheetGenerator:
 
                 if needs_wrapping:
                     # Text-heavy problem: draw number, then wrap text
+                    # For text-heavy, convert fractions to slash notation
+                    plain_text = re.sub(r'frac\{([^}]+)\}\{([^}]+)\}', r'\1/\2', plain_text)
                     c.drawString(x_start, y_pos, f"{idx + 1}.")
                     # Wrap text to fit column width (3.0 inches for 3-column layout)
                     self._wrap_text(c, plain_text, x_start + 0.25 * inch, y_pos, 3.0, line_height=0.18)
                 else:
-                    # Simple equation: draw on single line
-                    c.drawString(x_start, y_pos, f"{idx + 1}. {plain_text}")
+                    # Simple equation: draw with proper fraction rendering
+                    # Note: Equations use same 12pt font as problem numbers (not 21pt)
+                    c.setFont('Lexend', 12)
+                    c.drawString(x_start, y_pos, f"{idx + 1}.")
+                    # Draw equation with fractions (using 12pt to match other simple equations)
+                    self._draw_equation_with_fractions(c, equation.latex, x_start + 0.25 * inch, y_pos, 12)
 
             # Render number line for inequalities only
             if is_inequality:
@@ -774,7 +977,7 @@ class PDFWorksheetGenerator:
                     # Position number line below the equation text
                     c.drawImage(
                         img,
-                        x_start + 0.1 * inch,
+                        x_start - 0.15 * inch,  # Moved 0.25" left from previous 0.1"
                         y_pos - 0.35 * inch - natural_height,  # Below equation text
                         width=numberline_width,
                         height=natural_height,
@@ -1035,7 +1238,7 @@ class PDFWorksheetGenerator:
                     image_bottom = y_pos - 0.35 * inch - natural_height
                     c.drawImage(
                         img,
-                        x_start + 0.1 * inch,
+                        x_start - 0.15 * inch,  # Moved 0.25" left from previous 0.1"
                         image_bottom,
                         width=numberline_width,
                         height=natural_height,
@@ -1197,29 +1400,19 @@ class PDFWorksheetGenerator:
                         print(f"Warning: Failed to render parabola equation: {e}")
                         text_y = y_pos
                 elif hasattr(equation, 'equation1_latex'):
-                    # For systems: display both equations as LaTeX images
+                    # For systems: display both equations as aligned LaTeX image
                     try:
-                        img1 = self.render_latex_to_image(equation.equation1_latex, 21)  # 21pt font
+                        system_img = self.render_system_to_image(equation.equation1_latex, equation.equation2_latex, 21)
                         c.drawImage(
-                            img1,
+                            system_img,
                             x_start + 0.25 * inch,
-                            y_pos - 0.09 * inch,  # Reduced offset to align better with 12pt problem numbers
+                            y_pos - 0.25 * inch,
                             width=2.5 * inch,
-                            height=0.28 * inch,  # Adjusted for 21pt font
+                            height=0.6 * inch,
                             preserveAspectRatio=True,
                             mask='auto'
                         )
-                        img2 = self.render_latex_to_image(equation.equation2_latex, 21)  # 21pt font
-                        c.drawImage(
-                            img2,
-                            x_start + 0.25 * inch,
-                            y_pos - 0.34 * inch,  # Adjusted spacing for 21pt font
-                            width=2.5 * inch,
-                            height=0.28 * inch,  # Adjusted for 21pt font
-                            preserveAspectRatio=True,
-                            mask='auto'
-                        )
-                        text_y = y_pos - 0.60 * inch
+                        text_y = y_pos - 0.85 * inch
                     except Exception as e:
                         print(f"Warning: Failed to render system equations: {e}")
                         text_y = y_pos
@@ -1276,6 +1469,8 @@ class PDFWorksheetGenerator:
                     c.setFont("Helvetica", 12)
 
                 plain_text = equation.latex.replace('\\', '')
+                # Remove text{} wrappers: text{content} -> content
+                plain_text = re.sub(r'text\{([^}]*)\}', r'\1', plain_text)
 
                 # Check if this is a text-heavy problem that needs wrapping
                 text_indicators = ['If ', 'Is ', 'Find ', 'Which ', 'Verify', 'Input:', 'Rule:', 'Output:']
@@ -1283,6 +1478,8 @@ class PDFWorksheetGenerator:
 
                 if needs_wrapping:
                     # Text-heavy problem: draw number, then wrap text
+                    # Convert fractions to slash notation for text-heavy problems
+                    plain_text = re.sub(r'frac\{([^}]+)\}\{([^}]+)\}', r'\1/\2', plain_text)
                     c.drawString(x_start, y_pos, f"{idx + 1}.")
                     # Wrap text to fit column width (3.0 inches for 3-column layout)
                     text_end_y = self._wrap_text(c, plain_text, x_start + 0.25 * inch, y_pos, 3.0, line_height=0.18)
@@ -1296,8 +1493,12 @@ class PDFWorksheetGenerator:
                     c.drawString(x_start + 0.25 * inch, text_end_y - 0.15 * inch, solution_str)
                     c.setFillColorRGB(0, 0, 0)  # Reset to black
                 else:
-                    # Simple equation: draw on single line
-                    c.drawString(x_start, y_pos, f"{idx + 1}. {plain_text}")
+                    # Simple equation: draw with proper fraction rendering
+                    # Note: Equations use same 12pt font as problem numbers (not 21pt)
+                    c.setFont('Lexend', 12)
+                    c.drawString(x_start, y_pos, f"{idx + 1}.")
+                    # Draw equation with fractions (using 12pt to match other simple equations)
+                    self._draw_equation_with_fractions(c, equation.latex, x_start + 0.25 * inch, y_pos, 12)
 
                     # Display answer in RED below the equation
                     c.setFillColorRGB(1, 0, 0)  # Red color
