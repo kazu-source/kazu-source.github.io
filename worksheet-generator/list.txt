@@ -10,7 +10,7 @@
     - Intro - Evaluating Expressions with Multiple Terms
     - Intro - Writing Expression Word Problems
     - Intro - Dependent and Independent Variables
-    - Evaluating Expressions with Multiple Variables
+    - Intro - Evaluating Expressions with Multiple Variables
     - Intro - The Number System (natural, whole, integers, real, rational, irrational)
     - Expansion - Of Why Dividing by Zero Does Not Work
 
@@ -20,7 +20,7 @@
     - Intro - Property of Equality (mult/div)
     - Intro - Solving Multi-Step Equations
     - Intro - Solving Equations with Variables on Both Sides
-    - Expansion of Parenthesis Explanation (multiplication)
+    - Expansion - Parenthesis Explanation (multiplication)
     - Intro - Linear Equations
     - Intro - Inputs and Outputs
     - Intro - What Are Solutions?
@@ -29,7 +29,7 @@
 3. Inequalities (one variable)
     - Intro - Inequalities
     - Solving One-Step Inequalities
-    - Graphing One-Step Inequalities
+    - Graphing - One-Step Inequalities
     - Solving Two-Step Inequalities
     - Solving Two-Step Inequalities
     - Solving Multi-Step Inequalities
@@ -41,13 +41,13 @@
     - Intro - Two-Variable Linear Equations
     - Review of Inputs and Outputs
     - Intro - The Coordinate Plane
-    - Graphing Points on a Coordinate Plane
-    - Graphing a Line on a Coordinate Plane
+    - Graphing - Points on a Coordinate Plane
+    - Graphing - Line on a Coordinate Plane
     - Intro - Slope
     - Identifying X and Y Intercepts
     - Graphing Slope-Intercept Form
     - Intro - Writing Slope-Intercept Equations
-    - Graphing Point-Slope Form
+    - Graphing - Point-Slope Form
     - Intro - Writing Point-Slope Form Equations
     - Graphing Standard Form
     - Intro - Writing Standard Form Equations
@@ -71,7 +71,7 @@
     - Intro - Functions (what is the point vs an equation, function notation)
     - Review of Inputs and Outputs + How It Relates to Functions
     - Intro - Domain and Range
-    - Interpreting Domain and Range
+    - Intro - Interpreting Domain and Range
 
 8. Exponents
     - Review Exponents (properties)
@@ -82,13 +82,13 @@
     - Intro - Advanced Properties of Radicals (multiplication, fractions)
     - Introduction of Equivalent Exponential Expressions
     - Expansion - Explanation of Why an Even Square Root Cannot Be Negative
-    - Graphing Exponential Functions (using tables)
+    - Graphing - Exponential Functions (using tables)
     - Intro - Writing Exponential Functions
 
 9. Exponential Growth and Decay (emphasize importance of real-world application)
     - Intro - Linear vs Exponential Growth
     - Intro - Evaluating Expressions with Exponents Greater Than 1
-    - Graphing of Exponential Functions (using tables)
+    - Graphing - Exponential Functions (using tables)
     - Intro - Modeling Exponential Functions
     - Intro - Exponential Growth
     - Intro - Exponential Decay
@@ -112,11 +112,11 @@
     - Expansion - Interpreting the Roots of Quadratic Equations (factored form)
     - Intro - Solving Quadratic Equations Using Square Roots (no other terms except x^2)
     - Intro - Vertex Form
-    - Graphing Using Vertex Form
+    - Graphing - Using Vertex Form
     - Intro - Standard Form of Quadratics
     - Graphing Using Standard Form (-b/2a + solve for when x = 0)
     - Intro - Solving Quadratics by Factoring (factor for the roots, use (x+p)/2 to find vertex)
-    - Graphing Quadratics by Factoring
+    - Graphing - Quadratics by Factoring
     - Expansion - Understanding the Three Main Ways to Solve + Graph Quadratics; What Is the Point? (vertex form, standard form, factored form)
     - Intro - Completing the Square
     - Intro - Quadratic Formula (hard to use the three main methods and completing the square)
@@ -132,10 +132,10 @@
 
 13. Absolute value
     - Intro - Absolute Value
-    - Graphing of Absolute Value Functions
+    - Graphing - Absolute Value Functions
     - Intro - Solving Absolute Value Equations
     - Intro - Solving Absolute Value Inequalities
-    - Graphing Absolute Value Inequalities
+    - Graphing - Absolute Value Inequalities
 
  13. Sequences
     - Intro - Arithmetic Sequences
