@@ -3,8 +3,8 @@ Configuration for worksheet generation.
 Centralizes all rendering settings for different problem types.
 """
 
-from dataclasses import dataclass
-from typing import Dict
+from dataclasses import dataclass, field
+from typing import Dict, Union
 
 
 @dataclass
@@ -20,7 +20,7 @@ class ProblemTypeConfig:
     # Layout settings
     problems_per_page: int  # Maximum problems per page
     vertical_spacing: float  # Space between problems (inches) - DEPRECATED: use min/max_spacing
-    default_num_problems: int  # Default number of problems for new worksheets
+    default_num_problems: Union[int, Dict[str, int]]  # Default number of problems - can be int or dict by difficulty
 
     # Dynamic spacing constraints
     min_spacing: float  # Minimum vertical spacing (inches) - prevents cramping
@@ -29,7 +29,23 @@ class ProblemTypeConfig:
     # Instructions text
     instructions: str  # Instruction text for worksheet
 
+    def get_default_num_problems(self, difficulty: str = 'medium') -> int:
+        """
+        Get the default number of problems for a given difficulty.
+
+        Args:
+            difficulty: 'easy', 'medium', 'hard', or 'challenge'
+
+        Returns:
+            Default number of problems for that difficulty
+        """
+        if isinstance(self.default_num_problems, dict):
+            return self.default_num_problems.get(difficulty, self.default_num_problems.get('medium', 10))
+        return self.default_num_problems
+
     def __repr__(self):
+        if isinstance(self.default_num_problems, dict):
+            return f"ProblemTypeConfig(fontsize={self.latex_fontsize}, {self.problems_per_page}/page, defaults={self.default_num_problems})"
         return f"ProblemTypeConfig(fontsize={self.latex_fontsize}, {self.problems_per_page}/page, default={self.default_num_problems})"
 
 
@@ -43,7 +59,7 @@ PROBLEM_TYPE_CONFIGS: Dict[str, ProblemTypeConfig] = {
         vertical_offset=0.3,
         problems_per_page=10,
         vertical_spacing=0.8,
-        default_num_problems=10,
+        default_num_problems={'easy': 16, 'medium': 16, 'hard': 16, 'challenge': 8},
         min_spacing=0.8,
         max_spacing=2.0,
         instructions="Answer each question about variables."
@@ -56,7 +72,7 @@ PROBLEM_TYPE_CONFIGS: Dict[str, ProblemTypeConfig] = {
         vertical_offset=0.3,
         problems_per_page=12,
         vertical_spacing=0.8,
-        default_num_problems=12,
+        default_num_problems={'easy': 16, 'medium': 16, 'hard': 16, 'challenge': 8},
         min_spacing=0.7,
         max_spacing=2.0,
         instructions="Evaluate each exponential expression."
@@ -69,7 +85,7 @@ PROBLEM_TYPE_CONFIGS: Dict[str, ProblemTypeConfig] = {
         vertical_offset=0.3,
         problems_per_page=10,
         vertical_spacing=0.8,
-        default_num_problems=10,
+        default_num_problems={'easy': 16, 'medium': 16, 'hard': 16, 'challenge': 8},
         min_spacing=0.8,
         max_spacing=2.0,
         instructions="Evaluate each expression using the given value."
@@ -82,7 +98,7 @@ PROBLEM_TYPE_CONFIGS: Dict[str, ProblemTypeConfig] = {
         vertical_offset=0.3,
         problems_per_page=10,
         vertical_spacing=0.8,
-        default_num_problems=10,
+        default_num_problems={'easy': 16, 'medium': 16, 'hard': 16, 'challenge': 8},
         min_spacing=0.8,
         max_spacing=2.0,
         instructions="Substitute the given value and solve."
@@ -95,7 +111,7 @@ PROBLEM_TYPE_CONFIGS: Dict[str, ProblemTypeConfig] = {
         vertical_offset=0.3,
         problems_per_page=10,
         vertical_spacing=0.8,
-        default_num_problems=10,
+        default_num_problems={'easy': 16, 'medium': 16, 'hard': 16, 'challenge': 8},
         min_spacing=0.8,
         max_spacing=2.0,
         instructions="Simplify by combining like terms."
@@ -109,7 +125,7 @@ PROBLEM_TYPE_CONFIGS: Dict[str, ProblemTypeConfig] = {
         vertical_offset=0.3,
         problems_per_page=10,
         vertical_spacing=0.8,
-        default_num_problems=10,
+        default_num_problems={'easy': 16, 'medium': 16, 'hard': 16, 'challenge': 8},
         min_spacing=0.8,
         max_spacing=2.0,
         instructions="Answer each question about equations."
@@ -122,7 +138,7 @@ PROBLEM_TYPE_CONFIGS: Dict[str, ProblemTypeConfig] = {
         vertical_offset=0.3,
         problems_per_page=10,
         vertical_spacing=0.8,
-        default_num_problems=10,
+        default_num_problems={'easy': 16, 'medium': 16, 'hard': 16, 'challenge': 8},
         min_spacing=0.8,
         max_spacing=2.0,
         instructions="Find the output or input using the given rule."
@@ -135,7 +151,7 @@ PROBLEM_TYPE_CONFIGS: Dict[str, ProblemTypeConfig] = {
         vertical_offset=0.3,
         problems_per_page=10,
         vertical_spacing=0.8,
-        default_num_problems=10,
+        default_num_problems={'easy': 16, 'medium': 16, 'hard': 16, 'challenge': 8},
         min_spacing=0.8,
         max_spacing=2.0,
         instructions="Determine if the value is a solution or find the solution."
@@ -148,7 +164,7 @@ PROBLEM_TYPE_CONFIGS: Dict[str, ProblemTypeConfig] = {
         vertical_offset=0.3,
         problems_per_page=10,
         vertical_spacing=0.8,
-        default_num_problems=10,
+        default_num_problems={'easy': 16, 'medium': 16, 'hard': 16, 'challenge': 8},
         min_spacing=0.8,
         max_spacing=2.0,
         instructions="Solve each equation with variables on both sides."
@@ -161,7 +177,7 @@ PROBLEM_TYPE_CONFIGS: Dict[str, ProblemTypeConfig] = {
         vertical_offset=0.3,
         problems_per_page=15,
         vertical_spacing=0.8,  # DEPRECATED: kept for backwards compatibility
-        default_num_problems=10,  # Pure equations default to 10
+        default_num_problems=16,
         min_spacing=0.6,  # Minimum spacing to prevent cramping
         max_spacing=2.5,  # Maximum spacing to allow proper stretching with fewer problems
         instructions="Solve for x. Show your work."
@@ -174,7 +190,7 @@ PROBLEM_TYPE_CONFIGS: Dict[str, ProblemTypeConfig] = {
         vertical_offset=0.55,
         problems_per_page=8,
         vertical_spacing=1.3,  # DEPRECATED: kept for backwards compatibility
-        default_num_problems=8,  # Systems default to 8 problems
+        default_num_problems={'easy': 16, 'medium': 16, 'hard': 16, 'challenge': 8},
         min_spacing=1.0,  # Minimum spacing to prevent cramping
         max_spacing=2.0,  # Maximum spacing to prevent excessive spreading
         instructions="Solve each system of equations. Show your work."
@@ -187,10 +203,49 @@ PROBLEM_TYPE_CONFIGS: Dict[str, ProblemTypeConfig] = {
         vertical_offset=0.5,
         problems_per_page=8,  # 2 columns x 4 rows
         vertical_spacing=2.0,  # DEPRECATED: kept for backwards compatibility
-        default_num_problems=8,  # Number line worksheets default to 8
+        default_num_problems=16,
         min_spacing=1.5,  # Minimum spacing to prevent cramping (larger for number lines)
         max_spacing=2.5,  # Maximum spacing to prevent excessive spreading
         instructions="Solve each inequality and graph the solution on the number line."
+    ),
+
+    'compound_inequality': ProblemTypeConfig(
+        latex_fontsize=21,  # Standard equation font (1.75x ratio with 12pt problem numbers)
+        image_width=3.0,    # Smaller width for 2-column layout
+        image_height=1.0,   # Height for number line
+        vertical_offset=0.5,
+        problems_per_page=8,  # 2 columns x 4 rows
+        vertical_spacing=2.0,  # DEPRECATED: kept for backwards compatibility
+        default_num_problems=16,
+        min_spacing=1.5,  # Minimum spacing to prevent cramping (larger for number lines)
+        max_spacing=2.5,  # Maximum spacing to prevent excessive spreading
+        instructions="Solve each compound inequality and graph the solution on the number line."
+    ),
+
+    'compound_inequality_and': ProblemTypeConfig(
+        latex_fontsize=21,  # Standard equation font (1.75x ratio with 12pt problem numbers)
+        image_width=3.0,    # Smaller width for 2-column layout
+        image_height=1.0,   # Height for number line
+        vertical_offset=0.5,
+        problems_per_page=8,  # 2 columns x 4 rows
+        vertical_spacing=2.0,  # DEPRECATED: kept for backwards compatibility
+        default_num_problems=16,
+        min_spacing=1.5,  # Minimum spacing to prevent cramping (larger for number lines)
+        max_spacing=2.5,  # Maximum spacing to prevent excessive spreading
+        instructions="Solve each compound inequality (AND type) and graph the solution on the number line."
+    ),
+
+    'compound_inequality_or': ProblemTypeConfig(
+        latex_fontsize=21,  # Standard equation font (1.75x ratio with 12pt problem numbers)
+        image_width=3.0,    # Smaller width for 2-column layout
+        image_height=1.0,   # Height for number line
+        vertical_offset=0.5,
+        problems_per_page=8,  # 2 columns x 4 rows
+        vertical_spacing=2.0,  # DEPRECATED: kept for backwards compatibility
+        default_num_problems=16,
+        min_spacing=1.5,  # Minimum spacing to prevent cramping (larger for number lines)
+        max_spacing=2.5,  # Maximum spacing to prevent excessive spreading
+        instructions="Solve each compound inequality (OR type) and graph the solution on the number line."
     ),
 
     'properties_of_equality': ProblemTypeConfig(
@@ -200,7 +255,7 @@ PROBLEM_TYPE_CONFIGS: Dict[str, ProblemTypeConfig] = {
         vertical_offset=0.3,
         problems_per_page=10,  # 2 columns x 5 rows
         vertical_spacing=1.0,  # DEPRECATED: kept for backwards compatibility
-        default_num_problems=10,  # Properties worksheets default to 10
+        default_num_problems={'easy': 16, 'medium': 16, 'hard': 16, 'challenge': 8},
         min_spacing=0.8,  # Minimum spacing
         max_spacing=2.0,  # Maximum spacing
         instructions="Solve for x. Identify the property of equality used."
@@ -213,7 +268,7 @@ PROBLEM_TYPE_CONFIGS: Dict[str, ProblemTypeConfig] = {
         vertical_offset=0.15,  # Reduced offset for better alignment
         problems_per_page=10,  # 2 columns x 5 rows
         vertical_spacing=1.0,  # DEPRECATED: kept for backwards compatibility
-        default_num_problems=10,  # Properties worksheets default to 10
+        default_num_problems={'easy': 16, 'medium': 16, 'hard': 16, 'challenge': 8},
         min_spacing=0.8,  # Minimum spacing
         max_spacing=2.0,  # Maximum spacing
         instructions="Solve for x. Identify which property of equality you used."
@@ -226,7 +281,7 @@ PROBLEM_TYPE_CONFIGS: Dict[str, ProblemTypeConfig] = {
         vertical_offset=0.3,
         problems_per_page=4,  # Maximum 4 word problems per page for readability
         vertical_spacing=1.2,  # DEPRECATED: kept for backwards compatibility
-        default_num_problems=4,  # Word problems default to 4
+        default_num_problems={'easy': 8, 'medium': 8, 'hard': 8, 'challenge': 4},
         min_spacing=1.5,  # Larger minimum spacing for word problems
         max_spacing=3.0,  # Maximum spacing
         instructions="Read each word problem carefully. Write an equation and solve for x."
@@ -239,7 +294,7 @@ PROBLEM_TYPE_CONFIGS: Dict[str, ProblemTypeConfig] = {
         vertical_offset=0.3,
         problems_per_page=10,  # 2 columns x 5 rows
         vertical_spacing=1.0,  # DEPRECATED: kept for backwards compatibility
-        default_num_problems=10,  # Multi-step equations default to 10
+        default_num_problems=16,
         min_spacing=0.8,  # Minimum spacing
         max_spacing=2.0,  # Maximum spacing
         instructions="Solve each two-step equation. Show your work."
@@ -252,7 +307,7 @@ PROBLEM_TYPE_CONFIGS: Dict[str, ProblemTypeConfig] = {
         vertical_offset=0.3,
         problems_per_page=4,  # 2 columns x 2 rows for graphs
         vertical_spacing=1.5,  # DEPRECATED: kept for backwards compatibility
-        default_num_problems=4,  # Graphing problems default to 4
+        default_num_problems={'easy': 8, 'medium': 8, 'hard': 8, 'challenge': 4},
         min_spacing=1.2,  # Minimum spacing for graphs
         max_spacing=2.5,  # Maximum spacing
         instructions="Plot each point on the coordinate plane. Label each point with its letter and coordinates."
@@ -265,7 +320,7 @@ PROBLEM_TYPE_CONFIGS: Dict[str, ProblemTypeConfig] = {
         vertical_offset=0.3,
         problems_per_page=4,  # 2 columns x 2 rows for graphs
         vertical_spacing=1.5,  # DEPRECATED: kept for backwards compatibility
-        default_num_problems=6,  # Line graphing default to 6
+        default_num_problems={'easy': 8, 'medium': 8, 'hard': 8, 'challenge': 4},
         min_spacing=3.8,  # Minimum spacing for graphs
         max_spacing=4.5,  # Maximum spacing
         instructions="Graph the line through the two given points."
@@ -278,7 +333,7 @@ PROBLEM_TYPE_CONFIGS: Dict[str, ProblemTypeConfig] = {
         vertical_offset=0.3,
         problems_per_page=4,  # 2 columns x 2 rows for graphs
         vertical_spacing=1.5,  # DEPRECATED: kept for backwards compatibility
-        default_num_problems=6,  # Slope-intercept default to 6
+        default_num_problems={'easy': 8, 'medium': 8, 'hard': 8, 'challenge': 4},
         min_spacing=3.8,  # Minimum spacing for graphs
         max_spacing=4.5,  # Maximum spacing
         instructions="Graph each line using the slope-intercept form y = mx + b."
@@ -291,7 +346,7 @@ PROBLEM_TYPE_CONFIGS: Dict[str, ProblemTypeConfig] = {
         vertical_offset=0.3,
         problems_per_page=4,  # 2 columns x 2 rows for graphs
         vertical_spacing=1.5,  # DEPRECATED: kept for backwards compatibility
-        default_num_problems=6,  # Point-slope default to 6
+        default_num_problems={'easy': 8, 'medium': 8, 'hard': 8, 'challenge': 4},
         min_spacing=3.8,  # Minimum spacing for graphs
         max_spacing=4.5,  # Maximum spacing
         instructions="Graph each line using the point-slope form y - y₁ = m(x - x₁)."
@@ -304,7 +359,7 @@ PROBLEM_TYPE_CONFIGS: Dict[str, ProblemTypeConfig] = {
         vertical_offset=0.3,
         problems_per_page=4,  # 2 columns x 2 rows for graphs
         vertical_spacing=1.5,  # DEPRECATED: kept for backwards compatibility
-        default_num_problems=6,  # Standard form default to 6
+        default_num_problems={'easy': 8, 'medium': 8, 'hard': 8, 'challenge': 4},
         min_spacing=3.8,  # Minimum spacing for graphs
         max_spacing=4.5,  # Maximum spacing
         instructions="Graph each line using the standard form Ax + By = C."
@@ -317,7 +372,7 @@ PROBLEM_TYPE_CONFIGS: Dict[str, ProblemTypeConfig] = {
         vertical_offset=0.3,
         problems_per_page=4,  # 2 columns x 2 rows for graphs
         vertical_spacing=1.5,  # DEPRECATED: kept for backwards compatibility
-        default_num_problems=4,  # Systems graphing default to 4
+        default_num_problems={'easy': 8, 'medium': 8, 'hard': 8, 'challenge': 4},
         min_spacing=3.8,  # Minimum spacing for graphs (same as graphing_points)
         max_spacing=4.5,  # Maximum spacing
         instructions="Graph both equations on the same coordinate plane. Find and label the intersection point."
@@ -330,7 +385,7 @@ PROBLEM_TYPE_CONFIGS: Dict[str, ProblemTypeConfig] = {
         vertical_offset=0.3,
         problems_per_page=4,  # 2 columns x 2 rows for graphs
         vertical_spacing=1.5,  # DEPRECATED: kept for backwards compatibility
-        default_num_problems=4,  # Parabola graphing default to 4
+        default_num_problems={'easy': 8, 'medium': 8, 'hard': 8, 'challenge': 4},
         min_spacing=3.8,  # Minimum spacing for graphs (same as other graphing types)
         max_spacing=4.5,  # Maximum spacing
         instructions="Graph the parabola and identify the vertex."

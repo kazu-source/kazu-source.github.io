@@ -9,5 +9,9 @@
     ],
     "deny": [],
     "ask": []
+  },
+  "statusLine": {
+    "type": "command",
+    "command": "C:\\Python312\\python.exe C:\\Users\\Administrator\\.claude\\statusline.py"
   }
 }

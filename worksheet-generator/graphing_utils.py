@@ -71,8 +71,8 @@ class CoordinatePlane:
                    arrowprops=dict(arrowstyle='->', color='black', lw=1.5))
 
         # Add axis labels
-        ax.text(self.x_max + 0.5, -0.5, 'x', fontsize=12, ha='center', va='top')
-        ax.text(0.5, self.y_max + 0.5, 'y', fontsize=12, ha='left', va='center')
+        ax.text(self.x_max + 0.5, 0, 'x', fontsize=12, ha='center', va='center')
+        ax.text(0, self.y_max + 0.5, 'y', fontsize=12, ha='center', va='center')
 
         # Set up grid
         if self.grid:

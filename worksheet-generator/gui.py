@@ -15,6 +15,7 @@ from properties_mult_div_generator import PropertiesMultDivGenerator
 from word_problems_generator import WordProblemsGenerator
 from multistep_generator import MultiStepEquationGenerator
 from generators.chapter04.graphing_points import GraphingPointsGenerator
+from generators.chapter03.compound_inequalities_generator import CompoundInequalityGenerator
 from pdf_generator import PDFWorksheetGenerator
 from worksheet_config import get_config
 
@@ -38,6 +39,7 @@ class WorksheetGeneratorGUI:
         self.equation_gen = LinearEquationGenerator()
         self.systems_gen = SystemsOfEquationsGenerator()
         self.inequality_gen = InequalityGenerator()
+        self.compound_inequality_gen = CompoundInequalityGenerator()
         self.properties_gen = PropertiesOfEqualityGenerator()
         self.properties_mult_div_gen = PropertiesMultDivGenerator()
         self.word_problems_gen = WordProblemsGenerator()
@@ -65,6 +67,9 @@ class WorksheetGeneratorGUI:
             },
             'Chapter 3: Inequalities': {
                 'Inequalities': ('inequality', 'inequality'),
+                'Compound Inequalities - Mixed': ('compound_inequality', 'compound_inequality'),
+                'Compound Inequalities - AND': ('compound_inequality_and', 'compound_inequality_and'),
+                'Compound Inequalities - OR': ('compound_inequality_or', 'compound_inequality_or'),
             },
             'Chapter 4: Linear Equations - Two Variables': {
                 'Graphing Points': ('graphing_points', 'graphing_points'),
@@ -87,6 +92,9 @@ class WorksheetGeneratorGUI:
             'Systems of Equations - Algebraic': 'system_of_equations',
             'Systems of Equations - Graphing': 'graphing_systems',
             'Inequalities': 'inequality',
+            'Compound Inequalities - Mixed': 'compound_inequality',
+            'Compound Inequalities - AND': 'compound_inequality_and',
+            'Compound Inequalities - OR': 'compound_inequality_or',
             'Properties of Equality - Add/Subtract': 'properties_of_equality',
             'Properties of Equality - Mult/Div': 'properties_mult_div',
             'Word Problems - Add/Subtract': 'word_problems',
@@ -185,6 +193,24 @@ class WorksheetGeneratorGUI:
                 'hard': 'Multi-step with parentheses',
                 'challenge': 'Variables on both sides (direction may flip)'
             },
+            'Compound Inequalities - Mixed': {
+                'easy': 'Simple compound (3 < x < 7 or x < 2)',
+                'medium': 'One-step solving (5 < x + 2 < 9)',
+                'hard': 'Two-step solving (1 < 2x + 3 < 11)',
+                'challenge': 'Negative coefficients (flip directions)'
+            },
+            'Compound Inequalities - AND': {
+                'easy': 'Simple AND (3 < x < 7)',
+                'medium': 'One-step solving (5 < x + 2 < 9)',
+                'hard': 'Two-step solving (1 < 2x + 3 < 11)',
+                'challenge': 'Negative coefficients (flip directions)'
+            },
+            'Compound Inequalities - OR': {
+                'easy': 'Simple OR (x < 2 or x > 5)',
+                'medium': 'One-step solving (x + 2 < 3 or x + 2 > 7)',
+                'hard': 'Two-step solving (2x + 3 < 1 or 2x + 3 > 11)',
+                'challenge': 'Negative coefficients (flip directions)'
+            },
             'Properties of Equality - Add/Subtract': {
                 'easy': 'Numbers 1-10 (x + 3 = 8, x - 5 = 2)',
                 'medium': 'Numbers 1-20 (x + 12 = 25, x - 8 = 14)',
@@ -244,7 +270,7 @@ class WorksheetGeneratorGUI:
         num_problems_label.grid(row=5, column=0, sticky=tk.W, pady=10)
 
         self.num_problems_var = tk.StringVar(value="10")
-        num_problems_spinbox = ttk.Spinbox(main_frame, from_=5, to=20,
+        num_problems_spinbox = ttk.Spinbox(main_frame, from_=4, to=16,
                                           textvariable=self.num_problems_var,
                                           width=25)
         num_problems_spinbox.grid(row=5, column=1, sticky=(tk.W, tk.E), pady=10, padx=(10, 0))
@@ -307,9 +333,9 @@ class WorksheetGeneratorGUI:
         try:
             # Validate inputs
             num_problems = int(self.num_problems_var.get())
-            if num_problems < 1 or num_problems > 20:
+            if num_problems < 4 or num_problems > 16:
                 messagebox.showerror("Invalid Input",
-                                   "Number of problems must be between 1 and 20")
+                                   "Number of problems must be between 4 and 16")
                 return
 
             difficulty = self.difficulty_var.get()
@@ -324,6 +350,12 @@ class WorksheetGeneratorGUI:
                 status_text = "Generating system graphs..."
             elif topic == "Inequalities":
                 status_text = "Generating inequalities..."
+            elif topic == "Compound Inequalities - Mixed":
+                status_text = "Generating compound inequalities (mixed)..."
+            elif topic == "Compound Inequalities - AND":
+                status_text = "Generating compound inequalities (AND)..."
+            elif topic == "Compound Inequalities - OR":
+                status_text = "Generating compound inequalities (OR)..."
             elif topic == "Properties of Equality - Add/Subtract":
                 status_text = "Generating properties (add/subtract)..."
             elif topic == "Properties of Equality - Mult/Div":
@@ -348,6 +380,12 @@ class WorksheetGeneratorGUI:
                 equations = self.graphing_systems_gen.generate_worksheet(difficulty, num_problems)
             elif topic == "Inequalities":
                 equations = self.inequality_gen.generate_worksheet(difficulty, num_problems)
+            elif topic == "Compound Inequalities - Mixed":
+                equations = self.compound_inequality_gen.generate_worksheet(difficulty, num_problems)
+            elif topic == "Compound Inequalities - AND":
+                equations = self.compound_inequality_gen.generate_worksheet(difficulty, num_problems, compound_type='and')
+            elif topic == "Compound Inequalities - OR":
+                equations = self.compound_inequality_gen.generate_worksheet(difficulty, num_problems, compound_type='or')
             elif topic == "Properties of Equality - Add/Subtract":
                 equations = self.properties_gen.generate_worksheet(difficulty, num_problems, 'mixed')
             elif topic == "Properties of Equality - Mult/Div":

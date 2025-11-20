@@ -92,14 +92,13 @@ class EquationsIntroGenerator:
         problem_type = random.choice(['balance', 'find_value', 'verify'])
 
         if problem_type == 'balance':
-            # Both sides equal
-            x_val = random.randint(2, 8)
-            left_coef = random.randint(2, 6)
-            left_const = random.randint(1, 10)
-            left_side = left_coef * x_val + left_const
+            # Find x that makes equation true
+            solution = random.randint(2, 10)
+            coef = random.randint(2, 6)
+            const = random.randint(1, 10)
+            total = coef * solution + const
 
-            latex = f"If x = {x_val}, what equals {left_coef}x + {left_const}?"
-            solution = left_side
+            latex = f"Find x if {coef}x + {const} = {total}"
 
         elif problem_type == 'find_value':
             # Find x that makes equation true
@@ -190,18 +189,14 @@ class EquationsIntroGenerator:
             latex = f"If {coef}x + {const1} = {total}, subtract what from both sides to get {coef}x = {total - const1}?"
 
         else:  # multi_variable_reasoning
-            # Complex reasoning about equation structure
-            # If 3a + 2b = 20 and a = 4, find b
-            a_val = random.randint(2, 6)
-            b_val = random.randint(2, 8)
-            coef_a = random.randint(2, 5)
-            coef_b = random.randint(2, 4)
-            total = coef_a * a_val + coef_b * b_val
+            # Complex reasoning about equation structure - equation only
+            # Solve: coef*x + const = total
+            solution = random.randint(3, 15)
+            coef = random.randint(3, 8)
+            const = random.randint(5, 20)
+            total = coef * solution + const
 
-            # Solving for b: b = (total - coef_a * a_val) / coef_b
-            solution = b_val
-
-            latex = f"If {coef_a}a + {coef_b}b = {total} \\text{{ and }} a = {a_val}, \\text{{ find }} b"
+            latex = f"{coef}x + {const} = {total}"
 
         return Equation(latex=latex, solution=solution, steps=[], difficulty='challenge')
 

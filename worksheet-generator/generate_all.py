@@ -16,13 +16,16 @@ from pdf_generator import PDFWorksheetGenerator
 from worksheet_config import get_config
 
 
-def generate_all_worksheets(output_base_dir: str = "output"):
+def generate_all_worksheets(output_base_dir: str = "output/comprehensive_tests", difficulties: list = None):
     """
     Generate all worksheets for all implemented topics.
 
     Args:
-        output_base_dir: Base output directory (default: "output")
+        output_base_dir: Base output directory (default: "output/comprehensive_tests")
+        difficulties: List of difficulties to generate (default: ['easy', 'medium', 'hard', 'challenge'])
     """
+    if difficulties is None:
+        difficulties = ['easy', 'medium', 'hard', 'challenge']
     # Register all generators
     register_all_generators()
     registry = get_registry()
@@ -57,8 +60,8 @@ def generate_all_worksheets(output_base_dir: str = "output"):
         print(f"Unit {unit} | {topic_type} | {topic}")
         print(f"{'-' * 80}")
 
-        # Generate for each difficulty level
-        for difficulty in ['easy', 'medium', 'hard', 'challenge']:
+        # Generate for specified difficulty levels
+        for difficulty in difficulties:
             total_worksheets += 1
 
             try:
@@ -71,20 +74,24 @@ def generate_all_worksheets(output_base_dir: str = "output"):
 
                 # Get config
                 config = get_config(topic_meta.config_key)
-                num_problems = config.default_num_problems
+                num_problems = config.get_default_num_problems(difficulty)
 
-                # Generate problems
-                problems = generator.generate_worksheet(difficulty, num_problems)
+                # Generate problems (handle compound inequality types)
+                if 'compound_inequality_and' in topic_meta.config_key:
+                    problems = generator.generate_worksheet(difficulty, num_problems, compound_type='and')
+                elif 'compound_inequality_or' in topic_meta.config_key:
+                    problems = generator.generate_worksheet(difficulty, num_problems, compound_type='or')
+                else:
+                    problems = generator.generate_worksheet(difficulty, num_problems)
 
-                # Create output path
-                unit_dir = output_dir / f"Unit{int(unit)}" / topic_type
-                unit_dir.mkdir(parents=True, exist_ok=True)
+                # Create output path directly in base directory (no subdirectories)
+                output_dir.mkdir(parents=True, exist_ok=True)
 
                 # Generate filename
                 date_str = datetime.now().strftime("%Y%m%d")
                 topic_clean = topic.replace(" ", "_").replace("/", "_").replace("(", "").replace(")", "").replace("?", "")
                 filename = f"{topic_clean}_{difficulty}_{date_str}.pdf"
-                output_path = unit_dir / filename
+                output_path = output_dir / filename
 
                 # Generate PDF
                 title = f"Algebra 1 - Unit {int(unit)} - {topic} ({difficulty.capitalize()})"

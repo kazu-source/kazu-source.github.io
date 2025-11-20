@@ -63,17 +63,17 @@ class EvaluatingExpressionsGenerator:
         if problem_type == 'add':
             num = random.randint(1, 10)
             solution = value + num
-            latex = f"\\text{{Evaluate }} {var} + {num} \\text{{ when }} {var} = {value}"
+            latex = f"{var} + {num}; {var} = {value}"
 
         elif problem_type == 'subtract':
             num = random.randint(1, value)  # Keep positive
             solution = value - num
-            latex = f"\\text{{Evaluate }} {var} - {num} \\text{{ when }} {var} = {value}"
+            latex = f"{var} - {num}; {var} = {value}"
 
         else:  # multiply
             num = random.randint(2, 5)
             solution = num * value
-            latex = f"\\text{{Evaluate }} {num}{var} \\text{{ when }} {var} = {value}"
+            latex = f"{num}{var}; {var} = {value}"
 
         return EvaluatingProblem(latex=latex, solution=solution, difficulty='easy')
 
@@ -89,13 +89,13 @@ class EvaluatingExpressionsGenerator:
             coef = random.randint(2, 8)
             const = random.randint(1, 12)
             solution = coef * value + const
-            latex = f"\\text{{Evaluate }} {coef}{var} + {const} \\text{{ when }} {var} = {value}"
+            latex = f"{coef}{var} + {const}; {var} = {value}"
 
         else:  # with_exponent
             # x^2 + b format
             const = random.randint(1, 10)
             solution = value ** 2 + const
-            latex = f"\\text{{Evaluate }} {var}^2 + {const} \\text{{ when }} {var} = {value}"
+            latex = f"{var}^2 + {const}; {var} = {value}"
 
         return EvaluatingProblem(latex=latex, solution=solution, difficulty='medium')
 
@@ -110,7 +110,7 @@ class EvaluatingExpressionsGenerator:
             a = random.randint(2, 6)
             b = random.randint(2, 6)
             solution = a * x_val + b * y_val
-            latex = f"\\text{{Evaluate }} {a}x + {b}y \\text{{ when }} x = {x_val}, y = {y_val}"
+            latex = f"{a}x + {b}y; x = {x_val}, y = {y_val}"
 
         elif problem_type == 'complex_exp':
             # ax^2 + bx + c format
@@ -119,7 +119,7 @@ class EvaluatingExpressionsGenerator:
             b = random.randint(2, 8)
             c = random.randint(1, 10)
             solution = a * (x_val ** 2) + b * x_val + c
-            latex = f"\\text{{Evaluate }} {a}x^2 + {b}x + {c} \\text{{ when }} x = {x_val}"
+            latex = f"{a}x^2 + {b}x + {c}; x = {x_val}"
 
         else:  # with_division
             # (ax + b) / c format - ensure divisible
@@ -133,14 +133,14 @@ class EvaluatingExpressionsGenerator:
 
             if b > 0:
                 solution = quotient
-                latex = f"\\text{{Evaluate }} \\frac{{{a}x + {b}}}{{{c}}} \\text{{ when }} x = {x_val}"
+                latex = f"\\frac{{{a}x + {b}}}{{{c}}}; x = {x_val}"
             else:
                 # Fallback to simpler problem
                 a = 3
                 b = 6
                 x_val = 2
                 solution = (a * x_val + b) // c
-                latex = f"\\text{{Evaluate }} \\frac{{{a}x + {b}}}{{{c}}} \\text{{ when }} x = {x_val}"
+                latex = f"\\frac{{{a}x + {b}}}{{{c}}}; x = {x_val}"
 
         return EvaluatingProblem(latex=latex, solution=solution, difficulty='hard')
 
@@ -157,7 +157,7 @@ class EvaluatingExpressionsGenerator:
             b = random.randint(2, 5)
             c = random.randint(2, 5)
             solution = a * x_val + b * y_val - c * z_val
-            latex = f"\\text{{Evaluate }} {a}x + {b}y - {c}z \\text{{ when }} x = {x_val}, y = {y_val}, z = {z_val}"
+            latex = f"{a}x + {b}y - {c}z; x = {x_val}, y = {y_val}, z = {z_val}"
 
         elif problem_type == 'nested_exp':
             # Nested expression with multiple operations
@@ -166,7 +166,7 @@ class EvaluatingExpressionsGenerator:
             b = random.randint(2, 6)
             c = random.randint(3, 8)
             solution = a * (x_val ** 2) + b * x_val - c
-            latex = f"\\text{{Evaluate }} {a}x^2 + {b}x - {c} \\text{{ when }} x = {x_val}"
+            latex = f"{a}x^2 + {b}x - {c}; x = {x_val}"
 
         elif problem_type == 'complex_fraction':
             # Complex fraction with two variables
@@ -179,11 +179,11 @@ class EvaluatingExpressionsGenerator:
             b = numerator_val - (a * x_val + y_val)
             if b > 0:
                 solution = (a * x_val + y_val + b) // divisor
-                latex = f"\\text{{Evaluate }} \\frac{{{a}x + y + {b}}}{{{divisor}}} \\text{{ when }} x = {x_val}, y = {y_val}"
+                latex = f"\\frac{{{a}x + y + {b}}}{{{divisor}}}; x = {x_val}, y = {y_val}"
             else:
                 # Fallback
                 solution = (2 * x_val + 3 * y_val) // 2
-                latex = f"\\text{{Evaluate }} \\frac{{2x + 3y}}{{2}} \\text{{ when }} x = {x_val}, y = {y_val}"
+                latex = f"\\frac{{2x + 3y}}{{2}}; x = {x_val}, y = {y_val}"
 
         else:  # mixed_exponents
             # Expression with multiple exponents and variables
@@ -192,7 +192,7 @@ class EvaluatingExpressionsGenerator:
             a = random.randint(1, 3)
             b = random.randint(2, 4)
             solution = a * (x_val ** 2) + b * (y_val ** 2)
-            latex = f"\\text{{Evaluate }} {a}x^2 + {b}y^2 \\text{{ when }} x = {x_val}, y = {y_val}"
+            latex = f"{a}x^2 + {b}y^2; x = {x_val}, y = {y_val}"
 
         return EvaluatingProblem(latex=latex, solution=solution, difficulty='challenge')
 

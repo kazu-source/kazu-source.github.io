@@ -43,11 +43,11 @@ class VariablesGenerator:
                 ("h", "height"),
             ],
             'challenge': [
-                ("alpha", "rate of acceleration in m/s^2"),
-                ("theta", "angle of rotation in radians"),
-                ("lambda", "wavelength in nanometers"),
+                ("a", "rate of acceleration in m/s^2"),
+                ("r", "angle of rotation in radians"),
+                ("w", "wavelength in nanometers"),
                 ("V", "volume of a cylinder"),
-                ("delta", "change in temperature"),
+                ("t", "change in temperature"),
             ]
         }
 
@@ -169,7 +169,7 @@ class VariablesGenerator:
             while var2 == var1:
                 var2, context2 = random.choice(self.contexts['challenge'])
 
-            latex = f"\\text{{In }} {var1} \\cdot {var2}, \\text{{ if }} {var1} \\text{{ is {context1} and }} {var2} \\text{{ is {context2}, explain the product}}"
+            latex = f"\\text{{In }} {var1} \\cdot {var2}\\text{{, if }} {var1} \\text{{ is {context1} and }} {var2} \\text{{ is {context2}, explain the product}}"
             solution = f"product of {context1} and {context2}"
 
         # For Variables problems, we use numeric solutions where possible, otherwise 0

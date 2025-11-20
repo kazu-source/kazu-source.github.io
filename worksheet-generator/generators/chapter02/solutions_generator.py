@@ -49,89 +49,35 @@ class SolutionsGenerator:
             return self._generate_challenge()
 
     def _generate_easy(self) -> Equation:
-        """Generate easy solution verification problems."""
-        problem_type = random.choice(['verify_simple', 'test_value', 'find_from_list'])
+        """Generate easy equations - always has one solution."""
+        # Simple linear equations with one solution
+        x_val = random.randint(2, 10)
+        const = random.randint(1, 8)
+        total = x_val + const
 
-        if problem_type == 'verify_simple':
-            # Is x = 5 a solution to x + 3 = 8?
-            x_val = random.randint(2, 10)
-            const = random.randint(1, 8)
-            total = x_val + const
-
-            # Randomly make it correct or incorrect
-            if random.choice([True, False]):
-                latex = f"\\text{{Is }} x = {x_val} \\text{{ a solution to }} x + {const} = {total}?"
-                solution = 1
-            else:
-                wrong_total = total + random.randint(1, 3)
-                latex = f"\\text{{Is }} x = {x_val} \\text{{ a solution to }} x + {const} = {wrong_total}?"
-                solution = 0
-
-        elif problem_type == 'test_value':
-            # Test if a value satisfies the equation
-            x_val = random.randint(3, 12)
-            mult = random.randint(2, 6)
-            result = mult * x_val
-
-            latex = f"\\text{{Does }} x = {x_val} \\text{{ satisfy }} {mult}x = {result}?"
-            solution = 1
-
-        else:  # find_from_list
-            # Which value from a short list is the solution?
-            solution = random.randint(3, 9)
-            const = random.randint(5, 15)
-            total = solution + const
-
-            latex = f"\\text{{Which is a solution to }} x + {const} = {total}? \\text{{Find }} x"
-            # solution is already the answer
+        latex = f"x + {const} = {total}"
+        solution = 1  # Always has one solution
 
         return Equation(latex=latex, solution=solution, steps=[], difficulty='easy')
 
     def _generate_medium(self) -> Equation:
-        """Generate medium solution verification problems."""
-        problem_type = random.choice(['two_step_verify', 'multiple_check', 'find_solution'])
+        """Generate medium equations - always has one solution."""
+        # Two-step equations with one solution
+        coef = random.randint(2, 6)
+        const = random.randint(3, 12)
+        x_val = random.randint(2, 10)
+        total = coef * x_val + const
 
-        if problem_type == 'two_step_verify':
-            # Is x = 4 a solution to 2x + 3 = 11?
-            x_val = random.randint(2, 8)
-            coef = random.randint(2, 5)
-            const = random.randint(1, 10)
-            total = coef * x_val + const
-
-            if random.choice([True, False]):
-                latex = f"\\text{{Is }} x = {x_val} \\text{{ a solution to }} {coef}x + {const} = {total}?"
-                solution = 1
-            else:
-                wrong_total = total + random.randint(2, 5)
-                latex = f"\\text{{Is }} x = {x_val} \\text{{ a solution to }} {coef}x + {const} = {wrong_total}?"
-                solution = 0
-
-        elif problem_type == 'multiple_check':
-            # Check which of two values is the solution
-            solution = random.randint(4, 10)
-            coef = random.randint(2, 6)
-            const = random.randint(3, 12)
-            total = coef * solution + const
-
-            latex = f"\\text{{Find the solution to }} {coef}x + {const} = {total}"
-            # solution is already the answer
-
-        else:  # find_solution
-            # Solve simple equation to find the solution
-            solution = random.randint(5, 15)
-            const = random.randint(10, 30)
-            total = solution + const
-
-            latex = f"\\text{{Find }} x \\text{{ if }} x + {const} = {total}"
-            # solution is already the answer
+        latex = f"{coef}x + {const} = {total}"
+        solution = 1  # Always has one solution
 
         return Equation(latex=latex, solution=solution, steps=[], difficulty='medium')
 
     def _generate_hard(self) -> Equation:
-        """Generate hard solution verification problems."""
-        problem_type = random.choice(['verify_complex', 'no_solution', 'infinite_solutions'])
+        """Generate hard equations - mix of one solution and no solution."""
+        problem_type = random.choice(['one_solution', 'no_solution'])
 
-        if problem_type == 'verify_complex':
+        if problem_type == 'one_solution':
             # Verify solution to equation with variables on both sides
             x_val = random.randint(3, 10)
             left_coef = random.randint(3, 7)
@@ -194,7 +140,7 @@ class SolutionsGenerator:
             const1 = random.randint(5, 20)
             const2 = const1 + random.randint(3, 10)  # Ensure different
 
-            latex = f"\\text{{How many solutions does }} {coef}x + {const1} = {coef}x + {const2} \\text{{ have?}}"
+            latex = f"{coef}x + {const1} = {coef}x + {const2}"
             solution = 0  # No solutions
 
         elif problem_type == 'infinite_solutions_verify':
@@ -202,7 +148,7 @@ class SolutionsGenerator:
             coef = random.randint(2, 7)
             const = random.randint(3, 15)
 
-            latex = f"\\text{{How many solutions does }} {coef}x + {const} = {coef}x + {const} \\text{{ have? (0=none, 1=one, 999=infinite)}}"
+            latex = f"{coef}x + {const} = {coef}x + {const}"
             solution = 999  # Infinite solutions (using 999 as code for infinity)
 
         elif problem_type == 'determine_solution_type':
@@ -217,7 +163,7 @@ class SolutionsGenerator:
                 const1 = random.randint(2, 12)
                 const2 = random.randint(5, 20)
 
-                latex = f"\\text{{How many solutions: }} {left_coef}x + {const1} = {right_coef}x + {const2}? \\text{{(0, 1, or 999 for infinite)}}"
+                latex = f"{left_coef}x + {const1} = {right_coef}x + {const2}"
                 solution = 1
 
             elif eq_type == 'none':
@@ -226,7 +172,7 @@ class SolutionsGenerator:
                 const1 = random.randint(4, 15)
                 const2 = const1 + random.randint(2, 8)
 
-                latex = f"\\text{{How many solutions: }} {coef}x + {const1} = {coef}x + {const2}? \\text{{(0, 1, or 999 for infinite)}}"
+                latex = f"{coef}x + {const1} = {coef}x + {const2}"
                 solution = 0
 
             else:  # infinite
@@ -234,7 +180,7 @@ class SolutionsGenerator:
                 coef = random.randint(3, 8)
                 const = random.randint(5, 18)
 
-                latex = f"\\text{{How many solutions: }} {coef}x + {const} = {coef}x + {const}? \\text{{(0, 1, or 999 for infinite)}}"
+                latex = f"{coef}x + {const} = {coef}x + {const}"
                 solution = 999
 
         else:  # find_value_for_condition

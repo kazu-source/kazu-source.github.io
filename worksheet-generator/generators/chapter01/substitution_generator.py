@@ -63,19 +63,19 @@ class SubstitutionGenerator:
         if problem_type == 'direct':
             # Direct substitution: x when x = 5
             solution = value
-            latex = f"\\text{{Substitute: }} {var} \\text{{ when }} {var} = {value}"
+            latex = f"{var}; {var} = {value}"
 
         elif problem_type == 'simple_add':
             # Simple addition: x + 3 when x = 5
             add = random.randint(1, 8)
             solution = value + add
-            latex = f"\\text{{Substitute: }} {var} + {add} \\text{{ when }} {var} = {value}"
+            latex = f"{var} + {add}; {var} = {value}"
 
         else:  # simple_mult
             # Simple multiplication: 3x when x = 4
             mult = random.randint(2, 7)
             solution = mult * value
-            latex = f"\\text{{Substitute: }} {mult}{var} \\text{{ when }} {var} = {value}"
+            latex = f"{mult}{var}; {var} = {value}"
 
         return SubstitutionProblem(latex=latex, solution=solution, difficulty='easy')
 
@@ -91,20 +91,20 @@ class SubstitutionGenerator:
             a = random.randint(2, 8)
             b = random.randint(1, 10)
             solution = a * value + b
-            latex = f"\\text{{Substitute: }} {a}{var} + {b} \\text{{ when }} {var} = {value}"
+            latex = f"{a}{var} + {b}; {var} = {value}"
 
         elif problem_type == 'with_parentheses':
             # a(x + b) when x = value
             a = random.randint(2, 6)
             b = random.randint(1, 8)
             solution = a * (value + b)
-            latex = f"\\text{{Substitute: }} {a}({var} + {b}) \\text{{ when }} {var} = {value}"
+            latex = f"{a}({var} + {b}); {var} = {value}"
 
         else:  # squared
             # x^2 when x = value (keep value small)
             value = random.randint(2, 8)
             solution = value ** 2
-            latex = f"\\text{{Substitute: }} {var}^2 \\text{{ when }} {var} = {value}"
+            latex = f"{var}^2; {var} = {value}"
 
         return SubstitutionProblem(latex=latex, solution=solution, difficulty='medium')
 
@@ -119,7 +119,7 @@ class SubstitutionGenerator:
             a = random.randint(2, 7)
             b = random.randint(2, 7)
             solution = a * x_val + b * y_val
-            latex = f"\\text{{Substitute: }} {a}x + {b}y \\text{{ when }} x = {x_val}, y = {y_val}"
+            latex = f"{a}x + {b}y; x = {x_val}, y = {y_val}"
 
         elif problem_type == 'complex_exp':
             # ax^2 + bx when x = val
@@ -127,7 +127,7 @@ class SubstitutionGenerator:
             a = random.randint(1, 5)
             b = random.randint(2, 8)
             solution = a * (x_val ** 2) + b * x_val
-            latex = f"\\text{{Substitute: }} {a}x^2 + {b}x \\text{{ when }} x = {x_val}"
+            latex = f"{a}x^2 + {b}x; x = {x_val}"
 
         else:  # fraction
             # (ax + b) / c when x = val
@@ -141,11 +141,11 @@ class SubstitutionGenerator:
 
             if b >= 0:
                 solution = result
-                latex = f"\\text{{Substitute: }} \\frac{{{a}x + {b}}}{{{c}}} \\text{{ when }} x = {x_val}"
+                latex = f"\\frac{{{a}x + {b}}}{{{c}}}; x = {x_val}"
             else:
                 # Fallback
                 solution = (3 * x_val + 6) // 3
-                latex = f"\\text{{Substitute: }} \\frac{{3x + 6}}{{3}} \\text{{ when }} x = {x_val}"
+                latex = f"\\frac{{3x + 6}}{{3}}; x = {x_val}"
 
         return SubstitutionProblem(latex=latex, solution=solution, difficulty='hard')
 
@@ -162,7 +162,7 @@ class SubstitutionGenerator:
             b = random.randint(2, 5)
             c = random.randint(2, 5)
             solution = a * (x_val ** 2) + b * y_val - c * z_val
-            latex = f"\\text{{Sub: }} {a}x^2 + {b}y - {c}z \\text{{ for }} x={x_val}, y={y_val}, z={z_val}"
+            latex = f"{a}x^2 + {b}y - {c}z; x = {x_val}, y = {y_val}, z = {z_val}"
 
         elif problem_type == 'quadratic_multi_var':
             # Quadratic expression with two variables
@@ -172,7 +172,7 @@ class SubstitutionGenerator:
             b = random.randint(2, 5)
             c = random.randint(1, 8)
             solution = a * (x_val ** 2) + b * (y_val ** 2) + c
-            latex = f"\\text{{Substitute: }} {a}x^2 + {b}y^2 + {c} \\text{{ when }} x = {x_val}, y = {y_val}"
+            latex = f"{a}x^2 + {b}y^2 + {c}; x = {x_val}, y = {y_val}"
 
         elif problem_type == 'nested_operations':
             # Nested parentheses with multiple variables
@@ -182,7 +182,7 @@ class SubstitutionGenerator:
             b = random.randint(2, 6)
             c = random.randint(2, 4)
             solution = a * (b * x_val + c * y_val)
-            latex = f"\\text{{Substitute: }} {a}({b}x + {c}y) \\text{{ when }} x = {x_val}, y = {y_val}"
+            latex = f"{a}({b}x + {c}y); x = {x_val}, y = {y_val}"
 
         else:  # four_vars
             # Four different variables
@@ -195,7 +195,7 @@ class SubstitutionGenerator:
             c = random.randint(1, 4)
             d = random.randint(1, 4)
             solution = a * w_val + b * x_val + c * y_val - d * z_val
-            latex = f"\\text{{Sub: }} {a}w + {b}x + {c}y - {d}z \\text{{ for }} w={w_val}, x={x_val}, y={y_val}, z={z_val}"
+            latex = f"{a}w + {b}x + {c}y - {d}z; w = {w_val}, x = {x_val}, y = {y_val}, z = {z_val}"
 
         return SubstitutionProblem(latex=latex, solution=solution, difficulty='challenge')
 

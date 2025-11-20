@@ -254,6 +254,7 @@ def register_all_generators():
     from generators.chapter02.inputs_outputs_generator import InputsOutputsGenerator
     from generators.chapter02.solutions_generator import SolutionsGenerator
     from generators.chapter02.variables_both_sides_generator import VariablesBothSidesGenerator
+    from generators.chapter03.compound_inequalities_generator import CompoundInequalityGenerator
     from generators.chapter04.graphing_lines import GraphingLinesGenerator
     from generators.chapter04.graphing_slope_intercept import SlopeInterceptGenerator
     from generators.chapter04.graphing_point_slope import PointSlopeGenerator
@@ -294,6 +295,12 @@ def register_all_generators():
     # Chapter 3: Inequalities
     registry.register_topic(3.0, "Graphing", "One-Step Inequalities",
                            InequalityGenerator, "inequality")
+    registry.register_topic(3.0, "Graphing", "Compound Inequalities - Mixed",
+                           CompoundInequalityGenerator, "compound_inequality")
+    registry.register_topic(3.0, "Graphing", "Compound Inequalities - AND",
+                           CompoundInequalityGenerator, "compound_inequality_and")
+    registry.register_topic(3.0, "Graphing", "Compound Inequalities - OR",
+                           CompoundInequalityGenerator, "compound_inequality_or")
 
     # Chapter 4: Linear Equations - Two Variables
     registry.register_topic(4.0, "Graphing", "Points on a Coordinate Plane",

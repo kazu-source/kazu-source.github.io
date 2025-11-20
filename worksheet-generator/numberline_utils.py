@@ -53,7 +53,7 @@ class NumberLine:
         # Set x-axis ticks and labels
         x_ticks = np.arange(self.min_val, self.max_val + 1, 1)
         ax.set_xticks(x_ticks)
-        ax.tick_params(axis='x', width=1.5, length=8, labelsize=14)
+        ax.tick_params(axis='x', width=1.5, length=8, labelsize=15)
 
         # Add arrows to both ends
         # Arrow on the right end
