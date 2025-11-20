@@ -162,7 +162,7 @@ class SubstitutionGenerator:
             b = random.randint(2, 5)
             c = random.randint(2, 5)
             solution = a * (x_val ** 2) + b * y_val - c * z_val
-            latex = f"{a}x^2 + {b}y - {c}z; x = {x_val}, y = {y_val}, z = {z_val}"
+            latex = f"{a}x^2 + {b}y - {c}z;x={x_val},y={y_val},z={z_val}"
 
         elif problem_type == 'quadratic_multi_var':
             # Quadratic expression with two variables
@@ -172,7 +172,7 @@ class SubstitutionGenerator:
             b = random.randint(2, 5)
             c = random.randint(1, 8)
             solution = a * (x_val ** 2) + b * (y_val ** 2) + c
-            latex = f"{a}x^2 + {b}y^2 + {c}; x = {x_val}, y = {y_val}"
+            latex = f"{a}x^2 + {b}y^2 + {c};x={x_val},y={y_val}"
 
         elif problem_type == 'nested_operations':
             # Nested parentheses with multiple variables
@@ -182,7 +182,7 @@ class SubstitutionGenerator:
             b = random.randint(2, 6)
             c = random.randint(2, 4)
             solution = a * (b * x_val + c * y_val)
-            latex = f"{a}({b}x + {c}y); x = {x_val}, y = {y_val}"
+            latex = f"{a}({b}x + {c}y);x={x_val},y={y_val}"
 
         else:  # four_vars
             # Four different variables
@@ -195,7 +195,7 @@ class SubstitutionGenerator:
             c = random.randint(1, 4)
             d = random.randint(1, 4)
             solution = a * w_val + b * x_val + c * y_val - d * z_val
-            latex = f"{a}w + {b}x + {c}y - {d}z; w = {w_val}, x = {x_val}, y = {y_val}, z = {z_val}"
+            latex = f"{a}w + {b}x + {c}y - {d}z;w={w_val},x={x_val},y={y_val},z={z_val}"
 
         return SubstitutionProblem(latex=latex, solution=solution, difficulty='challenge')
 

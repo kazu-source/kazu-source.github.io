@@ -25,6 +25,24 @@ class NumberLine:
         self.min_val = min_val
         self.max_val = max_val
 
+    def _calculate_tick_interval(self):
+        """
+        Calculate an appropriate tick interval to keep ticks between 10-14.
+
+        Returns:
+            int: The interval between ticks
+        """
+        range_val = self.max_val - self.min_val
+
+        # Try different intervals to find one that gives 10-14 ticks
+        for interval in [1, 2, 5, 10, 20, 25, 50, 100]:
+            num_ticks = range_val / interval + 1
+            if num_ticks <= 14:
+                return interval
+
+        # If range is very large, use a larger interval
+        return max(1, range_val // 12)
+
     def create_figure(self, figsize=(8, 1.2), dpi=150):
         """
         Create a matplotlib figure with the number line.
@@ -50,8 +68,11 @@ class NumberLine:
         ax.spines['bottom'].set_linewidth(1.5)  # Match coordinate plane axes
         ax.yaxis.set_visible(False)
 
+        # Calculate appropriate tick interval
+        tick_interval = self._calculate_tick_interval()
+
         # Set x-axis ticks and labels
-        x_ticks = np.arange(self.min_val, self.max_val + 1, 1)
+        x_ticks = np.arange(self.min_val, self.max_val + 1, tick_interval)
         ax.set_xticks(x_ticks)
         ax.tick_params(axis='x', width=1.5, length=8, labelsize=15)
 

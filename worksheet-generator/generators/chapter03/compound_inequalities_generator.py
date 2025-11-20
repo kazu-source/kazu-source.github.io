@@ -97,14 +97,20 @@ class CompoundInequalityGenerator:
         Args:
             boundary_1: First boundary value
             boundary_2: Second boundary value
-            padding: How many units to show beyond boundaries
+            padding: How many units to show beyond boundaries (will be randomized)
 
         Returns:
             Tuple of (min_value, max_value) for number line
         """
         min_boundary = min(int(boundary_1), int(boundary_2))
         max_boundary = max(int(boundary_1), int(boundary_2))
-        return (min_boundary - padding, max_boundary + padding)
+
+        # Randomize padding to prevent predictable patterns
+        # Use different padding on left and right sides
+        left_padding = random.randint(2, 5)
+        right_padding = random.randint(2, 5)
+
+        return (min_boundary - left_padding, max_boundary + right_padding)
 
     def _create_compound_numberline_with_solution(self, min_val: int, max_val: int,
                                                    boundary_1: float, boundary_2: float,

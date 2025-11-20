@@ -1,0 +1,542 @@
+[
+  {
+    "unit": 1.0,
+    "type": "Intro",
+    "topic": "Variables"
+  },
+  {
+    "unit": 1.0,
+    "type": "Intro",
+    "topic": "Substitution of Variables"
+  },
+  {
+    "unit": 1.0,
+    "type": "Intro",
+    "topic": "Exponents"
+  },
+  {
+    "unit": 1.0,
+    "type": "Intro",
+    "topic": "Parts of a Term (recognizing that coefficients are multiplication)"
+  },
+  {
+    "unit": 1.0,
+    "type": "Intro",
+    "topic": "Square and Cube Roots"
+  },
+  {
+    "unit": 1.0,
+    "type": "Intro",
+    "topic": "Evaluating an Expression"
+  },
+  {
+    "unit": 1.0,
+    "type": "Intro",
+    "topic": "Multiple Terms in a Single Expression"
+  },
+  {
+    "unit": 1.0,
+    "type": "Intro",
+    "topic": "Combining Like Terms"
+  },
+  {
+    "unit": 1.0,
+    "type": "Intro",
+    "topic": "Evaluating Expressions with Multiple Terms"
+  },
+  {
+    "unit": 1.0,
+    "type": "Intro",
+    "topic": "Writing Expression Word Problems"
+  },
+  {
+    "unit": 1.0,
+    "type": "Intro",
+    "topic": "Dependent and Independent Variables"
+  },
+  {
+    "unit": 1.0,
+    "type": "Intro",
+    "topic": "Evaluating Expressions with Multiple Variables"
+  },
+  {
+    "unit": 1.0,
+    "type": "Intro",
+    "topic": "The Number System (natural, whole, integers, real, rational, irrational)"
+  },
+  {
+    "unit": 1.0,
+    "type": "Expansion",
+    "topic": "Of Why Dividing by Zero Does Not Work"
+  },
+  {
+    "unit": 2.0,
+    "type": "Intro",
+    "topic": "Equations"
+  },
+  {
+    "unit": 2.0,
+    "type": "Intro",
+    "topic": "Property of Equality (add/subtract)"
+  },
+  {
+    "unit": 2.0,
+    "type": "Intro",
+    "topic": "Property of Equality (mult/div)"
+  },
+  {
+    "unit": 2.0,
+    "type": "Intro",
+    "topic": "Solving Multi-Step Equations"
+  },
+  {
+    "unit": 2.0,
+    "type": "Intro",
+    "topic": "Solving Equations with Variables on Both Sides"
+  },
+  {
+    "unit": 2.0,
+    "type": "Expansion",
+    "topic": "Parenthesis Explanation (multiplication)"
+  },
+  {
+    "unit": 2.0,
+    "type": "Intro",
+    "topic": "Linear Equations"
+  },
+  {
+    "unit": 2.0,
+    "type": "Intro",
+    "topic": "Inputs and Outputs"
+  },
+  {
+    "unit": 2.0,
+    "type": "Intro",
+    "topic": "What Are Solutions?"
+  },
+  {
+    "unit": 2.0,
+    "type": "Intro",
+    "topic": "Linear Equation Word Problems"
+  },
+  {
+    "unit": 3.0,
+    "type": "Intro",
+    "topic": "Inequalities"
+  },
+  {
+    "unit": 3.0,
+    "type": "Solving",
+    "topic": "One-Step Inequalities"
+  },
+  {
+    "unit": 3.0,
+    "type": "Graphing",
+    "topic": "One-Step Inequalities"
+  },
+  {
+    "unit": 3.0,
+    "type": "Solving",
+    "topic": "Two-Step Inequalities"
+  },
+  {
+    "unit": 3.0,
+    "type": "Solving",
+    "topic": "Two-Step Inequalities"
+  },
+  {
+    "unit": 3.0,
+    "type": "Solving",
+    "topic": "Multi-Step Inequalities"
+  },
+  {
+    "unit": 3.0,
+    "type": "Solving",
+    "topic": "Multi-Step Inequality Word Problems"
+  },
+  {
+    "unit": 3.0,
+    "type": "Solving",
+    "topic": "Compound Inequalities"
+  },
+  {
+    "unit": 3.0,
+    "type": "Solving",
+    "topic": "Compound Inequality Word Problems"
+  },
+  {
+    "unit": 3.0,
+    "type": "Intro",
+    "topic": "Two-Variable Linear Equations"
+  },
+  {
+    "unit": 4.0,
+    "type": "Review",
+    "topic": "of Inputs and Outputs"
+  },
+  {
+    "unit": 4.0,
+    "type": "Intro",
+    "topic": "The Coordinate Plane"
+  },
+  {
+    "unit": 4.0,
+    "type": "Graphing",
+    "topic": "Points on a Coordinate Plane"
+  },
+  {
+    "unit": 4.0,
+    "type": "Graphing",
+    "topic": "Line on a Coordinate Plane"
+  },
+  {
+    "unit": 4.0,
+    "type": "Intro",
+    "topic": "Slope"
+  },
+  {
+    "unit": 4.0,
+    "type": "Identifying",
+    "topic": "X and Y Intercepts"
+  },
+  {
+    "unit": 4.0,
+    "type": "Graphing",
+    "topic": "Slope-Intercept Form"
+  },
+  {
+    "unit": 4.0,
+    "type": "Intro",
+    "topic": "Writing Slope-Intercept Equations"
+  },
+  {
+    "unit": 4.0,
+    "type": "Graphing",
+    "topic": "Point-Slope Form"
+  },
+  {
+    "unit": 4.0,
+    "type": "Intro",
+    "topic": "Writing Point-Slope Form Equations"
+  },
+  {
+    "unit": 4.0,
+    "type": "Graphing",
+    "topic": "Standard Form"
+  },
+  {
+    "unit": 4.0,
+    "type": "Intro",
+    "topic": "Writing Standard Form Equations"
+  },
+  {
+    "unit": 4.0,
+    "type": "Expansion",
+    "topic": "Which Type of Equation Is Best for Each Situation"
+  },
+  {
+    "unit": 5.0,
+    "type": "Intro",
+    "topic": "Systems of Equations"
+  },
+  {
+    "unit": 5.0,
+    "type": "Graphing",
+    "topic": "Systems of Equations"
+  },
+  {
+    "unit": 5.0,
+    "type": "Solving",
+    "topic": "Systems of Equations Using Substitution"
+  },
+  {
+    "unit": 5.0,
+    "type": "Solving",
+    "topic": "Systems of Equations Using Elimination"
+  },
+  {
+    "unit": 5.0,
+    "type": "Expansion",
+    "topic": "Understanding the Limits of the Three Different Types, Use Cases"
+  },
+  {
+    "unit": 5.0,
+    "type": "Intro",
+    "topic": "Writing Systems of Equation Word Problems"
+  },
+  {
+    "unit": 5.0,
+    "type": "Intro",
+    "topic": "Systems of Inequalities"
+  },
+  {
+    "unit": 5.0,
+    "type": "Graphing",
+    "topic": "Systems of Inequalities"
+  },
+  {
+    "unit": 5.0,
+    "type": "Intro",
+    "topic": "Writing Systems of Inequalities"
+  },
+  {
+    "unit": 5.0,
+    "type": "Expansion",
+    "topic": "Dartboard (picking a random point and understanding the meaning of the x and y value)"
+  },
+  {
+    "unit": 6.0,
+    "type": "Intro",
+    "topic": "Functions (what is the point vs an equation, function notation)"
+  },
+  {
+    "unit": 6.0,
+    "type": "Review",
+    "topic": "of Inputs and Outputs + How It Relates to Functions"
+  },
+  {
+    "unit": 6.0,
+    "type": "Intro",
+    "topic": "Domain and Range"
+  },
+  {
+    "unit": 6.0,
+    "type": "Intro",
+    "topic": "Interpreting Domain and Range"
+  },
+  {
+    "unit": 7.0,
+    "type": "Review",
+    "topic": "Exponents (properties)"
+  },
+  {
+    "unit": 7.0,
+    "type": "Intro",
+    "topic": "Expanding and Simplifying Variables with Exponents"
+  },
+  {
+    "unit": 7.0,
+    "type": "Intro",
+    "topic": "Expanding and Simplifying Expressions with Exponents"
+  },
+  {
+    "unit": 7.0,
+    "type": "Review",
+    "topic": "of Square Roots"
+  },
+  {
+    "unit": 7.0,
+    "type": "Intro",
+    "topic": "Properties of Exponents"
+  },
+  {
+    "unit": 7.0,
+    "type": "Intro",
+    "topic": "Advanced Properties of Radicals (multiplication, fractions)"
+  },
+  {
+    "unit": 8.0,
+    "type": "Introduction",
+    "topic": "of Equivalent Exponential Expressions"
+  },
+  {
+    "unit": 8.0,
+    "type": "Expansion",
+    "topic": "Explanation of Why an Even Square Root Cannot Be Negative"
+  },
+  {
+    "unit": 8.0,
+    "type": "Graphing",
+    "topic": "Exponential Functions (using tables)"
+  },
+  {
+    "unit": 8.0,
+    "type": "Intro",
+    "topic": "Writing Exponential Functions"
+  },
+  {
+    "unit": 8.0,
+    "type": "Intro",
+    "topic": "Linear vs Exponential Growth"
+  },
+  {
+    "unit": 8.0,
+    "type": "Intro",
+    "topic": "Evaluating Expressions with Exponents Greater Than 1"
+  },
+  {
+    "unit": 8.0,
+    "type": "Graphing",
+    "topic": "Exponential Functions (using tables)"
+  },
+  {
+    "unit": 8.0,
+    "type": "Intro",
+    "topic": "Modeling Exponential Functions"
+  },
+  {
+    "unit": 8.0,
+    "type": "Intro",
+    "topic": "Exponential Growth"
+  },
+  {
+    "unit": 8.0,
+    "type": "Intro",
+    "topic": "Exponential Decay"
+  },
+  {
+    "unit": 9.0,
+    "type": "Review",
+    "topic": "of Parts of a Term, Now Including Exponents"
+  },
+  {
+    "unit": 9.0,
+    "type": "Intro",
+    "topic": "Add and Subtract Polynomials"
+  },
+  {
+    "unit": 9.0,
+    "type": "Intro",
+    "topic": "Multiplying Monomials (1x1)"
+  },
+  {
+    "unit": 9.0,
+    "type": "Intro",
+    "topic": "Multiplying Monomials and Binomials (1x2)"
+  },
+  {
+    "unit": 9.0,
+    "type": "Intro",
+    "topic": "Multiplying Polynomials (2x2, 2x3 etc)"
+  },
+  {
+    "unit": 9.0,
+    "type": "Expansion",
+    "topic": "Special Products of Polynomials"
+  },
+  {
+    "unit": 9.0,
+    "type": "Intro",
+    "topic": "Factoring Monomials"
+  },
+  {
+    "unit": 9.0,
+    "type": "Intro",
+    "topic": "Factoring Polynomials with Common Factors"
+  },
+  {
+    "unit": 9.0,
+    "type": "Intro",
+    "topic": "Factoring Quadratics (leads into factored form of next section)"
+  },
+  {
+    "unit": 9.0,
+    "type": "Intro",
+    "topic": "Factor by Grouping"
+  },
+  {
+    "unit": 9.0,
+    "type": "Intro",
+    "topic": "To Factor Using Perfect Squares"
+  },
+  {
+    "unit": 9.0,
+    "type": "Expansion",
+    "topic": "Factoring Tips and Tricks"
+  },
+  {
+    "unit": 10.0,
+    "type": "Intro",
+    "topic": "Quadratic Equations (parabola)"
+  },
+  {
+    "unit": 10.0,
+    "type": "Expansion",
+    "topic": "Interpreting the Roots of Quadratic Equations (factored form)"
+  },
+  {
+    "unit": 10.0,
+    "type": "Intro",
+    "topic": "Solving Quadratic Equations Using Square Roots (no other terms except x^2)"
+  },
+  {
+    "unit": 10.0,
+    "type": "Intro",
+    "topic": "Vertex Form"
+  },
+  {
+    "unit": 10.0,
+    "type": "Graphing",
+    "topic": "Using Vertex Form"
+  },
+  {
+    "unit": 10.0,
+    "type": "Intro",
+    "topic": "Standard Form of Quadratics"
+  },
+  {
+    "unit": 10.0,
+    "type": "Graphing",
+    "topic": "Using Standard Form (-b/2a + solve for when x = 0)"
+  },
+  {
+    "unit": 10.0,
+    "type": "Intro",
+    "topic": "Solving Quadratics by Factoring (factor for the roots, use (x+p)/2 to find vertex)"
+  },
+  {
+    "unit": 10.0,
+    "type": "Graphing",
+    "topic": "Quadratics by Factoring"
+  },
+  {
+    "unit": 10.0,
+    "type": "Expansion",
+    "topic": "Understanding the Three Main Ways to Solve + Graph Quadratics; What Is the Point? (vertex form, standard form, factored form)"
+  },
+  {
+    "unit": 11.0,
+    "type": "Intro",
+    "topic": "Completing the Square"
+  },
+  {
+    "unit": 11.0,
+    "type": "Intro",
+    "topic": "Quadratic Formula (hard to use the three main methods and completing the square)"
+  },
+  {
+    "unit": 11.0,
+    "type": "Expansion",
+    "topic": "When to Use Each Type of Factoring"
+  },
+  {
+    "unit": 12.0,
+    "type": "Intro",
+    "topic": "Quadratic Functions"
+  },
+  {
+    "unit": 12.0,
+    "type": "Intro",
+    "topic": "Interpreting Quadratic Functions (word problems)"
+  },
+  {
+    "unit": 12.0,
+    "type": "Intro",
+    "topic": "Writing Quadratic Functions"
+  },
+  {
+    "unit": 12.0,
+    "type": "Intro",
+    "topic": "Systems of Quadratic Equations"
+  },
+  {
+    "unit": 12.0,
+    "type": "Intro",
+    "topic": "Quadratic Inequalities"
+  },
+  {
+    "unit": 12.0,
+    "type": "Intro",
+    "topic": "Systems of Quadratic Inequalities"
+  }
+]

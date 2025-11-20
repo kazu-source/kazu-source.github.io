@@ -1,89 +1,95 @@
 """
-Generate challenge-level worksheets for all implemented topics.
-Outputs to output/comprehensive_tests folder for manual review.
+Generate all challenge-level worksheets for testing.
+Saves to output/test/ directory.
 """
 
 import sys
 import os
-from pathlib import Path
-
-# Add current directory to path
-sys.path.insert(0, os.path.dirname(__file__))
-
-from topic_registry import get_registry, register_all_generators
 from pdf_generator import PDFWorksheetGenerator
 
+# Chapter 1 Generators
+from generators.chapter01.combining_like_terms_generator import CombiningLikeTermsGenerator
+from generators.chapter01.evaluating_expressions_generator import EvaluatingExpressionsGenerator
+from generators.chapter01.exponents_generator import ExponentsGenerator
+from generators.chapter01.substitution_generator import SubstitutionGenerator
+from generators.chapter01.variables_generator import VariablesGenerator
+
+# Chapter 2 Generators
+from generators.chapter02.equations_intro_generator import EquationsIntroGenerator
+from generators.chapter02.inputs_outputs_generator import InputsOutputsGenerator
+from generators.chapter02.solutions_generator import SolutionsGenerator
+from generators.chapter02.variables_both_sides_generator import VariablesBothSidesGenerator
+
+# Chapter 3 Generators
+from generators.chapter03.compound_inequalities_generator import CompoundInequalityGenerator
 
 def generate_all_challenge_worksheets():
-    """Generate challenge-level worksheets for all topics."""
+    """Generate challenge worksheets for all generators."""
 
-    # Initialize
-    register_all_generators()
-    registry = get_registry()
     pdf_gen = PDFWorksheetGenerator()
 
-    # Get all implemented topics
-    topics = registry.get_implemented_topics()
+    generators = [
+        # Chapter 1 - (generator, filename, title)
+        (CombiningLikeTermsGenerator(), "ch01_combining_like_terms", "Combining Like Terms"),
+        (EvaluatingExpressionsGenerator(), "ch01_evaluating_expressions", "Evaluating Expressions"),
+        (ExponentsGenerator(), "ch01_exponents", "Exponents"),
+        (SubstitutionGenerator(), "ch01_substitution", "Substitution"),
+        (VariablesGenerator(), "ch01_variables", "Variables"),
 
-    print("=" * 80)
-    print("CHALLENGE WORKSHEET GENERATOR")
-    print("=" * 80)
-    print(f"\nGenerating challenge-level worksheets for {len(topics)} topics...")
-    print(f"Output folder: output/comprehensive_tests/\n")
+        # Chapter 2
+        (EquationsIntroGenerator(), "ch02_equations_intro", "Introduction to Equations"),
+        (InputsOutputsGenerator(), "ch02_inputs_outputs", "Inputs and Outputs"),
+        (SolutionsGenerator(), "ch02_solutions", "Solutions to Equations"),
+        (VariablesBothSidesGenerator(), "ch02_variables_both_sides", "Variables on Both Sides"),
 
-    # Create output directory
-    output_dir = Path("output") / "comprehensive_tests"
-    output_dir.mkdir(parents=True, exist_ok=True)
+        # Chapter 3
+        (CompoundInequalityGenerator(), "ch03_compound_inequalities", "Compound Inequalities"),
+    ]
 
-    success_count = 0
-    error_count = 0
+    print("=" * 70)
+    print("GENERATING ALL CHALLENGE WORKSHEETS")
+    print("=" * 70)
+    print(f"\nTotal generators: {len(generators)}")
+    print("Difficulty: CHALLENGE")
+    print("Problems per worksheet: 16")
+    print("\n" + "-" * 70)
 
-    for i, topic_meta in enumerate(topics, 1):
+    generated_files = []
+
+    for i, (generator, filename, topic_title) in enumerate(generators, 1):
+        print(f"\n[{i}/{len(generators)}] {filename}...")
+
         try:
-            print(f"[{i}/{len(topics)}] Generating: Unit {int(topic_meta.unit)} - {topic_meta.topic} ({topic_meta.type.value})")
+            # Generate problems
+            problems = generator.generate_worksheet('challenge', 16)
 
-            # Get generator
-            generator = registry.get_generator(
-                topic_meta.unit,
-                topic_meta.type.value,
-                topic_meta.topic
-            )
+            # Create output path
+            output_path = f"output/test/{filename}_challenge.pdf"
 
-            if not generator:
-                print(f"  ERROR: Generator not found")
-                error_count += 1
-                continue
+            # Generate PDF with format: "Topic - Difficulty"
+            title = f"{topic_title} - Challenge"
+            pdf_gen.generate_worksheet(problems, output_path, title=title)
 
-            # Generate challenge problems
-            problems = generator.generate_worksheet('challenge', 10)
-
-            # Create filename
-            unit_str = f"Unit{int(topic_meta.unit)}"
-            type_str = topic_meta.type.value
-            topic_clean = topic_meta.topic.replace(" ", "_").replace("/", "_").replace("(", "").replace(")", "").replace("?", "")
-            filename = f"{unit_str}_{type_str}_{topic_clean}_Challenge.pdf"
-            output_path = output_dir / filename
-
-            # Create title
-            pdf_title = f"{topic_meta.topic} (Challenge)"
-
-            # Generate PDF
-            pdf_gen.generate_worksheet(problems, str(output_path), title=pdf_title)
-
-            print(f"  SUCCESS: {filename}")
-            success_count += 1
+            generated_files.append(output_path)
+            print(f"  [OK] Generated: {output_path}")
+            print(f"       Title: {title}")
 
         except Exception as e:
-            print(f"  ERROR: {e}")
-            error_count += 1
+            print(f"  [X] Error: {str(e)}")
 
-    print("\n" + "=" * 80)
-    print("GENERATION COMPLETE")
-    print("=" * 80)
-    print(f"Success: {success_count}/{len(topics)}")
-    print(f"Errors: {error_count}/{len(topics)}")
-    print(f"\nWorksheets saved to: {output_dir.absolute()}")
+    print("\n" + "=" * 70)
+    print(f"GENERATION COMPLETE")
+    print("=" * 70)
+    print(f"\nSuccessfully generated: {len(generated_files)}/{len(generators)} worksheets")
+    print(f"\nFiles saved to: output/test/")
 
+    return generated_files
 
 if __name__ == "__main__":
-    generate_all_challenge_worksheets()
+    files = generate_all_challenge_worksheets()
+
+    print("\n" + "-" * 70)
+    print("Generated files:")
+    for f in files:
+        print(f"  - {f}")
+    print("-" * 70)

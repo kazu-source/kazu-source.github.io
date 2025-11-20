@@ -169,8 +169,8 @@ class VariablesGenerator:
             while var2 == var1:
                 var2, context2 = random.choice(self.contexts['challenge'])
 
-            latex = f"\\text{{In }} {var1} \\cdot {var2}\\text{{, if }} {var1} \\text{{ is {context1} and }} {var2} \\text{{ is {context2}, explain the product}}"
-            solution = f"product of {context1} and {context2}"
+            latex = f"\\text{{What does }} {var1} \\cdot {var2} \\text{{ represent?}}"
+            solution = f"{var1}={context1}, {var2}={context2}"
 
         # For Variables problems, we use numeric solutions where possible, otherwise 0
         numeric_solution = 0
@@ -229,15 +229,15 @@ class VariablesGenerator:
     def _generate_multi_context_problem(self) -> Equation:
         """Generate a challenge problem with multiple variables in real-world context."""
         contexts = [
-            ("t", "time in seconds", "d", "distance in meters", "v", "velocity in m/s", "d = v \\cdot t"),
-            ("F", "force in Newtons", "m", "mass in kg", "a", "acceleration in m/s^2", "F = m \\cdot a"),
-            ("P", "power in watts", "V", "voltage in volts", "I", "current in amperes", "P = V \\cdot I"),
+            ("t", "time (s)", "d", "distance (m)", "v", "velocity (m/s)", "d = v \\cdot t"),
+            ("F", "force (N)", "m", "mass (kg)", "a", "accel. (m/s^2)", "F = m \\cdot a"),
+            ("P", "power (W)", "V", "voltage (V)", "I", "current (A)", "P = V \\cdot I"),
         ]
 
         var1, context1, var2, context2, var3, context3, formula = random.choice(contexts)
 
-        latex = f"\\text{{Given }} {formula}, \\text{{ identify all three variables and their meanings}}"
-        solution = f"{var1}: {context1}, {var2}: {context2}, {var3}: {context3}"
+        latex = f"\\text{{In }} {formula}\\text{{, identify all variables}}"
+        solution = f"{var1}={context1}, {var2}={context2}, {var3}={context3}"
 
         numeric_solution = 0
         return Equation(latex=latex, solution=numeric_solution, steps=[solution], difficulty='challenge')

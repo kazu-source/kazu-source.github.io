@@ -78,13 +78,19 @@ class InequalityGenerator:
 
         Args:
             solution: The solution value
-            padding: How many units to show on each side
+            padding: How many units to show on each side (will be randomized)
 
         Returns:
             Tuple of (min_value, max_value) for number line
         """
         solution_int = int(solution)
-        return (solution_int - padding, solution_int + padding)
+
+        # Randomize padding to prevent predictable patterns
+        # Use different padding on left and right sides
+        left_padding = random.randint(3, 7)
+        right_padding = random.randint(3, 7)
+
+        return (solution_int - left_padding, solution_int + right_padding)
 
     def _generate_easy(self) -> InequalityProblem:
         """

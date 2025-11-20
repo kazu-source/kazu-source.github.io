@@ -250,6 +250,8 @@ def register_all_generators():
     from generators.chapter01.evaluating_expressions_generator import EvaluatingExpressionsGenerator
     from generators.chapter01.substitution_generator import SubstitutionGenerator
     from generators.chapter01.combining_like_terms_generator import CombiningLikeTermsGenerator
+    from generators.chapter01.absolute_value_generator import AbsoluteValueGenerator
+    from generators.chapter01.square_roots_generator import SquareRootsGenerator
     from generators.chapter02.equations_intro_generator import EquationsIntroGenerator
     from generators.chapter02.inputs_outputs_generator import InputsOutputsGenerator
     from generators.chapter02.solutions_generator import SolutionsGenerator
@@ -271,6 +273,10 @@ def register_all_generators():
                            SubstitutionGenerator, "substitution")
     registry.register_topic(1.0, "Intro", "Combining Like Terms",
                            CombiningLikeTermsGenerator, "combining_like_terms")
+    registry.register_topic(1.0, "Intro", "Absolute Value",
+                           AbsoluteValueGenerator, "absolute_value")
+    registry.register_topic(1.0, "Intro", "Square Roots",
+                           SquareRootsGenerator, "square_roots")
 
     # Chapter 2: Equations
     registry.register_topic(2.0, "Intro", "Equations",

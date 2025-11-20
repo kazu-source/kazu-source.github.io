@@ -58,8 +58,9 @@ class PDFWorksheetGenerator:
 
     # Spacing constraints per problem type (min, max)
     MIN_SPACING = {
-        'linear_equation': 0.6 * inch,
-        'system_of_equations': 1.0 * inch,
+        'linear_equation': 0.5 * inch,  # Reduced for tighter spacing
+        'multistep_equations': 0.5 * inch,  # Reduced for better vertical distribution
+        'system_of_equations': 0.9 * inch,  # Slightly reduced for tighter spacing
         'inequality': 1.5 * inch,
         'word_problems': 2.0 * inch,  # Larger spacing for word problems to allow work space
         'graphing_points': 3.8 * inch,  # Minimum spacing for 3" graphs + text
@@ -72,8 +73,9 @@ class PDFWorksheetGenerator:
     }
 
     MAX_SPACING = {
-        'linear_equation': 2.5 * inch,
-        'system_of_equations': 2.0 * inch,
+        'linear_equation': 2.3 * inch,  # Slightly reduced for tighter spacing
+        'multistep_equations': 2.3 * inch,  # Same as linear equations
+        'system_of_equations': 1.8 * inch,  # Slightly reduced for tighter spacing
         'inequality': 2.5 * inch,
         'word_problems': 4.0 * inch,  # Maximum spacing for word problems to spread them out
         'graphing_points': 4.5 * inch,  # Maximum spacing for graphing problems
@@ -297,10 +299,51 @@ class PDFWorksheetGenerator:
         Returns:
             Tuple of (width in points, height in inches used)
         """
+        # Check if this equation contains square roots
+        # If so, render it as a LaTeX image instead of text
+        if '\\sqrt' in equation_text:
+            try:
+                # Render the entire equation as a LaTeX image
+                # Use the same font_size to maintain consistency
+                img = self.render_latex_to_image(equation_text, font_size)
+
+                # Get the actual image dimensions to calculate proper scaling
+                img_width, img_height = img.getSize()
+
+                # Calculate the scaling factor based on font size
+                # At 12pt font, we want the image height to be approximately 0.5 inches
+                # This matches the visual height of 12pt Lexend text
+                target_height = (font_size / 12.0) * 0.5 * inch
+
+                # Calculate width maintaining aspect ratio
+                aspect_ratio = img_width / img_height
+                target_width = target_height * aspect_ratio
+
+                # Draw the image at the specified position with calculated dimensions
+                # Align with text baseline: for 12pt text, descenders go ~3pt below baseline
+                # Our square root symbol should align with text baseline
+                # The rendered image has the square root symbol centered, so we offset by ~31% of height
+                y_offset = target_height * 0.31
+
+                c.drawImage(
+                    img,
+                    x,
+                    y - y_offset,  # Position so square root baseline aligns with text baseline
+                    width=target_width,
+                    height=target_height,
+                    preserveAspectRatio=True,
+                    mask='auto'
+                )
+                return (target_width, 0)  # Return width in points, no wrapping
+            except Exception as e:
+                print(f"Warning: Failed to render equation as LaTeX image: {e}")
+                # Fall through to text rendering
+
         # Replace LaTeX symbols with Unicode equivalents before removing backslashes
         text = equation_text.replace('\\cdot', '·')  # Replace \cdot with middle dot
-        text = text.replace('\\times', '×')  # Replace \times with multiplication sign
-        # Remove backslashes
+        text = equation_text.replace('\\times', '×')  # Replace \times with multiplication sign
+
+        # Remove remaining backslashes
         text = text.replace('\\', '')
         # Remove text{} wrappers: text{content} -> content
         text = re.sub(r'text\{([^}]*)\}', r'\1', text)
@@ -465,7 +508,7 @@ class PDFWorksheetGenerator:
             ideal_spacing = available_space
 
         # Apply constraints
-        min_spacing = self.MIN_SPACING.get(problem_type, 0.6 * inch)
+        min_spacing = self.MIN_SPACING.get(problem_type, 0.5 * inch)  # Default minimum spacing reduced to 0.5"
         max_spacing = self.MAX_SPACING.get(problem_type, 1.5 * inch)
 
         optimal_spacing = max(min_spacing, min(ideal_spacing, max_spacing))
@@ -498,12 +541,12 @@ class PDFWorksheetGenerator:
         ax = fig.add_axes([0, 0, 1, 1])
         ax.axis('off')
 
-        # Render LaTeX text (x=0 for left alignment, no padding)
-        ax.text(0, 0.5, f'${latex_str}$', fontsize=fontsize, verticalalignment='center', horizontalalignment='left')
+        # Render LaTeX text (x=0 for left alignment, baseline alignment to minimize vertical space)
+        ax.text(0, 0.3, f'${latex_str}$', fontsize=fontsize, verticalalignment='baseline', horizontalalignment='left')
 
-        # Save to bytes buffer with tight bbox and minimal padding
+        # Save to bytes buffer with tight bbox and zero padding to eliminate whitespace
         buf = io.BytesIO()
-        plt.savefig(buf, format='png', dpi=150, bbox_inches='tight', pad_inches=0.005,
+        plt.savefig(buf, format='png', dpi=150, bbox_inches='tight', pad_inches=0,
                     transparent=False, facecolor='white')
         buf.seek(0)
         plt.close(fig)
@@ -642,7 +685,7 @@ class PDFWorksheetGenerator:
         width, height = letter
 
         # Check if this is a challenge worksheet
-        is_challenge = "(Challenge)" in title
+        is_challenge = "Challenge" in title
 
         # Determine max problems per page based on problem type
         # Challenge worksheets always use 8 problems per page
@@ -758,16 +801,8 @@ class PDFWorksheetGenerator:
                 c.setFont("Helvetica-Bold", 18)
         y_pos -= 0.5 * inch
 
-        # Extract just the topic name from full title (remove "Unit X - " and " (Type)")
+        # Use the full title as provided
         display_title = title
-        if " - " in title:
-            # Split by " - " and take the part after "Unit X - "
-            parts = title.split(" - ", 1)
-            if len(parts) > 1:
-                display_title = parts[1]
-        # Remove type suffix like " (Intro)" or " (Challenge)"
-        if " (" in display_title:
-            display_title = display_title.split(" (")[0]
 
         c.drawCentredString(width / 2, y_pos, display_title)
 
@@ -976,7 +1011,12 @@ class PDFWorksheetGenerator:
         elif is_graphing:
             problems_per_column = 2  # 2 columns × 2 rows
             num_rows = 2  # 2 rows for spacing calculation (not problems per column)
-        else:  # linear equations
+        elif problems_per_page == 8:
+            # For any 8-problem worksheet, use 2-column layout with 4 rows
+            # This gives the same compact spacing as inequalities
+            num_rows = 4  # 4 rows for spacing calculation
+            problems_per_column = 4  # Each column gets 4 problems
+        else:  # linear equations with more than 8 problems
             problems_per_column = 5  # First two columns have 5 problems
             num_rows = 5  # 5 rows for spacing calculation
 
@@ -1044,9 +1084,8 @@ class PDFWorksheetGenerator:
             else:
                 # Regular equations: 2 columns layout with left-to-right ordering
                 # Problems fill left-to-right: 1,2 in row 1, 3,4 in row 2, etc.
-                # After 10 problems (5 rows x 2 columns), continue at top of page below the first set
-                if idx < 10:
-                    # First 10 problems: 2 columns x 5 rows
+                if problems_per_page == 8:
+                    # For 8 problems: use 2 columns x 4 rows (same as inequalities)
                     row = idx // 2
                     col = idx % 2
                     if col == 0:
@@ -1055,11 +1094,23 @@ class PDFWorksheetGenerator:
                         x_start = 4.5 * inch
                     y_pos = y_start - (row * spacing)
                 else:
-                    # Problems 11-15: continue below in left column
-                    adjusted_idx = idx - 10
-                    row = adjusted_idx
-                    x_start = 1 * inch
-                    y_pos = y_start - ((5 + row) * spacing)
+                    # For more than 8 problems (typically 10-15): use 2 columns x 5 rows
+                    # After 10 problems (5 rows x 2 columns), continue at top of page below the first set
+                    if idx < 10:
+                        # First 10 problems: 2 columns x 5 rows
+                        row = idx // 2
+                        col = idx % 2
+                        if col == 0:
+                            x_start = 1 * inch
+                        else:
+                            x_start = 4.5 * inch
+                        y_pos = y_start - (row * spacing)
+                    else:
+                        # Problems 11-15: continue below in left column
+                        adjusted_idx = idx - 10
+                        row = adjusted_idx
+                        x_start = 1 * inch
+                        y_pos = y_start - ((5 + row) * spacing)
 
             # Problem number and equation text - use Lexend
             try:
@@ -1163,7 +1214,7 @@ class PDFWorksheetGenerator:
                 plain_text = re.sub(r'text\{([^}]*)\}', r'\1', plain_text)
 
                 # Check if this is a text-heavy problem that needs wrapping
-                text_indicators = ['If ', 'Is ', 'Find ', 'Which ', 'Verify', 'Input:', 'Rule:', 'Output:']
+                text_indicators = ['If ', 'Is ', 'Find ', 'Which ', 'Verify', 'Input:', 'Rule:', 'Output:', 'Evaluate']
                 needs_wrapping = any(indicator in plain_text for indicator in text_indicators)
 
                 if needs_wrapping:
@@ -1192,11 +1243,11 @@ class PDFWorksheetGenerator:
                     numberline_width = 3.5 * inch
                     # Calculate height based on aspect ratio (8" wide x 1.2" tall for number line only)
                     natural_height = (1.2 / 8.0) * numberline_width
-                    # Position number line below the equation text
+                    # Position number line below the equation text (moved 0.25" closer)
                     c.drawImage(
                         img,
                         x_start - 0.15 * inch,  # Moved 0.25" left from previous 0.1"
-                        y_pos - 0.35 * inch - natural_height,  # Below equation text
+                        y_pos - 0.10 * inch - natural_height,  # Below equation text, 0.25" closer than before
                         width=numberline_width,
                         height=natural_height,
                         preserveAspectRatio=True
@@ -1287,16 +1338,8 @@ class PDFWorksheetGenerator:
                 c.setFont("Helvetica-Bold", 18)
         y_pos -= 0.5 * inch
 
-        # Extract just the topic name from full title (remove "Unit X - " and " (Type)")
+        # Use the full title as provided
         display_title = title
-        if " - " in title:
-            # Split by " - " and take the part after "Unit X - "
-            parts = title.split(" - ", 1)
-            if len(parts) > 1:
-                display_title = parts[1]
-        # Remove type suffix like " (Intro)" or " (Challenge)"
-        if " (" in display_title:
-            display_title = display_title.split(" (")[0]
 
         c.drawCentredString(width / 2, y_pos, f"{display_title} - Answer Key")
 
@@ -1500,10 +1543,10 @@ class PDFWorksheetGenerator:
                     # Use answer image (number line with solution)
                     img = ImageReader(equation.answer_image)
 
-                    # Draw number line
+                    # Draw number line (moved 0.25" closer to equation text)
                     numberline_width = 3.5 * inch
                     natural_height = (1.2 / 8.0) * numberline_width
-                    image_bottom = y_pos - 0.35 * inch - natural_height
+                    image_bottom = y_pos - 0.10 * inch - natural_height
                     c.drawImage(
                         img,
                         x_start - 0.15 * inch,  # Moved 0.25" left from previous 0.1"
@@ -1753,7 +1796,7 @@ class PDFWorksheetGenerator:
                 plain_text = re.sub(r'text\{([^}]*)\}', r'\1', plain_text)
 
                 # Check if this is a text-heavy problem that needs wrapping
-                text_indicators = ['If ', 'Is ', 'Find ', 'Which ', 'Verify', 'Input:', 'Rule:', 'Output:']
+                text_indicators = ['If ', 'Is ', 'Find ', 'Which ', 'Verify', 'Input:', 'Rule:', 'Output:', 'Evaluate']
                 needs_wrapping = any(indicator in plain_text for indicator in text_indicators)
 
                 if needs_wrapping:
@@ -1766,8 +1809,17 @@ class PDFWorksheetGenerator:
 
                     # Display answer in RED below wrapped text
                     c.setFillColorRGB(1, 0, 0)  # Red color
+                    # Check if this is Variables worksheet - handle all Variables problems first
+                    if "Variables" in title:
+                        # For Variables, use steps[0] if available (text answers), otherwise show numeric value
+                        if hasattr(equation, 'steps') and equation.steps and equation.solution == 0:
+                            solution_str = equation.steps[0]  # Use text answer from steps
+                        elif equation.solution == int(equation.solution):
+                            solution_str = str(int(equation.solution))
+                        else:
+                            solution_str = f"{equation.solution:.2f}"
                     # Check if this is a "What Are Solutions?" worksheet
-                    if "What Are Solutions?" in title or "Solutions" in title:
+                    elif "What Are Solutions?" in title or "Solutions" in title:
                         # Format for solutions worksheet: just show the number
                         if equation.solution == 999:
                             solution_str = "infinite"
@@ -1783,14 +1835,22 @@ class PDFWorksheetGenerator:
                             solution_str = str(int(equation.solution))
                         else:
                             solution_str = f"{equation.solution:.2f}"
-                    # Check if this is a simplification problem (like combining like terms)
+                    # Check if this is a text-based problem (like combining like terms)
                     elif equation.solution == 0 and hasattr(equation, 'steps') and equation.steps:
-                        solution_str = equation.steps[0]  # Use simplified expression
+                        solution_str = equation.steps[0]  # Use text answer from steps
                     elif equation.solution == int(equation.solution):
                         solution_str = f"x = {int(equation.solution)}"
                     else:
                         solution_str = f"x = {equation.solution:.2f}"
-                    c.drawString(x_start + 0.25 * inch, text_end_y - 0.15 * inch, solution_str)
+
+                    # Use text wrapping for long answers (especially variable problems)
+                    if len(solution_str) > 30:
+                        # Use smaller font for long variable answers
+                        c.setFont('Lexend', 9)
+                        self._wrap_text(c, solution_str, x_start + 0.25 * inch, text_end_y - 0.15 * inch, max_width=3.0, line_height=0.13)
+                        c.setFont('Lexend', 12)  # Reset font
+                    else:
+                        c.drawString(x_start + 0.25 * inch, text_end_y - 0.15 * inch, solution_str)
                     c.setFillColorRGB(0, 0, 0)  # Reset to black
                 else:
                     # Simple equation: draw with proper fraction rendering
@@ -1805,8 +1865,17 @@ class PDFWorksheetGenerator:
                     # Account for height used by equation if it wrapped
                     answer_y = y_pos - 0.25 * inch - height_used
                     c.setFillColorRGB(1, 0, 0)  # Red color
+                    # Check if this is Variables worksheet - handle all Variables problems first
+                    if "Variables" in title:
+                        # For Variables, use steps[0] if available (text answers), otherwise show numeric value
+                        if hasattr(equation, 'steps') and equation.steps and equation.solution == 0:
+                            solution_str = equation.steps[0]  # Use text answer from steps
+                        elif equation.solution == int(equation.solution):
+                            solution_str = str(int(equation.solution))
+                        else:
+                            solution_str = f"{equation.solution:.2f}"
                     # Check if this is a "What Are Solutions?" worksheet
-                    if "What Are Solutions?" in title or "Solutions" in title:
+                    elif "What Are Solutions?" in title or "Solutions" in title:
                         # Format for solutions worksheet: just show the number
                         if equation.solution == 999:
                             solution_str = "infinite"
@@ -1822,14 +1891,22 @@ class PDFWorksheetGenerator:
                             solution_str = str(int(equation.solution))
                         else:
                             solution_str = f"{equation.solution:.2f}"
-                    # Check if this is a simplification problem (like combining like terms)
+                    # Check if this is a text-based problem (like combining like terms)
                     elif equation.solution == 0 and hasattr(equation, 'steps') and equation.steps:
-                        solution_str = equation.steps[0]  # Use simplified expression
+                        solution_str = equation.steps[0]  # Use text answer from steps
                     elif equation.solution == int(equation.solution):
                         solution_str = f"x = {int(equation.solution)}"
                     else:
                         solution_str = f"x = {equation.solution:.2f}"
-                    c.drawString(x_start + 0.25 * inch, answer_y, solution_str)
+
+                    # Use text wrapping for long answers (especially variable problems)
+                    if len(solution_str) > 30:
+                        # Use smaller font for long variable answers
+                        c.setFont('Lexend', 9)
+                        self._wrap_text(c, solution_str, x_start + 0.25 * inch, answer_y, max_width=3.0, line_height=0.13)
+                        c.setFont('Lexend', 12)  # Reset font
+                    else:
+                        c.drawString(x_start + 0.25 * inch, answer_y, solution_str)
                     c.setFillColorRGB(0, 0, 0)  # Reset to black
 
         # Footer - use Lexend
