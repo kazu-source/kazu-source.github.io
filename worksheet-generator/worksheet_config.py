@@ -391,8 +391,62 @@ PROBLEM_TYPE_CONFIGS: Dict[str, ProblemTypeConfig] = {
         instructions="Graph the parabola and identify the vertex."
     ),
 
+    # Unit 11: More Quadratics
+    'completing_the_square': ProblemTypeConfig(
+        latex_fontsize=21,  # Standard equation font
+        image_width=3.5,
+        image_height=0.7,
+        vertical_offset=0.3,
+        problems_per_page=16,  # 2 columns x 8 rows
+        vertical_spacing=1.0,  # DEPRECATED: kept for backwards compatibility
+        default_num_problems={'easy': 16, 'medium': 16, 'hard': 16, 'challenge': 8},
+        min_spacing=0.8,
+        max_spacing=2.0,
+        instructions="Complete the square and write in vertex form."
+    ),
+
+    'quadratic_formula': ProblemTypeConfig(
+        latex_fontsize=21,  # Standard equation font
+        image_width=3.5,
+        image_height=0.7,
+        vertical_offset=0.3,
+        problems_per_page=16,  # 2 columns x 8 rows
+        vertical_spacing=1.0,  # DEPRECATED: kept for backwards compatibility
+        default_num_problems={'easy': 16, 'medium': 16, 'hard': 16, 'challenge': 8},
+        min_spacing=0.8,
+        max_spacing=2.0,
+        instructions="Solve using the quadratic formula: x = (-b ± √(b²-4ac)) / 2a"
+    ),
+
+    # Unit 12: Quadratic Functions
+    'quadratic_functions': ProblemTypeConfig(
+        latex_fontsize=21,  # Standard equation font
+        image_width=3.5,
+        image_height=0.7,
+        vertical_offset=0.3,
+        problems_per_page=16,  # 2 columns x 8 rows
+        vertical_spacing=1.0,  # DEPRECATED: kept for backwards compatibility
+        default_num_problems={'easy': 16, 'medium': 16, 'hard': 12, 'challenge': 8},
+        min_spacing=0.8,
+        max_spacing=2.0,
+        instructions="Analyze the quadratic function and answer the question."
+    ),
+
+    # Unit 13: Sequences
+    'arithmetic_sequences': ProblemTypeConfig(
+        latex_fontsize=21,  # Standard equation font
+        image_width=3.5,
+        image_height=0.7,
+        vertical_offset=0.3,
+        problems_per_page=16,  # 2 columns x 8 rows
+        vertical_spacing=1.0,  # DEPRECATED: kept for backwards compatibility
+        default_num_problems={'easy': 16, 'medium': 16, 'hard': 12, 'challenge': 8},
+        min_spacing=0.8,
+        max_spacing=2.0,
+        instructions="Work with the arithmetic sequence to answer each question."
+    ),
+
     # Future problem types can be added here
-    # 'quadratic': ProblemTypeConfig(...),
 }
 
 

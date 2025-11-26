@@ -330,6 +330,32 @@ def register_all_generators():
     registry.register_topic(11.0, "Graphing", "Using Vertex Form",
                            ParabolaGraphingGenerator, "graphing_parabolas")
 
+    # Add new Unit 11-13 generators
+    try:
+        from generators.chapter11.completing_square_simple import CompletingSquareSimpleGenerator
+        from generators.chapter11.quadratic_formula_simple import QuadraticFormulaSimpleGenerator
+        from generators.chapter12.quadratic_functions_simple import QuadraticFunctionsSimpleGenerator
+        from generators.chapter13.arithmetic_sequences_simple import ArithmeticSequencesSimpleGenerator
+        from generators.chapter13.geometric_sequences_simple import GeometricSequencesSimpleGenerator
+
+        # Unit 11: More Quadratics
+        registry.register_topic(11.0, "Intro", "Completing the Square",
+                               CompletingSquareSimpleGenerator, "completing_the_square")
+        registry.register_topic(11.0, "Intro", "Quadratic Formula",
+                               QuadraticFormulaSimpleGenerator, "quadratic_formula")
+
+        # Unit 12: Quadratic Functions
+        registry.register_topic(12.0, "Intro", "Quadratic Functions",
+                               QuadraticFunctionsSimpleGenerator, "quadratic_functions")
+
+        # Unit 13: Sequences and More
+        registry.register_topic(13.0, "Intro", "Arithmetic Sequences",
+                               ArithmeticSequencesSimpleGenerator, "arithmetic_sequences")
+        registry.register_topic(13.0, "Intro", "Geometric Sequences",
+                               GeometricSequencesSimpleGenerator, "geometric_sequences")
+    except ImportError as e:
+        print(f"Warning: Could not import new generators: {e}")
+
 
 if __name__ == "__main__":
     # Example usage

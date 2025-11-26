@@ -1,0 +1,7 @@
+{
+  "grade_level": "High School",
+  "folder_pattern": "chapter",
+  "excluded_types": ["Expansion", "Review"],
+  "unit_format": "numeric",
+  "generators_subdir": "generators"
+}

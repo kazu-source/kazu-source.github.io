@@ -23,22 +23,55 @@ from reportlab.lib.utils import ImageReader
 from reportlab.pdfbase import pdfmetrics
 from reportlab.pdfbase.ttfonts import TTFont
 
-from equation_generator import Equation
-from systems_generator import SystemProblem
-from inequalities_generator import InequalityProblem
-from generators.chapter03.compound_inequalities_generator import CompoundInequalityProblem
-from properties_generator import PropertyProblem
-from word_problems_generator import WordProblem
-from multistep_generator import MultiStepEquation
-from generators.chapter01.evaluating_expressions_generator import EvaluatingProblem
-from generators.chapter01.substitution_generator import SubstitutionProblem
-from generators.chapter04.graphing_points import GraphingPointsProblem
-from generators.chapter04.graphing_lines import GraphingLineProblem
-from generators.chapter04.graphing_slope_intercept import SlopeInterceptProblem
-from generators.chapter04.graphing_point_slope import PointSlopeProblem
-from generators.chapter04.graphing_standard_form import StandardFormProblem
-from generators.chapter05.graphing_systems import GraphingSystemProblem
-from generators.chapter11.graphing_parabolas import ParabolaGraphingProblem
+# Legacy imports with fallback to stub classes
+try:
+    from equation_generator import Equation
+except ImportError:
+    class Equation: pass  # Stub class for backwards compatibility
+
+try:
+    from systems_generator import SystemProblem
+except ImportError:
+    class SystemProblem: pass  # Stub class
+
+try:
+    from inequalities_generator import InequalityProblem
+except ImportError:
+    class InequalityProblem: pass  # Stub class
+
+from generators.High_School.Algebra.Unit_3.compound_inequalities_generator import CompoundInequalityProblem
+
+try:
+    from properties_generator import PropertyProblem
+except ImportError:
+    class PropertyProblem: pass  # Stub class
+
+try:
+    from word_problems_generator import WordProblem
+except ImportError:
+    class WordProblem: pass  # Stub class
+
+try:
+    from multistep_generator import MultiStepEquation
+except ImportError:
+    class MultiStepEquation: pass  # Stub class
+from generators.High_School.Algebra.Unit_1.evaluating_expressions_generator import EvaluatingProblem
+from generators.High_School.Algebra.Unit_1.substitution_generator import SubstitutionProblem
+from generators.High_School.Algebra.Unit_4.graphing_points import GraphingPointsProblem
+from generators.High_School.Algebra.Unit_4.graphing_lines import GraphingLineProblem
+from generators.High_School.Algebra.Unit_4.graphing_slope_intercept import SlopeInterceptProblem
+from generators.High_School.Algebra.Unit_4.graphing_point_slope import PointSlopeProblem
+from generators.High_School.Algebra.Unit_4.graphing_standard_form import StandardFormProblem
+from generators.High_School.Algebra.Unit_4.slope_generator import SlopeProblem
+from generators.High_School.Algebra.Unit_4.intercepts_generator import InterceptsProblem
+from generators.High_School.Algebra.Unit_4.writing_slope_intercept import WritingSlopeInterceptProblem
+from generators.High_School.Algebra.Unit_5.graphing_systems import GraphingSystemProblem
+from generators.High_School.Algebra.Unit_5.systems_substitution import SubstitutionSystemProblem
+from generators.High_School.Algebra.Unit_5.systems_elimination import EliminationSystemProblem
+from generators.High_School.Algebra.Unit_6.functions_generator import FunctionsProblem
+from generators.High_School.Algebra.Unit_6.domain_range_generator import DomainRangeProblem
+from generators.High_School.Algebra.Unit_10.quadratic_graphing_generator import QuadraticGraphProblem
+from generators.High_School.Algebra.Unit_4.graphing_parabolas import ParabolaGraphingProblem
 from worksheet_config import get_config, ProblemTypeConfig
 from typing import Union
 
@@ -47,6 +80,67 @@ class PDFWorksheetGenerator:
     """Generates PDF worksheets with LaTeX-rendered equations."""
 
     # Font size standards (maintain 1.75x ratio)
+    
+    def _get_problem_latex(self, problem):
+        """Get LaTeX representation from any problem type."""
+        if hasattr(problem, 'latex'):
+            return problem.latex
+        elif hasattr(problem, 'problem_latex'):
+            return problem.problem_latex
+        elif hasattr(problem, 'equation_latex'):
+            return problem.equation_latex
+        elif hasattr(problem, 'slope_latex'):
+            return problem.slope_latex
+        elif hasattr(problem, 'equation1') and hasattr(problem, 'equation2'):
+            # For system problems
+            return f"{problem.equation1}\\\\{problem.equation2}"
+        elif hasattr(problem, 'function_notation'):
+            return problem.function_notation
+        else:
+            return str(problem)
+    
+    def _get_problem_solution(self, problem):
+        """Get solution from any problem type."""
+        if hasattr(problem, 'solution'):
+            return problem.solution
+        elif hasattr(problem, 'answer_latex'):
+            return problem.answer_latex
+        elif hasattr(problem, 'solution_latex'):
+            return problem.solution_latex
+        elif isinstance(problem, (SubstitutionSystemProblem, EliminationSystemProblem)):
+            if hasattr(problem, 'solution_x') and hasattr(problem, 'solution_y'):
+                return f"({problem.solution_x}, {problem.solution_y})"
+            elif hasattr(problem, 'solution_latex'):
+                return problem.solution_latex
+            else:
+                return "See work shown"
+        elif isinstance(problem, InterceptsProblem):
+            intercepts = []
+            if hasattr(problem, 'x_intercept') and problem.x_intercept:
+                intercepts.append(f"x-intercept: {problem.x_intercept}")
+            if hasattr(problem, 'y_intercept') and problem.y_intercept:
+                intercepts.append(f"y-intercept: {problem.y_intercept}")
+            return ", ".join(intercepts) if intercepts else "See answer key"
+        elif isinstance(problem, SlopeProblem):
+            return f"m = {problem.slope_fraction}"
+        elif isinstance(problem, WritingSlopeInterceptProblem):
+            return getattr(problem, 'answer_latex', getattr(problem, 'equation_latex', 'See work shown'))
+        elif isinstance(problem, QuadraticGraphProblem):
+            # Return key information for quadratic graph
+            parts = []
+            if hasattr(problem, 'vertex'):
+                parts.append(f"Vertex: {problem.vertex}")
+            if hasattr(problem, 'x_intercepts') and problem.x_intercepts:
+                parts.append(f"x-intercepts: {problem.x_intercepts}")
+            if hasattr(problem, 'y_intercept'):
+                parts.append(f"y-intercept: {problem.y_intercept}")
+            return ", ".join(parts) if parts else "See graph"
+        elif isinstance(problem, (FunctionsProblem, DomainRangeProblem)):
+            return getattr(problem, 'answer', getattr(problem, 'answer_latex', 'See work shown'))
+        elif hasattr(problem, 'solution_x') and hasattr(problem, 'solution_y'):
+            return f"({problem.solution_x}, {problem.solution_y})"
+        else:
+            return "See answer key"
     PROBLEM_NUMBER_FONT_SIZE = 12  # Lexend 12pt for problem numbers
     EQUATION_FONT_SIZE = 21  # Lexend 21pt for equations (1.75x ratio)
 
@@ -117,8 +211,10 @@ class PDFWorksheetGenerator:
     def _register_fonts(self):
         """Register custom fonts with ReportLab."""
         try:
-            # Get the parent directory (whymath folder)
-            base_dir = os.path.dirname(os.path.dirname(__file__))
+            # Get the parent directory (whymath folder) using absolute path
+            current_file = os.path.abspath(__file__)
+            worksheet_gen_dir = os.path.dirname(current_file)
+            base_dir = os.path.dirname(worksheet_gen_dir)
 
             # Register Lexend fonts
             lexend_regular = os.path.join(base_dir, 'Lexend', 'static', 'Lexend-Regular.ttf')
@@ -126,6 +222,9 @@ class PDFWorksheetGenerator:
 
             if os.path.exists(lexend_regular):
                 pdfmetrics.registerFont(TTFont('Lexend', lexend_regular))
+            else:
+                raise FileNotFoundError(f"Lexend font not found at {lexend_regular}")
+
             if os.path.exists(lexend_bold):
                 pdfmetrics.registerFont(TTFont('Lexend-Bold', lexend_bold))
 
@@ -136,12 +235,17 @@ class PDFWorksheetGenerator:
 
             if os.path.exists(poppins_regular):
                 pdfmetrics.registerFont(TTFont('Poppins', poppins_regular))
+            else:
+                raise FileNotFoundError(f"Poppins font not found at {poppins_regular}")
+
             if os.path.exists(poppins_bold):
                 pdfmetrics.registerFont(TTFont('Poppins-Bold', poppins_bold))
 
         except Exception as e:
             print(f"Warning: Could not register custom fonts: {e}")
+            print(f"Current file location: {os.path.abspath(__file__)}")
             print("Falling back to default fonts")
+            raise  # Re-raise to make font issues visible
 
     def _wrap_text(self, c: canvas.Canvas, text: str, x: float, y: float, max_width: float, line_height: float = 0.15) -> float:
         """
@@ -669,7 +773,7 @@ class PDFWorksheetGenerator:
 
         return ImageReader(buf)
 
-    def generate_worksheet(self, equations: List[Union[Equation, SystemProblem, InequalityProblem, CompoundInequalityProblem, PropertyProblem, WordProblem, MultiStepEquation, GraphingPointsProblem, GraphingLineProblem, SlopeInterceptProblem, PointSlopeProblem, StandardFormProblem, GraphingSystemProblem, ParabolaGraphingProblem]], output_path: str,
+    def generate_worksheet(self, equations: List[Union[Equation, SystemProblem, InequalityProblem, CompoundInequalityProblem, PropertyProblem, WordProblem, MultiStepEquation, GraphingPointsProblem, GraphingLineProblem, SlopeInterceptProblem, PointSlopeProblem, StandardFormProblem, GraphingSystemProblem, ParabolaGraphingProblem, SlopeProblem, InterceptsProblem, WritingSlopeInterceptProblem, SubstitutionSystemProblem, EliminationSystemProblem, FunctionsProblem, DomainRangeProblem, QuadraticGraphProblem]], output_path: str,
                           title: str = "Math Worksheet",
                           include_answer_key: bool = True):
         """
@@ -703,10 +807,19 @@ class PDFWorksheetGenerator:
                 max_problems_per_page = config.problems_per_page
             elif isinstance(equations[0], (GraphingPointsProblem, GraphingLineProblem, SlopeInterceptProblem,
                                           PointSlopeProblem, StandardFormProblem, GraphingSystemProblem,
-                                          ParabolaGraphingProblem)):
+                                          ParabolaGraphingProblem, SlopeProblem, InterceptsProblem,
+                                          WritingSlopeInterceptProblem, QuadraticGraphProblem)):
                 from worksheet_config import get_config
                 config = get_config('graphing_points')
                 max_problems_per_page = config.problems_per_page
+            elif isinstance(equations[0], (SubstitutionSystemProblem, EliminationSystemProblem)):
+                from worksheet_config import get_config
+                config = get_config('system_of_equations')
+                max_problems_per_page = config.problems_per_page
+            elif isinstance(equations[0], (FunctionsProblem, DomainRangeProblem)):
+                from worksheet_config import get_config
+                config = get_config('functions')
+                max_problems_per_page = config.problems_per_page if hasattr(get_config('functions'), 'problems_per_page') else 8
             else:
                 max_problems_per_page = 10  # Default for linear equations
         else:
@@ -1121,13 +1234,18 @@ class PDFWorksheetGenerator:
             if is_inequality:
                 # For inequalities: display equation as plain text next to problem number
                 # Convert LaTeX to plain text
-                plain_text = equation.latex.replace('\\leq', '≤').replace('\\geq', '≥').replace('\\text{ or }', ' or ').replace('\\', '')
+                latex = self._get_problem_latex(equation)
+                plain_text = latex.replace('\\leq', '≤').replace('\\geq', '≥').replace('\\text{ or }', ' or ').replace('\\', '')
                 c.drawString(x_start, y_pos, f"{start_problem_number + idx}. {plain_text}")
             elif is_system:
                 # For systems: display both equations as plain text
                 # Convert LaTeX to plain text
-                eq1_plain = equation.equation1_latex.replace('\\', '')
-                eq2_plain = equation.equation2_latex.replace('\\', '')
+                if isinstance(equation, (SubstitutionSystemProblem, EliminationSystemProblem)):
+                    eq1_plain = getattr(equation, 'equation1', getattr(equation, 'equation1_latex', '')).replace('\\', '')
+                    eq2_plain = getattr(equation, 'equation2', getattr(equation, 'equation2_latex', '')).replace('\\', '')
+                else:
+                    eq1_plain = equation.equation1_latex.replace('\\', '')
+                    eq2_plain = equation.equation2_latex.replace('\\', '')
                 c.drawString(x_start, y_pos, f"{start_problem_number + idx}. {eq1_plain}")
                 c.drawString(x_start + 0.25 * inch, y_pos - 0.25 * inch, eq2_plain)
             elif is_property:
@@ -1135,14 +1253,15 @@ class PDFWorksheetGenerator:
                 c.setFont('Lexend', 12)
                 c.drawString(x_start, y_pos, f"{start_problem_number + idx}.")
                 # Draw equation with fractions properly rendered
-                width_used, height_used = self._draw_equation_with_fractions(c, equation.latex, x_start + 0.25 * inch, y_pos, 12, max_width=3.0 * inch)
+                latex = self._get_problem_latex(equation)
+                width_used, height_used = self._draw_equation_with_fractions(c, latex, x_start + 0.25 * inch, y_pos, 12, max_width=3.0 * inch)
                 c.drawString(x_start, y_pos - 0.35 * inch, "Property:")
             elif is_word_problem or hasattr(equation, 'problem_text'):
                 # For word problems: display the problem text with wrapping
                 # Draw problem number first
                 c.drawString(x_start, y_pos, f"{start_problem_number + idx}.")
                 # Wrap and draw the problem text (full page width minus margins)
-                problem_text = getattr(equation, 'problem_text', equation.latex)
+                problem_text = getattr(equation, 'problem_text', self._get_problem_latex(equation))
                 text_end_y = self._wrap_text(c, problem_text, x_start + 0.25 * inch, y_pos, 6.0, line_height=0.18)
                 # Add blank lines for students to write equation and solve
                 c.drawString(x_start + 0.25 * inch, text_end_y - 0.15 * inch, "Equation: _______________________")
@@ -1564,10 +1683,14 @@ class PDFWorksheetGenerator:
                         except:
                             c.setFont("Helvetica", 12)
                         ineq_symbol = symbol_map.get(equation.inequality_type, equation.inequality_type)
-                        if equation.solution == int(equation.solution):
-                            solution_str = f"x {ineq_symbol} {int(equation.solution)}"
+                        solution = self._get_problem_solution(equation)
+                        if isinstance(solution, (int, float)):
+                            if solution == int(solution):
+                                solution_str = f"x {ineq_symbol} {int(solution)}"
+                            else:
+                                solution_str = f"x {ineq_symbol} {solution:.2f}"
                         else:
-                            solution_str = f"x {ineq_symbol} {equation.solution:.2f}"
+                            solution_str = str(solution)
 
                         # Set color to red for the solution
                         c.setFillColorRGB(1, 0, 0)  # Red color
@@ -1608,7 +1731,8 @@ class PDFWorksheetGenerator:
 
                 # Display answer in RED below the equations
                 c.setFillColorRGB(1, 0, 0)  # Red color
-                c.drawString(x_start + 0.25 * inch, y_pos - 0.55 * inch, equation.solution)
+                solution = self._get_problem_solution(equation)
+                c.drawString(x_start + 0.25 * inch, y_pos - 0.55 * inch, str(solution))
                 c.setFillColorRGB(0, 0, 0)  # Reset to black
 
         elif is_property:
@@ -1809,8 +1933,11 @@ class PDFWorksheetGenerator:
 
                     # Display answer in RED below wrapped text
                     c.setFillColorRGB(1, 0, 0)  # Red color
+                    # Check if solution is a string (for new generators)
+                    if isinstance(equation.solution, str):
+                        solution_str = equation.solution
                     # Check if this is Variables worksheet - handle all Variables problems first
-                    if "Variables" in title:
+                    elif "Variables" in title:
                         # For Variables, use steps[0] if available (text answers), otherwise show numeric value
                         if hasattr(equation, 'steps') and equation.steps and equation.solution == 0:
                             solution_str = equation.steps[0]  # Use text answer from steps
@@ -1865,8 +1992,11 @@ class PDFWorksheetGenerator:
                     # Account for height used by equation if it wrapped
                     answer_y = y_pos - 0.25 * inch - height_used
                     c.setFillColorRGB(1, 0, 0)  # Red color
+                    # Check if solution is a string (for new generators)
+                    if isinstance(equation.solution, str):
+                        solution_str = equation.solution
                     # Check if this is Variables worksheet - handle all Variables problems first
-                    if "Variables" in title:
+                    elif "Variables" in title:
                         # For Variables, use steps[0] if available (text answers), otherwise show numeric value
                         if hasattr(equation, 'steps') and equation.steps and equation.solution == 0:
                             solution_str = equation.steps[0]  # Use text answer from steps

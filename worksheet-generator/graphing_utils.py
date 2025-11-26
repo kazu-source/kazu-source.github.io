@@ -16,24 +16,25 @@ from PIL import Image
 class CoordinatePlane:
     """Class for creating and managing coordinate plane graphs."""
 
-    def __init__(self, x_min=-10, x_max=10, y_min=-10, y_max=10,
-                 grid=True, first_quadrant_only=False):
+    def __init__(self, x_min=-8, x_max=8, y_min=-8, y_max=8,
+                 grid=True, first_quadrant_only=False, tick_interval=1):
         """
         Initialize a coordinate plane.
 
         Args:
-            x_min: Minimum x value
-            x_max: Maximum x value
-            y_min: Minimum y value
-            y_max: Maximum y value
+            x_min: Minimum x value (default -8 for 16x16 grid)
+            x_max: Maximum x value (default 8 for 16x16 grid)
+            y_min: Minimum y value (default -8 for 16x16 grid)
+            y_max: Maximum y value (default 8 for 16x16 grid)
             grid: Whether to show grid lines
             first_quadrant_only: If True, only show first quadrant (x≥0, y≥0)
+            tick_interval: Spacing between tick marks (1, 2, 4, etc.)
         """
         if first_quadrant_only:
             self.x_min = 0
-            self.x_max = max(10, x_max)
+            self.x_max = max(8, x_max)
             self.y_min = 0
-            self.y_max = max(10, y_max)
+            self.y_max = max(8, y_max)
         else:
             self.x_min = x_min
             self.x_max = x_max
@@ -42,6 +43,7 @@ class CoordinatePlane:
 
         self.grid = grid
         self.first_quadrant_only = first_quadrant_only
+        self.tick_interval = tick_interval
 
     def create_figure(self, figsize=(6, 6), dpi=150):
         """
@@ -70,9 +72,9 @@ class CoordinatePlane:
         ax.annotate('', xy=(0, self.y_max + 0.3), xytext=(0, self.y_max),
                    arrowprops=dict(arrowstyle='->', color='black', lw=1.5))
 
-        # Add axis labels
-        ax.text(self.x_max + 0.5, 0, 'x', fontsize=12, ha='center', va='center')
-        ax.text(0, self.y_max + 0.5, 'y', fontsize=12, ha='center', va='center')
+        # Add axis labels - moved slightly away from axes
+        ax.text(self.x_max + 0.85, 0, 'x', fontsize=12, ha='center', va='center')
+        ax.text(0, self.y_max + 1.0, 'y', fontsize=12, ha='center', va='center')
 
         # Set up grid
         if self.grid:
@@ -86,9 +88,9 @@ class CoordinatePlane:
         ax.spines['right'].set_color('none')
         ax.spines['top'].set_color('none')
 
-        # Set integer ticks
-        x_ticks = np.arange(self.x_min, self.x_max + 1, 1)
-        y_ticks = np.arange(self.y_min, self.y_max + 1, 1)
+        # Set ticks with custom interval
+        x_ticks = np.arange(self.x_min, self.x_max + 1, self.tick_interval)
+        y_ticks = np.arange(self.y_min, self.y_max + 1, self.tick_interval)
         ax.set_xticks(x_ticks)
         ax.set_yticks(y_ticks)
 
@@ -338,16 +340,16 @@ class CoordinatePlane:
         return img
 
 
-def create_blank_coordinate_plane(x_min=-10, x_max=10, y_min=-10, y_max=10,
+def create_blank_coordinate_plane(x_min=-8, x_max=8, y_min=-8, y_max=8,
                                   first_quadrant_only=False, figsize=(6, 6)):
     """
     Create a blank coordinate plane as a PIL Image.
 
     Args:
-        x_min: Minimum x value
-        x_max: Maximum x value
-        y_min: Minimum y value
-        y_max: Maximum y value
+        x_min: Minimum x value (default -8 for 16x16 grid)
+        x_max: Maximum x value (default 8 for 16x16 grid)
+        y_min: Minimum y value (default -8 for 16x16 grid)
+        y_max: Maximum y value (default 8 for 16x16 grid)
         first_quadrant_only: If True, only show first quadrant
         figsize: Figure size in inches
 
@@ -360,7 +362,7 @@ def create_blank_coordinate_plane(x_min=-10, x_max=10, y_min=-10, y_max=10,
     return plane.render_to_image(fig)
 
 
-def graph_points(points, labels=None, x_min=-10, x_max=10, y_min=-10, y_max=10,
+def graph_points(points, labels=None, x_min=-8, x_max=8, y_min=-8, y_max=8,
                 first_quadrant_only=False, figsize=(6, 6)):
     """
     Create a graph with plotted points.
@@ -368,7 +370,7 @@ def graph_points(points, labels=None, x_min=-10, x_max=10, y_min=-10, y_max=10,
     Args:
         points: List of (x, y) tuples
         labels: Optional list of labels for each point
-        x_min, x_max, y_min, y_max: Axis bounds
+        x_min, x_max, y_min, y_max: Axis bounds (default -8 to 8 for 16x16 grid)
         first_quadrant_only: If True, only show first quadrant
         figsize: Figure size in inches
 
@@ -387,7 +389,7 @@ def graph_points(points, labels=None, x_min=-10, x_max=10, y_min=-10, y_max=10,
 
 
 def graph_line(slope=None, y_intercept=None, point=None, standard_form=None,
-              x_min=-10, x_max=10, y_min=-10, y_max=10,
+              x_min=-8, x_max=8, y_min=-8, y_max=8,
               show_intercepts=False, show_slope_triangle=False,
               first_quadrant_only=False, figsize=(6, 6)):
     """
@@ -398,7 +400,7 @@ def graph_line(slope=None, y_intercept=None, point=None, standard_form=None,
         y_intercept: Y-intercept (for slope-intercept form)
         point: Tuple (x, y) for point-slope form
         standard_form: Tuple (A, B, C) for Ax + By = C
-        x_min, x_max, y_min, y_max: Axis bounds
+        x_min, x_max, y_min, y_max: Axis bounds (default -8 to 8 for 16x16 grid)
         show_intercepts: If True, mark and label x and y intercepts
         show_slope_triangle: If True, show slope triangle
         first_quadrant_only: If True, only show first quadrant
@@ -444,7 +446,7 @@ def graph_line(slope=None, y_intercept=None, point=None, standard_form=None,
 
 
 def graph_inequality(slope=None, y_intercept=None, standard_form=None,
-                    inequality_type='>', x_min=-10, x_max=10, y_min=-10, y_max=10,
+                    inequality_type='>', x_min=-8, x_max=8, y_min=-8, y_max=8,
                     first_quadrant_only=False, figsize=(6, 6)):
     """
     Create a graph of a linear inequality with shading.

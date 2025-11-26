@@ -1,0 +1,115 @@
+======================================================================
+TESTING SUITE GENERATION SUMMARY
+======================================================================
+Generated: 2025-11-21 19:32:16
+
+Total Worksheets Generated: 55
+Total Failed: 2
+
+
+Unit 1: Unit01_Variables_and_Expressions
+  Topics: 8
+    - Variables
+    - Substitution of Variables
+    - Exponents
+    - Parts of a Term
+    - Square and Cube Roots
+    - Evaluating an Expression
+    - Combining Like Terms
+    - Absolute Value
+
+Unit 2: Unit02_Equations
+  Topics: 9
+    - Equations
+    - Property of Equality - Add/Subtract
+    - Property of Equality - Mult/Div
+    - Solving Multi-Step Equations
+    - Solving Equations with Variables on Both Sides
+    - Linear Equations
+    - Inputs and Outputs
+    - What Are Solutions
+    - Linear Equation Word Problems
+
+Unit 3: Unit03_Inequalities
+  Topics: 6
+    - One-Step Inequalities
+    - Compound Inequalities - AND
+    - Compound Inequalities - OR
+    - Compound Inequalities - Mixed
+    - Absolute Value Inequalities
+    - Inequality Word Problems
+
+Unit 4: Unit04_Linear_Equations_Two_Variables
+  Topics: 9
+    - Review - Inputs and Outputs
+    - Points on a Coordinate Plane
+    - Line on a Coordinate Plane
+    - Slope
+    - X and Y Intercepts
+    - Slope-Intercept Form
+    - Writing Slope-Intercept Equations
+    - Point-Slope Form
+    - Standard Form
+
+Unit 5: Unit05_Systems_of_Equations
+  Topics: 3
+    - Systems of Equations - Graphing
+    - Systems of Equations Using Substitution
+    - Systems of Equations Using Elimination
+
+Unit 6: Unit06_Functions
+  Topics: 3
+    - Functions
+    - Review - Inputs Outputs and Functions
+    - Domain and Range
+
+Unit 7: Unit07_Exponents_and_Radicals
+  Topics: 3
+    - Exponents - Properties
+    - Expanding and Simplifying Expressions with Exponents
+    - Properties of Radicals
+
+Unit 8: Unit08_Exponential_Functions
+  Topics: 3
+    - Review - Equivalent Exponential Expressions
+    - Exponential Functions
+    - Exponential Growth and Decay
+
+Unit 9: Unit09_Polynomials_and_Factoring
+  Topics: 3
+    - Review - Parts of a Term with Exponents
+    - Polynomial Operations
+    - Factoring
+
+Unit 10: Unit10_Quadratic_Equations
+  Topics: 2
+    - Quadratic Equations
+    - Quadratic Graphing
+
+Unit 11: Unit11_Advanced_Quadratics
+  Topics: 3
+    - Completing the Square
+    - Quadratic Formula
+    - Using Vertex Form
+
+Unit 12: Unit12_Quadratic_Functions
+  Topics: 1
+    - Quadratic Functions
+
+Unit 13: Unit13_Sequences
+  Topics: 4
+    - Arithmetic Sequences
+    - Geometric Sequences
+    - Constructing Geometric Sequences
+    - Modeling with Sequences
+
+Unit 14: Unit14_Reserved
+  Topics: 0
+
+======================================================================
+FAILED GENERATIONS:
+======================================================================
+  Unit 4 - Slope
+    Error: name 'plt' is not defined
+  Unit 5 - Systems of Equations - Graphing
+    Error: int() argument must be a string, a bytes-like object or a real number, not 'tuple'

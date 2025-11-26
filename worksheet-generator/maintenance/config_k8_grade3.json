@@ -1,0 +1,8 @@
+{
+  "grade_level": "K-8 Grade 3",
+  "folder_pattern": "Unit",
+  "excluded_types": ["Expansion", "Review", "Extension", "Drawing"],
+  "unit_format": "numeric",
+  "generators_subdir": "generators/K_8/Grade_3",
+  "excel_sheet": "Grade 3"
+}

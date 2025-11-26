@@ -1,0 +1,7 @@
+{
+  "grade_level": "K-8",
+  "folder_pattern": "Grade_",
+  "excluded_types": ["Expansion", "Review", "Extension", "Drawing"],
+  "unit_format": "numeric",
+  "generators_subdir": "generators/K_8"
+}
