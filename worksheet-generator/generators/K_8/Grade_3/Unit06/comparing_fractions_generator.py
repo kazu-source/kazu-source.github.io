@@ -49,13 +49,12 @@ class ComparingFractionsGenerator:
             return self._generate_challenge()
 
     def _generate_easy(self) -> Equation:
-        """Generate easy problems: halves, thirds, fourths."""
-        denominator = random.choice([2, 3, 4])
-        num1 = random.randint(1, denominator - 1)
-        num2 = random.randint(1, denominator - 1)
+        """Generate easy problems: thirds, fourths (not halves to ensure 2 different numerators)."""
+        denominator = random.choice([3, 4])  # Avoid 2 since it only has one numerator
 
-        while num1 == num2:
-            num2 = random.randint(1, denominator - 1)
+        # Generate two different numerators
+        available = list(range(1, denominator))
+        num1, num2 = random.sample(available, 2)
 
         latex = f"\\text{{Compare: }} \\frac{{{num1}}}{{{denominator}}} \\quad \\text{{and}} \\quad \\frac{{{num2}}}{{{denominator}}}"
 
@@ -76,11 +75,10 @@ class ComparingFractionsGenerator:
     def _generate_medium(self) -> Equation:
         """Generate medium problems: fifths, sixths, eighths."""
         denominator = random.choice([5, 6, 8])
-        num1 = random.randint(1, denominator - 1)
-        num2 = random.randint(1, denominator - 1)
 
-        while num1 == num2:
-            num2 = random.randint(1, denominator - 1)
+        # Generate two different numerators
+        available = list(range(1, denominator))
+        num1, num2 = random.sample(available, 2)
 
         latex = f"\\text{{Compare: }} \\frac{{{num1}}}{{{denominator}}} \\quad \\text{{and}} \\quad \\frac{{{num2}}}{{{denominator}}}"
 
@@ -101,11 +99,10 @@ class ComparingFractionsGenerator:
     def _generate_hard(self) -> Equation:
         """Generate hard problems: word problems with fraction comparisons."""
         denominator = random.choice([3, 4, 5, 6, 8])
-        num1 = random.randint(1, denominator - 1)
-        num2 = random.randint(1, denominator - 1)
 
-        while num1 == num2:
-            num2 = random.randint(1, denominator - 1)
+        # Generate two different numerators
+        available = list(range(1, denominator))
+        num1, num2 = random.sample(available, 2)
 
         contexts = [
             f"Sarah ate \\frac{{{num1}}}{{{denominator}}} of a pizza and Tom ate \\frac{{{num2}}}{{{denominator}}} of the same pizza. Who ate more?",

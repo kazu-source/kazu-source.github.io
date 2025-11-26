@@ -49,8 +49,9 @@ def discover_all_generators():
                                    if f.name != '__init__.py'])
 
             # Check for generators in Unit subfolders
+            # Support both Unit_ (High School) and Unit01 (K-8) formats
             unit_dirs = [d for d in subject_dir.iterdir()
-                       if d.is_dir() and d.name.startswith('Unit_')]
+                       if d.is_dir() and (d.name.startswith('Unit_') or d.name.startswith('Unit'))]
             for unit_dir in unit_dirs:
                 generator_files.extend([f for f in unit_dir.glob('*_generator.py')
                                       if f.name != '__init__.py'])
@@ -58,7 +59,8 @@ def discover_all_generators():
             for gen_file in generator_files:
                 try:
                     # Determine module path
-                    if gen_file.parent.name.startswith('Unit_'):
+                    # Check if in a Unit folder (both Unit_ and Unit01 formats)
+                    if gen_file.parent.name.startswith('Unit'):
                         module_name = f"generators.{category_name}.{subject_dir.name}.{gen_file.parent.name}.{gen_file.stem}"
                     else:
                         module_name = f"generators.{category_name}.{subject_dir.name}.{gen_file.stem}"
