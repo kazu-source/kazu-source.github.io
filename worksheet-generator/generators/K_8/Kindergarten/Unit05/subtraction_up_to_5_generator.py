@@ -1,0 +1,83 @@
+"""
+Subtraction Up to 5 Generator - Kindergarten Unit 5
+Generates basic subtraction problems with numbers up to 5
+"""
+
+import random
+from typing import List
+import sys
+import os
+sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..', '..', '..', '..'))
+from equation_generator import Equation
+
+
+class SubtractionUpTo5Generator:
+    """Generates subtraction up to 5 problems."""
+
+    def __init__(self, seed=None):
+        if seed:
+            random.seed(seed)
+
+    def generate_worksheet(self, difficulty: str, num_problems: int) -> List[Equation]:
+        problems = []
+        for _ in range(num_problems):
+            problem = self._generate_problem(difficulty)
+            problems.append(problem)
+        return problems
+
+    def _generate_problem(self, difficulty: str) -> Equation:
+        if difficulty == 'easy':
+            return self._generate_easy()
+        elif difficulty == 'medium':
+            return self._generate_medium()
+        elif difficulty == 'hard':
+            return self._generate_hard()
+        else:
+            return self._generate_challenge()
+
+    def _generate_easy(self) -> Equation:
+        a = random.randint(2, 5)
+        b = random.randint(1, a)
+        result = a - b
+        latex = f"{a} - {b} = "
+        solution = str(result)
+        return Equation(latex=latex, solution=solution, steps=[f"{a} - {b} = {result}"], difficulty='easy')
+
+    def _generate_medium(self) -> Equation:
+        a = random.randint(3, 5)
+        b = random.randint(1, a - 1)
+        result = a - b
+        latex = f"{a} - {b} = "
+        solution = str(result)
+        return Equation(latex=latex, solution=solution, steps=[f"{a} - {b} = {result}"], difficulty='medium')
+
+    def _generate_hard(self) -> Equation:
+        a = random.randint(3, 5)
+        b = random.randint(1, a)
+        result = a - b
+        item = random.choice(['birds', 'fish', 'frogs', 'ducks'])
+        latex = f"\\text{{{a} {item} - {b} {item} = ?}}"
+        solution = str(result)
+        return Equation(latex=latex, solution=solution, steps=[f"{a} - {b} = {result}"], difficulty='hard')
+
+    def _generate_challenge(self) -> Equation:
+        a = random.randint(3, 5)
+        b = random.randint(1, a - 1)
+        result = a - b
+        latex = f"{a} - \\_ = {result}"
+        solution = str(b)
+        return Equation(latex=latex, solution=solution, steps=[f"{a} - {b} = {result}"], difficulty='challenge')
+
+
+def main():
+    generator = SubtractionUpTo5Generator()
+    print("Easy:")
+    for problem in generator.generate_worksheet('easy', 3):
+        print(f"  {problem.latex} = {problem.solution}")
+    print("\nMedium:")
+    for problem in generator.generate_worksheet('medium', 3):
+        print(f"  {problem.latex} = {problem.solution}")
+
+
+if __name__ == '__main__':
+    main()

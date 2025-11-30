@@ -111,6 +111,76 @@ from generators.High_School.Algebra.Unit_9.polynomial_operations_generator impor
 from generators.High_School.Algebra.Unit_9.to_factor_using_perfect_squares_generator import ToFactorUsingPerfectSquaresGenerator
 from generators.High_School.Algebra.number_properties_generator import NumberPropertiesGenerator
 from generators.High_School.Algebra.order_of_operations_generator import OrderOfOperationsGenerator
+from generators.K_8.Grade_1.Unit01.counting_and_numbers_generator import CountingAndNumbersGenerator
+from generators.K_8.Grade_1.Unit01.even_and_odd_numbers_generator import EvenAndOddNumbersGenerator
+from generators.K_8.Grade_1.Unit01.skip_counting_generator import SkipCountingGenerator
+from generators.K_8.Grade_1.Unit02.addition_strategies_up_to_10_generator import AdditionStrategiesUpTo10Generator
+from generators.K_8.Grade_1.Unit02.addition_up_to_10_generator import AdditionUpTo10Generator
+from generators.K_8.Grade_1.Unit02.addition_word_problems_up_to_10_generator import AdditionWordProblemsUpTo10Generator
+from generators.K_8.Grade_1.Unit02.understand_addition_generator import UnderstandAdditionGenerator
+from generators.K_8.Grade_1.Unit03.subtraction_strategies_up_to_10_generator import SubtractionStrategiesUpTo10Generator
+from generators.K_8.Grade_1.Unit03.subtraction_up_to_10_generator import SubtractionUpTo10Generator
+from generators.K_8.Grade_1.Unit03.subtraction_word_problems_up_to_10_generator import SubtractionWordProblemsUpTo10Generator
+from generators.K_8.Grade_1.Unit03.understand_subtraction_generator import UnderstandSubtractionGenerator
+from generators.K_8.Grade_1.Unit04.addition_strategies_up_to_20_generator import AdditionStrategiesUpTo20Generator
+from generators.K_8.Grade_1.Unit04.addition_up_to_20_generator import AdditionUpTo20Generator
+from generators.K_8.Grade_1.Unit04.addition_word_problems_up_to_20_generator import AdditionWordProblemsUpTo20Generator
+from generators.K_8.Grade_1.Unit05.addition_and_subtraction_up_to_20_generator import AdditionAndSubtractionUpTo20Generator
+from generators.K_8.Grade_1.Unit05.subtraction_strategies_up_to_20_generator import SubtractionStrategiesUpTo20Generator
+from generators.K_8.Grade_1.Unit05.subtraction_up_to_20_generator import SubtractionUpTo20Generator
+from generators.K_8.Grade_1.Unit05.subtraction_word_problems_up_to_20_generator import SubtractionWordProblemsUpTo20Generator
+from generators.K_8.Grade_1.Unit06.comparing_numbers_generator import ComparingNumbersGenerator
+from generators.K_8.Grade_1.Unit06.ordering_numbers_generator import OrderingNumbersGenerator
+from generators.K_8.Grade_1.Unit06.place_value_tens_and_ones_generator import PlaceValueTensAndOnesGenerator
+from generators.K_8.Grade_1.Unit07.addition_and_subtraction_with_two_digits_generator import AdditionAndSubtractionWithTwoDigitsGenerator
+from generators.K_8.Grade_1.Unit07.addition_with_two_digits_generator import AdditionWithTwoDigitsGenerator
+from generators.K_8.Grade_1.Unit07.subtraction_with_two_digits_generator import SubtractionWithTwoDigitsGenerator
+from generators.K_8.Grade_1.Unit08.area_introduction_generator import AreaIntroductionGenerator
+from generators.K_8.Grade_1.Unit08.comparing_lengths_generator import ComparingLengthsGenerator
+from generators.K_8.Grade_1.Unit08.counting_unit_squares_generator import CountingUnitSquaresGenerator
+from generators.K_8.Grade_1.Unit08.measuring_with_non_standard_units_generator import MeasuringWithNonStandardUnitsGenerator
+from generators.K_8.Grade_1.Unit09.coin_recognition_generator import CoinRecognitionGenerator
+from generators.K_8.Grade_1.Unit09.counting_coins_generator import CountingCoinsGenerator
+from generators.K_8.Grade_1.Unit09.days_months_and_seasons_generator import DaysMonthsAndSeasonsGenerator
+from generators.K_8.Grade_1.Unit09.telling_time_hour_half_hour_generator import TellingTimeHourHalfHourGenerator
+from generators.K_8.Grade_1.Unit10.comparing_2d_shapes_generator import Comparing2dShapesGenerator
+from generators.K_8.Grade_1.Unit10.extending_patterns_generator import ExtendingPatternsGenerator
+from generators.K_8.Grade_1.Unit10.identifying_2d_shapes_generator import Identifying2dShapesGenerator
+from generators.K_8.Grade_1.Unit10.reading_bar_graphs_generator import ReadingBarGraphsGenerator
+from generators.K_8.Grade_1.Unit10.reading_picture_graphs_generator import ReadingPictureGraphsGenerator
+from generators.K_8.Grade_1.Unit10.recognizing_patterns_generator import RecognizingPatternsGenerator
+from generators.K_8.Grade_2.Unit01.add_and_subtract_within_20_generator import AddAndSubtractWithin20Generator
+from generators.K_8.Grade_2.Unit01.add_using_arrays_generator import AddUsingArraysGenerator
+from generators.K_8.Grade_2.Unit01.add_within_20_generator import AddWithin20Generator
+from generators.K_8.Grade_2.Unit01.subtract_within_20_generator import SubtractWithin20Generator
+from generators.K_8.Grade_2.Unit02.comparing_2_and_3_digit_numbers_generator import Comparing2And3DigitNumbersGenerator
+from generators.K_8.Grade_2.Unit02.counting_patterns_within_1000_generator import CountingPatternsWithin1000Generator
+from generators.K_8.Grade_2.Unit02.even_and_odd_numbers_generator import EvenAndOddNumbersGenerator
+from generators.K_8.Grade_2.Unit02.intro_to_place_value_generator import IntroToPlaceValueGenerator
+from generators.K_8.Grade_2.Unit02.numbers_in_standard_word_expanded_form_generator import NumbersInStandardWordExpandedFormGenerator
+from generators.K_8.Grade_2.Unit02.regroup_whole_numbers_generator import RegroupWholeNumbersGenerator
+from generators.K_8.Grade_2.Unit03.add_subtract_within_100_word_problems_generator import AddSubtractWithin100WordProblemsGenerator
+from generators.K_8.Grade_2.Unit03.add_subtract_within_100_word_problems_multi_step_generator import AddSubtractWithin100WordProblemsMultiStepGenerator
+from generators.K_8.Grade_2.Unit03.addition_and_subtraction_missing_values_generator import AdditionAndSubtractionMissingValuesGenerator
+from generators.K_8.Grade_2.Unit03.strategies_for_adding_within_100_generator import StrategiesForAddingWithin100Generator
+from generators.K_8.Grade_2.Unit03.visually_adding_within_100_generator import VisuallyAddingWithin100Generator
+from generators.K_8.Grade_2.Unit03.visually_subtract_within_100_generator import VisuallySubtractWithin100Generator
+from generators.K_8.Grade_2.Unit04.adding_up_to_four_2_digit_numbers_generator import AddingUpToFour2DigitNumbersGenerator
+from generators.K_8.Grade_2.Unit04.strategies_for_adding_within_1000_generator import StrategiesForAddingWithin1000Generator
+from generators.K_8.Grade_2.Unit04.strategies_for_subtracting_within_1000_generator import StrategiesForSubtractingWithin1000Generator
+from generators.K_8.Grade_2.Unit04.visually_adding_within_1000_generator import VisuallyAddingWithin1000Generator
+from generators.K_8.Grade_2.Unit05.counting_money_generator import CountingMoneyGenerator
+from generators.K_8.Grade_2.Unit05.time_generator import TimeGenerator
+from generators.K_8.Grade_2.Unit06.estimate_lengths_generator import EstimateLengthsGenerator
+from generators.K_8.Grade_2.Unit06.length_word_problems_generator import LengthWordProblemsGenerator
+from generators.K_8.Grade_2.Unit06.measure_lengths_generator import MeasureLengthsGenerator
+from generators.K_8.Grade_2.Unit06.units_of_length_generator import UnitsOfLengthGenerator
+from generators.K_8.Grade_2.Unit07.bar_graphs_generator import BarGraphsGenerator
+from generators.K_8.Grade_2.Unit07.line_plots_generator import LinePlotsGenerator
+from generators.K_8.Grade_2.Unit07.picture_graphs_generator import PictureGraphsGenerator
+from generators.K_8.Grade_2.Unit08.equal_parts_of_shapes_generator import EqualPartsOfShapesGenerator
+from generators.K_8.Grade_2.Unit08.partition_rectangles_generator import PartitionRectanglesGenerator
+from generators.K_8.Grade_2.Unit08.shapes_generator import ShapesGenerator
 from generators.K_8.Grade_3.Unit01.multiplication_as_equal_groups_generator import MultiplicationAsEqualGroupsGenerator
 from generators.K_8.Grade_3.Unit01.multiplication_as_groups_of_objects_generator import MultiplicationAsGroupsOfObjectsGenerator
 from generators.K_8.Grade_3.Unit02.distributive_property_generator import DistributivePropertyGenerator
@@ -431,6 +501,39 @@ from generators.K_8.Grade_8.Unit07.estimating_lines_of_best_fit_generator import
 from generators.K_8.Grade_8.Unit07.interpreting_scatter_plots_generator import InterpretingScatterPlotsGenerator
 from generators.K_8.Grade_8.Unit07.introduction_to_scatter_plots_generator import IntroductionToScatterPlotsGenerator
 from generators.K_8.Grade_8.Unit08.two_way_tables_generator import TwoWayTablesGenerator
+from generators.K_8.Kindergarten.Unit01.counting_beyond_20_generator import CountingBeyond20Generator
+from generators.K_8.Kindergarten.Unit01.counting_up_to_10_generator import CountingUpTo10Generator
+from generators.K_8.Kindergarten.Unit01.counting_up_to_20_generator import CountingUpTo20Generator
+from generators.K_8.Kindergarten.Unit01.counting_up_to_3_generator import CountingUpTo3Generator
+from generators.K_8.Kindergarten.Unit01.counting_up_to_5_generator import CountingUpTo5Generator
+from generators.K_8.Kindergarten.Unit02.comparing_sizes_generator import ComparingSizesGenerator
+from generators.K_8.Kindergarten.Unit02.equal_quantities_generator import EqualQuantitiesGenerator
+from generators.K_8.Kindergarten.Unit02.more_and_less_generator import MoreAndLessGenerator
+from generators.K_8.Kindergarten.Unit03.creating_patterns_generator import CreatingPatternsGenerator
+from generators.K_8.Kindergarten.Unit03.extending_patterns_generator import ExtendingPatternsGenerator
+from generators.K_8.Kindergarten.Unit03.recognizing_patterns_generator import RecognizingPatternsGenerator
+from generators.K_8.Kindergarten.Unit04.addition_up_to_10_generator import AdditionUpTo10Generator
+from generators.K_8.Kindergarten.Unit04.addition_up_to_5_generator import AdditionUpTo5Generator
+from generators.K_8.Kindergarten.Unit05.subtraction_up_to_10_generator import SubtractionUpTo10Generator
+from generators.K_8.Kindergarten.Unit05.subtraction_up_to_5_generator import SubtractionUpTo5Generator
+from generators.K_8.Kindergarten.Unit06.above_below_beside_between_generator import AboveBelowBesideBetweenGenerator
+from generators.K_8.Kindergarten.Unit06.left_right_inside_outside_generator import LeftRightInsideOutsideGenerator
+from generators.K_8.Kindergarten.Unit07.days_and_weeks_generator import DaysAndWeeksGenerator
+from generators.K_8.Kindergarten.Unit07.reading_clocks_introduction_generator import ReadingClocksIntroductionGenerator
+from generators.K_8.Kindergarten.Unit07.seasons_generator import SeasonsGenerator
+from generators.K_8.Kindergarten.Unit08.basic_probability_generator import BasicProbabilityGenerator
+from generators.K_8.Kindergarten.Unit08.classifying_objects_generator import ClassifyingObjectsGenerator
+from generators.K_8.Kindergarten.Unit08.ordering_objects_generator import OrderingObjectsGenerator
+from generators.K_8.Kindergarten.Unit08.reading_simple_graphs_generator import ReadingSimpleGraphsGenerator
+from generators.K_8.Kindergarten.Unit08.sorting_objects_generator import SortingObjectsGenerator
+from generators.K_8.Kindergarten.Unit09.coin_recognition_generator import CoinRecognitionGenerator
+from generators.K_8.Kindergarten.Unit09.coin_values_generator import CoinValuesGenerator
+from generators.K_8.Kindergarten.Unit09.comparing_lengths_generator import ComparingLengthsGenerator
+from generators.K_8.Kindergarten.Unit09.comparing_sizes_measurement_generator import ComparingSizesMeasurementGenerator
+from generators.K_8.Kindergarten.Unit10.circles_and_squares_generator import CirclesAndSquaresGenerator
+from generators.K_8.Kindergarten.Unit10.cones_and_cylinders_generator import ConesAndCylindersGenerator
+from generators.K_8.Kindergarten.Unit10.cubes_and_spheres_generator import CubesAndSpheresGenerator
+from generators.K_8.Kindergarten.Unit10.triangles_and_rectangles_generator import TrianglesAndRectanglesGenerator
 
 
 # Generator registry mapping
@@ -558,8 +661,78 @@ GENERATOR_REGISTRY = {
     "High-School - IM3": {
     },
     "K-8 - Grade 1": {
+        "Addition And Subtraction Up To 20": AdditionAndSubtractionUpTo20Generator,
+        "Addition And Subtraction With Two Digits": AdditionAndSubtractionWithTwoDigitsGenerator,
+        "Addition Strategies Up To 10": AdditionStrategiesUpTo10Generator,
+        "Addition Strategies Up To 20": AdditionStrategiesUpTo20Generator,
+        "Addition Up To 10": AdditionUpTo10Generator,
+        "Addition Up To 20": AdditionUpTo20Generator,
+        "Addition With Two Digits": AdditionWithTwoDigitsGenerator,
+        "Addition Word Problems Up To 10": AdditionWordProblemsUpTo10Generator,
+        "Addition Word Problems Up To 20": AdditionWordProblemsUpTo20Generator,
+        "Area Introduction": AreaIntroductionGenerator,
+        "Coin Recognition": CoinRecognitionGenerator,
+        "Comparing 2D Shapes": Comparing2dShapesGenerator,
+        "Comparing Lengths": ComparingLengthsGenerator,
+        "Comparing Numbers": ComparingNumbersGenerator,
+        "Counting And Numbers": CountingAndNumbersGenerator,
+        "Counting Coins": CountingCoinsGenerator,
+        "Counting Unit Squares": CountingUnitSquaresGenerator,
+        "Days Months And Seasons": DaysMonthsAndSeasonsGenerator,
+        "Even And Odd Numbers": EvenAndOddNumbersGenerator,
+        "Extending Patterns": ExtendingPatternsGenerator,
+        "Identifying 2D Shapes": Identifying2dShapesGenerator,
+        "Measuring With Non Standard Units": MeasuringWithNonStandardUnitsGenerator,
+        "Ordering Numbers": OrderingNumbersGenerator,
+        "Place Value Tens And Ones": PlaceValueTensAndOnesGenerator,
+        "Reading Bar Graphs": ReadingBarGraphsGenerator,
+        "Reading Picture Graphs": ReadingPictureGraphsGenerator,
+        "Recognizing Patterns": RecognizingPatternsGenerator,
+        "Skip Counting": SkipCountingGenerator,
+        "Subtraction Strategies Up To 10": SubtractionStrategiesUpTo10Generator,
+        "Subtraction Strategies Up To 20": SubtractionStrategiesUpTo20Generator,
+        "Subtraction Up To 10": SubtractionUpTo10Generator,
+        "Subtraction Up To 20": SubtractionUpTo20Generator,
+        "Subtraction With Two Digits": SubtractionWithTwoDigitsGenerator,
+        "Subtraction Word Problems Up To 10": SubtractionWordProblemsUpTo10Generator,
+        "Subtraction Word Problems Up To 20": SubtractionWordProblemsUpTo20Generator,
+        "Telling Time Hour Half Hour": TellingTimeHourHalfHourGenerator,
+        "Understand Addition": UnderstandAdditionGenerator,
+        "Understand Subtraction": UnderstandSubtractionGenerator,
     },
     "K-8 - Grade 2": {
+        "Add And Subtract Within 20": AddAndSubtractWithin20Generator,
+        "Add Subtract Within 100 Word Problems": AddSubtractWithin100WordProblemsGenerator,
+        "Add Subtract Within 100 Word Problems Multi Step": AddSubtractWithin100WordProblemsMultiStepGenerator,
+        "Add Using Arrays": AddUsingArraysGenerator,
+        "Add Within 20": AddWithin20Generator,
+        "Adding Up To Four 2 Digit Numbers": AddingUpToFour2DigitNumbersGenerator,
+        "Addition And Subtraction Missing Values": AdditionAndSubtractionMissingValuesGenerator,
+        "Bar Graphs": BarGraphsGenerator,
+        "Comparing 2 And 3 Digit Numbers": Comparing2And3DigitNumbersGenerator,
+        "Counting Money": CountingMoneyGenerator,
+        "Counting Patterns Within 1000": CountingPatternsWithin1000Generator,
+        "Equal Parts Of Shapes": EqualPartsOfShapesGenerator,
+        "Estimate Lengths": EstimateLengthsGenerator,
+        "Even And Odd Numbers": EvenAndOddNumbersGenerator,
+        "Intro To Place Value": IntroToPlaceValueGenerator,
+        "Length Word Problems": LengthWordProblemsGenerator,
+        "Line Plots": LinePlotsGenerator,
+        "Measure Lengths": MeasureLengthsGenerator,
+        "Numbers In Standard Word Expanded Form": NumbersInStandardWordExpandedFormGenerator,
+        "Partition Rectangles": PartitionRectanglesGenerator,
+        "Picture Graphs": PictureGraphsGenerator,
+        "Regroup Whole Numbers": RegroupWholeNumbersGenerator,
+        "Shapes": ShapesGenerator,
+        "Strategies For Adding Within 100": StrategiesForAddingWithin100Generator,
+        "Strategies For Adding Within 1000": StrategiesForAddingWithin1000Generator,
+        "Strategies For Subtracting Within 1000": StrategiesForSubtractingWithin1000Generator,
+        "Subtract Within 20": SubtractWithin20Generator,
+        "Time": TimeGenerator,
+        "Units Of Length": UnitsOfLengthGenerator,
+        "Visually Adding Within 100": VisuallyAddingWithin100Generator,
+        "Visually Adding Within 1000": VisuallyAddingWithin1000Generator,
+        "Visually Subtract Within 100": VisuallySubtractWithin100Generator,
     },
     "K-8 - Grade 3": {
         "Adding With Regrouping Within 1000": AddingWithRegroupingWithin1000Generator,
@@ -894,5 +1067,38 @@ GENERATOR_REGISTRY = {
         "Writing Slope Intercept Equations": WritingSlopeInterceptEquationsGenerator,
     },
     "K-8 - Kindergarten": {
+        "Above Below Beside Between": AboveBelowBesideBetweenGenerator,
+        "Addition Up To 10": AdditionUpTo10Generator,
+        "Addition Up To 5": AdditionUpTo5Generator,
+        "Basic Probability": BasicProbabilityGenerator,
+        "Circles And Squares": CirclesAndSquaresGenerator,
+        "Classifying Objects": ClassifyingObjectsGenerator,
+        "Coin Recognition": CoinRecognitionGenerator,
+        "Coin Values": CoinValuesGenerator,
+        "Comparing Lengths": ComparingLengthsGenerator,
+        "Comparing Sizes": ComparingSizesGenerator,
+        "Comparing Sizes Measurement": ComparingSizesMeasurementGenerator,
+        "Cones And Cylinders": ConesAndCylindersGenerator,
+        "Counting Beyond 20": CountingBeyond20Generator,
+        "Counting Up To 10": CountingUpTo10Generator,
+        "Counting Up To 20": CountingUpTo20Generator,
+        "Counting Up To 3": CountingUpTo3Generator,
+        "Counting Up To 5": CountingUpTo5Generator,
+        "Creating Patterns": CreatingPatternsGenerator,
+        "Cubes And Spheres": CubesAndSpheresGenerator,
+        "Days And Weeks": DaysAndWeeksGenerator,
+        "Equal Quantities": EqualQuantitiesGenerator,
+        "Extending Patterns": ExtendingPatternsGenerator,
+        "Left Right Inside Outside": LeftRightInsideOutsideGenerator,
+        "More And Less": MoreAndLessGenerator,
+        "Ordering Objects": OrderingObjectsGenerator,
+        "Reading Clocks Introduction": ReadingClocksIntroductionGenerator,
+        "Reading Simple Graphs": ReadingSimpleGraphsGenerator,
+        "Recognizing Patterns": RecognizingPatternsGenerator,
+        "Seasons": SeasonsGenerator,
+        "Sorting Objects": SortingObjectsGenerator,
+        "Subtraction Up To 10": SubtractionUpTo10Generator,
+        "Subtraction Up To 5": SubtractionUpTo5Generator,
+        "Triangles And Rectangles": TrianglesAndRectanglesGenerator,
     },
 }
