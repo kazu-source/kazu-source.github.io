@@ -1,6 +1,7 @@
 """
 Addition Up to 5 Generator - Kindergarten Unit 4
 Generates basic addition problems with sums up to 5
+Note: K-2 generators do not use difficulty levels.
 """
 
 import random
@@ -10,7 +11,6 @@ import os
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..', '..', '..', '..'))
 from equation_generator import Equation
 
-
 class AdditionUpTo5Generator:
     """Generates addition up to 5 problems."""
 
@@ -18,69 +18,31 @@ class AdditionUpTo5Generator:
         if seed:
             random.seed(seed)
 
-    def generate_worksheet(self, difficulty: str, num_problems: int) -> List[Equation]:
+    def generate_worksheet(self, difficulty: str = None, num_problems: int = 8) -> List[Equation]:
+        """Generate worksheet problems. Note: difficulty parameter is ignored for K-2."""
         problems = []
         for _ in range(num_problems):
-            problem = self._generate_problem(difficulty)
+            problem = self._generate_problem()
             problems.append(problem)
         return problems
 
-    def _generate_problem(self, difficulty: str) -> Equation:
-        if difficulty == 'easy':
-            return self._generate_easy()
-        elif difficulty == 'medium':
-            return self._generate_medium()
-        elif difficulty == 'hard':
-            return self._generate_hard()
-        else:
-            return self._generate_challenge()
-
-    def _generate_easy(self) -> Equation:
+    def _generate_problem(self) -> Equation:
         a = random.randint(1, 2)
         b = random.randint(1, 3)
         total = a + b
         if total <= 5:
             latex = f"{a} + {b} = "
             solution = str(total)
-            return Equation(latex=latex, solution=solution, steps=[f"{a} + {b} = {total}"], difficulty='easy')
+            return Equation(latex=latex, solution=solution, steps=[f"{a} + {b} = {total}"])
         else:
             return self._generate_easy()
 
-    def _generate_medium(self) -> Equation:
-        a = random.randint(1, 4)
-        b = random.randint(1, 5 - a)
-        total = a + b
-        latex = f"{a} + {b} = "
-        solution = str(total)
-        return Equation(latex=latex, solution=solution, steps=[f"{a} + {b} = {total}"], difficulty='medium')
-
-    def _generate_hard(self) -> Equation:
-        total = random.randint(3, 5)
-        a = random.randint(1, total - 1)
-        b = total - a
-        item = random.choice(['apples', 'toys', 'balls', 'stars'])
-        latex = f"\\text{{{a} {item} and {b} more {item} make how many?}}"
-        solution = str(total)
-        return Equation(latex=latex, solution=solution, steps=[f"{a} + {b} = {total}"], difficulty='hard')
-
-    def _generate_challenge(self) -> Equation:
-        total = random.randint(3, 5)
-        a = random.randint(1, total - 1)
-        b = total - a
-        latex = f"\\_ + {b} = {total}"
-        solution = str(a)
-        return Equation(latex=latex, solution=solution, steps=[f"{a} + {b} = {total}"], difficulty='challenge')
-
-
 def main():
     generator = AdditionUpTo5Generator()
-    print("Easy:")
-    for problem in generator.generate_worksheet('easy', 3):
+    print("Problems:")
+    for problem in generator.generate_worksheet(num_problems=3):
         print(f"  {problem.latex} = {problem.solution}")
-    print("\nMedium:")
-    for problem in generator.generate_worksheet('medium', 3):
-        print(f"  {problem.latex} = {problem.solution}")
-
+    
 
 if __name__ == '__main__':
     main()

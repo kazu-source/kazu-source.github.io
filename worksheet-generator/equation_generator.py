@@ -14,7 +14,7 @@ class Equation:
     latex: str  # LaTeX formatted equation
     solution: float  # The answer
     steps: List[str]  # Solution steps (for future expansion)
-    difficulty: str  # Difficulty level
+    difficulty: str = "standard"  # Difficulty level (optional, defaults to "standard" for K-2)
 
 
 class LinearEquationGenerator:

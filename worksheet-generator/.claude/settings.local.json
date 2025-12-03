@@ -1,0 +1,22 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(python batch_generate_worksheets.py:*)",
+      "Bash(dir:*)",
+      "Bash(python generate_kindergarten_easy.py:*)",
+      "Bash(copy \"generators\\K_8\\Kindergarten\\Unit01\\counting_up_to_5_generator.py\" \"test_generator_backup.py\")",
+      "Bash(python -c:*)",
+      "Bash(python refactor_k2_generators.py:*)",
+      "Bash(python:*)",
+      "Bash(find:*)",
+      "Bash(done)",
+      "Bash(python3:*)",
+      "Bash(for unit in \"C:\\Users\\Administrator\\Documents\\GitHub\\whymath\\worksheet-generator\\generators\\High_School\\Algebra\"/Unit_*)",
+      "Bash(do)",
+      "Bash(mkdir:*)",
+      "Bash(mkdir -p:*)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}

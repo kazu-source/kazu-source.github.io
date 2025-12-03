@@ -1,5 +1,6 @@
 """
 Subtraction Up to 10 Generator - Grade 1 Unit 3\nGenerates subtraction problems up to 10
+Note: K-2 generators do not use difficulty levels.
 """
 
 import random
@@ -9,7 +10,6 @@ import os
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..', '..', '..', '..'))
 from equation_generator import Equation
 
-
 class SubtractionUpTo10Generator:
     """Generates subtraction up to 10 problems."""
 
@@ -17,62 +17,27 @@ class SubtractionUpTo10Generator:
         if seed:
             random.seed(seed)
 
-    def generate_worksheet(self, difficulty: str, num_problems: int) -> List[Equation]:
+    def generate_worksheet(self, difficulty: str = None, num_problems: int = 8) -> List[Equation]:
+        """Generate worksheet problems. Note: difficulty parameter is ignored for K-2."""
         problems = []
         for _ in range(num_problems):
-            problem = self._generate_problem(difficulty)
+            problem = self._generate_problem()
             problems.append(problem)
         return problems
 
-    def _generate_problem(self, difficulty: str) -> Equation:
-        if difficulty == 'easy':
-            return self._generate_easy()
-        elif difficulty == 'medium':
-            return self._generate_medium()
-        elif difficulty == 'hard':
-            return self._generate_hard()
-        else:
-            return self._generate_challenge()
-
-    def _generate_easy(self) -> Equation:
+    def _generate_problem(self) -> Equation:
         a = random.randint(3, 7)
         b = random.randint(1, a)
         result = a - b
         latex = f"{a} - {b} = "
         solution = str(result)
-        return Equation(latex=latex, solution=solution, steps=[f"{result}"], difficulty='easy')
-
-    def _generate_medium(self) -> Equation:
-        a = random.randint(5, 10)
-        b = random.randint(1, a)
-        result = a - b
-        latex = f"{a} - {b} = "
-        solution = str(result)
-        return Equation(latex=latex, solution=solution, steps=[f"{a} - {b} = {result}"], difficulty='medium')
-
-    def _generate_hard(self) -> Equation:
-        a = random.randint(7, 10)
-        b = random.randint(2, a - 1)
-        result = a - b
-        latex = f"{a} - {b} = "
-        solution = str(result)
-        return Equation(latex=latex, solution=solution, steps=[f"{result}"], difficulty='hard')
-
-    def _generate_challenge(self) -> Equation:
-        a = random.randint(7, 10)
-        result = random.randint(2, 5)
-        b = a - result
-        latex = f"{a} - \\_ = {result}"
-        solution = str(b)
-        return Equation(latex=latex, solution=solution, steps=[f"{a} - {b} = {result}"], difficulty='challenge')
-
+        return Equation(latex=latex, solution=solution, steps=[f"{result}"])
 
 def main():
     generator = SubtractionUpTo10Generator()
-    print("Easy:")
-    for problem in generator.generate_worksheet('easy', 3):
+    print("Problems:")
+    for problem in generator.generate_worksheet(num_problems=3):
         print(f"  {problem.latex} = {problem.solution}")
-
 
 if __name__ == '__main__':
     main()
