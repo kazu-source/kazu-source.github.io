@@ -52,12 +52,12 @@ class GraphingProportionalRelationshipsGenerator:
         """Generate easy problems: identify if relationship is proportional."""
         k = random.randint(2, 8)
 
-        latex = f"\text{{{{Is }}}} y = {k}x \text{{{{ a proportional relationship?}}}}"
-        solution = "\text{Yes, it passes through the origin}"
+        latex = f"\\text{{Is }} y = {k}x \\text{{ a proportional relationship?}}"
+        solution = "\\text{Yes, it passes through the origin}"
         steps = [
             f"y = {k}x",
-            "\text{When } x = 0, y = 0",
-            "\text{Passes through origin, so proportional}"
+            "\\text{When } x = 0, y = 0",
+            "\\text{Passes through origin, so proportional}"
         ]
 
         return Equation(
@@ -73,12 +73,12 @@ class GraphingProportionalRelationshipsGenerator:
         x = random.randint(2, 6)
         y = k * x
 
-        latex = f"\text{{{{A proportional relationship passes through }}}} ({x}, {y}). \text{{{{ Find the constant of proportionality.}}}}"
+        latex = f"\\text{{A proportional relationship passes through }} ({x}, {y}). \\text{{ Find the constant of proportionality.}}"
         solution = f"k = {k}"
         steps = [
             f"y = kx",
-            f"{y} = k \cdot {x}",
-            f"k = \frac{{{y}}}{{{x}}} = {k}"
+            f"{y} = k \\cdot {x}",
+            f"k = \\frac{{{y}}}{{{x}}} = {k}"
         ]
 
         return Equation(
@@ -93,11 +93,11 @@ class GraphingProportionalRelationshipsGenerator:
         k = random.randint(2, 8)
         points = [(i, k * i) for i in range(1, 4)]
 
-        latex = f"\text{{{{A graph passes through }}}} {points[0]}, {points[1]}, {points[2]}. \text{{{{ Write the equation.}}}}"
+        latex = f"\\text{{A graph passes through }} {points[0]}, {points[1]}, {points[2]}. \\text{{ Write the equation.}}"
         solution = f"y = {k}x"
         steps = [
-            f"\text{{{{Find }}}} k \text{{{{ using }}}} {points[0]}",
-            f"k = \frac{{{points[0][1]}}}{{{points[0][0]}}} = {k}",
+            f"\\text{{Find }} k \\text{{ using }} {points[0]}",
+            f"k = \\frac{{{points[0][1]}}}{{{points[0][0]}}} = {k}",
             f"y = {k}x"
         ]
 
@@ -113,11 +113,11 @@ class GraphingProportionalRelationshipsGenerator:
         k1 = random.randint(3, 8)
         k2 = random.randint(2, k1 - 1)
 
-        latex = f"\text{{{{Which is steeper: }}}} y = {k1}x \text{{{{ or }}}} y = {k2}x?"
-        solution = f"y = {k1}x \text{{{{ is steeper}}}}"
+        latex = f"\\text{{Which is steeper: }} y = {k1}x \\text{{ or }} y = {k2}x?"
+        solution = f"y = {k1}x \\text{{ is steeper}}"
         steps = [
-            f"\text{{{{Compare constants: }}}} {k1} > {k2}",
-            f"y = {k1}x \text{{{{ is steeper}}}}"
+            f"\\text{{Compare constants: }} {k1} > {k2}",
+            f"y = {k1}x \\text{{ is steeper}}"
         ]
 
         return Equation(

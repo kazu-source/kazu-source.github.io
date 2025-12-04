@@ -1,0 +1,119 @@
+AP STATISTICS WORKSHEET GENERATORS
+===================================
+
+Total: 75 generator files created
+
+BREAKDOWN BY UNIT:
+
+Unit 1 - Exploring One-Variable Data (5 files):
+  - language_variation_variables_generator.py
+  - representing_categorical_graphs_generator.py
+  - representing_two_categorical_generator.py
+  - statistics_two_categorical_association_generator.py
+  - statistics_two_categorical_conditional_generator.py
+
+Unit 2 - Exploring Two-Variable Data (4 files):
+  - representing_quantitative_dot_plots_generator.py
+  - representing_quantitative_histograms_stem_generator.py
+  - describing_distribution_quantitative_generator.py
+  - comparing_distributions_quantitative_generator.py
+
+Unit 3 - Collecting Data (8 files):
+  - measuring_center_quantitative_generator.py
+  - more_mean_median_generator.py
+  - measuring_variability_quantitative_generator.py
+  - effects_linear_transformations_center_generator.py
+  - effects_linear_transformations_spread_generator.py
+  - effects_linear_transformations_shape_generator.py
+  - more_standard_deviation_generator.py
+  - graphical_representations_summary_statistics_generator.py
+
+Unit 4 - Probability, Random Variables, and Probability Distributions (7 files):
+  - percentiles_generator.py
+  - z_scores_generator.py
+  - density_curves_generator.py
+  - normal_distributions_empirical_rule_generator.py
+  - normal_distribution_finding_probabilities_generator.py
+  - normal_distribution_finding_z_scores_generator.py
+  - normal_distribution_working_areas_generator.py
+
+Unit 5 - Sampling Distributions (7 files):
+  - representing_relationship_two_quantitative_generator.py
+  - correlation_generator.py
+  - residuals_generator.py
+  - least_squares_regression_generator.py
+  - analyzing_departures_residual_plots_generator.py
+  - analyzing_departures_outliers_influential_generator.py
+  - analyzing_departures_assessing_model_fit_generator.py
+
+Unit 6 - Inference for Categorical Data: Proportions (7 files):
+  - intro_planning_study_generator.py
+  - potential_problems_sampling_bias_generator.py
+  - potential_problems_sampling_undercoverage_generator.py
+  - potential_problems_sampling_nonresponse_generator.py
+  - random_sampling_data_collection_generator.py
+  - intro_experimental_design_generator.py
+  - inference_experiments_generator.py
+
+Unit 7 - Inference for Quantitative Data: Means (4 files):
+  - estimating_probabilities_simulation_generator.py
+  - mutually_exclusive_unions_generator.py
+  - conditional_probability_generator.py
+  - independent_vs_dependent_multiplication_generator.py
+
+Unit 8 - Inference for Categorical Data: Chi-Square (7 files):
+  - intro_random_variables_probability_distributions_generator.py
+  - mean_std_random_variables_generator.py
+  - transforming_random_variables_generator.py
+  - combining_random_variables_generator.py
+  - intro_binomial_distribution_generator.py
+  - parameters_binomial_distribution_generator.py
+  - geometric_distribution_generator.py
+
+Unit 9 - Inference for Quantitative Data: Slopes (7 files):
+  - normal_distribution_revisited_generator.py
+  - central_limit_theorem_generator.py
+  - biased_unbiased_point_estimates_generator.py
+  - sampling_distributions_sample_proportions_generator.py
+  - sampling_distributions_differences_proportions_generator.py
+  - sampling_distributions_sample_means_generator.py
+  - sampling_distributions_differences_means_generator.py
+
+Unit 10 - Inference (9 files):
+  - intro_confidence_intervals_generator.py
+  - confidence_intervals_proportions_generator.py
+  - idea_significance_tests_generator.py
+  - setting_up_test_population_proportion_generator.py
+  - carrying_out_test_proportion_generator.py
+  - concluding_test_proportion_generator.py
+  - potential_errors_tests_generator.py
+  - confidence_intervals_difference_proportions_generator.py
+  - testing_difference_proportions_generator.py
+
+Unit 11 - Inference (5 files):
+  - constructing_confidence_interval_mean_generator.py
+  - setting_up_test_population_mean_generator.py
+  - carrying_out_test_mean_generator.py
+  - confidence_intervals_difference_means_generator.py
+  - testing_difference_means_generator.py
+
+Unit 12 - Chi-Square (2 files):
+  - chi_square_goodness_fit_generator.py
+  - chi_square_tests_relationships_generator.py
+
+Unit 13 - Inference for Regression (2 files):
+  - confidence_intervals_slope_regression_generator.py
+  - testing_slope_regression_generator.py
+
+Unit 14 - Exam Preparation (1 file):
+  - prepare_for_exam_generator.py
+
+FEATURES:
+- All generators follow the standard template
+- Each has 4 difficulty levels: easy, medium, hard, challenge
+- All generators are functional and tested
+- Use LaTeX for mathematical notation
+- Include statistical concepts, calculations, and interpretations
+- Compatible with the equation_generator.py base class
+
+TOTAL: 75 generators created successfully!

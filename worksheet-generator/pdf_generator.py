@@ -9,6 +9,7 @@ FONT SIZE STANDARDS:
 """
 
 import os
+import sys
 import io
 import re
 from typing import List
@@ -22,6 +23,16 @@ from reportlab.pdfgen import canvas
 from reportlab.lib.utils import ImageReader
 from reportlab.pdfbase import pdfmetrics
 from reportlab.pdfbase.ttfonts import TTFont
+
+
+def get_base_path():
+    """Get the base path for bundled resources (fonts, etc.)."""
+    if getattr(sys, 'frozen', False):
+        # Running as compiled executable
+        return sys._MEIPASS
+    else:
+        # Running as script - fonts are in parent directory
+        return os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 # Legacy imports with fallback to stub classes
 try:
@@ -188,7 +199,8 @@ class PDFWorksheetGenerator:
 
         # Configure matplotlib to use Lexend for all text (including equations)
         try:
-            lexend_path = os.path.join(os.path.dirname(__file__), '..', 'Lexend', 'static', 'Lexend-Regular.ttf')
+            base_dir = get_base_path()
+            lexend_path = os.path.join(base_dir, 'Lexend', 'static', 'Lexend-Regular.ttf')
             if os.path.exists(lexend_path):
                 fm.fontManager.addfont(lexend_path)
                 plt.rcParams['font.family'] = 'Lexend'
@@ -211,10 +223,8 @@ class PDFWorksheetGenerator:
     def _register_fonts(self):
         """Register custom fonts with ReportLab."""
         try:
-            # Get the parent directory (whymath folder) using absolute path
-            current_file = os.path.abspath(__file__)
-            worksheet_gen_dir = os.path.dirname(current_file)
-            base_dir = os.path.dirname(worksheet_gen_dir)
+            # Get the base path for fonts (works for both script and exe)
+            base_dir = get_base_path()
 
             # Register Lexend fonts
             lexend_regular = os.path.join(base_dir, 'Lexend', 'static', 'Lexend-Regular.ttf')
@@ -243,7 +253,7 @@ class PDFWorksheetGenerator:
 
         except Exception as e:
             print(f"Warning: Could not register custom fonts: {e}")
-            print(f"Current file location: {os.path.abspath(__file__)}")
+            print(f"Base path: {get_base_path()}")
             print("Falling back to default fonts")
             raise  # Re-raise to make font issues visible
 

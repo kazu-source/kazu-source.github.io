@@ -71,10 +71,16 @@ a = Analysis(
 
         # Add Excel files
         ('High School Worksheet Topics List.xlsx', '.'),
+        ('K-8 Worksheet Topics List.xlsx', '.'),
 
-        # Add generator registry
+        # Add generator registry and helpers
         ('generator_registry.py', '.'),
         ('resource_helper.py', '.'),
+        ('check_progress.py', '.'),
+
+        # Add font folders
+        ('Lexend', 'Lexend'),
+        ('Poppins', 'Poppins'),
     ] + reportlab_datas,
     hiddenimports=hidden_imports,
     hookspath=[],

@@ -284,7 +284,7 @@ class WorksheetGeneratorGUI:
         """
         self.root = root
         self.root.title("Math Worksheet Generator")
-        self.root.geometry("680x680")
+        self.root.geometry("680x816")
         self.root.resizable(False, False)
 
         # Configure modern styling
@@ -696,7 +696,7 @@ class WorksheetGeneratorGUI:
         # Primary button style
         self.style.configure('Primary.TButton',
                            font=('Segoe UI', 11, 'bold'),
-                           foreground=self.colors['header_text'],
+                           foreground='#000000',
                            background=self.colors['primary'],
                            borderwidth=0,
                            focuscolor='none',
@@ -727,7 +727,7 @@ class WorksheetGeneratorGUI:
     def _create_widgets(self):
         """Create and layout all GUI widgets with modern styling."""
         # Main frame with padding
-        main_frame = ttk.Frame(self.root, padding="25")
+        main_frame = ttk.Frame(self.root, padding="10")
         main_frame.grid(row=0, column=0, sticky=(tk.W, tk.E, tk.N, tk.S))
 
         # Header section
@@ -760,7 +760,7 @@ class WorksheetGeneratorGUI:
 
         self.chapter_var = tk.StringVar(value=first_class)
         self.chapter_combo = ttk.Combobox(selection_frame, textvariable=self.chapter_var,
-                                         state="readonly", width=35)
+                                         state="readonly", width=55)
         self.chapter_combo['values'] = tuple(self.chapter_topics.keys())
         self.chapter_combo.grid(row=0, column=1, sticky=(tk.W, tk.E), pady=8, padx=(10, 0))
 
@@ -770,7 +770,7 @@ class WorksheetGeneratorGUI:
 
         self.unit_var = tk.StringVar(value=first_unit)
         self.unit_combo = ttk.Combobox(selection_frame, textvariable=self.unit_var,
-                                       state="readonly", width=35)
+                                       state="readonly", width=55)
         self.unit_combo['values'] = tuple(first_unit_dict.keys()) if first_unit_dict else ()
         self.unit_combo.grid(row=1, column=1, sticky=(tk.W, tk.E), pady=8, padx=(10, 0))
 
@@ -780,7 +780,7 @@ class WorksheetGeneratorGUI:
 
         self.topic_var = tk.StringVar(value=first_topic)
         self.topic_combo = ttk.Combobox(selection_frame, textvariable=self.topic_var,
-                                       state="readonly", width=35)
+                                       state="readonly", width=55)
         self.topic_combo['values'] = tuple(first_topic_dict.keys()) if first_topic_dict else ()
         self.topic_combo.grid(row=2, column=1, sticky=(tk.W, tk.E), pady=8, padx=(10, 0))
 
@@ -793,6 +793,25 @@ class WorksheetGeneratorGUI:
             command=self._toggle_chapter_mode
         )
         self.generate_entire_chapter_check.grid(row=3, column=0, columnspan=2, sticky=tk.W, pady=(10, 0))
+
+        # Checkbox for generating entire class (all units)
+        self.generate_entire_class_var = tk.BooleanVar(value=False)
+        self.generate_entire_class_check = ttk.Checkbutton(
+            selection_frame,
+            text="✓ Generate all topics in this class",
+            variable=self.generate_entire_class_var,
+            command=self._toggle_class_mode
+        )
+        self.generate_entire_class_check.grid(row=4, column=0, columnspan=2, sticky=tk.W, pady=(5, 0))
+
+        # Checkbox for single folder mode (no unit subfolders)
+        self.single_folder_var = tk.BooleanVar(value=False)
+        self.single_folder_check = ttk.Checkbutton(
+            selection_frame,
+            text="✓ Put all worksheets in a single folder (no unit subfolders)",
+            variable=self.single_folder_var
+        )
+        self.single_folder_check.grid(row=5, column=0, columnspan=2, sticky=tk.W, pady=(5, 0))
 
         # Configure grid weights for responsive layout
         selection_frame.columnconfigure(1, weight=1)
@@ -853,7 +872,7 @@ class WorksheetGeneratorGUI:
 
         self.difficulty_var = tk.StringVar(value="medium")
         difficulty_combo = ttk.Combobox(options_frame, textvariable=self.difficulty_var,
-                                        state="readonly", width=35)
+                                        state="readonly", width=55)
         difficulty_combo['values'] = ('easy', 'medium', 'hard', 'challenge')
         difficulty_combo.grid(row=0, column=1, sticky=(tk.W, tk.E), pady=8, padx=(10, 0))
 
@@ -1116,7 +1135,7 @@ class WorksheetGeneratorGUI:
         self.num_problems_var = tk.StringVar(value="10")
         num_problems_spinbox = ttk.Spinbox(options_frame, from_=4, to=16,
                                           textvariable=self.num_problems_var,
-                                          width=35)
+                                          width=55)
         num_problems_spinbox.grid(row=2, column=1, sticky=(tk.W, tk.E), pady=8, padx=(10, 0))
 
         # Worksheet title
@@ -1125,7 +1144,7 @@ class WorksheetGeneratorGUI:
 
         default_title = f"{first_topic} - Medium"
         self.title_var = tk.StringVar(value=default_title)
-        title_entry = ttk.Entry(options_frame, textvariable=self.title_var, width=35)
+        title_entry = ttk.Entry(options_frame, textvariable=self.title_var, width=55)
         title_entry.grid(row=3, column=1, sticky=(tk.W, tk.E), pady=8, padx=(10, 0))
 
         # Include answer key checkbox
@@ -1133,6 +1152,26 @@ class WorksheetGeneratorGUI:
         answer_key_check = ttk.Checkbutton(options_frame, text="✓ Include Answer Key",
                                           variable=self.answer_key_var)
         answer_key_check.grid(row=4, column=0, columnspan=2, sticky=tk.W, pady=(10, 0))
+
+        # Output folder selection
+        output_label = ttk.Label(options_frame, text="Output Folder:")
+        output_label.grid(row=5, column=0, sticky=tk.W, pady=8)
+
+        output_frame = ttk.Frame(options_frame)
+        output_frame.grid(row=5, column=1, sticky=(tk.W, tk.E), pady=8, padx=(10, 0))
+
+        self.output_folder_var = tk.StringVar(value="")
+        self.output_folder_display = ttk.Label(output_frame, textvariable=self.output_folder_var,
+                                               style='Description.TLabel', width=40)
+        self.output_folder_display.pack(side=tk.LEFT, fill=tk.X, expand=True)
+
+        select_folder_btn = ttk.Button(output_frame, text="📁 Browse...",
+                                       command=self._select_output_folder,
+                                       style='Secondary.TButton')
+        select_folder_btn.pack(side=tk.RIGHT, padx=(10, 0))
+
+        # Set default output folder
+        self._set_default_output_folder()
 
         # Configure grid weights for responsive layout
         options_frame.columnconfigure(1, weight=1)
@@ -1171,6 +1210,8 @@ class WorksheetGeneratorGUI:
         status_label.pack()
 
         # Configure grid weights for responsive layout
+        self.root.columnconfigure(0, weight=1)
+        self.root.rowconfigure(0, weight=1)
         main_frame.columnconfigure(0, weight=1)
         main_frame.columnconfigure(1, weight=1)
 
@@ -1194,9 +1235,62 @@ class WorksheetGeneratorGUI:
         if self.generate_entire_chapter_var.get():
             # Disable topic selection when generating entire unit
             self.topic_combo.config(state="disabled")
+            # Uncheck class mode if unit mode is checked
+            if self.generate_entire_class_var.get():
+                self.generate_entire_class_var.set(False)
         else:
-            # Enable topic selection for single topic mode
-            self.topic_combo.config(state="readonly")
+            # Enable topic selection for single topic mode (unless class mode is on)
+            if not self.generate_entire_class_var.get():
+                self.topic_combo.config(state="readonly")
+
+    def _toggle_class_mode(self):
+        """Enable/disable unit and topic selection based on class generation mode."""
+        if self.generate_entire_class_var.get():
+            # Disable unit and topic selection when generating entire class
+            self.unit_combo.config(state="disabled")
+            self.topic_combo.config(state="disabled")
+            # Uncheck unit mode if class mode is checked
+            if self.generate_entire_chapter_var.get():
+                self.generate_entire_chapter_var.set(False)
+        else:
+            # Enable unit selection
+            self.unit_combo.config(state="readonly")
+            # Enable topic selection only if unit mode is not on
+            if not self.generate_entire_chapter_var.get():
+                self.topic_combo.config(state="readonly")
+
+    def _set_default_output_folder(self):
+        """Set the default output folder to user's Documents."""
+        import os
+        documents = os.path.join(os.path.expanduser("~"), "Documents", "Worksheets")
+        self.output_folder_var.set(documents)
+
+    def _select_output_folder(self):
+        """Open dialog to select output folder."""
+        current = self.output_folder_var.get()
+        initial_dir = current if current and os.path.exists(current) else os.path.expanduser("~")
+
+        folder = filedialog.askdirectory(
+            title="Select Output Folder for Worksheets",
+            initialdir=initial_dir
+        )
+
+        if folder:
+            self.output_folder_var.set(folder)
+
+    def _get_output_folder(self):
+        """Get the output folder, creating it if needed."""
+        import os
+        folder = self.output_folder_var.get()
+        if not folder:
+            self._set_default_output_folder()
+            folder = self.output_folder_var.get()
+
+        # Create folder if it doesn't exist
+        if not os.path.exists(folder):
+            os.makedirs(folder, exist_ok=True)
+
+        return folder
 
     def _update_default_num_problems(self):
         """Update the default number of problems based on problem type."""
@@ -1214,7 +1308,12 @@ class WorksheetGeneratorGUI:
     def generate_worksheet(self):
         """Generate the worksheet PDF based on user inputs."""
         try:
-            # Check if generating entire chapter
+            # Check if generating entire class (all units)
+            if self.generate_entire_class_var.get():
+                self.generate_class_worksheets()
+                return
+
+            # Check if generating entire unit
             if self.generate_entire_chapter_var.get():
                 self.generate_chapter_worksheets()
                 return
@@ -1402,22 +1501,12 @@ class WorksheetGeneratorGUI:
             else:
                 equations = self.equation_gen.generate_worksheet(difficulty, num_problems)
 
-            # Ask user where to save
-            # Get the config key for the problem type
+            # Get output folder and create filename
+            import os
+            output_dir = self._get_output_folder()
             config_key = self.problem_type_map.get(topic)
             default_filename = f"{config_key}_{difficulty}.pdf"
-            # Uncomment below to include timestamp in filename:
-            # default_filename = f"{config_key}_{difficulty}_{datetime.now().strftime('%Y%m%d_%H%M%S')}.pdf"
-            output_path = filedialog.asksaveasfilename(
-                defaultextension=".pdf",
-                filetypes=[("PDF files", "*.pdf"), ("All files", "*.*")],
-                initialfile=default_filename
-            )
-
-            if not output_path:
-                # User cancelled
-                self.status_var.set("Ready to generate worksheet")
-                return
+            output_path = os.path.join(output_dir, default_filename)
 
             # Update status
             self.status_var.set("Creating PDF...")
@@ -1632,21 +1721,15 @@ class WorksheetGeneratorGUI:
                 messagebox.showerror("Error", "No topics found for this unit")
                 return
 
-            # Ask user where to save the unit folder
-            output_dir = filedialog.askdirectory(
-                title=f"Select folder to save {unit} worksheets"
-            )
-
-            if not output_dir:
-                # User cancelled
-                self.status_var.set("Ready to generate worksheet")
-                return
-
-            # Create unit folder
+            # Get output folder and optionally create unit subfolder
             import os
-            folder_name = f"{chapter}_{unit}".replace(":", "").replace(" ", "_")
-            unit_dir = os.path.join(output_dir, folder_name)
-            os.makedirs(unit_dir, exist_ok=True)
+            output_dir = self._get_output_folder()
+            if self.single_folder_var.get():
+                unit_dir = output_dir  # Put files directly in output folder
+            else:
+                folder_name = f"{chapter}_{unit}".replace(":", "").replace(" ", "_")
+                unit_dir = os.path.join(output_dir, folder_name)
+                os.makedirs(unit_dir, exist_ok=True)
             
             # Generate worksheets for each topic
             total_topics = len(topics)
@@ -1660,14 +1743,14 @@ class WorksheetGeneratorGUI:
                 try:
                     self.status_var.set(f"Generating {idx}/{total_topics}: {topic}...")
                     self.root.update()
-                    
-                    # Generate problems for this topic
-                    equations = self._get_equations_for_topic(topic, difficulty, num_problems)
-                    
+
+                    # Generate problems for this topic using dynamic lookup
+                    equations = self._get_equations_dynamic(chapter, unit, topic, difficulty, num_problems)
+
                     if not equations:
                         failed.append((topic, "No problems generated"))
                         continue
-                    
+
                     # Create filename
                     safe_topic = topic.replace(" ", "_").replace("/", "_").replace("(", "").replace(")", "")
                     filename = f"{safe_topic}_{difficulty}.pdf"
@@ -1705,7 +1788,144 @@ class WorksheetGeneratorGUI:
         except Exception as e:
             messagebox.showerror("Error", f"An error occurred:\n{str(e)}")
             self.status_var.set("Error generating unit")
-    
+
+    def generate_class_worksheets(self):
+        """Generate worksheets for all topics in all units of the selected class."""
+        try:
+            # Validate inputs
+            num_problems = int(self.num_problems_var.get())
+            if num_problems < 4 or num_problems > 16:
+                messagebox.showerror("Invalid Input",
+                                   "Number of problems must be between 4 and 16")
+                return
+
+            difficulty = self.difficulty_var.get()
+            chapter = self.chapter_var.get()
+            include_answer_key = self.answer_key_var.get()
+
+            # Get all units for this class
+            if chapter not in self.chapter_topics:
+                messagebox.showerror("Error", "Invalid class selection")
+                return
+
+            units = self.chapter_topics[chapter]
+            if not units:
+                messagebox.showerror("Error", "No units found for this class")
+                return
+
+            # Count total topics across all units
+            total_topics = sum(len(topics) for topics in units.values())
+
+            # Get output folder and create class subfolder
+            import os
+            output_dir = self._get_output_folder()
+            class_folder_name = chapter.replace(":", "").replace(" ", "_")
+            class_dir = os.path.join(output_dir, class_folder_name)
+            os.makedirs(class_dir, exist_ok=True)
+
+            # Generate worksheets for each unit and topic
+            successful = 0
+            failed = []
+            current = 0
+
+            self.status_var.set(f"Generating {total_topics} worksheets for {chapter}...")
+            self.root.update()
+
+            # Check if single folder mode is enabled
+            single_folder_mode = self.single_folder_var.get()
+
+            for unit_name, topics_dict in units.items():
+                # Create unit subfolder only if not in single folder mode
+                if single_folder_mode:
+                    output_dir_for_unit = class_dir
+                else:
+                    unit_folder_name = unit_name.replace(":", "").replace(" ", "_")
+                    output_dir_for_unit = os.path.join(class_dir, unit_folder_name)
+                    os.makedirs(output_dir_for_unit, exist_ok=True)
+
+                topics = list(topics_dict.keys())
+
+                for topic in topics:
+                    current += 1
+                    try:
+                        self.status_var.set(f"Generating {current}/{total_topics}: {unit_name} - {topic}...")
+                        self.root.update()
+
+                        # Generate problems for this topic using dynamic lookup
+                        equations = self._get_equations_dynamic(chapter, unit_name, topic, difficulty, num_problems)
+
+                        if not equations:
+                            failed.append((f"{unit_name}/{topic}", "No problems generated"))
+                            continue
+
+                        # Create filename (include unit prefix in single folder mode for uniqueness)
+                        safe_unit = unit_name.replace(" ", "_").replace(":", "").replace("/", "_")
+                        safe_topic = topic.replace(" ", "_").replace("/", "_").replace("(", "").replace(")", "")
+                        if single_folder_mode:
+                            filename = f"{safe_unit}_{safe_topic}_{difficulty}.pdf"
+                        else:
+                            filename = f"{safe_topic}_{difficulty}.pdf"
+                        output_path = os.path.join(output_dir_for_unit, filename)
+
+                        # Generate title
+                        title = f"{chapter} - {unit_name} - {topic} ({difficulty.capitalize()})"
+
+                        # Generate PDF
+                        self.pdf_gen.generate_worksheet(equations, output_path, title, include_answer_key)
+                        successful += 1
+
+                    except Exception as e:
+                        failed.append((f"{unit_name}/{topic}", str(e)))
+                        continue
+
+            # Show completion message
+            message = f"Class generation complete!\n\n"
+            message += f"Class: {chapter}\n"
+            message += f"Units: {len(units)}\n"
+            message += f"Successful: {successful}/{total_topics}\n"
+            message += f"Saved to: {class_dir}\n"
+
+            if failed:
+                message += f"\nFailed topics ({len(failed)}):\n"
+                for topic_path, error in failed[:5]:  # Show first 5 failures
+                    message += f"  - {topic_path}: {error[:40]}\n"
+                if len(failed) > 5:
+                    message += f"  ... and {len(failed) - 5} more"
+
+            self.status_var.set(f"Generated {successful}/{total_topics} worksheets for {chapter}")
+            messagebox.showinfo("Class Generation Complete", message)
+
+        except ValueError as e:
+            messagebox.showerror("Error", f"Invalid input: {str(e)}")
+            self.status_var.set("Error generating class")
+        except Exception as e:
+            messagebox.showerror("Error", f"An error occurred:\n{str(e)}")
+            self.status_var.set("Error generating class")
+
+    def _get_equations_dynamic(self, class_name, unit_name, topic_name, difficulty, num_problems):
+        """Get equations using the dynamically discovered generators."""
+        try:
+            # Look up generator class from discovered generators
+            if class_name not in self.chapter_topics:
+                return None
+            if unit_name not in self.chapter_topics[class_name]:
+                return None
+            if topic_name not in self.chapter_topics[class_name][unit_name]:
+                return None
+
+            generator_class = self.chapter_topics[class_name][unit_name][topic_name]
+
+            # Cache generator instances for reuse
+            cache_key = f"{class_name}:{unit_name}:{topic_name}"
+            if cache_key not in self.generator_instances:
+                self.generator_instances[cache_key] = generator_class()
+
+            generator = self.generator_instances[cache_key]
+            return generator.generate_worksheet(difficulty, num_problems)
+        except Exception as e:
+            print(f"Error generating {topic_name}: {e}")
+            return None
+
     def _get_equations_for_topic(self, topic, difficulty, num_problems):
         """Get equations for a given topic. Reuses the logic from generate_worksheet."""
         # Chapter 1

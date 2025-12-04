@@ -30,7 +30,7 @@ class SkipCountingGenerator:
         start = random.choice([2, 4, 6, 8])
         skip = 2
         next_num = start + skip
-        latex = f"\text{{Skip count by 2s: }} {start}, {next_num}, \_ "
+        latex = f"\\text{{Skip count by 2s: }} {start}, {next_num}, \\_"
         solution = str(next_num + skip)
         return Equation(latex=latex, solution=solution, steps=[f"add {skip}"])
 
@@ -39,7 +39,7 @@ def main():
     print("Problems:")
     for problem in generator.generate_worksheet(num_problems=3):
         print(f"  {problem.latex} = {problem.solution}")
-    
+
 
 if __name__ == '__main__':
     main()

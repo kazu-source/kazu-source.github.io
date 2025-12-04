@@ -1,20 +1,19 @@
 {
   "permissions": {
     "allow": [
-      "Bash(python batch_generate_worksheets.py:*)",
-      "Bash(dir:*)",
-      "Bash(python generate_kindergarten_easy.py:*)",
-      "Bash(copy \"generators\\K_8\\Kindergarten\\Unit01\\counting_up_to_5_generator.py\" \"test_generator_backup.py\")",
-      "Bash(python -c:*)",
-      "Bash(python refactor_k2_generators.py:*)",
       "Bash(python:*)",
-      "Bash(find:*)",
+      "Bash(for i in {1..26})",
+      "Bash(do mkdir -p \"c:\\Users\\Administrator\\Documents\\GitHub\\whymath\\worksheet-generator\\generators\\High_School\\Calculus\\Unit_$i\")",
       "Bash(done)",
-      "Bash(python3:*)",
-      "Bash(for unit in \"C:\\Users\\Administrator\\Documents\\GitHub\\whymath\\worksheet-generator\\generators\\High_School\\Algebra\"/Unit_*)",
-      "Bash(do)",
-      "Bash(mkdir:*)",
-      "Bash(mkdir -p:*)"
+      "Bash(for unit in Unit_{1..13})",
+      "Bash(for i in {1..14})",
+      "Bash(for i in Unit_{1..26})",
+      "Bash(for i in Unit_{1..14})",
+      "Bash(ls:*)",
+      "Bash(while read unit)",
+      "Bash(git checkout:*)",
+      "Bash(start \"\" \"c:/Users/Administrator/Documents/GitHub/whymath/worksheet-generator/dist/Worksheet Generator.exe\")",
+      "Bash(taskkill:*)"
     ],
     "deny": [],
     "ask": []
