@@ -2,6 +2,9 @@
 Desktop GUI for the Math Worksheet Generator using Tkinter.
 """
 
+# Application version - update this when making changes
+VERSION = "0.6"
+
 import tkinter as tk
 from tkinter import ttk, filedialog, messagebox
 import os
@@ -152,8 +155,9 @@ class WorksheetGeneratorGUI:
                 category_dirs.append((category, category_path))
 
         for category_name, category_path in category_dirs:
-            # Find all subject/grade directories within this category
-            subject_dirs = sorted([d for d in category_path.iterdir() if d.is_dir()])
+            # Find all subject/grade directories within this category (exclude __pycache__)
+            subject_dirs = sorted([d for d in category_path.iterdir()
+                                   if d.is_dir() and d.name != '__pycache__'])
 
             for subject_dir in subject_dirs:
                 # Create display name like "High School - Algebra" or "K-8 - Grade 5"
@@ -177,8 +181,10 @@ class WorksheetGeneratorGUI:
 
                 # Check for generators in Unit subfolders
                 # Support both naming patterns: Unit_1, Unit_2 (High School) and Unit01, Unit02 (K-8)
+                # Exclude __pycache__ directories
                 unit_dirs = sorted([d for d in subject_dir.iterdir()
-                                  if d.is_dir() and (d.name.startswith('Unit_') or d.name.startswith('Unit'))])
+                                  if d.is_dir() and d.name != '__pycache__' and
+                                  (d.name.startswith('Unit_') or d.name.startswith('Unit'))])
 
                 for unit_dir in unit_dirs:
                     # Extract unit number and create display name
@@ -283,7 +289,7 @@ class WorksheetGeneratorGUI:
             root: Tkinter root window
         """
         self.root = root
-        self.root.title("Math Worksheet Generator")
+        self.root.title(f"Math Worksheet Generator v{VERSION}")
         self.root.geometry("680x816")
         self.root.resizable(False, False)
 
@@ -754,35 +760,59 @@ class WorksheetGeneratorGUI:
         selection_frame = ttk.LabelFrame(main_frame, text="📚 Worksheet Selection", padding="15")
         selection_frame.grid(row=1, column=0, columnspan=2, sticky=(tk.W, tk.E), pady=(0, 15))
 
+        # Grade Level selection (K-8 or High School)
+        grade_level_label = ttk.Label(selection_frame, text="Grade Level:")
+        grade_level_label.grid(row=0, column=0, sticky=tk.W, pady=8)
+
+        self.grade_level_var = tk.StringVar(value="K-8")
+        self.grade_level_combo = ttk.Combobox(selection_frame, textvariable=self.grade_level_var,
+                                              state="readonly", width=55)
+        self.grade_level_combo['values'] = ("K-8", "High School")
+        self.grade_level_combo.grid(row=0, column=1, sticky=(tk.W, tk.E), pady=8, padx=(10, 0))
+
+        # Helper to filter classes by grade level
+        def get_classes_for_grade_level(grade_level):
+            prefix = "K-8" if grade_level == "K-8" else "High-School"
+            return [c for c in self.chapter_topics.keys() if c.startswith(prefix)]
+
         # Class selection
         class_label = ttk.Label(selection_frame, text="Class:")
-        class_label.grid(row=0, column=0, sticky=tk.W, pady=8)
+        class_label.grid(row=1, column=0, sticky=tk.W, pady=8)
+
+        filtered_classes = get_classes_for_grade_level("K-8")
+        first_class = filtered_classes[0] if filtered_classes else first_class
 
         self.chapter_var = tk.StringVar(value=first_class)
         self.chapter_combo = ttk.Combobox(selection_frame, textvariable=self.chapter_var,
                                          state="readonly", width=55)
-        self.chapter_combo['values'] = tuple(self.chapter_topics.keys())
-        self.chapter_combo.grid(row=0, column=1, sticky=(tk.W, tk.E), pady=8, padx=(10, 0))
+        self.chapter_combo['values'] = tuple(filtered_classes)
+        self.chapter_combo.grid(row=1, column=1, sticky=(tk.W, tk.E), pady=8, padx=(10, 0))
+
+        # Update first_unit_dict based on filtered first_class
+        first_unit_dict = self.chapter_topics.get(first_class, {})
+        first_unit = list(first_unit_dict.keys())[0] if first_unit_dict else "Unit"
+        first_topic_dict = first_unit_dict.get(first_unit, {})
+        first_topic = list(first_topic_dict.keys())[0] if first_topic_dict else "Topic"
 
         # Unit selection
         unit_label = ttk.Label(selection_frame, text="Unit:")
-        unit_label.grid(row=1, column=0, sticky=tk.W, pady=8)
+        unit_label.grid(row=2, column=0, sticky=tk.W, pady=8)
 
         self.unit_var = tk.StringVar(value=first_unit)
         self.unit_combo = ttk.Combobox(selection_frame, textvariable=self.unit_var,
                                        state="readonly", width=55)
         self.unit_combo['values'] = tuple(first_unit_dict.keys()) if first_unit_dict else ()
-        self.unit_combo.grid(row=1, column=1, sticky=(tk.W, tk.E), pady=8, padx=(10, 0))
+        self.unit_combo.grid(row=2, column=1, sticky=(tk.W, tk.E), pady=8, padx=(10, 0))
 
         # Topic selection
         topic_label = ttk.Label(selection_frame, text="Topic:")
-        topic_label.grid(row=2, column=0, sticky=tk.W, pady=8)
+        topic_label.grid(row=3, column=0, sticky=tk.W, pady=8)
 
         self.topic_var = tk.StringVar(value=first_topic)
         self.topic_combo = ttk.Combobox(selection_frame, textvariable=self.topic_var,
                                        state="readonly", width=55)
         self.topic_combo['values'] = tuple(first_topic_dict.keys()) if first_topic_dict else ()
-        self.topic_combo.grid(row=2, column=1, sticky=(tk.W, tk.E), pady=8, padx=(10, 0))
+        self.topic_combo.grid(row=3, column=1, sticky=(tk.W, tk.E), pady=8, padx=(10, 0))
 
         # Checkbox for generating entire unit
         self.generate_entire_chapter_var = tk.BooleanVar(value=False)
@@ -792,7 +822,7 @@ class WorksheetGeneratorGUI:
             variable=self.generate_entire_chapter_var,
             command=self._toggle_chapter_mode
         )
-        self.generate_entire_chapter_check.grid(row=3, column=0, columnspan=2, sticky=tk.W, pady=(10, 0))
+        self.generate_entire_chapter_check.grid(row=4, column=0, columnspan=2, sticky=tk.W, pady=(10, 0))
 
         # Checkbox for generating entire class (all units)
         self.generate_entire_class_var = tk.BooleanVar(value=False)
@@ -802,7 +832,7 @@ class WorksheetGeneratorGUI:
             variable=self.generate_entire_class_var,
             command=self._toggle_class_mode
         )
-        self.generate_entire_class_check.grid(row=4, column=0, columnspan=2, sticky=tk.W, pady=(5, 0))
+        self.generate_entire_class_check.grid(row=5, column=0, columnspan=2, sticky=tk.W, pady=(5, 0))
 
         # Checkbox for single folder mode (no unit subfolders)
         self.single_folder_var = tk.BooleanVar(value=False)
@@ -811,7 +841,7 @@ class WorksheetGeneratorGUI:
             text="✓ Put all worksheets in a single folder (no unit subfolders)",
             variable=self.single_folder_var
         )
-        self.single_folder_check.grid(row=5, column=0, columnspan=2, sticky=tk.W, pady=(5, 0))
+        self.single_folder_check.grid(row=6, column=0, columnspan=2, sticky=tk.W, pady=(5, 0))
 
         # Configure grid weights for responsive layout
         selection_frame.columnconfigure(1, weight=1)
@@ -829,6 +859,17 @@ class WorksheetGeneratorGUI:
                 self.topic_combo['values'] = ()
 
         self.chapter_combo.bind('<<ComboboxSelected>>', update_class)
+
+        # Update classes when grade level changes
+        def update_grade_level(event=None):
+            grade_level = self.grade_level_var.get()
+            classes = get_classes_for_grade_level(grade_level)
+            self.chapter_combo['values'] = tuple(classes)
+            if classes:
+                self.chapter_var.set(classes[0])
+                update_class()  # Trigger cascade update
+
+        self.grade_level_combo.bind('<<ComboboxSelected>>', update_grade_level)
 
         # Update topics when unit changes
         def update_unit(event=None):
@@ -1125,6 +1166,7 @@ class WorksheetGeneratorGUI:
             if topic in self.difficulty_descriptions:
                 self.desc_var.set(self.difficulty_descriptions[topic][difficulty])
             self._update_worksheet_title()
+            self._update_default_num_problems()
 
         difficulty_combo.bind('<<ComboboxSelected>>', update_description)
 
@@ -1223,12 +1265,9 @@ class WorksheetGeneratorGUI:
             self.desc_var.set(self.difficulty_descriptions[topic][difficulty])
 
     def _update_worksheet_title(self):
-        """Update the worksheet title based on selected problem type and difficulty."""
+        """Update the worksheet title based on selected topic (topic name only)."""
         topic = self.topic_var.get()
-        difficulty = self.difficulty_var.get()
-        # Capitalize difficulty level for display
-        difficulty_capitalized = difficulty.capitalize()
-        self.title_var.set(f"{topic} - {difficulty_capitalized}")
+        self.title_var.set(topic)
 
     def _toggle_chapter_mode(self):
         """Enable/disable topic selection based on unit generation mode."""
@@ -1293,14 +1332,17 @@ class WorksheetGeneratorGUI:
         return folder
 
     def _update_default_num_problems(self):
-        """Update the default number of problems based on problem type."""
+        """Update the default number of problems based on problem type and difficulty."""
         topic = self.topic_var.get()
+        difficulty = self.difficulty_var.get()
         # Get the config key from the display name
         config_key = self.problem_type_map.get(topic)
         if config_key:
             try:
                 config = get_config(config_key)
-                self.num_problems_var.set(str(config.default_num_problems))
+                # Use get_default_num_problems method which handles dict-based defaults
+                default = config.get_default_num_problems(difficulty)
+                self.num_problems_var.set(str(default))
             except KeyError:
                 # Config not found for this topic, use default of 10
                 self.num_problems_var.set("10")
@@ -1756,8 +1798,8 @@ class WorksheetGeneratorGUI:
                     filename = f"{safe_topic}_{difficulty}.pdf"
                     output_path = os.path.join(unit_dir, filename)
 
-                    # Generate title
-                    title = f"{chapter} - {unit} - {topic} ({difficulty.capitalize()})"
+                    # Generate title (topic name only)
+                    title = topic
 
                     # Generate PDF
                     self.pdf_gen.generate_worksheet(equations, output_path, title, include_answer_key)
@@ -1867,8 +1909,8 @@ class WorksheetGeneratorGUI:
                             filename = f"{safe_topic}_{difficulty}.pdf"
                         output_path = os.path.join(output_dir_for_unit, filename)
 
-                        # Generate title
-                        title = f"{chapter} - {unit_name} - {topic} ({difficulty.capitalize()})"
+                        # Generate title (topic name only)
+                        title = topic
 
                         # Generate PDF
                         self.pdf_gen.generate_worksheet(equations, output_path, title, include_answer_key)

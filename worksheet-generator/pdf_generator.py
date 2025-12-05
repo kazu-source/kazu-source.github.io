@@ -870,7 +870,7 @@ class PDFWorksheetGenerator:
 
         # Draw QR code in top left corner
         try:
-            base_dir = os.path.dirname(os.path.dirname(__file__))
+            base_dir = get_base_path()
             qr_path = os.path.join(base_dir, 'src', 'icons', 'freshmath_qr.png')
 
             if os.path.exists(qr_path):
@@ -886,7 +886,7 @@ class PDFWorksheetGenerator:
 
         # Draw logo in top right (0.6 inches)
         try:
-            base_dir = os.path.dirname(os.path.dirname(__file__))
+            base_dir = get_base_path()
             logo_path = os.path.join(base_dir, 'src', 'icons', 'FreshMath_V3',
                                      'Black', 'FreshMath_Black_Secondary.png')
 
@@ -929,14 +929,8 @@ class PDFWorksheetGenerator:
 
         c.drawCentredString(width / 2, y_pos, display_title)
 
-        # Add instructions for "What Are Solutions?" worksheets
-        if "What Are Solutions?" in title or "Solutions" in title:
-            try:
-                c.setFont("Lexend", 11)
-            except:
-                c.setFont("Helvetica", 11)
-            y_pos -= 0.3 * inch
-            c.drawCentredString(width / 2, y_pos, "For each equation, write the number of solutions (zero, one, or infinite).")
+        # Reserve space for instructions (will be drawn after problem type detection)
+        instructions_y_pos = y_pos - 0.3 * inch
 
         # Detect problem type and get configuration
         if equations and isinstance(equations[0], SystemProblem):
@@ -1066,53 +1060,17 @@ class PDFWorksheetGenerator:
 
         config = get_config(problem_type)
 
-        # Add instructional text for properties and word problems worksheets
-        if is_property:
-            y_pos -= 0.35 * inch
-            try:
-                c.setFont("Lexend", 12)
-            except:
-                c.setFont("Helvetica", 12)
-            if problem_type == 'properties_mult_div':
-                instructions_text = "Identify the property of equality (Multiplication or Division) used to solve each equation. Show your work."
-            else:
-                instructions_text = "Identify the property of equality (Addition or Subtraction) used to solve each equation. Show your work."
-            c.drawCentredString(width / 2, y_pos, instructions_text)
-        elif is_word_problem:
-            y_pos -= 0.35 * inch
-            try:
-                c.setFont("Lexend", 12)
-            except:
-                c.setFont("Helvetica", 12)
-            instructions_text = "Read each word problem carefully. Write an equation and solve for x. Show your work."
-            c.drawCentredString(width / 2, y_pos, instructions_text)
-        elif is_multistep:
-            y_pos -= 0.35 * inch
-            try:
-                c.setFont("Lexend", 12)
-            except:
-                c.setFont("Helvetica", 12)
-            instructions_text = "Solve each two-step equation. Show your work."
-            c.drawCentredString(width / 2, y_pos, instructions_text)
-        elif is_evaluating:
-            y_pos -= 0.35 * inch
-            try:
-                c.setFont("Lexend", 12)
-            except:
-                c.setFont("Helvetica", 12)
-            instructions_text = "Evaluate each expression for the given values."
-            c.drawCentredString(width / 2, y_pos, instructions_text)
-        elif is_substitution:
-            y_pos -= 0.35 * inch
-            try:
-                c.setFont("Lexend", 12)
-            except:
-                c.setFont("Helvetica", 12)
-            instructions_text = "Substitute the given values for each variable."
-            c.drawCentredString(width / 2, y_pos, instructions_text)
+        # Draw instructions below title in italics (universal for all worksheets)
+        y_pos = instructions_y_pos
+        # Use Helvetica-Oblique for italics (Lexend doesn't have italic variant)
+        c.setFont("Helvetica-Oblique", 11)
+
+        # Use instructions from config
+        instructions_text = config.instructions if hasattr(config, 'instructions') else "Solve each problem."
+        c.drawCentredString(width / 2, y_pos, instructions_text)
 
         # Draw problems - use Lexend
-        y_pos -= 0.5 * inch
+        y_pos -= 0.4 * inch
         try:
             c.setFont("Lexend", 12)
         except:
@@ -1401,7 +1359,7 @@ class PDFWorksheetGenerator:
         """Draw the Fresh Math logo in the bottom right corner."""
         try:
             # Get the path to the logo
-            base_dir = os.path.dirname(os.path.dirname(__file__))
+            base_dir = get_base_path()
             logo_path = os.path.join(base_dir, 'src', 'icons', 'FreshMath_V3', 'Black', 'FreshMath_Black_Secondary.png')
 
             if os.path.exists(logo_path):
@@ -1426,7 +1384,7 @@ class PDFWorksheetGenerator:
 
         # Draw QR code in top left corner
         try:
-            base_dir = os.path.dirname(os.path.dirname(__file__))
+            base_dir = get_base_path()
             qr_path = os.path.join(base_dir, 'src', 'icons', 'freshmath_qr.png')
 
             if os.path.exists(qr_path):
@@ -1442,7 +1400,7 @@ class PDFWorksheetGenerator:
 
         # Draw logo in top right (0.6 inches)
         try:
-            base_dir = os.path.dirname(os.path.dirname(__file__))
+            base_dir = get_base_path()
             logo_path = os.path.join(base_dir, 'src', 'icons', 'FreshMath_V3',
                                      'Black', 'FreshMath_Black_Secondary.png')
 

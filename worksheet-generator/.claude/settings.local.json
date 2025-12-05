@@ -13,7 +13,10 @@
       "Bash(while read unit)",
       "Bash(git checkout:*)",
       "Bash(start \"\" \"c:/Users/Administrator/Documents/GitHub/whymath/worksheet-generator/dist/Worksheet Generator.exe\")",
-      "Bash(taskkill:*)"
+      "Bash(taskkill:*)",
+      "Bash(dir \"c:\\Users\\Administrator\\Documents\\GitHub\\whymath\\worksheet-generator\\generators\\High_School\\Algebra\")",
+      "Bash(dir:*)",
+      "Bash(grep:*)"
     ],
     "deny": [],
     "ask": []

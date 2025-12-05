@@ -81,6 +81,9 @@ a = Analysis(
         # Add font folders
         ('Lexend', 'Lexend'),
         ('Poppins', 'Poppins'),
+
+        # Add icons (QR code and logo)
+        ('src/icons', 'src/icons'),
     ] + reportlab_datas,
     hiddenimports=hidden_imports,
     hookspath=[],
