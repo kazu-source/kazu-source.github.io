@@ -66,7 +66,7 @@ class RoundingToNearest10Or100Generator:
         steps = [
             f"\\text{{The number }} {number} \\text{{ is between }} {tens * 10} \\text{{ and }} {(tens + 1) * 10}",
             f"\\text{{The ones digit is }} {ones}",
-            f"\\text{{Since }} {ones} {'< 5' if ones < 5 else '\\geq 5'}, \\text{{ round }} {'down' if ones < 5 else 'up'}",
+            f"\\text{{Since }} {ones} {'\\lt 5' if ones < 5 else '\\geq 5'}, \\text{{ round }} {'down' if ones < 5 else 'up'}",
             f"{number} \\text{{ rounds to }} {rounded}"
         ]
 
@@ -92,7 +92,7 @@ class RoundingToNearest10Or100Generator:
 
             steps = [
                 f"\\text{{Look at the ones digit: }} {ones}",
-                f"\\text{{Since }} {ones} {'< 5' if ones < 5 else '\\geq 5'}, \\text{{ round }} {'down' if ones < 5 else 'up'}",
+                f"\\text{{Since }} {ones} {'\\lt 5' if ones < 5 else '\\geq 5'}, \\text{{ round }} {'down' if ones < 5 else 'up'}",
                 f"{number} \\text{{ rounds to }} {rounded}"
             ]
         else:  # round to 100
@@ -106,7 +106,7 @@ class RoundingToNearest10Or100Generator:
 
             steps = [
                 f"\\text{{Look at the tens digit: }} {tens_digit}",
-                f"\\text{{Since }} {tens_digit} {'< 5' if tens_digit < 5 else '\\geq 5'}, \\text{{ round }} {'down' if tens_digit < 5 else 'up'}",
+                f"\\text{{Since }} {tens_digit} {'\\lt 5' if tens_digit < 5 else '\\geq 5'}, \\text{{ round }} {'down' if tens_digit < 5 else 'up'}",
                 f"{number} \\text{{ rounds to }} {rounded}"
             ]
 
@@ -152,7 +152,7 @@ class RoundingToNearest10Or100Generator:
         steps = [
             f"\\text{{Identify the }} {round_to} \\text{{'s place and the digit to its right}}",
             f"\\text{{The key digit is }} {key_digit}",
-            f"\\text{{Round }} {'down' if key_digit < 5 else 'up'} \\text{{ because }} {key_digit} {'< 5' if key_digit < 5 else '\\geq 5'}",
+            f"\\text{{Round }} {'down' if key_digit < 5 else 'up'} \\text{{ because }} {key_digit} {'\\lt 5' if key_digit < 5 else '\\geq 5'}",
             f"{number} \\text{{ rounds to }} {rounded}"
         ]
 

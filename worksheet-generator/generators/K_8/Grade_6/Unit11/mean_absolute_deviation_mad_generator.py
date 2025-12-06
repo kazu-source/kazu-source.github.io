@@ -18,14 +18,26 @@ class MeanAbsoluteDeviationMadGenerator:
         deviations = [abs(x - mean) for x in data]
         mad = sum(deviations) / len(deviations)
         latex = f"\\text{{Find MAD for: {', '.join(map(str, data))}}}"
-        return Equation(latex=latex, solution=str(round(mad, 1)), steps=[f"Mean={round(mean,1)}, MAD={round(mad,1)}"], difficulty='easy')
+        dev_strs = [f"|{x} - {round(mean,1)}| = {round(abs(x - mean),1)}" for x in data]
+        steps = [
+            f"\\text{{Mean}} = \\frac{{{' + '.join(map(str, data))}}}{{{len(data)}}} = {round(mean,1)}",
+            f"\\text{{Deviations: }}" + ", ".join(dev_strs),
+            f"\\text{{MAD}} = \\frac{{{' + '.join([str(round(d,1)) for d in deviations])}}}{{{len(deviations)}}} = {round(mad,1)}"
+        ]
+        return Equation(latex=latex, solution=str(round(mad, 1)), steps=steps, difficulty='easy')
     def _generate_medium(self) -> Equation:
         data = [random.randint(10, 30) for _ in range(6)]
         mean = sum(data) / len(data)
         deviations = [abs(x - mean) for x in data]
         mad = sum(deviations) / len(deviations)
         latex = f"\\text{{Calculate MAD: {', '.join(map(str, data))}}}"
-        return Equation(latex=latex, solution=str(round(mad, 1)), steps=[f"Mean={round(mean,1)}, MAD={round(mad,1)}"], difficulty='medium')
+        dev_strs = [f"|{x} - {round(mean,1)}| = {round(abs(x - mean),1)}" for x in data]
+        steps = [
+            f"\\text{{Mean}} = \\frac{{{' + '.join(map(str, data))}}}{{{len(data)}}} = {round(mean,1)}",
+            f"\\text{{Deviations: }}" + ", ".join(dev_strs),
+            f"\\text{{MAD}} = {round(mad,1)}"
+        ]
+        return Equation(latex=latex, solution=str(round(mad, 1)), steps=steps, difficulty='medium')
     def _generate_hard(self) -> Equation:
         data1 = [random.randint(20, 30) for _ in range(5)]
         mean1 = sum(data1) / len(data1)
@@ -37,14 +49,25 @@ class MeanAbsoluteDeviationMadGenerator:
         mad2 = sum(dev2) / len(dev2)
         more_spread = "Dataset A" if mad1 > mad2 else "Dataset B"
         latex = f"\\text{{Which has more variability? A: {', '.join(map(str, data1))} or B: {', '.join(map(str, data2))}}}"
-        return Equation(latex=latex, solution=more_spread, steps=[f"MAD_A={round(mad1,1)}, MAD_B={round(mad2,1)}, More spread: {more_spread}"], difficulty='hard')
+        steps = [
+            f"\\text{{Dataset A: Mean}} = {round(mean1,1)}, \\text{{MAD}} = {round(mad1,1)}",
+            f"\\text{{Dataset B: Mean}} = {round(mean2,1)}, \\text{{MAD}} = {round(mad2,1)}",
+            f"\\text{{Higher MAD means more spread: {more_spread}}}"
+        ]
+        return Equation(latex=latex, solution=more_spread, steps=steps, difficulty='hard')
     def _generate_challenge(self) -> Equation:
         data = [random.randint(25, 75) for _ in range(7)]
         mean = sum(data) / len(data)
         deviations = [abs(x - mean) for x in data]
         mad = sum(deviations) / len(deviations)
         latex = f"\\text{{Find mean and MAD for: {', '.join(map(str, data))}}}"
-        return Equation(latex=latex, solution=f"Mean={round(mean,1)}, MAD={round(mad,1)}", steps=[f"Mean={round(mean,1)}, MAD={round(mad,1)}"], difficulty='challenge')
+        dev_strs = [f"|{x} - {round(mean,1)}|" for x in data]
+        steps = [
+            f"\\text{{Mean}} = \\frac{{{' + '.join(map(str, data))}}}{{{len(data)}}} = {round(mean,1)}",
+            f"\\text{{Deviations: }}" + " + ".join(dev_strs),
+            f"\\text{{MAD}} = {round(mad,1)}"
+        ]
+        return Equation(latex=latex, solution=f"Mean={round(mean,1)}, MAD={round(mad,1)}", steps=steps, difficulty='challenge')
 
 def main():
     gen = MeanAbsoluteDeviationMadGenerator()

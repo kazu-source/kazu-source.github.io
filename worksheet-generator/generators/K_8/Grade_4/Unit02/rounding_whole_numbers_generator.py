@@ -63,7 +63,7 @@ class RoundingWholeNumbersGenerator:
 
         steps = [
             f"\\text{{Look at the ones digit: }} {ones}",
-            f"\\text{{Since }} {ones} {'< 5' if ones < 5 else '\\geq 5'}, \\text{{ round }} {'down' if ones < 5 else 'up'}",
+            f"\\text{{Since }} {ones} {'\\lt 5' if ones < 5 else '\\geq 5'}, \\text{{ round }} {'down' if ones < 5 else 'up'}",
             f"{number:,} \\text{{ rounds to }} {rounded:,}"
         ]
 

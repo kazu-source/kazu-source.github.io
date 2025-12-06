@@ -455,7 +455,13 @@ class PDFWorksheetGenerator:
 
         # Replace LaTeX symbols with Unicode equivalents before removing backslashes
         text = equation_text.replace('\\cdot', '·')  # Replace \cdot with middle dot
-        text = equation_text.replace('\\times', '×')  # Replace \times with multiplication sign
+        text = text.replace('\\times', '×')  # Replace \times with multiplication sign
+        text = text.replace('\\lt', '<')  # Replace \lt with <
+        text = text.replace('\\gt', '>')  # Replace \gt with >
+        text = text.replace('\\leq', '≤')  # Replace \leq with ≤
+        text = text.replace('\\geq', '≥')  # Replace \geq with ≥
+        text = text.replace('\\left', '')  # Remove \left (sizing command)
+        text = text.replace('\\right', '')  # Remove \right (sizing command)
 
         # Remove remaining backslashes
         text = text.replace('\\', '')
@@ -1296,12 +1302,28 @@ class PDFWorksheetGenerator:
                     print(f"Warning: Failed to render graphing worksheet image: {e}")
             else:
                 # For regular equations: check if they have fractions or are text-heavy
-                plain_text = equation.latex.replace('\\', '')
+                # First convert LaTeX symbols to Unicode BEFORE stripping backslashes
+                plain_text = equation.latex
+                # Convert math symbols to Unicode equivalents
+                plain_text = re.sub(r'\\sqrt\[3\]\{([^}]+)\}', r'∛\1', plain_text)  # Cube root
+                plain_text = re.sub(r'\\sqrt\{([^}]+)\}', r'√\1', plain_text)  # Square root
+                plain_text = plain_text.replace('\\pi', 'π')  # Pi
+                plain_text = plain_text.replace('\\approx', '≈')  # Approximately
+                plain_text = plain_text.replace('\\cdot', '·')  # Middle dot
+                plain_text = plain_text.replace('\\times', '×')  # Multiplication
+                plain_text = plain_text.replace('\\lt', '<')  # Less than
+                plain_text = plain_text.replace('\\gt', '>')  # Greater than
+                plain_text = plain_text.replace('\\leq', '≤')  # Less than or equal
+                plain_text = plain_text.replace('\\geq', '≥')  # Greater than or equal
+                plain_text = plain_text.replace('\\left', '')  # Remove sizing commands
+                plain_text = plain_text.replace('\\right', '')
+                # Now remove remaining backslashes
+                plain_text = plain_text.replace('\\', '')
                 # Remove text{} wrappers: text{content} -> content
                 plain_text = re.sub(r'text\{([^}]*)\}', r'\1', plain_text)
 
                 # Check if this is a text-heavy problem that needs wrapping
-                text_indicators = ['If ', 'Is ', 'Find ', 'Which ', 'Verify', 'Input:', 'Rule:', 'Output:', 'Evaluate']
+                text_indicators = ['If ', 'Is ', 'Find ', 'Which ', 'Verify', 'Input:', 'Rule:', 'Output:', 'Evaluate', 'Between ', 'Approximate ', 'Order ']
                 needs_wrapping = any(indicator in plain_text for indicator in text_indicators)
 
                 if needs_wrapping:
@@ -1883,12 +1905,28 @@ class PDFWorksheetGenerator:
                 except:
                     c.setFont("Helvetica", 12)
 
-                plain_text = equation.latex.replace('\\', '')
+                # First convert LaTeX symbols to Unicode BEFORE stripping backslashes
+                plain_text = equation.latex
+                # Convert math symbols to Unicode equivalents
+                plain_text = re.sub(r'\\sqrt\[3\]\{([^}]+)\}', r'∛\1', plain_text)  # Cube root
+                plain_text = re.sub(r'\\sqrt\{([^}]+)\}', r'√\1', plain_text)  # Square root
+                plain_text = plain_text.replace('\\pi', 'π')  # Pi
+                plain_text = plain_text.replace('\\approx', '≈')  # Approximately
+                plain_text = plain_text.replace('\\cdot', '·')  # Middle dot
+                plain_text = plain_text.replace('\\times', '×')  # Multiplication
+                plain_text = plain_text.replace('\\lt', '<')  # Less than
+                plain_text = plain_text.replace('\\gt', '>')  # Greater than
+                plain_text = plain_text.replace('\\leq', '≤')  # Less than or equal
+                plain_text = plain_text.replace('\\geq', '≥')  # Greater than or equal
+                plain_text = plain_text.replace('\\left', '')  # Remove sizing commands
+                plain_text = plain_text.replace('\\right', '')
+                # Now remove remaining backslashes
+                plain_text = plain_text.replace('\\', '')
                 # Remove text{} wrappers: text{content} -> content
                 plain_text = re.sub(r'text\{([^}]*)\}', r'\1', plain_text)
 
                 # Check if this is a text-heavy problem that needs wrapping
-                text_indicators = ['If ', 'Is ', 'Find ', 'Which ', 'Verify', 'Input:', 'Rule:', 'Output:', 'Evaluate']
+                text_indicators = ['If ', 'Is ', 'Find ', 'Which ', 'Verify', 'Input:', 'Rule:', 'Output:', 'Evaluate', 'Between ', 'Approximate ', 'Order ']
                 needs_wrapping = any(indicator in plain_text for indicator in text_indicators)
 
                 if needs_wrapping:

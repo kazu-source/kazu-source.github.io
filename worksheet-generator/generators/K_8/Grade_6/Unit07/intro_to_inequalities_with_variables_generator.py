@@ -16,11 +16,11 @@ class IntroToInequalitiesWithVariablesGenerator:
         val, test = random.randint(5, 15), random.randint(1, 10)
         result = "Yes" if test < val else "No"
         latex = f"\\text{{Is }} x = {test} \\text{{ a solution to }} x < {val}\\text{{?}}"
-        return Equation(latex=latex, solution=result, steps=[f"{test} < {val}: {result}"], difficulty='easy')
+        return Equation(latex=latex, solution=result, steps=[f"{test} \\lt {val}: {result}"], difficulty='easy')
     def _generate_medium(self) -> Equation:
         val = random.randint(8, 20)
         latex = f"\\text{{Write an inequality: }} x \\text{{ is greater than }} {val}"
-        return Equation(latex=latex, solution=f"x > {val}", steps=[f"x > {val}"], difficulty='medium')
+        return Equation(latex=latex, solution=f"x \\gt {val}", steps=[f"x \\gt {val}"], difficulty='medium')
     def _generate_hard(self) -> Equation:
         val, test = random.randint(10, 25), random.randint(5, 30)
         result = "Yes" if test >= val else "No"

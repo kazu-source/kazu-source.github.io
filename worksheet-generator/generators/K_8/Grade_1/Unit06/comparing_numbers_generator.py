@@ -33,7 +33,7 @@ class ComparingNumbersGenerator:
             b = random.randint(10, 50)
         latex = f"\text{{Which is greater: {a} or {b}?}}"
         solution = str(max(a, b))
-        return Equation(latex=latex, solution=solution, steps=[f"{solution} > {min(a, b)}"])
+        return Equation(latex=latex, solution=solution, steps=[f"{solution} \\gt {min(a, b)}"])
 
 def main():
     generator = ComparingNumbersGenerator()

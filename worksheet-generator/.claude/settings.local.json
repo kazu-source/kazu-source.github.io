@@ -16,7 +16,11 @@
       "Bash(taskkill:*)",
       "Bash(dir \"c:\\Users\\Administrator\\Documents\\GitHub\\whymath\\worksheet-generator\\generators\\High_School\\Algebra\")",
       "Bash(dir:*)",
-      "Bash(grep:*)"
+      "Bash(grep:*)",
+      "Bash(git add:*)",
+      "Bash(git commit:*)",
+      "Bash(git push)",
+      "Bash(start \"\" \"c:\\Users\\Administrator\\Documents\\GitHub\\whymath\\worksheet-generator\\dist\\Worksheet Generator.exe\")"
     ],
     "deny": [],
     "ask": []
